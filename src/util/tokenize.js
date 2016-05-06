@@ -403,18 +403,17 @@ export default class extends Base {
       loc: {
         start: {
           line: this._line,
-          col: this._col
+          column: this._col
         },
         end: {
           line: this.line,
-          col: this.col
+          column: this.col
         }
       },
-      ext: {
-        newlineBefore: this._newlineBefore,
-        spaceBefore: this._spaceBefore,
-        commentBefore: this.commentBefore 
-      }
+      newlineBefore: this._newlineBefore,
+      spaceBefore: this._spaceBefore,
+      commentBefore: this.commentBefore,
+      ext: {}
     };
     if (extra) {
       for(let key in extra){
@@ -454,9 +453,18 @@ export default class extends Base {
     }
     let data = {
       value: result,
-      line: this._record.line,
-      col: this._record.col,
-      pos: this._record.pos,
+      start: this._record.pos,
+      end: this.pos,
+      loc: {
+        start: {
+          line: this._record.line,
+          column: this._record.col
+        },
+        end: {
+          line: this.line,
+          column: this.col
+        }
+      },
       newlineBefore: this._record.newlineBefore,
       spaceBefore: this._record.spaceBefore
     };

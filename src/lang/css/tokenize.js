@@ -245,11 +245,7 @@ export default class extends BaseTokenize {
       record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
-    let parsedValue = this.parseValue(ret);
-    token.ext.value = parsedValue.value;
-    token.ext.prefix = parsedValue.prefix;
-    token.ext.suffix = parsedValue.suffix;
-    token.ext.important = parsedValue.important;
+    token.ext = this.parseValue(ret);
     token.ext.hasTpl = hasTpl;
     //parse css value
     // if (this.options.parse_value && !hasTpl) {
