@@ -183,7 +183,7 @@ export default class extends BaseTokenize {
     return {
       prefix: prefix.toLowerCase(),
       suffix: suffix,
-      _value: property.toLowerCase()
+      value: property.toLowerCase()
     };
   }
   /**
@@ -193,7 +193,6 @@ export default class extends BaseTokenize {
   getValueToken(){
     let ret = '', code, chr, token;
     let escape = false, record, quote, hasTpl = false;
-    /*jshint -W084 */
     while(this.pos < this.length){
       token = this.getTplToken();
       if (token) {
@@ -247,15 +246,15 @@ export default class extends BaseTokenize {
       this.rollback(record);
     }
     let parsedValue = this.parseValue(ret);
-    token._value = parsedValue._value;
-    token.prefix = parsedValue.prefix;
-    token.suffix = parsedValue.suffix;
-    token.important = parsedValue.important;
-    token.hasTpl = hasTpl;
+    token.ext.value = parsedValue.value;
+    token.ext.prefix = parsedValue.prefix;
+    token.ext.suffix = parsedValue.suffix;
+    token.ext.important = parsedValue.important;
+    token.ext.hasTpl = hasTpl;
     //parse css value
-    if (this.options.parse_value && !hasTpl) {
-      //token.detail = parseValue(this.prevToken._value, ret);
-    }
+    // if (this.options.parse_value && !hasTpl) {
+    //   //token.detail = parseValue(this.prevToken._value, ret);
+    // }
     return token;
   }
   /**
@@ -292,7 +291,7 @@ export default class extends BaseTokenize {
       prefix: prefix,
       suffix: suffix,
       important: important,
-      _value: value
+      value: value
     };
   }
   /**
@@ -360,8 +359,7 @@ export default class extends BaseTokenize {
    * run
    * @return {Array} [text tokens]
    */
-  run(options){
-    this._run(options);
+  run(){
     let ret = [], token, type;
     for(; token = this.getNextToken(); ){
       ret.push(token);

@@ -398,16 +398,27 @@ export default class extends Base {
     let data = {
       type: type,
       value: value || '',
-      line: this._line,
-      col: this._col,
-      pos: this._pos,
-      newlineBefore: this._newlineBefore,
-      spaceBefore: this._spaceBefore,
-      commentBefore: this.commentBefore
+      start: this._pos,
+      end: this.pos,
+      loc: {
+        start: {
+          line: this._line,
+          col: this._col
+        },
+        end: {
+          line: this.line,
+          col: this.col
+        }
+      },
+      ext: {
+        newlineBefore: this._newlineBefore,
+        spaceBefore: this._spaceBefore,
+        commentBefore: this.commentBefore 
+      }
     };
     if (extra) {
       for(let key in extra){
-        data[key] = extra[key];
+        data.ext[key] = extra[key];
       }
     }
     this.newlineBefore = this.spaceBefore = 0;
