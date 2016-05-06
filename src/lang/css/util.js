@@ -1,7 +1,7 @@
 import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
 import {makePredicate} from '../../util/util.js';
-import config from './config.js';
+import {propertyHackPrefix} from './config.js';
 
 /**
  * is attribute char
@@ -46,4 +46,4 @@ export function calculateSelectorSpecificity(tokens){
   return specificity;
 }
 
-export const isHackChar = makePredicate(config.propertyHackPrefix);
+export const isHackChar = makePredicate(propertyHackPrefix);

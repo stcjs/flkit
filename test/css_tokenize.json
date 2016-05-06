@@ -1,0 +1,122 @@
+{
+  "40e70505453d7e61c573c97e8309b6a2": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "40e70505453d7e61c573c97e8309b6a2",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 1,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "944bfb337625d7585b4a3c3a2cb2604e": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "944bfb337625d7585b4a3c3a2cb2604e",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 2,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "11d7819328d21393222001dd7abd3a75": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": " a ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "11d7819328d21393222001dd7abd3a75",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 1,
+        "end": 3,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 1
+          },
+          "end": {
+            "line": 0,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "57e0635517164a4bab6a508f77de6f0e": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "@media",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "57e0635517164a4bab6a508f77de6f0e",
+    "result": [
+      {
+        "type": "css_at",
+        "value": "@media",
+        "start": 0,
+        "end": 6,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  }
+}

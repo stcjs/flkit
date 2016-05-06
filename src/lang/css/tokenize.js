@@ -1,9 +1,10 @@
 import BaseTokenize from '../../util/tokenize.js';
 import TokenType from '../../util/token_type.js';
-import {comments, atType} from '../../util/config.js';
+import {comments} from '../../util/config.js';
 import SelectorTokenize from './selector_tokenize.js';
 import Message from '../../util/message.js';
 import {isHackChar} from './util.js';
+import {atType} from './config.js';
 
 const multiComment = comments[1];
 
@@ -134,7 +135,7 @@ export default class extends BaseTokenize {
     token = this.getToken(TokenType.CSS_SELECTOR, ret);
     token.value = this.skipRightSpace(ret);
     if (record) {
-      record.spaceBefore = record.newlineBefore = 0;
+      //record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
     if (this.options.parse_selector) {
@@ -242,7 +243,7 @@ export default class extends BaseTokenize {
     ret = this.skipRightSpace(ret);
     token.value = ret;
     if (record) {
-      record.spaceBefore = record.newlineBefore = 0;
+      //record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
     token.ext = this.parseValue(ret);

@@ -22,10 +22,10 @@ export default class extends Base {
     this._line = 0;
     this.col = 0;
     this._col = 0;
-    this.newlineBefore = 0;
-    this._newlineBefore = 0;
-    this.spaceBefore = 0;
-    this._spaceBefore = 0;
+    // this.newlineBefore = 0;
+    // this._newlineBefore = 0;
+    // this.spaceBefore = 0;
+    // this._spaceBefore = 0;
     this.commentBefore = [];
   }
   /**
@@ -38,7 +38,7 @@ export default class extends Base {
     if (chr.charCodeAt(0) === 0x0a) {
       this.line++;
       this.col = 0;
-      this.newlineBefore++;
+      //this.newlineBefore++;
     }else{
       this.col++;
     }
@@ -115,8 +115,8 @@ export default class extends Base {
       }
       break;
     }
-    this.newlineBefore += newlines;
-    this.spaceBefore += spaces;
+    // this.newlineBefore += newlines;
+    // this.spaceBefore += spaces;
     return value.slice(0, index + 1);
   }
   /**
@@ -168,8 +168,8 @@ export default class extends Base {
       line: this.line,
       col: this.col,
       pos: this.pos,
-      newlineBefore: this.newlineBefore,
-      spaceBefore: this.spaceBefore
+      // newlineBefore: this.newlineBefore,
+      // spaceBefore: this.spaceBefore
     };
     return this._record;
   }
@@ -185,8 +185,8 @@ export default class extends Base {
     this.line = record.line;
     this.col = record.col;
     this.pos = record.pos;
-    this.newlineBefore = record.newlineBefore;
-    this.spaceBefore = record.spaceBefore;
+    // this.newlineBefore = record.newlineBefore;
+    // this.spaceBefore = record.spaceBefore;
   }
   /**
    * get quote text, support template syntax in quote
@@ -324,8 +324,8 @@ export default class extends Base {
     this._line = this.line;
     this._col = this.col;
     this._pos = this.pos;
-    this._newlineBefore = this.newlineBefore;
-    this._spaceBefore = this.spaceBefore;
+    // this._newlineBefore = this.newlineBefore;
+    // this._spaceBefore = this.spaceBefore;
   }
   /**
    * get template token
@@ -410,8 +410,8 @@ export default class extends Base {
           column: this.col
         }
       },
-      newlineBefore: this._newlineBefore,
-      spaceBefore: this._spaceBefore,
+      // newlineBefore: this._newlineBefore,
+      // spaceBefore: this._spaceBefore,
       commentBefore: this.commentBefore,
       ext: {}
     };
@@ -420,7 +420,7 @@ export default class extends Base {
         data.ext[key] = extra[key];
       }
     }
-    this.newlineBefore = this.spaceBefore = 0;
+    //this.newlineBefore = this.spaceBefore = 0;
     this.commentBefore = [];
     return data;
   }
@@ -429,7 +429,7 @@ export default class extends Base {
    * @return {Object} []
    */
   getLastToken(){
-    if (this.newlineBefore || this.spaceBefore || this.commentBefore.length) {
+    if (this.commentBefore.length) {
       return this.getToken(TokenType.EOS);
     }
     return false;
@@ -465,13 +465,13 @@ export default class extends Base {
           column: this.col
         }
       },
-      newlineBefore: this._record.newlineBefore,
-      spaceBefore: this._record.spaceBefore
+      //newlineBefore: this._record.newlineBefore,
+      //spaceBefore: this._record.spaceBefore
     };
     if (inText) {
-      data.newlineBefore = data.spaceBefore = 0;
+      //data.newlineBefore = data.spaceBefore = 0;
     }
-    this.newlineBefore = this.spaceBefore = 0;
+    //this.newlineBefore = this.spaceBefore = 0;
     if (skipWhiteSpace !== false) {
       this.skipWhiteSpace();
     }
