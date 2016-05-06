@@ -331,7 +331,7 @@ export default class extends BaseTokenize {
       chr = this.text[this.pos];
       code = chr.charCodeAt(0);
       if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
-        ret += this.getCommentToken(1).value;
+        ret += this.getCommentToken(1, false).value;
         continue;
       }else if (code === 0x22 || code === 0x27) {
         ret += this.getQuote().value;

@@ -263,11 +263,10 @@ export default class extends Base {
    * @param  {Number} endCode   [end char]
    * @return {String}           [matched char]
    */
-  getMatchedChar(startCode, endCode, options){
+  getMatchedChar(startCode, endCode, options = {}){
     if (this._text.charCodeAt(this.pos) !== startCode) {
       return false;
     }
-    options = options || {};
     let code, nextCode, comment, nums = 0;
     let ret = this.next(), chr;
     let quote = options.quote;
@@ -275,7 +274,7 @@ export default class extends Base {
     let line_comment = options.line_comment;
     let nest = options.nest;
     let supportEscape = options.escape, escape = false;
-    /*jshint -W084 */
+
     while(this.pos < this.length){
       chr = this.text[this.pos];
       code = chr.charCodeAt(0);
@@ -468,9 +467,9 @@ export default class extends Base {
       //newlineBefore: this._record.newlineBefore,
       //spaceBefore: this._record.spaceBefore
     };
-    if (inText) {
-      //data.newlineBefore = data.spaceBefore = 0;
-    }
+    // if (inText) {
+    //   //data.newlineBefore = data.spaceBefore = 0;
+    // }
     //this.newlineBefore = this.spaceBefore = 0;
     if (skipWhiteSpace !== false) {
       this.skipWhiteSpace();
