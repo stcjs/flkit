@@ -77,11 +77,11 @@ export default class extends BaseTokenize {
     }
     if (type === TokenType.CSS_PROPERTY) {
       return this.getValueToken();
-    }else if (this.status === 1) {
-      return this.getPropertyToken();
-    }else{
-      return this.getSelectorToken();
     }
+    if (this.status === 1) {
+      return this.getPropertyToken();
+    }
+    return this.getSelectorToken();
   }
   /**
    * get selector or name token
