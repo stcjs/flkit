@@ -17,5 +17,35 @@ export default {
   HTML_DOCTYPE: 'html_doctype',
   HTML_TEXT: 'html_text',
   HTML_CDATA: 'html_cdata',
-  HTML_RAWTEXT: 'html_rawtext'
+  HTML_RAWTEXT: 'html_rawtext',
+  
+  CSS_SELECTOR: 'css_selector',
+  CSS_PROPERTY: 'css_property',
+  CSS_VALUE: 'css_value',
+  CSS_KEYFRAMES: 'css_keyframes',
+  CSS_LEFT_BRACE: 'css_left_brace',
+  CSS_RIGHT_BRACE: 'css_right_brace',
+  CSS_SEMICOLON: 'css_semicolon',
+  CSS_COLON: 'css_colon',
+  CSS_MEDIA: 'css_media',
+  CSS_NAMESPACE: 'css_namespace',
+  CSS_IMPORT: 'css_import',
+  CSS_CHARSET: 'css_charset',
+  CSS_FONT_FACE: 'css_font_face',
+  CSS_PAGE: 'css_page',
+  CSS_AT: 'css_at',
+  CSS_BRACK_HACK: 'css_brace_hack', // [;color: red;]
+  CSS_VIEWPORT: 'css_viewport',
+  CSS_MOZILLA: 'css_mozilla',
+
+  CSS_SELECTOR_NAMESPACE: 'css_selector_namespace',
+  CSS_SELECTOR_UNIVERSAL: 'css_selector_universal',
+  CSS_SELECTOR_ATTRIBUTE: 'css_selector_attribute',
+  CSS_SELECTOR_CLASS: 'css_selector_class',
+  CSS_SELECTOR_ID: 'css_selector_id',
+  CSS_SELECTOR_PSEUDO_CLASS: 'css_selector_pseudo_class',
+  CSS_SELECTOR_PSEUDO_ELEMENT: 'css_selector_pseudo_element',
+  CSS_SELECTOR_COMBINATOR: 'css_selector_combinator',
+  CSS_SELECTOR_TYPE: 'css_selector_type',
+  CSS_SELECTOR_COMMA: 'css_selector_comma'
 };
