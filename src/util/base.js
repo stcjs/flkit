@@ -18,7 +18,11 @@ export default class {
    * @param  {Object} options []
    * @return {}         []
    */
-  constructor(text = '', options = {}){
+  constructor(text = '', options = {
+    tpl: '',
+    ld: [],
+    rd: []
+  }){
     this.text = this.clean(text);
     this._text = this.text.toLowerCase(); //text lowercase
     this.length = this.text.length;

@@ -14,8 +14,12 @@ const multiComment = comments[1];
 export default class extends BaseTokenize {
   /**
    * constructor
+   * 
    */
-  constructor(text, options){
+  constructor(text, options = {
+    parseSelector: false,
+    parseValue: false
+  }){
     super(text, options);
     this.prevToken = {};
     this.status = 0;
@@ -101,7 +105,7 @@ export default class extends BaseTokenize {
         break;
       }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
-        this.getCommentToken(1, false);
+        ret += this.getCommentToken(1, false).value;
         continue;
       }
       if (record && !this.isWhiteSpace(code)) {
@@ -138,7 +142,7 @@ export default class extends BaseTokenize {
       //record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
-    if (this.options.parse_selector) {
+    if (this.options.parseSelector) {
       token.detail = SelectorTokenize(token.value).run();
     }
     return token;

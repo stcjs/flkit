@@ -13,7 +13,10 @@ const lang = {
     tokenize: {}
   },
   css: {
-    tokenize: {}
+    tokenize: {
+      parseSelector: false,
+      parseValue: false
+    }
   }
 }
 
