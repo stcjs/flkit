@@ -1,5 +1,5 @@
 
-import config from './config.js';
+import {whitespace} from './config.js';
 
 /**
  * string to object
@@ -31,4 +31,4 @@ export function makePredicate(string) {
   return new Function('code', code);
 }
 
-export let isWhiteSpace = makePredicate(config.whitespace);
+export let isWhiteSpace = makePredicate(whitespace);

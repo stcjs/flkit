@@ -2,7 +2,7 @@ import BaseTokenize from '../../util/tokenize.js';
 import TokenType from '../../util/token_type.js';
 import {comments, atType} from '../../util/config.js';
 import SelectorTokenize from './selector_tokenize.js';
-import Message from '../../utile/message.js';
+import Message from '../../util/message.js';
 import {isHackChar} from './util.js';
 
 const multiComment = comments[1];
@@ -84,7 +84,6 @@ export default class extends BaseTokenize {
    */
   getSelectorToken(){
     let ret = '', code, str, token, chr, record, escape = false;
-    /*jshint -W084 */
     while(this.pos < this.length){
       token = this.getTplToken();
       if (token) {

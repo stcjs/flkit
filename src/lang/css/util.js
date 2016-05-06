@@ -1,6 +1,6 @@
 import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
-import util from '../../util/util.js';
+import {makePredicate} from '../../util/util.js';
 import config from './config.js';
 
 /**
@@ -46,4 +46,4 @@ export function calculateSelectorSpecificity(tokens){
   return specificity;
 }
 
-export const isHackChar = util.makePredicate(config.propertyHackPrefix);
+export const isHackChar = makePredicate(config.propertyHackPrefix);
