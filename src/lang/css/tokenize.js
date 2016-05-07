@@ -105,7 +105,7 @@ export default class extends BaseTokenize {
         break;
       }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
-        ret += this.getCommentToken(1, false).value;
+        this.getCommentToken(1, false);
         continue;
       }
       if (record && !this.isWhiteSpace(code)) {
@@ -198,6 +198,7 @@ export default class extends BaseTokenize {
   getValueToken(){
     let ret = '', code, chr, token;
     let escape = false, record, quote, hasTpl = false;
+    let commentTokenValue = '';
     while(this.pos < this.length){
       token = this.getTplToken();
       if (token) {
@@ -215,7 +216,7 @@ export default class extends BaseTokenize {
         break;
       }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
-        this.getCommentToken(1, false);
+        commentTokenValue = this.getCommentToken(1, false).value;
         continue;
       }
       if (record && !this.isWhiteSpace(code)) {

@@ -95,6 +95,7 @@ export default class extends Base {
     let tpl = this.post('tpl');
     let ld = this.post('ld');
     let rd = this.post('rd');
+    console.log(tpl, ld, rd)
     let instance;
     try{
       let options = JSON.parse(this.post('options') || '{}');

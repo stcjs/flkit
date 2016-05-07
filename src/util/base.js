@@ -77,7 +77,7 @@ export default class {
     for(var i = 0, length = this.ld.length, ld, rd; i < length; i++){
       ld = this.ld[i];
       rd = this.rd[i];
-      if (tplInstance.hasTpl(ld, rd, this.text)) {
+      if (tplInstance.hasTpl(this.text, ld, rd)) {
         return true;
       }
     }
