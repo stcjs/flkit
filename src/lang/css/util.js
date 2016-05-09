@@ -35,7 +35,7 @@ export function calculateSelectorSpecificity(tokens){
         break;
       case TokenType.CSS_SELECTOR_PSEUDO_CLASS:
         if (/^:not\(/i.test(token.value)) {
-          instance = SelectorTokenize(token.value.slice(5, -1));
+          instance = new SelectorTokenize(token.value.slice(5, -1));
           specificity += instance.run().group[0].specificity;
         }else{
           specificity += 10;

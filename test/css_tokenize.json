@@ -48440,5 +48440,209 @@
         "ext": {}
       }
     ]
+  },
+  "d1b0b8d65421048a66b2f45a92840bbd": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a/****/{}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {
+      "parseSelector": true
+    },
+    "key": "d1b0b8d65421048a66b2f45a92840bbd",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "minSpecificity": 1,
+          "maxSpecificity": 1,
+          "specificityEqual": true,
+          "group": [
+            {
+              "tokens": [
+                {
+                  "type": "css_selector_type",
+                  "value": "a",
+                  "start": 0,
+                  "end": 1,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 0
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 1
+                    }
+                  },
+                  "commentBefore": [],
+                  "ext": {}
+                }
+              ],
+              "specificity": 1
+            }
+          ]
+        }
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 7,
+        "end": 8,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 7
+          },
+          "end": {
+            "line": 0,
+            "column": 8
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "/****/",
+            "start": 1,
+            "end": 7,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 1
+              },
+              "end": {
+                "line": 0,
+                "column": 7
+              }
+            }
+          }
+        ],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 8,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 8
+          },
+          "end": {
+            "line": 0,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "8693d340cbfb2da68f6a0a57abd73faf": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "<%$a%>\n{%$b%}",
+    "tpl": "smarty",
+    "ld": "<%,{%",
+    "rd": "%>,%}",
+    "options": {},
+    "key": "8693d340cbfb2da68f6a0a57abd73faf",
+    "result": [
+      {
+        "type": "tpl",
+        "value": "<%$a%>",
+        "start": 0,
+        "end": 6,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "<%",
+          "rd": "%>",
+          "value": "$a"
+        }
+      },
+      {
+        "type": "tpl",
+        "value": "{%$b%}",
+        "start": 7,
+        "end": 13,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "{%",
+          "rd": "%}",
+          "value": "$b"
+        }
+      }
+    ]
+  },
+  "73c28fa857276b39672166dfe36c3c85": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "<%$a = <%$b + 1%>%>",
+    "tpl": "smarty",
+    "ld": "<%",
+    "rd": "%>",
+    "options": {},
+    "key": "73c28fa857276b39672166dfe36c3c85",
+    "result": [
+      {
+        "type": "tpl",
+        "value": "<%$a = <%$b + 1%>%>",
+        "start": 0,
+        "end": 19,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "<%",
+          "rd": "%>",
+          "value": "$a = <%$b + 1%>"
+        }
+      }
+    ]
   }
 }

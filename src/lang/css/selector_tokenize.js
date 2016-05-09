@@ -3,6 +3,10 @@ import TokenType from '../../util/token_type.js';
 import {selectorBreakChar, isPseudoElement, calculateSelectorSpecificity} from './util.js';
 import {namespaceReg} from './config.js';
 
+/**
+ * css selector tokenize
+ * https://www.w3.org/TR/css3-selectors/#lex
+ */
 export default class extends Base {
   /**
    * constructor
@@ -56,6 +60,20 @@ export default class extends Base {
         return this.getCommonToken(TokenType.CSS_SELECTOR_TYPE);
     }
     //return false;
+  }
+  /**
+   * skip comment
+   * @return {void} []
+   */
+  skipComment(){
+    //start with /*
+    let comment;
+    while(this.text.charCodeAt(this.pos) === 0x2f && 
+      this.text.charCodeAt(this.pos + 1) === 0x2a){
+
+      comment = this.getCommentToken(1, true);
+      this.commentBefore.push(comment);
+    }
   }
   /**
    * get common token

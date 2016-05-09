@@ -1,0 +1,6761 @@
+{
+  "a95f3318e7f9f9d7f728eb36a799317e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a95f3318e7f9f9d7f728eb36a799317e",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "fb6786f0beb7224dc4e131fb960ca5f4": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "fb6786f0beb7224dc4e131fb960ca5f4",
+    "result": {
+      "minSpecificity": 0,
+      "maxSpecificity": 0,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 0
+        }
+      ]
+    }
+  },
+  "84f028f415eea8d1bc62ae118f302d54": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "#id",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "84f028f415eea8d1bc62ae118f302d54",
+    "result": {
+      "minSpecificity": 100,
+      "maxSpecificity": 100,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_id",
+              "value": "#id",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 100
+        }
+      ]
+    }
+  },
+  "1f5d90772217bc307284d25376417fbd": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": ".cls",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1f5d90772217bc307284d25376417fbd",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_class",
+              "value": ".cls",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "f1ee5843183669266c0a96fd2de15eed": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f1ee5843183669266c0a96fd2de15eed",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "01eede14774019eccc660663f658e5c9": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a.cls",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "01eede14774019eccc660663f658e5c9",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".cls",
+              "start": 1,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "b6a834165c2443aed6fab918b4a5012b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a/**/.a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b6a834165c2443aed6fab918b4a5012b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".a",
+              "start": 5,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/**/",
+                  "start": 1,
+                  "end": 5,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 5
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "1f7fd21bb63b2585f96efe146b140a90": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a /***/ .a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1f7fd21bb63b2585f96efe146b140a90",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".a",
+              "start": 8,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/***/",
+                  "start": 2,
+                  "end": 7,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "67e606e7d8ac7a1e316b92eac8ce0505": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "[id=\"www\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "67e606e7d8ac7a1e316b92eac8ce0505",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_attribute",
+              "value": "[id=\"www\"]",
+              "start": 0,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "864a16b773f108aa04048b49bf30051b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a/**a*//**b**/.b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "864a16b773f108aa04048b49bf30051b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".b",
+              "start": 14,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 14
+                },
+                "end": {
+                  "line": 0,
+                  "column": 16
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/**a*/",
+                  "start": 1,
+                  "end": 7,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 7
+                    }
+                  }
+                },
+                {
+                  "value": "/**b**/",
+                  "start": 7,
+                  "end": 14,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 7
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 14
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "6f55ffc852d13cd64f83793242f6137f": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a /**a*/ /**b**/ .b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6f55ffc852d13cd64f83793242f6137f",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".b",
+              "start": 17,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 17
+                },
+                "end": {
+                  "line": 0,
+                  "column": 19
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/**a*/",
+                  "start": 2,
+                  "end": 8,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 8
+                    }
+                  }
+                },
+                {
+                  "value": "/**b**/",
+                  "start": 9,
+                  "end": 16,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 9
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 16
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "2d9b97659466f36a0d5220634b414e20": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a,b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2d9b97659466f36a0d5220634b414e20",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "225696c666fcaeace8adae4c0dc269b1": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a/****/,b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "225696c666fcaeace8adae4c0dc269b1",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 8,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "cbcbc78a74d6271b5d347b187c789b6b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a,/*****/\nb",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cbcbc78a74d6271b5d347b187c789b6b",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 10,
+              "end": 11,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 1
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/*****/",
+                  "start": 2,
+                  "end": 9,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 9
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "03e9f10f8ef6900449522e2fb3b8b2ee": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[name=\"w\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "03e9f10f8ef6900449522e2fb3b8b2ee",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[name=\"w\"]",
+              "start": 1,
+              "end": 11,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 11
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "bfce869a60dd55a3082bd60aa01fecad": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": ".red/**dd {{{ }}} d***/",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "bfce869a60dd55a3082bd60aa01fecad",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_class",
+              "value": ".red",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "eos",
+              "value": "",
+              "start": 23,
+              "end": 23,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 23
+                },
+                "end": {
+                  "line": 0,
+                  "column": 23
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/**dd {{{ }}} d***/",
+                  "start": 4,
+                  "end": 23,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 23
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "4e9a08b56de0f3a57c7773369fff2728": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "p:before",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4e9a08b56de0f3a57c7773369fff2728",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "p",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": ":before",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "56df7c71a6ab7c194a631d819002d901": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "56df7c71a6ab7c194a631d819002d901",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "2c5daeab989e361176ff4d6022b5e134": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2c5daeab989e361176ff4d6022b5e134",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo]",
+              "start": 1,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "40a43224c4300d23cfab871cdf34706c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo=\"bar\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "40a43224c4300d23cfab871cdf34706c",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo=\"bar\"]",
+              "start": 1,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "3fc3bf7d7204cabc4f1bbab087f2c829": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo~=\"bar\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3fc3bf7d7204cabc4f1bbab087f2c829",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo~=\"bar\"]",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "51cf54f53b4bc60e0c1ab86c4040ec19": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo^=\"bar\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "51cf54f53b4bc60e0c1ab86c4040ec19",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo^=\"bar\"]",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "bbe3b215316a51935e65cb6d3e890b4e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo$=\"bar\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "bbe3b215316a51935e65cb6d3e890b4e",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo$=\"bar\"]",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "8e0b1121d90bd853e67f7f59eedb9b6a": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo*=\"bar\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8e0b1121d90bd853e67f7f59eedb9b6a",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo*=\"bar\"]",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "251936c5bbc5ce4c6c8b298c841f1c29": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E[foo|=\"en\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "251936c5bbc5ce4c6c8b298c841f1c29",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo|=\"en\"]",
+              "start": 1,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "4c47c70151a099cd1e8ca5ef4690b5a1": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:root",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4c47c70151a099cd1e8ca5ef4690b5a1",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":root",
+              "start": 1,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "869b04710708461215f5ca00507c1b01": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:nth-child(n)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "869b04710708461215f5ca00507c1b01",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-child(n)",
+              "start": 1,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "6c6bb202631c2672ae909d341f3b1e0e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:nth-last-child(n)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6c6bb202631c2672ae909d341f3b1e0e",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-last-child(n)",
+              "start": 1,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 19
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "255377a9586fe91f417b55752242db8c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:nth-of-type(n)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "255377a9586fe91f417b55752242db8c",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-of-type(n)",
+              "start": 1,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 16
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "344593207cab593ec92fbf9e7bcfb73c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:nth-last-of-type(n)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "344593207cab593ec92fbf9e7bcfb73c",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-last-of-type(n)",
+              "start": 1,
+              "end": 21,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 21
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "ba59000f838714c67b43125e8320d2c9": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:first-child",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ba59000f838714c67b43125e8320d2c9",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":first-child",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "5d8cdcb93e01c6744c0f5c3177be61e6": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:last-child",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5d8cdcb93e01c6744c0f5c3177be61e6",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":last-child",
+              "start": 1,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "2ac26f3bbf09f165b509da7994e80a48": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:first-of-type",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2ac26f3bbf09f165b509da7994e80a48",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":first-of-type",
+              "start": 1,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 15
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "8739d82718f77f93d8bb4fb8f6b65243": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:last-of-type",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8739d82718f77f93d8bb4fb8f6b65243",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":last-of-type",
+              "start": 1,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "2b65509554ff1c92db2498c479cc50fd": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:only-child",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2b65509554ff1c92db2498c479cc50fd",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":only-child",
+              "start": 1,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "531c96152332c1f89c246f70db97dcb0": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:only-of-type",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "531c96152332c1f89c246f70db97dcb0",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":only-of-type",
+              "start": 1,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "2260fcffd738076cd0b7ce9ab51f7b26": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:empty",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2260fcffd738076cd0b7ce9ab51f7b26",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":empty",
+              "start": 1,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "6c3e5d46f901c365268f2ea5cc067d05": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:link",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6c3e5d46f901c365268f2ea5cc067d05",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":link",
+              "start": 1,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "da2ed71e5edb931f36827eec561e9897": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:visited",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "da2ed71e5edb931f36827eec561e9897",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":visited",
+              "start": 1,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "7d0da8d0f630ded937c2c6cdfdb64f36": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:active",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "7d0da8d0f630ded937c2c6cdfdb64f36",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":active",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "7bafa4f246d908b4a7a50cb04c49b190": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:hover",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "7bafa4f246d908b4a7a50cb04c49b190",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":hover",
+              "start": 1,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "7e9a1b133cc68e112d3feb55bb89faf7": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:focus",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "7e9a1b133cc68e112d3feb55bb89faf7",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":focus",
+              "start": 1,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "d64fea57d74d78ba1e2d4e825c7cd0f2": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:target",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d64fea57d74d78ba1e2d4e825c7cd0f2",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":target",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "de3d33cf166c8ef7e9f5a5e172a5ed1c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:lang(fr)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "de3d33cf166c8ef7e9f5a5e172a5ed1c",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":lang(fr)",
+              "start": 1,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "d93340869e3124cfc5c572322ec040f5": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:enabled",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d93340869e3124cfc5c572322ec040f5",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":enabled",
+              "start": 1,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "c978d6d5447b471b9a3b319fcd0de844": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:disabled",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c978d6d5447b471b9a3b319fcd0de844",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":disabled",
+              "start": 1,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "d4306f3dfca870f472c9dbbb25bf01de": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:checked",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d4306f3dfca870f472c9dbbb25bf01de",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":checked",
+              "start": 1,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "74a6bafd6410fa49b0404af328d9a14d": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E::first-line",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "74a6bafd6410fa49b0404af328d9a14d",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::first-line",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "8025337d985d31766cf4e3e4f1dfb8f7": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E::first-letter",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8025337d985d31766cf4e3e4f1dfb8f7",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::first-letter",
+              "start": 1,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 15
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "28d35a75e4773b88734fc122971075c3": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E::before",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "28d35a75e4773b88734fc122971075c3",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::before",
+              "start": 1,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "21b26bf38cbb230472b3f09096d8391a": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E::after",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "21b26bf38cbb230472b3f09096d8391a",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::after",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "3cbdd1df43db30dbacbcd4cd2dc0e613": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E.warning",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3cbdd1df43db30dbacbcd4cd2dc0e613",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".warning",
+              "start": 1,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "30d314e6fd443be986e76c566ab42063": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E#myid",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "30d314e6fd443be986e76c566ab42063",
+    "result": {
+      "minSpecificity": 101,
+      "maxSpecificity": 101,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_id",
+              "value": "#myid",
+              "start": 1,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 101
+        }
+      ]
+    }
+  },
+  "5ca850d3e51f3d4da70463ba2762e795": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E:not(s)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5ca850d3e51f3d4da70463ba2762e795",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(s)",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "a701f848c8402bca94fc5e3908f1e84e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E F",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a701f848c8402bca94fc5e3908f1e84e",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "606967db5fce2ec6fcd9da6552bbd705": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E > F",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "606967db5fce2ec6fcd9da6552bbd705",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "82f8bb6975e192a3d87fa5ba1a8249cf": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E + F",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "82f8bb6975e192a3d87fa5ba1a8249cf",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": "+",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "b88085ed615a055700952a05ed36af56": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E ~ F",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b88085ed615a055700952a05ed36af56",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": "~",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "e6b636c0beabe3ccaa24268f88091757": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E~F",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "e6b636c0beabe3ccaa24268f88091757",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": "~",
+              "start": 1,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "e0c8b18513deab75a65ad3977b3bebf5": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E.a:not(#id)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "e0c8b18513deab75a65ad3977b3bebf5",
+    "result": {
+      "minSpecificity": 111,
+      "maxSpecificity": 111,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".a",
+              "start": 1,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(#id)",
+              "start": 3,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 111
+        }
+      ]
+    }
+  },
+  "70bcb831dd31446d23cb1b3494ed5eeb": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "E~F,a#id",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "70bcb831dd31446d23cb1b3494ed5eeb",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 101,
+      "specificityEqual": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "E",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": "~",
+              "start": 1,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "F",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_id",
+              "value": "#id",
+              "start": 5,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 101
+        }
+      ]
+    }
+  },
+  "e553ad4b744a56f06545d7549b9c99e6": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": " foo|h1 ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "e553ad4b744a56f06545d7549b9c99e6",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "foo|h1",
+              "start": 1,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "5ee0a453b07d907a69d2eed846fddfe3": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": " foo|*",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5ee0a453b07d907a69d2eed846fddfe3",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "foo|",
+              "start": 1,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 5,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "b66ccf43b76d082af90dbf59dd5c503d": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "|h1",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b66ccf43b76d082af90dbf59dd5c503d",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "|h1",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "db869002aebdceb921d19cf6a08fd1ef": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": " *|h1",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "db869002aebdceb921d19cf6a08fd1ef",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 1,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "|h1",
+              "start": 2,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "5cb529587f965c749596763f934c3fcc": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "ns|*",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5cb529587f965c749596763f934c3fcc",
+    "result": {
+      "minSpecificity": 0,
+      "maxSpecificity": 0,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_namespace",
+              "value": "ns|",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 3,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 0
+        }
+      ]
+    }
+  },
+  "99a6c38ebc5a0dcfe57b894aec29bc51": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*|*",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "99a6c38ebc5a0dcfe57b894aec29bc51",
+    "result": {
+      "minSpecificity": 0,
+      "maxSpecificity": 0,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_namespace",
+              "value": "*|",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 0
+        }
+      ]
+    }
+  },
+  "993c2ab17a64affd54e986d4dd23f54e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "h1[title]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "993c2ab17a64affd54e986d4dd23f54e",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "h1",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[title]",
+              "start": 2,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "6ee80976cc6d2a35872f4755636834e5": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "span[class=\"example\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6ee80976cc6d2a35872f4755636834e5",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "span",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[class=\"example\"]",
+              "start": 4,
+              "end": 21,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 21
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "fcd2166bdd844c705037ae5f9662ccbc": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "span[hello=\"Cleveland\"][goodbye=\"Columbus\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "fcd2166bdd844c705037ae5f9662ccbc",
+    "result": {
+      "minSpecificity": 21,
+      "maxSpecificity": 21,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "span",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[hello=\"Cleveland\"]",
+              "start": 4,
+              "end": 23,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 23
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[goodbye=\"Columbus\"]",
+              "start": 23,
+              "end": 43,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 23
+                },
+                "end": {
+                  "line": 0,
+                  "column": 43
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 21
+        }
+      ]
+    }
+  },
+  "d74bdb9cc281c263a82ca05cbb37e432": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[rel~=\"copyright\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d74bdb9cc281c263a82ca05cbb37e432",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[rel~=\"copyright\"]",
+              "start": 1,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 19
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "0a6eb0434c51c72c64f0a1c74eeb077b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[href=\"http://www.w3.org/\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0a6eb0434c51c72c64f0a1c74eeb077b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[href=\"http://www.w3.org/\"]",
+              "start": 1,
+              "end": 28,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 28
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "a176aef3cf9f084c3960af27980a71ad": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[hreflang=fr]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a176aef3cf9f084c3960af27980a71ad",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[hreflang=fr]",
+              "start": 1,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "43df3c14afd4418984ead9577d423d86": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[hreflang|=\"en\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "43df3c14afd4418984ead9577d423d86",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[hreflang|=\"en\"]",
+              "start": 1,
+              "end": 17,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 17
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "97699c2a45bf698282bcf33fb141e48b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "DIALOGUE[character=romeo]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "97699c2a45bf698282bcf33fb141e48b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "DIALOGUE",
+              "start": 0,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[character=romeo]",
+              "start": 8,
+              "end": 25,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 25
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "830c224d948a05e15cec6caf698634c8": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "object[type^=\"image/\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "830c224d948a05e15cec6caf698634c8",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "object",
+              "start": 0,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[type^=\"image/\"]",
+              "start": 6,
+              "end": 22,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 22
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "449fded7817a2df88b28ac7dd7940a96": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[href$=\".html\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "449fded7817a2df88b28ac7dd7940a96",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[href$=\".html\"]",
+              "start": 1,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 16
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "0d9cc088599d0a340e280bafc37f9d54": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "p[title*=\"hello\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0d9cc088599d0a340e280bafc37f9d54",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "p",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[title*=\"hello\"]",
+              "start": 1,
+              "end": 17,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 17
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "64b0780d5171e6c4caa84ed16dd715d0": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "[foo|att=val]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "64b0780d5171e6c4caa84ed16dd715d0",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_attribute",
+              "value": "[foo|att=val]",
+              "start": 0,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "bec3485556e09387d1a0de611360b9ec": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "[*|att]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "bec3485556e09387d1a0de611360b9ec",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_attribute",
+              "value": "[*|att]",
+              "start": 0,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "1097d38695a5151e2110023e0107399b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "EXAMPLE[radix=octal]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1097d38695a5151e2110023e0107399b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "EXAMPLE",
+              "start": 0,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[radix=octal]",
+              "start": 7,
+              "end": 20,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 20
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "b1491d948d9ef47088927cc56224e8e3": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*.pastoral",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b1491d948d9ef47088927cc56224e8e3",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".pastoral",
+              "start": 1,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "d16963ea3dac8d5360465cdfb283da4d": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "H1.pastoral",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d16963ea3dac8d5360465cdfb283da4d",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "H1",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".pastoral",
+              "start": 2,
+              "end": 11,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 11
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "c8486c30944bcef6e88dd85c1efe264a": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*#z98y",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c8486c30944bcef6e88dd85c1efe264a",
+    "result": {
+      "minSpecificity": 100,
+      "maxSpecificity": 100,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_id",
+              "value": "#z98y",
+              "start": 1,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 100
+        }
+      ]
+    }
+  },
+  "8d34a0965b03ab47022caa125d8f4977": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a.external:visited",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8d34a0965b03ab47022caa125d8f4977",
+    "result": {
+      "minSpecificity": 21,
+      "maxSpecificity": 21,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".external",
+              "start": 1,
+              "end": 10,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 10
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":visited",
+              "start": 10,
+              "end": 18,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 10
+                },
+                "end": {
+                  "line": 0,
+                  "column": 18
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 21
+        }
+      ]
+    }
+  },
+  "cf8bd84138d8c1653b331422c20d6256": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a:focus:hover",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cf8bd84138d8c1653b331422c20d6256",
+    "result": {
+      "minSpecificity": 21,
+      "maxSpecificity": 21,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":focus",
+              "start": 1,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":hover",
+              "start": 7,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 21
+        }
+      ]
+    }
+  },
+  "525e84a3f3ac87821fff226ca922f9b4": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*:target::before",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "525e84a3f3ac87821fff226ca922f9b4",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":target",
+              "start": 1,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::before",
+              "start": 8,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 16
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "023507ceaa1afc2d18bc26cf63e7778c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": ":lang(fr-be) > q",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "023507ceaa1afc2d18bc26cf63e7778c",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":lang(fr-be)",
+              "start": 0,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 13,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 13
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "q",
+              "start": 15,
+              "end": 16,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 15
+                },
+                "end": {
+                  "line": 0,
+                  "column": 16
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "1bb5043bc7db22f804ca25e4c2249d2b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "p:nth-child(4n+4)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1bb5043bc7db22f804ca25e4c2249d2b",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "p",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-child(4n+4)",
+              "start": 1,
+              "end": 17,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 17
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "35ef37f50d98abd5f4abdfbe696b364a": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": ":nth-child( -n+ 6)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "35ef37f50d98abd5f4abdfbe696b364a",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-child( -n+ 6)",
+              "start": 0,
+              "end": 18,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 18
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "8c0512935d78d29ff740768cc965c0b6": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "foo:nth-last-child(odd) ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8c0512935d78d29ff740768cc965c0b6",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "foo",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-last-child(odd)",
+              "start": 3,
+              "end": 23,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 23
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "b776eb1b58d87df1f88c0c9d7c0add23": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "tr:nth-last-child(-n+2) ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b776eb1b58d87df1f88c0c9d7c0add23",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "tr",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-last-child(-n+2)",
+              "start": 2,
+              "end": 23,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 23
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "c1c1bef48ed65449450f01e59578f2c3": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "body > h2:nth-of-type(n+2):nth-last-of-type(n+2)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c1c1bef48ed65449450f01e59578f2c3",
+    "result": {
+      "minSpecificity": 22,
+      "maxSpecificity": 22,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "body",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 5,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "h2",
+              "start": 7,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-of-type(n+2)",
+              "start": 9,
+              "end": 26,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 9
+                },
+                "end": {
+                  "line": 0,
+                  "column": 26
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":nth-last-of-type(n+2)",
+              "start": 26,
+              "end": 48,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 26
+                },
+                "end": {
+                  "line": 0,
+                  "column": 48
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 22
+        }
+      ]
+    }
+  },
+  "aef67d86d61aadf7efdd3910741ea015": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "body > h2:not(:first-of-type):not(:last-of-type)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "aef67d86d61aadf7efdd3910741ea015",
+    "result": {
+      "minSpecificity": 22,
+      "maxSpecificity": 22,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "body",
+              "start": 0,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 5,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "h2",
+              "start": 7,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(:first-of-type)",
+              "start": 9,
+              "end": 29,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 9
+                },
+                "end": {
+                  "line": 0,
+                  "column": 29
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(:last-of-type)",
+              "start": 29,
+              "end": 48,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 29
+                },
+                "end": {
+                  "line": 0,
+                  "column": 48
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 22
+        }
+      ]
+    }
+  },
+  "f655c856a3c573e383e406575a487bcf": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "div > p:first-child",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f655c856a3c573e383e406575a487bcf",
+    "result": {
+      "minSpecificity": 12,
+      "maxSpecificity": 12,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "div",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "p",
+              "start": 6,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":first-child",
+              "start": 7,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 19
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 12
+        }
+      ]
+    }
+  },
+  "2933cee184961064db476a0d4d60d5cc": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a:first-child /* Same (assuming a is not the root element) */",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2933cee184961064db476a0d4d60d5cc",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":first-child",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "eos",
+              "value": "",
+              "start": 61,
+              "end": 61,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 61
+                },
+                "end": {
+                  "line": 0,
+                  "column": 61
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/* Same (assuming a is not the root element) */",
+                  "start": 14,
+                  "end": 61,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 14
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 61
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "195d92bac230399cc76ea3cebb8b433b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "ol > li:last-child",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "195d92bac230399cc76ea3cebb8b433b",
+    "result": {
+      "minSpecificity": 12,
+      "maxSpecificity": 12,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "ol",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 3,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "li",
+              "start": 5,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":last-child",
+              "start": 7,
+              "end": 18,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 18
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 12
+        }
+      ]
+    }
+  },
+  "c276f40716b96fa89421aaaf27a6fa50": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "tr > td:last-of-type",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c276f40716b96fa89421aaaf27a6fa50",
+    "result": {
+      "minSpecificity": 12,
+      "maxSpecificity": 12,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "tr",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 3,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "td",
+              "start": 5,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":last-of-type",
+              "start": 7,
+              "end": 20,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 7
+                },
+                "end": {
+                  "line": 0,
+                  "column": 20
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 12
+        }
+      ]
+    }
+  },
+  "914e3b6cfedc0960aab6438d8305ee02": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "button:not([DISABLED])",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "914e3b6cfedc0960aab6438d8305ee02",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "button",
+              "start": 0,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not([DISABLED])",
+              "start": 6,
+              "end": 22,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 22
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "4c0bae916efe86a4acbc1ee1042e590e": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "html|*:not(:link):not(:visited)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4c0bae916efe86a4acbc1ee1042e590e",
+    "result": {
+      "minSpecificity": 20,
+      "maxSpecificity": 20,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_namespace",
+              "value": "html|",
+              "start": 0,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 5,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(:link)",
+              "start": 6,
+              "end": 17,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 17
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(:visited)",
+              "start": 17,
+              "end": 31,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 17
+                },
+                "end": {
+                  "line": 0,
+                  "column": 31
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 20
+        }
+      ]
+    }
+  },
+  "878cbc0cc2a6f324dfe0f0c79354f1fa": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "*|*:not(:hover)",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "878cbc0cc2a6f324dfe0f0c79354f1fa",
+    "result": {
+      "minSpecificity": 10,
+      "maxSpecificity": 10,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_namespace",
+              "value": "*|",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_class",
+              "value": ":not(:hover)",
+              "start": 3,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 15
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 10
+        }
+      ]
+    }
+  },
+  "1f95f3e1017c2192e39120e855a47ea6": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "p::first-line",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1f95f3e1017c2192e39120e855a47ea6",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "p",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_pseudo_element",
+              "value": "::first-line",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {},
+              "vender": false
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "d4b8c3d0c94d426f097d3e36f5e45f2c": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "UL OL LI.red ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d4b8c3d0c94d426f097d3e36f5e45f2c",
+    "result": {
+      "minSpecificity": 13,
+      "maxSpecificity": 13,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "UL",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "OL",
+              "start": 3,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "LI",
+              "start": 6,
+              "end": 8,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 8
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_class",
+              "value": ".red",
+              "start": 8,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 13
+        }
+      ]
+    }
+  },
+  "8f12ce29e4809596dc3184cb226b445f": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "H1 + *[REL=up]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8f12ce29e4809596dc3184cb226b445f",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "H1",
+              "start": 0,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": "+",
+              "start": 3,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_universal",
+              "value": "*",
+              "start": 5,
+              "end": 6,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 5
+                },
+                "end": {
+                  "line": 0,
+                  "column": 6
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[REL=up]",
+              "start": 6,
+              "end": 14,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 6
+                },
+                "end": {
+                  "line": 0,
+                  "column": 14
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "f1e3cb3a1da9cfba09a6445f8f8e8c31": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a /***/ b",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f1e3cb3a1da9cfba09a6445f8f8e8c31",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 8,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 8
+                },
+                "end": {
+                  "line": 0,
+                  "column": 9
+                }
+              },
+              "commentBefore": [
+                {
+                  "value": "/***/",
+                  "start": 2,
+                  "end": 7,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  }
+}

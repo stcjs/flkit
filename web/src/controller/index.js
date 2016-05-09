@@ -5,6 +5,7 @@ import path from 'path';
 import Base from './base.js';
 import {
   CssTokenize, 
+  CssSelectorTokenize,
   HtmlTokenize
 } from '../../../lib/index.js';
 
@@ -16,6 +17,9 @@ const lang = {
     tokenize: {
       parseSelector: false,
       parseValue: false
+    },
+    selector_tokenize: {
+      
     }
   }
 }
@@ -25,7 +29,8 @@ const classList = {
     tokenize: HtmlTokenize
   },
   css: {
-    tokenize: CssTokenize
+    tokenize: CssTokenize,
+    selector_tokenize: CssSelectorTokenize
   }
 }
 
