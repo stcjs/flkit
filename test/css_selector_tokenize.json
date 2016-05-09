@@ -6757,5 +6757,475 @@
         }
       ]
     }
+  },
+  "6848b65f675998f2bc0c588e6391919b": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a,b,c",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6848b65f675998f2bc0c588e6391919b",
+    "result": {
+      "minSpecificity": 1,
+      "maxSpecificity": 1,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "b",
+              "start": 2,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        },
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "c",
+              "start": 4,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 1
+        }
+      ]
+    }
+  },
+  "36d2e5de02cfdde9ea91715bea7e8776": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[name=\"www[]\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "36d2e5de02cfdde9ea91715bea7e8776",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[name=\"www[]\"]",
+              "start": 1,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 15
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "cf5d3b932f6711deed099f5643e6a3fb": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a>vvv",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cf5d3b932f6711deed099f5643e6a3fb",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 1,
+              "end": 2,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 2
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "vvv",
+              "start": 2,
+              "end": 5,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 2
+                },
+                "end": {
+                  "line": 0,
+                  "column": 5
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "8fbbdd88c6d8e711859289c1541d1671": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "div>ddd",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8fbbdd88c6d8e711859289c1541d1671",
+    "result": {
+      "minSpecificity": 2,
+      "maxSpecificity": 2,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "div",
+              "start": 0,
+              "end": 3,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 3
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_combinator",
+              "value": ">",
+              "start": 3,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 3
+                },
+                "end": {
+                  "line": 0,
+                  "column": 4
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_type",
+              "value": "ddd",
+              "start": 4,
+              "end": 7,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 4
+                },
+                "end": {
+                  "line": 0,
+                  "column": 7
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 2
+        }
+      ]
+    }
+  },
+  "8cc56e924c95d6f6811b9203a362fb32": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[name=\"www\"/***/]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8cc56e924c95d6f6811b9203a362fb32",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[name=\"www\"/***/]",
+              "start": 1,
+              "end": 18,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 18
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "9ab80702a21b541019db281ba5b20ae4": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[name=\"www\"]",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "9ab80702a21b541019db281ba5b20ae4",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[name=\"www\"]",
+              "start": 1,
+              "end": 13,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 13
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
+  },
+  "a26baa9f2027ce1927b122265ffb828f": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "a[name='wwww\\'www']",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a26baa9f2027ce1927b122265ffb828f",
+    "result": {
+      "minSpecificity": 11,
+      "maxSpecificity": 11,
+      "specificityEqual": true,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "css_selector_type",
+              "value": "a",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 1
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            },
+            {
+              "type": "css_selector_attribute",
+              "value": "[name='wwww\\'www']",
+              "start": 1,
+              "end": 19,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 1
+                },
+                "end": {
+                  "line": 0,
+                  "column": 19
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 11
+        }
+      ]
+    }
   }
 }

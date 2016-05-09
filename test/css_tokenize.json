@@ -48644,5 +48644,71 @@
         }
       }
     ]
+  },
+  "a05fbdf035274ea6f1d224b31ed8d796": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a/****/,b{}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a05fbdf035274ea6f1d224b31ed8d796",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a/****/,b",
+        "start": 0,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 9,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 9
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 10,
+        "end": 11,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 10
+          },
+          "end": {
+            "line": 0,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }
