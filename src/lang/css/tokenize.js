@@ -89,6 +89,7 @@ export default class extends BaseTokenize {
    */
   getSelectorToken(){
     let ret = '', code, str, token, chr, record, escape = false;
+    let tmpValue = '', tmpFlag = false;
     while(this.pos < this.length){
       token = this.getTplToken();
       if (token) {
@@ -105,11 +106,17 @@ export default class extends BaseTokenize {
         break;
       }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
-        this.getCommentToken(1, false);
+        tmpValue += this.getCommentToken(1, false).value;
         continue;
+      }
+      if(tmpValue){
+        tmpValue += chr;
+        tmpFlag = true;
       }
       if (record && !this.isWhiteSpace(code)) {
         record = undefined;
+        ret += tmpValue;
+        tmpValue = '';
       }
       if (!escape && (code === 0x22 || code === 0x27)) {
         ret += this.getQuote({
@@ -134,7 +141,12 @@ export default class extends BaseTokenize {
           continue;
         }
       }
-      ret += this.next();
+      if(tmpFlag){
+        this.next();
+        tmpFlag = false;
+      }else{
+        ret += this.next();
+      }
     }
     token = this.getToken(TokenType.CSS_SELECTOR, ret);
     token.value = this.skipRightSpace(ret);
@@ -198,7 +210,7 @@ export default class extends BaseTokenize {
   getValueToken(){
     let ret = '', code, chr, token;
     let escape = false, record, quote, hasTpl = false;
-    let commentTokenValue = '';
+    let tplValue = '', tmpFlag = false;
     while(this.pos < this.length){
       token = this.getTplToken();
       if (token) {
@@ -216,11 +228,17 @@ export default class extends BaseTokenize {
         break;
       }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
-        commentTokenValue = this.getCommentToken(1, false).value;
+        tplValue += this.getCommentToken(1, false).value;
         continue;
+      }
+      if(tplValue){
+        tplValue += chr;
+        tmpFlag = true;
       }
       if (record && !this.isWhiteSpace(code)) {
         record = undefined;
+        ret += tplValue;
+        tplValue = '';
       }
       if (!escape && (code === 0x22 || code === 0x27)) {
         quote = this.getQuote({
@@ -228,10 +246,10 @@ export default class extends BaseTokenize {
         });
         ret += quote.value;
         if (!quote.find) {
-          ret += this.forwardChar(';', false);
-          return this.getToken(TokenType.ILLEGAL, ret, {
-            message: Message.UnMatchedQuoteChar
-          });
+          // ret += this.forwardChar(';', false);
+          // return this.getToken(TokenType.ILLEGAL, ret, {
+          //   message: Message.UnMatchedQuoteChar
+          // });
         }
         continue;
       }else if (code === 0x28) { // ( )
@@ -242,7 +260,12 @@ export default class extends BaseTokenize {
         });
         continue;
       }
-      ret += this.next();
+      if(tmpFlag){
+        this.next();
+        tmpFlag = false;
+      }else{
+        ret += this.next();
+      }
     }
     token = this.getToken(TokenType.CSS_VALUE, ret);
     ret = this.skipRightSpace(ret);

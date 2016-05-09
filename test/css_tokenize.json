@@ -3864,7 +3864,7 @@
     "result": [
       {
         "type": "css_selector",
-        "value": ".red/***/[name=\"wwww\"]/****/",
+        "value": ".red/***/[[name=\"wwww\"]",
         "start": 0,
         "end": 28,
         "loc": {
@@ -5241,7 +5241,7 @@
         "ext": {}
       },
       {
-        "type": "illegal",
+        "type": "css_value",
         "value": "www'sdd",
         "start": 12,
         "end": 19,
@@ -5257,7 +5257,11 @@
         },
         "commentBefore": [],
         "ext": {
-          "message": "cant not find end quote char"
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "www'sdd",
+          "hasTpl": false
         }
       },
       {
@@ -7251,7 +7255,7 @@
     "result": [
       {
         "type": "css_selector",
-        "value": "a/**d; d {{{ }}} d***/.red/***/",
+        "value": "a/**d; d {{{ }}} d***/.red",
         "start": 0,
         "end": 31,
         "loc": {
@@ -18172,7 +18176,7 @@
       },
       {
         "type": "css_value",
-        "value": "url('myfont.woff') format('woff'), \n  url('myfont.ttf') format('truetype')",
+        "value": "url('myfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n  url('myfont.ttf') format('truetype')",
         "start": 46,
         "end": 169,
         "loc": {
@@ -18190,7 +18194,7 @@
           "prefix": "",
           "suffix": "",
           "important": false,
-          "value": "url('myfont.woff') format('woff'), \n  url('myfont.ttf') format('truetype')",
+          "value": "url('myfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */\n  url('myfont.ttf') format('truetype')",
           "hasTpl": false
         }
       },
@@ -21852,7 +21856,7 @@
         "ext": {}
       },
       {
-        "type": "illegal",
+        "type": "css_value",
         "value": "'Courier New Times       color: red",
         "start": 38,
         "end": 73,
@@ -21868,7 +21872,11 @@
         },
         "commentBefore": [],
         "ext": {
-          "message": "cant not find end quote char"
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "'Courier New Times       color: red",
+          "hasTpl": false
         }
       },
       {
@@ -25501,7 +25509,7 @@
     "result": [
       {
         "type": "css_selector",
-        "value": "a .div",
+        "value": "a/****/ .div",
         "start": 0,
         "end": 12,
         "loc": {
@@ -26882,6 +26890,302 @@
           "end": {
             "line": 0,
             "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "a06c4ce4f312845b78aaafe82be94f28": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a{\n\tcolor: red,/***/haha;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a06c4ce4f312845b78aaafe82be94f28",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 1,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 1,
+        "end": 2,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 1
+          },
+          "end": {
+            "line": 0,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "color",
+        "start": 4,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "color"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 9,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 6
+          },
+          "end": {
+            "line": 1,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "red,/***/haha",
+        "start": 11,
+        "end": 24,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 21
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "red,/***/haha",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 24,
+        "end": 25,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 21
+          },
+          "end": {
+            "line": 1,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 26,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "f89df30caee2e908edae61fd916633b3": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a{\n\tcolor: red, /***/haha;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f89df30caee2e908edae61fd916633b3",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 1,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 1,
+        "end": 2,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 1
+          },
+          "end": {
+            "line": 0,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "color",
+        "start": 4,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "color"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 9,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 6
+          },
+          "end": {
+            "line": 1,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "red, /***/haha",
+        "start": 11,
+        "end": 25,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "red, /***/haha",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 25,
+        "end": 26,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 22
+          },
+          "end": {
+            "line": 1,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 27,
+        "end": 28,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
           }
         },
         "commentBefore": [],

@@ -167,7 +167,7 @@ export default class extends Base {
     this._record = {
       line: this.line,
       col: this.col,
-      pos: this.pos,
+      pos: this.pos
       // newlineBefore: this.newlineBefore,
       // spaceBefore: this.spaceBefore
     };
@@ -438,7 +438,7 @@ export default class extends Base {
    * @param  {String} type           []
    * @return {Object}                []
    */
-  getCommentToken(type, skipWhiteSpace, inText){
+  getCommentToken(type, skipWhiteSpace/*, inText*/){
     this.record();
     let result;
     if (type === 0) {
@@ -463,7 +463,7 @@ export default class extends Base {
           line: this.line,
           column: this.col
         }
-      },
+      }
       //newlineBefore: this._record.newlineBefore,
       //spaceBefore: this._record.spaceBefore
     };

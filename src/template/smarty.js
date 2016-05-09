@@ -2,10 +2,10 @@
 import Base from './base.js';
 
 export default class extends Base {
-/**
- * check token has output
- */
- hasOutput(token){
+  /**
+   * check token has output
+   */
+  hasOutput(token){
     let code = token.value.trim().charCodeAt(0);
     return code === 0x24; //$
   }
