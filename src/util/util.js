@@ -30,5 +30,7 @@ export function makePredicate(string) {
   code += '    return true;\n}\nreturn false';
   return new Function('code', code);
 }
-
+/**
+ * is whitespace char
+ */
 export let isWhiteSpace = makePredicate(whitespace);

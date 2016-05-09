@@ -155,7 +155,7 @@ export default class extends BaseTokenize {
       this.rollback(record);
     }
     if (this.options.parseSelector) {
-      token.detail = SelectorTokenize(token.value).run();
+      token.detail = new SelectorTokenize(token.value).run();
     }
     return token;
   }

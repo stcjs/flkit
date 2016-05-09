@@ -1,7 +1,7 @@
 import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
 import {makePredicate} from '../../util/util.js';
-import {propertyHackPrefix} from './config.js';
+import {propertyHackPrefix, selectorCharUntil, pseudosElements21} from './config.js';
 
 /**
  * is attribute char
@@ -45,5 +45,17 @@ export function calculateSelectorSpecificity(tokens){
   }
   return specificity;
 }
-
+/**
+ * is hack char
+ */
 export const isHackChar = makePredicate(propertyHackPrefix);
+/**
+ * selector char util
+ */
+export const selectorBreakChar = makePredicate(selectorCharUntil);
+/**
+ * is pseudo elements
+ */
+export function isPseudoElement(el){
+  return pseudosElements21.indexOf(el) > -1;
+}
