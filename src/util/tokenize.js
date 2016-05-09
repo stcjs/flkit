@@ -335,21 +335,21 @@ export default class extends Base {
       return false;
     }
     let length = this.ld.length, ld, rd, tplInstance = this.getTplInstance();
-    let ret, _value;
+    let ret, value;
     for(let i = 0; i < length; i++){
       ld = this.ld[i];
       rd = this.rd[i];
       ret = tplInstance.getMatched(ld, rd, this);
       if (ret) {
         if (ret.slice(0 - rd.length) === rd) {
-          _value = ret.slice(ld.length, 0 - rd.length);
+          value = ret.slice(ld.length, 0 - rd.length);
         }else{
-          _value = ret.slice(ld.length);
+          value = ret.slice(ld.length);
         }
         return this.getToken(TokenType.TPL, ret, {
           ld: ld,
           rd: rd,
-          _value: _value
+          value: value
         });
       }
     }

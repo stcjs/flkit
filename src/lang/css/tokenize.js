@@ -2,7 +2,7 @@ import BaseTokenize from '../../util/tokenize.js';
 import TokenType from '../../util/token_type.js';
 import {comments} from '../../util/config.js';
 import SelectorTokenize from './selector_tokenize.js';
-import Message from '../../util/message.js';
+//import Message from '../../util/message.js';
 import {isHackChar} from './util.js';
 import {atType} from './config.js';
 

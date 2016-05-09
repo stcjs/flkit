@@ -16,10 +16,10 @@ export default class {
   }
   /**
    * check text has tpl
-   * @param  {[type]} ld   []
-   * @param  {[type]} rd   []
-   * @param  {[type]} text []
-   * @return {[type]}      []
+   * @param  {String} ld   []
+   * @param  {String} rd   []
+   * @param  {String} text []
+   * @return {Boolean}      []
    */
   hasTpl(text, ld, rd){
     return text.indexOf(ld) > -1 && text.indexOf(rd) > -1;

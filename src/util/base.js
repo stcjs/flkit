@@ -3,12 +3,14 @@ import util from 'util';
 
 import Message from './message.js';
 import PHPTemplate from '../template/php.js';
+import SmartyTemplate from '../template/smarty.js';
 import Err from './error.js';
 
 const isArray = Array.isArray;
 
 let templates = {
-  php: PHPTemplate
+  php: PHPTemplate,
+  smarty: SmartyTemplate
 };
 
 export default class {
@@ -51,19 +53,19 @@ export default class {
       this.rd = [];
       return;
     }
-    if(!isArray(this.ld)){
-      this.ld = [this.ld];
-      this.rd = [this.rd];
+    let ld = this.options.ld;
+    let rd = this.options.rd;
+    if(!isArray(ld)){
+      ld = [ld];
+      rd = [rd];
     }
-    this.ld = this.ld.filter(item => {
-      return item;
-    });
-    this.rd = this.rd.filter(item => {
-      return item;
-    });
-    if(this.ld.length !== this.rd.length){
+    ld = ld.filter(item => item);
+    rd = rd.filter(item => item);
+    if(ld.length !== rd.length){
       throw new Error(Message.DelimiterNotEqual);
     }
+    this.ld = ld;
+    this.rd = rd;
   }
   /**
    * check text has tpl
@@ -107,17 +109,16 @@ export default class {
   }
   /**
    * get template instance
-   * @param  {string} type: string        []
    * @return {}       []
    */
-  getTplInstance(type){
+  getTplInstance(){
     if(!this.tpl){
       throw new Error(Message.TplEmpty);
     }
-    if(!(type in templates)){
-      throw new Error(Message.TplNotFound);
+    if(!(this.tpl in templates)){
+      this.error(Message.TplNotFound, undefined, undefined, [this.tpl]);
     }
-    let Class = templates[type];
+    let Class = templates[this.tpl];
     return new Class();
   }
   /**
