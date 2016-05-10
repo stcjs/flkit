@@ -1,0 +1,451 @@
+import Base from '../../util/tokenize.js';
+import {isTagFirstChar, isTagNameChar} from './util.js';
+import {TokenType} from '../../util/token_type.js';
+import Message from '../../util/message.js';
+import {
+  specialTokens, 
+  reservedCommentPrefix, 
+  rawTokens, 
+  parseScriptAttrs, 
+  parseStyleAttrs
+} from './config.js';
+
+const specialTokensLength = specialTokens.length;
+const reservedCommentLength = reservedCommentPrefix.length;
+const rawTokensLength = rawTokens.length;
+const isArray = Array.isArray;
+
+/**
+ * html tokenize
+ */
+export default class extends Base {
+  /**
+   * get next token
+   * @return {Object} [token]
+   */
+  getNextToken(){
+    let token = super.getNextToken();
+    if (token || token === false) {
+      return token;
+    }
+    let code = this._text.charCodeAt(this.pos);
+    // <
+    if (code === 0x3c) {
+      let nextCode = this._text.charCodeAt(this.pos + 1);
+      //all special token start with <!
+      token = nextCode === 0x21 ? this.getSpecialToken() : this.getRawToken();
+      if (token) {
+        return token;
+      }
+      if (isTagFirstChar(nextCode)) {
+        return this.getTagToken();
+      }
+    }
+    return this.getTextToken();
+  }
+  /**
+   * get text token
+   * @return {Object} []
+   */
+  getTextToken(){
+    let ret = '';
+    while(this.pos < this.length){
+      if (this.isTplNext()) {
+        break;
+      }
+      let nextCode = this._text.charCodeAt(this.pos);
+      let next2Code = this._text.charCodeAt(this.pos + 1);
+      //if next char is < and next2 char is tag first char
+      if (nextCode === 0x3c && (next2Code === 0x21 || isTagFirstChar(next2Code))) {
+        break;
+      }
+      ret += this.next();
+    }
+    let token = this.getToken(TokenType.HTML_TEXT, ret);
+    token.value = this.skipRightSpace(ret);
+    return token;
+  }
+  /**
+   * get tag token
+   * @return {Object} []
+   */
+  getTagToken(){
+    this.record();
+    let ret = this.next();
+    let type, tagEnd = false, quote;
+    while(this.pos < this.length){
+      //let chr = this.text[this.pos];
+      let code = this._text.charCodeAt(this.pos);
+      if (!type) {
+        switch(code){
+          case 0x2f: // /
+            let nextCode = this._text.charCodeAt(this.pos + 1);
+            //if next char is not  >= 'a' && <= 'z', throw error
+            if (nextCode >= 0x61 && nextCode <= 0x7a) {
+              type = TokenType.HTML_TAG_END;
+            }else{
+              type = TokenType.ILLEGAL;
+            }
+            break;
+          case 0x3f: // ?
+            ret += this.next();
+            if (this.lookAt('xml ') || this.lookAt('xml>')) {
+              type = TokenType.HTML_TAG_XML;
+            }else{
+              type = TokenType.HTML_TAG_START;
+            }
+            break;
+          default:
+            //a-z
+            if (code >= 0x61 && code <= 0x7a) {
+              if (this.options.tag_attrs){
+                let tagName = this.getTagName();
+                let tagAttrs = this.getTagAttrs();
+                let str = '<' + tagName + tagAttrs.value;
+                //get tag attrs error
+                if (tagAttrs.message) {
+                  return this.getToken(TokenType.ILLEGAL, str, {
+                    message: tagAttrs.message
+                  });
+                }
+                return this.getToken(TokenType.HTML_TAG_START, str, {
+                  tag: tagName,
+                  tagLowerCase: tagName.toLowerCase(),
+                  attrs: tagAttrs.attrs
+                });
+              }else{
+                type = TokenType.HTML_TAG_START;
+              }
+            }else{
+              type = TokenType.ILLEGAL;
+            }
+            break;
+        }
+      }
+      if (code === 0x22 || code === 0x27) { //char is ' or "
+        quote = this.getQuote({
+          checkNext: true,
+          rollback: true
+        });
+        ret += quote.value;
+        if (!quote.find) {
+          ret += this.forwardChar('>');
+          return this.getToken(TokenType.ILLEGAL, ret, {
+            message: Message.UnMatchedQuoteChar
+          });
+        }
+        continue;
+      }
+      let tpl = this.getTplToken();
+      if (tpl) {
+        ret += tpl.value;
+        continue;
+      }
+      //0x3e is >
+      if (code === 0x3e) {
+        ret += this.next();
+        tagEnd = true;
+        break;
+      }
+      ret += this.next();
+    }
+    if (!tagEnd) {
+      return this.getToken(TokenType.ILLEGAL, ret, {
+        message: Message.TagUnClosed
+      });
+    }
+    //get tag attrs
+    if (type === TokenType.HTML_TAG_END) {
+      // 8.1.2.2 in http://www.w3.org/TR/html5/syntax.html
+      // in end tag, may be have whitespace on right 
+      let tag = ret.slice(2, -1).trim(); 
+      return this.getToken(type, ret, {
+        tag: tag,
+        tagLowerCase: tag.toLowerCase()
+      });
+    }
+    return this.getToken(type, ret);
+  }
+  /**
+   * get tag name
+   * @return {[type]} [description]
+   */
+  getTagName(){
+    let chr, ret = '';
+    while(this.pos < this.length){
+      chr = this._text[this.pos];
+      if (!isTagNameChar(chr.charCodeAt(0))) {
+        break;
+      }
+      ret += this.next();
+    }
+    return ret;
+  }
+  /**
+   * get tag attrs
+   * http://www.w3.org/TR/html5/syntax.html
+   * @param  {String} tag [tag string]
+   * @return {Object}     [tag name & attrs]
+   */
+  getTagAttrs(){
+    let attrs = [], chr, code, value = '';
+    let hasEqual = false, spaceBefore = false, tagEnd = false;
+    let tplInstance = this.getTplInstance();
+    let attrName = '', attrValue = '', tplToken;
+    while(this.pos < this.length){
+      tplToken = this.getTplToken();
+      if (tplToken) {
+        value += tplToken.value;
+        if (tplInstance.hasOutput(tplToken)) {
+          if (hasEqual) {
+            attrValue += tplToken.value;
+          }else{
+            attrName += tplToken.value;
+          }
+        }else{
+          if (hasEqual) {
+            if (attrValue) {
+              attrs.push({name: attrName, value: attrValue}, tplToken);
+              attrName = attrValue = '';
+            }else{
+              attrValue += tplToken.value;
+            }
+          }else{
+            if (attrName) {
+              attrs.push({name: attrName});
+            }
+            tplToken.spaceBefore = spaceBefore;
+            attrs.push(tplToken);
+            attrName = attrValue = '';
+          }
+        }
+        spaceBefore = false;
+        continue;
+      }
+      chr = this.text[this.pos];
+      code = chr.charCodeAt(0);
+      value += chr;
+      // char is >
+      if (code === 0x3e) {
+        tagEnd = true;
+        this.next();
+        break;
+      }else if (code === 0x3d) { // char is =
+        hasEqual = true;
+        spaceBefore = false;
+      }else if (!hasEqual && code === 0x2f) { //0x2f is /
+        if (this.text.charCodeAt[this.pos - 1] !== 0x2f) {
+          if (attrName) {
+            attrs.push({name: attrName});
+          }
+          attrName = attrValue = '';
+          hasEqual = false;
+        }
+      }else if (code === 0x22 || code === 0x27) { // char is ' or "
+        let quote = this.getQuote({
+          checkNext: true,
+          rollback: true
+        });
+        value += quote.value.slice(1);
+        //quote string not found
+        if (!quote.find) {
+          value += this.forwardChar('>');
+          return {
+            value: value,
+            message: Message.UnMatchedQuoteChar
+          };
+        }
+        //has no equal char, quot string add to attribute name
+        if (!hasEqual) {
+          attrName += quote.value;
+        }else{
+          attrValue += quote.value;
+          attrs.push({name: attrName, value: attrValue});
+          attrName = attrValue = '';
+          hasEqual = spaceBefore = false;
+        }
+        continue;
+      }else if (this.isWhiteSpace(code)) { // whitespace
+        if (hasEqual && attrValue) {
+          attrs.push({name: attrName, value: attrValue});
+          attrName = attrValue = '';
+          hasEqual = spaceBefore = false;
+        }else{
+          spaceBefore = true;
+        }
+      }else{
+        if (hasEqual) {
+          attrValue += chr;
+        }else{
+          if (spaceBefore && attrName) {
+            attrs.push({name: attrName});
+            attrName = chr;
+          }else{
+            attrName += chr;
+          }
+        }
+        spaceBefore = false;
+      }
+      this.next();
+    }
+    //add extra attr name or attr value
+    if (attrName || attrValue) {
+      if (hasEqual) {
+        attrs.push({name: attrName, value: attrValue});
+      }else{
+        attrs.push({name: attrName});
+      }
+    }
+    if (!tagEnd) {
+      return {
+        value: value,
+        message: Message.TagUnClosed
+      };
+    }
+    //add _name, _value for attr item
+    for(let i = 0, length = attrs.length, item; i < length; i++){
+      item = attrs[i];
+      if (item.ld) {
+        attrs[i].tpl = true;
+        continue;
+      }else if (item.value !== undefined) {
+        code = item.value.charCodeAt(0);
+        if (code === 0x22 || code === 0x27) {
+          attrs[i].quote = item.value.slice(0, 1);
+          attrs[i]._value = item.value.slice(1, -1);
+        }else{
+          attrs[i].quote = '';
+          attrs[i]._value = item.value;
+        }
+      }
+      //template syntax in attribute name
+      //may be has uppercase chars in template syntax
+      //etc: <input <?php echo $NAME;?>name="value" >
+      if (this.containTpl(item.name)) {
+        attrs[i]._name = item.name;
+      }else{
+        attrs[i]._name = item.name.toLowerCase();
+      }
+    }
+    return {
+      value: value,
+      attrs: attrs
+    };
+  }
+  /**
+   * skip comment
+   * @return {void} []
+   */
+  skipComment(){
+    //start with <!
+    commentLabel: while(this.text.charCodeAt(this.pos) === 0x3c && this.text.charCodeAt(this.pos + 1) === 0x21){
+      for(let i = 0; i < reservedCommentLength; i++){
+        if (this.lookAt(reservedCommentPrefix[i])) {
+          break commentLabel;
+        }
+      }
+      //template delimiter may be <!-- & -->
+      if (this.isTplNext()) {
+        break;
+      }
+      let comment = this.getCommentToken(2);
+      if (comment) {
+        this.commentBefore.push(comment);
+      }else{
+        break;
+      }
+    }
+  }
+  /**
+   * get raw element token
+   * @return {Object} []
+   */
+  getRawToken(){
+    let i = 0, item, pos = 0, code, startToken, contentToken, endToken, token;
+    while(i < rawTokensLength){
+      item = rawTokens[i++];
+      if (!this.lookAt(item[0])) {
+        continue;
+      }
+      code = this._text.charCodeAt(this.pos + item[0].length);
+      //next char is not space or >
+      if (!this.isWhiteSpace(code) && code !== 0x3e) {
+        continue;
+      }
+      pos = this.find(item[1]);
+      if (pos === -1) {
+        return;
+      }
+      code = this._text.charCodeAt(pos + item[1].length);
+      //next char is not space or >
+      if (!this.isWhiteSpace(code) && code !== 0x3e) {
+        continue;
+      }
+      token = this.getToken(item[2], '');
+
+      this.startToken();
+      startToken = this.getTagToken();
+      //start token is not valid
+      if (startToken.type === TokenType.ILLEGAL) {
+        return startToken;
+      }
+      if (item[2] === TokenType.HTML_TAG_SCRIPT && this.options.tag_attrs) {
+        startToken = parseScriptAttrs(startToken);
+      }else if (item[2] === TokenType.HTML_TAG_STYLE && this.options.tag_attrs) {
+        startToken = parseStyleAttrs(startToken);
+      }
+      this.startToken();
+      contentToken = this.getToken(TokenType.HTML_RAW_TEXT, this.forward(pos - this.pos));
+      this.startToken();
+      endToken = this.getTagToken();
+      token.ext.value = startToken.value + contentToken.value + endToken.value;
+      token.ext.start = startToken;
+      token.ext.content = contentToken;
+      token.ext.end = endToken;
+      return token;
+    }
+  }
+  /**
+   * get special token
+   * @return {Object} []
+   */
+  getSpecialToken(){
+    let pos, npos, findItem, j, length, ret, i = 0, item;
+    while(i < specialTokensLength){
+      item = specialTokens[i++];
+      //if text is not start with item[0], continue
+      if (!this.lookAt(item[0])) {
+        continue;
+      }
+      if (isArray(item[1])) {
+        pos = -1;
+        findItem = '';
+        for(j = 0, length = item[1].length; j < length; j++){
+          npos = this.find(item[1][j]);
+          if (npos === -1) {
+            continue;
+          }
+          if (pos === -1) {
+            pos = npos;
+            findItem = item[1][j];
+          }else if (npos < pos) {
+            pos = npos;
+            findItem = item[1][j];
+          }
+        }
+        //find end special chars
+        if (findItem) {
+          length = pos + findItem.length - this.pos;
+          ret = this.text.substr(this.pos, length);
+          this.forward(length);
+          return this.getToken(item[2], ret);
+        }
+      }else{
+        ret = this.getMatched(item[0], item[1]);
+        if (ret) {
+          return this.getToken(item[2], ret);
+        }
+      }
+    }
+  }
+}

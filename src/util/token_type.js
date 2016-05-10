@@ -4,10 +4,10 @@ export default {
   TPL: 'tpl',
   ILLEGAL: 'illegal',
   RESERVED_COMMENT: 'reserverd_comment',
+  IE_HACK: 'ie_hack',
   
   XML_START: 'xml_start',
-  
-  HTML_IE_HACK: 'html_ie_hack',
+ 
   HTML_TAG_START: 'html_tag_start',
   HTML_TAG_END: 'html_tag_end',
   HTML_TAG_TEXTAREA: 'html_tag_textarea',
