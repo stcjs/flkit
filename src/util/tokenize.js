@@ -331,7 +331,7 @@ export default class extends Base {
    * @return {Object} []
    */
   getTplToken(){
-    if (!this.hasTpl) {
+    if (!this._hasTpl) {
       return false;
     }
     let length = this.ld.length, ld, rd, tplInstance = this.getTplInstance();
@@ -360,7 +360,7 @@ export default class extends Base {
    * @return {Boolean} []
    */
   isTplNext(){
-    if (!this.hasTpl) {
+    if (!this._hasTpl) {
       return false;
     }
     let length = this.ld.length;

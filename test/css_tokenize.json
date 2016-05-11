@@ -48710,5 +48710,607 @@
         "ext": {}
       }
     ]
+  },
+  "b42bad1f6987bee80c296228644a1647": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": ":root {\n  --mainColor: red;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b42bad1f6987bee80c296228644a1647",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": ":root",
+        "start": 0,
+        "end": 6,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 6,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 6
+          },
+          "end": {
+            "line": 0,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "--mainColor",
+        "start": 10,
+        "end": 21,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 13
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "--maincolor"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 21,
+        "end": 22,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 13
+          },
+          "end": {
+            "line": 1,
+            "column": 14
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "red",
+        "start": 23,
+        "end": 26,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 15
+          },
+          "end": {
+            "line": 1,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "red",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 26,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 18
+          },
+          "end": {
+            "line": 1,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 28,
+        "end": 29,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "b7b46798cdb49f410df4fbf3a263e51a": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a {\n  color: var(--mainColor);\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b7b46798cdb49f410df4fbf3a263e51a",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 2,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 2,
+        "end": 3,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 2
+          },
+          "end": {
+            "line": 0,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "color",
+        "start": 6,
+        "end": 11,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "color"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 11,
+        "end": 12,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 7
+          },
+          "end": {
+            "line": 1,
+            "column": 8
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "var(--mainColor)",
+        "start": 13,
+        "end": 29,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 9
+          },
+          "end": {
+            "line": 1,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "var(--mainColor)",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 29,
+        "end": 30,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 25
+          },
+          "end": {
+            "line": 1,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 31,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "ab7f2e156daddea882c28a65325444d7": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "@custom-media --small-viewport (max-width: 30em);",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ab7f2e156daddea882c28a65325444d7",
+    "result": [
+      {
+        "type": "css_at",
+        "value": "@custom-media --small-viewport (max-width: 30em);",
+        "start": 0,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 49
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "c9d91ff8ab9b64929da164ae2f214fde": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "@media (--small-viewport) {\n  /* styles for small viewport */\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c9d91ff8ab9b64929da164ae2f214fde",
+    "result": [
+      {
+        "type": "css_media",
+        "value": "@media (--small-viewport)",
+        "start": 0,
+        "end": 26,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 26,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 26
+          },
+          "end": {
+            "line": 0,
+            "column": 27
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 62,
+        "end": 63,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "/* styles for small viewport */",
+            "start": 30,
+            "end": 61,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 2
+              },
+              "end": {
+                "line": 1,
+                "column": 33
+              }
+            }
+          }
+        ],
+        "ext": {}
+      }
+    ]
+  },
+  "5e387159c2e802fafa6a302381b38525": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "@custom-selector :--button button, .button;",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5e387159c2e802fafa6a302381b38525",
+    "result": [
+      {
+        "type": "css_at",
+        "value": "@custom-selector :--button button, .button;",
+        "start": 0,
+        "end": 43,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 43
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "163229b147690368a7661f5cd38b52bf": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": ":--button {\n  /* styles for your buttons */\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "163229b147690368a7661f5cd38b52bf",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": ":--button",
+        "start": 0,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 10,
+        "end": 11,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 10
+          },
+          "end": {
+            "line": 0,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 44,
+        "end": 45,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "/* styles for your buttons */",
+            "start": 14,
+            "end": 43,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 2
+              },
+              "end": {
+                "line": 1,
+                "column": 31
+              }
+            }
+          }
+        ],
+        "ext": {}
+      }
+    ]
+  },
+  "28a34bb3167206a4ae2cc7ec3589b9a2": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a::before {\n  /* ... */\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "28a34bb3167206a4ae2cc7ec3589b9a2",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a::before",
+        "start": 0,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 10,
+        "end": 11,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 10
+          },
+          "end": {
+            "line": 0,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 24,
+        "end": 25,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "/* ... */",
+            "start": 14,
+            "end": 23,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 2
+              },
+              "end": {
+                "line": 1,
+                "column": 11
+              }
+            }
+          }
+        ],
+        "ext": {}
+      }
+    ]
   }
 }

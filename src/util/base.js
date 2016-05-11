@@ -2,6 +2,7 @@
 import util from 'util';
 
 import Message from './message.js';
+import BaseTemplate from '../template/base.js';
 import PHPTemplate from '../template/php.js';
 import SmartyTemplate from '../template/smarty.js';
 import Err from './error.js';
@@ -31,7 +32,7 @@ export default class {
     this.options = options;
 
     this.initTpl();
-    this.hasTpl = this.hasTpl();
+    this._hasTpl = this.hasTpl();
   }
   /**
    * remove unnecessary chars in text
@@ -71,7 +72,7 @@ export default class {
    * check text has tpl
    * @return {Boolean}      []
    */
-  hasTpl(){
+  hasTpl(text){
     if (!this.tpl || !this.ld.length) {
       return false;
     }
@@ -79,7 +80,7 @@ export default class {
     for(var i = 0, length = this.ld.length, ld, rd; i < length; i++){
       ld = this.ld[i];
       rd = this.rd[i];
-      if (tplInstance.hasTpl(this.text, ld, rd)) {
+      if (tplInstance.hasTpl(text || this.text, ld, rd)) {
         return true;
       }
     }
@@ -113,7 +114,7 @@ export default class {
    */
   getTplInstance(){
     if(!this.tpl){
-      throw new Error(Message.TplEmpty);
+      return new BaseTemplate();
     }
     if(!(this.tpl in templates)){
       this.error(Message.TplNotFound, undefined, undefined, [this.tpl]);

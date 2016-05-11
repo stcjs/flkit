@@ -1,14 +1,17 @@
 import Base from '../../util/tokenize.js';
-import {isTagFirstChar, isTagNameChar} from './util.js';
-import {TokenType} from '../../util/token_type.js';
+import TokenType from '../../util/token_type.js';
 import Message from '../../util/message.js';
 import {
   specialTokens, 
   reservedCommentPrefix, 
-  rawTokens, 
+  rawTokens
+} from './config.js';
+import {
+  isTagFirstChar, 
+  isTagNameChar,
   parseScriptAttrs, 
   parseStyleAttrs
-} from './config.js';
+} from './util.js';
 
 const specialTokensLength = specialTokens.length;
 const reservedCommentLength = reservedCommentPrefix.length;
@@ -90,7 +93,7 @@ export default class extends Base {
           case 0x3f: // ?
             ret += this.next();
             if (this.lookAt('xml ') || this.lookAt('xml>')) {
-              type = TokenType.HTML_TAG_XML;
+              type = TokenType.XML_START;
             }else{
               type = TokenType.HTML_TAG_START;
             }
@@ -98,24 +101,22 @@ export default class extends Base {
           default:
             //a-z
             if (code >= 0x61 && code <= 0x7a) {
-              if (this.options.tag_attrs){
-                let tagName = this.getTagName();
-                let tagAttrs = this.getTagAttrs();
-                let str = '<' + tagName + tagAttrs.value;
-                //get tag attrs error
-                if (tagAttrs.message) {
-                  return this.getToken(TokenType.ILLEGAL, str, {
-                    message: tagAttrs.message
-                  });
-                }
-                return this.getToken(TokenType.HTML_TAG_START, str, {
-                  tag: tagName,
-                  tagLowerCase: tagName.toLowerCase(),
-                  attrs: tagAttrs.attrs
+              let tagName = this.getTagName();
+              let tagAttrs = this.getTagAttrs();
+              let str = '<' + tagName + tagAttrs.value;
+              //get tag attrs error
+              if (tagAttrs.message) {
+                return this.getToken(TokenType.ILLEGAL, str, {
+                  message: tagAttrs.message
                 });
-              }else{
-                type = TokenType.HTML_TAG_START;
               }
+              let token = this.getToken(TokenType.HTML_TAG_START, str);
+              token.detail = {
+                tag: tagName,
+                tagLowerCase: tagName.toLowerCase(),
+                attrs: tagAttrs.attrs
+              };
+              return token;
             }else{
               type = TokenType.ILLEGAL;
             }
@@ -312,19 +313,19 @@ export default class extends Base {
         code = item.value.charCodeAt(0);
         if (code === 0x22 || code === 0x27) {
           attrs[i].quote = item.value.slice(0, 1);
-          attrs[i]._value = item.value.slice(1, -1);
+          attrs[i].value = item.value.slice(1, -1);
         }else{
           attrs[i].quote = '';
-          attrs[i]._value = item.value;
+          attrs[i].value = item.value;
         }
       }
       //template syntax in attribute name
       //may be has uppercase chars in template syntax
       //etc: <input <?php echo $NAME;?>name="value" >
-      if (this.containTpl(item.name)) {
-        attrs[i]._name = item.name;
+      if (this.hasTpl(item.name)) {
+        attrs[i].nameLowerCase = item.name;
       }else{
-        attrs[i]._name = item.name.toLowerCase();
+        attrs[i].nameLowerCase = item.name.toLowerCase();
       }
     }
     return {
@@ -389,16 +390,16 @@ export default class extends Base {
       if (startToken.type === TokenType.ILLEGAL) {
         return startToken;
       }
-      if (item[2] === TokenType.HTML_TAG_SCRIPT && this.options.tag_attrs) {
+      if (item[2] === TokenType.HTML_TAG_SCRIPT) {
         startToken = parseScriptAttrs(startToken);
-      }else if (item[2] === TokenType.HTML_TAG_STYLE && this.options.tag_attrs) {
+      }else if (item[2] === TokenType.HTML_TAG_STYLE) {
         startToken = parseStyleAttrs(startToken);
       }
       this.startToken();
       contentToken = this.getToken(TokenType.HTML_RAW_TEXT, this.forward(pos - this.pos));
       this.startToken();
       endToken = this.getTagToken();
-      token.ext.value = startToken.value + contentToken.value + endToken.value;
+      token.value = startToken.value + contentToken.value + endToken.value;
       token.ext.start = startToken;
       token.ext.content = contentToken;
       token.ext.end = endToken;

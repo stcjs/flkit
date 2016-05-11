@@ -1,4 +1,4 @@
-import {TokenType} from '../../util/token_type.js';
+import TokenType from '../../util/token_type.js';
 import {toHash} from '../../util/util.js';
 
 /**
