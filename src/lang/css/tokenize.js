@@ -244,13 +244,10 @@ export default class extends BaseTokenize {
         quote = this.getQuote({
           rollback: true
         });
-        ret += quote.value;
         if (!quote.find) {
-          // ret += this.forwardChar(';', false);
-          // return this.getToken(TokenType.ILLEGAL, ret, {
-          //   message: Message.UnMatchedQuoteChar
-          // });
+          this.error(`can not find matched quote \`${chr}\``);
         }
+        ret += quote.value;
         continue;
       }else if (code === 0x28) { // ( )
         ret += this.getMatchedChar(0x28, 0x29, {

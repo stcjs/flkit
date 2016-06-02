@@ -34,3 +34,9 @@ export function makePredicate(string) {
  * is whitespace char
  */
 export let isWhiteSpace = makePredicate(whitespace);
+/**
+ * check has space between tokens
+ */
+export function hasSpaceBetweenTokens(preToken, token){
+  
+}

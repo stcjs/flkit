@@ -548,6 +548,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 5,
             "end": 5,
@@ -640,6 +641,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "<span>",
             "start": 5,
             "end": 11,
@@ -739,6 +741,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "sss",
             "start": 16,
             "end": 19,
@@ -1973,6 +1976,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 7,
             "end": 7,
@@ -2085,6 +2089,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 9,
             "end": 9,
@@ -2232,6 +2237,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\na{color: red}\n",
             "start": 7,
             "end": 22,
@@ -2326,6 +2332,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\na{color: red}\n",
             "start": 8,
             "end": 23,
@@ -2412,7 +2419,7 @@
             "commentBefore": [],
             "ext": {
               "isScript": true,
-              "isExternal": false,
+              "isExternal": true,
               "type": ""
             },
             "detail": {
@@ -2429,6 +2436,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 15,
             "end": 15,
@@ -2567,6 +2575,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\nvar a = 1;\n",
             "start": 8,
             "end": 20,
@@ -2663,6 +2672,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\nvar a = 1;\n",
             "start": 9,
             "end": 21,
@@ -2755,6 +2765,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 10,
             "end": 10,
@@ -2847,6 +2858,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\nwelefen\n",
             "start": 10,
             "end": 19,
@@ -2939,6 +2951,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "welefen",
             "start": 5,
             "end": 12,
@@ -3442,6 +3455,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "<!-- -->",
             "start": 72,
             "end": 80,
@@ -3547,7 +3561,7 @@
             "ext": {
               "isScript": true,
               "isExternal": false,
-              "type": ""
+              "type": "text/javascript"
             },
             "detail": {
               "tag": "script",
@@ -3563,6 +3577,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "(function(){var b=(\"abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video\").split(\",\"),a=b.length;while(a--){document.createElement(b[a])}})();",
             "start": 43,
             "end": 283,
@@ -3805,7 +3820,7 @@
             "commentBefore": [],
             "ext": {
               "isScript": true,
-              "isExternal": false,
+              "isExternal": true,
               "type": ""
             },
             "detail": {
@@ -3822,6 +3837,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 62,
             "end": 62,
@@ -3906,6 +3922,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "DD_belatedPNG.fix(\".pngfix\")",
             "start": 79,
             "end": 107,
@@ -4372,26 +4389,7 @@
     "rd": "",
     "options": {},
     "key": "c551b48055ec69d1a23a7ab65983121c",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "</ h1>",
-        "start": 0,
-        "end": 6,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 6
-          }
-        },
-        "commentBefore": [],
-        "ext": {}
-      }
-    ]
+    "result": "end tag is not valid (line: 1, col: 2)\n"
   },
   "cbe8995518064cd9b34737dd9586a576": {
     "lang": "html",
@@ -4550,28 +4548,7 @@
     "rd": "",
     "options": {},
     "key": "466b5ceaf5cb4d14ffa333b3858dfc0a",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "<div name=\"'>",
-        "start": 0,
-        "end": 13,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 13
-          }
-        },
-        "commentBefore": [],
-        "ext": {
-          "message": "cant not find end quote char"
-        }
-      }
-    ]
+    "result": "can not find matched quote char `\"` (line: 1, col: 12)\n"
   },
   "3046f4c355cb15630599621585e927bd": {
     "lang": "html",
@@ -5448,6 +5425,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\ndocument.write('<script><\\/script>')\n",
             "start": 8,
             "end": 46,
@@ -5528,26 +5506,7 @@
     "rd": "",
     "options": {},
     "key": "3635c391929077dfdb95105f00ed2037",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "<//>",
-        "start": 0,
-        "end": 4,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 4
-          }
-        },
-        "commentBefore": [],
-        "ext": {}
-      }
-    ]
+    "result": "end tag is not valid (line: 1, col: 2)\n"
   },
   "8a67a9e195fd1dba673e06ee132b449a": {
     "lang": "html",
@@ -5729,6 +5688,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 8,
             "end": 8,
@@ -6296,7 +6256,7 @@
     "key": "c9a0912c5719158f385d44b6f1ef9d44",
     "result": [
       {
-        "type": "illegal",
+        "type": "html_tag_start",
         "value": "<div ",
         "start": 0,
         "end": 5,
@@ -6311,8 +6271,10 @@
           }
         },
         "commentBefore": [],
-        "ext": {
-          "message": "can not find tag end char `>`"
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div"
         }
       }
     ]
@@ -6412,26 +6374,7 @@
     "rd": "",
     "options": {},
     "key": "b8560a099ae0555e303b266bf9a68875",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "</ div>",
-        "start": 0,
-        "end": 7,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 7
-          }
-        },
-        "commentBefore": [],
-        "ext": {}
-      }
-    ]
+    "result": "end tag is not valid (line: 1, col: 2)\n"
   },
   "9db055ad4de726ae8a3ffdd5b9e4e784": {
     "lang": "html",
@@ -6530,7 +6473,7 @@
     "key": "877eee7ec52d4ef48293ebf0841e5442",
     "result": [
       {
-        "type": "illegal",
+        "type": "html_text",
         "value": "<!@#@!#>",
         "start": 0,
         "end": 8,
@@ -7063,6 +7006,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "alert`1`",
             "start": 8,
             "end": 16,
@@ -7672,7 +7616,7 @@
             "commentBefore": [],
             "ext": {
               "isScript": true,
-              "isExternal": false,
+              "isExternal": true,
               "type": ""
             },
             "detail": {
@@ -7689,6 +7633,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 20,
             "end": 20,
@@ -7829,46 +7774,7 @@
     "rd": "",
     "options": {},
     "key": "2bc89155201b7b3ca7114671fe77069a",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "<div name='",
-        "start": 0,
-        "end": 11,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 11
-          }
-        },
-        "commentBefore": [],
-        "ext": {
-          "message": "cant not find end quote char"
-        }
-      },
-      {
-        "type": "html_text",
-        "value": "\"",
-        "start": 11,
-        "end": 12,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 11
-          },
-          "end": {
-            "line": 0,
-            "column": 12
-          }
-        },
-        "commentBefore": [],
-        "ext": {}
-      }
-    ]
+    "result": "can not find matched quote char `'` (line: 1, col: 12)\n"
   },
   "f6e5b959e5e6e439f5251f5faee1fba9": {
     "lang": "html",
@@ -7879,28 +7785,7 @@
     "rd": "",
     "options": {},
     "key": "f6e5b959e5e6e439f5251f5faee1fba9",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "<div name='www\">",
-        "start": 0,
-        "end": 16,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 16
-          }
-        },
-        "commentBefore": [],
-        "ext": {
-          "message": "cant not find end quote char"
-        }
-      }
-    ]
+    "result": "can not find matched quote char `'` (line: 1, col: 12)\n"
   },
   "23cd794e6ab5683e9babdbf094aec20f": {
     "lang": "html",
@@ -7911,28 +7796,7 @@
     "rd": "",
     "options": {},
     "key": "23cd794e6ab5683e9babdbf094aec20f",
-    "result": [
-      {
-        "type": "illegal",
-        "value": "<div name=\"www'>",
-        "start": 0,
-        "end": 16,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 16
-          }
-        },
-        "commentBefore": [],
-        "ext": {
-          "message": "cant not find end quote char"
-        }
-      }
-    ]
+    "result": "can not find matched quote char `\"` (line: 1, col: 12)\n"
   },
   "7d63c54902df05ea51ae55bdbe53f094": {
     "lang": "html",
@@ -8941,6 +8805,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 8,
             "end": 8,
@@ -9150,6 +9015,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 8,
             "end": 8,
@@ -9335,7 +9201,7 @@
     "key": "fd53f818185c5bd5dcb621ef97a39315",
     "result": [
       {
-        "type": "illegal",
+        "type": "html_text",
         "value": "<!wwwwww>",
         "start": 0,
         "end": 9,
@@ -9365,7 +9231,7 @@
     "key": "bc48b7ac4a11fd219a87c01d7bdef3f8",
     "result": [
       {
-        "type": "illegal",
+        "type": "html_text",
         "value": "<!>",
         "start": 0,
         "end": 3,
@@ -10042,6 +9908,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\n\n",
             "start": 5,
             "end": 7,
@@ -10145,6 +10012,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\n\n",
             "start": 32,
             "end": 34,
@@ -10248,6 +10116,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "\n\n\n",
             "start": 31,
             "end": 34,
@@ -10349,6 +10218,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 24,
             "end": 24,
@@ -10450,6 +10320,7 @@
             }
           },
           "content": {
+            "type": "html_raw_text",
             "value": "",
             "start": 23,
             "end": 23,
@@ -11103,6 +10974,36 @@
           "end": {
             "line": 3,
             "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "b372ab2688ab40d395401c6c63f3daee": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "a\n\nb\n\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b372ab2688ab40d395401c6c63f3daee",
+    "result": [
+      {
+        "type": "html_text",
+        "value": "a\n\nb",
+        "start": 0,
+        "end": 6,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 0
           }
         },
         "commentBefore": [],

@@ -23,7 +23,7 @@ export function isTagNameChar(code){
  */
 export function parseScriptAttrs(token){
   let isScript = false, isExternal = false, type = '';
-  let attrs = token.attrs || [], i = 0, item;
+  let attrs = token.detail.attrs || [], i = 0, item;
   for(; item = attrs[i++]; ){
     switch(item.name){
       case 'src':

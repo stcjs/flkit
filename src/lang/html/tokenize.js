@@ -35,7 +35,7 @@ export default class extends Base {
     // <
     if (code === 0x3c) {
       let nextCode = this._text.charCodeAt(this.pos + 1);
-      //all special token start with <!
+      // all special token start with <!
       token = nextCode === 0x21 ? this.getSpecialToken() : this.getRawToken();
       if (token) {
         return token;
@@ -77,7 +77,7 @@ export default class extends Base {
     let ret = this.next();
     let type, tagEnd = false, quote;
     while(this.pos < this.length){
-      //let chr = this.text[this.pos];
+      let chr = this.text[this.pos];
       let code = this._text.charCodeAt(this.pos);
       if (!type) {
         switch(code){
@@ -87,7 +87,7 @@ export default class extends Base {
             if (nextCode >= 0x61 && nextCode <= 0x7a) {
               type = TokenType.HTML_TAG_END;
             }else{
-              type = TokenType.ILLEGAL;
+              this.error('end tag is not valid');
             }
             break;
           case 0x3f: // ?
@@ -104,12 +104,6 @@ export default class extends Base {
               let tagName = this.getTagName();
               let tagAttrs = this.getTagAttrs();
               let str = '<' + tagName + tagAttrs.value;
-              //get tag attrs error
-              if (tagAttrs.message) {
-                return this.getToken(TokenType.ILLEGAL, str, {
-                  message: tagAttrs.message
-                });
-              }
               let token = this.getToken(TokenType.HTML_TAG_START, str);
               token.detail = {
                 tag: tagName,
@@ -118,7 +112,7 @@ export default class extends Base {
               };
               return token;
             }else{
-              type = TokenType.ILLEGAL;
+              type = TokenType.HTML_TEXT;
             }
             break;
         }
@@ -130,10 +124,7 @@ export default class extends Base {
         });
         ret += quote.value;
         if (!quote.find) {
-          ret += this.forwardChar('>');
-          return this.getToken(TokenType.ILLEGAL, ret, {
-            message: Message.UnMatchedQuoteChar
-          });
+          this.error(`can not find matched quote char \`${chr}\``)
         }
         continue;
       }
@@ -150,10 +141,9 @@ export default class extends Base {
       }
       ret += this.next();
     }
+    //tag not closed
     if (!tagEnd) {
-      return this.getToken(TokenType.ILLEGAL, ret, {
-        message: Message.TagUnClosed
-      });
+      return this.getToken(TokenType.HTML_RAW_TEXT, ret);
     }
     //get tag attrs
     if (type === TokenType.HTML_TAG_END) {
@@ -250,11 +240,7 @@ export default class extends Base {
         value += quote.value.slice(1);
         //quote string not found
         if (!quote.find) {
-          value += this.forwardChar('>');
-          return {
-            value: value,
-            message: Message.UnMatchedQuoteChar
-          };
+          this.error(`can not find matched quote char \`${chr}\``)
         }
         //has no equal char, quot string add to attribute name
         if (!hasEqual) {
@@ -386,10 +372,6 @@ export default class extends Base {
 
       this.startToken();
       startToken = this.getTagToken();
-      //start token is not valid
-      if (startToken.type === TokenType.ILLEGAL) {
-        return startToken;
-      }
       if (item[2] === TokenType.HTML_TAG_SCRIPT) {
         startToken = parseScriptAttrs(startToken);
       }else if (item[2] === TokenType.HTML_TAG_STYLE) {
