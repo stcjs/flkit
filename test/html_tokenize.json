@@ -11010,5 +11010,89 @@
         "ext": {}
       }
     ]
+  },
+  "1ffd71f088452812ac0cc85939675cbe": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<a href=\"www\">",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1ffd71f088452812ac0cc85939675cbe",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<a href=\"www\">",
+        "start": 0,
+        "end": 14,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 14
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "a",
+          "tagLowerCase": "a",
+          "attrs": [
+            {
+              "name": "href",
+              "value": "www",
+              "quote": "\"",
+              "nameLowerCase": "href"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "f7044930f92c90b484c8ec99d30306b7": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div id=\"www\">",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f7044930f92c90b484c8ec99d30306b7",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"www\">",
+        "start": 0,
+        "end": 14,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 14
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "www",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ]
+        }
+      }
+    ]
   }
 }
