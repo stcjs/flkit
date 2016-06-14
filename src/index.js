@@ -13,3 +13,11 @@ export const CssSelectorTokenize = css_selector_tokenize;
 export const HtmlTokenize = html_tokenize;
 export const htmlToken2Text = html_token_2_text;
 export const cssToken2Text = css_token_2_text;
+
+/**
+ * has template syntax in text
+ */
+export function hasTpl(text, options = {}) {
+  let instance = new BaseTemplate(text, options);
+  return instance.hasTpl();
+}

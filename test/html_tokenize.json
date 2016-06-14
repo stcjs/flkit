@@ -4731,6 +4731,7 @@
               "name": "name",
               "value": "w<&if $name=\"\"&>ww<&$name=\"\"&>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -4812,6 +4813,7 @@
               "name": "name",
               "value": "w<&if $name=\"\"&>ww<&$name=\"\"&>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -6142,12 +6144,14 @@
               "name": "data-id",
               "value": "<%= Settings.ring_alarm_settings.stop_on_console%>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "data-id"
             },
             {
               "name": "class",
               "value": "icon-radiobox<%= \" r-checked\" if @device.ring_alarm_setting.nil? or @device.ring_alarm_setting == Settings.ring_alarm_settings.stop_on_console %>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "class"
             },
             {
@@ -6196,6 +6200,7 @@
               "name": "name",
               "value": "<%value=\"welefen>\"%>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -6238,6 +6243,7 @@
               "name": "name",
               "value": "<%value=\"welefen\"%>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -10636,6 +10642,7 @@
               "name": "name",
               "value": "<?php $name = \"WELEFEN ?>\";/**$name = \\\" ?>;*/?>",
               "quote": "",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -10678,6 +10685,7 @@
               "name": "name",
               "value": "<%$name%>",
               "quote": "\"",
+              "hasTpl": true,
               "nameLowerCase": "name"
             }
           ]
@@ -11254,6 +11262,49 @@
         },
         "commentBefore": [],
         "ext": {}
+      }
+    ]
+  },
+  "fd911f228b101a68b108bf21211cca10": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<img src=\"{=$name=}\" />",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "fd911f228b101a68b108bf21211cca10",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<img src=\"{=$name=}\" />",
+        "start": 0,
+        "end": 23,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "img",
+          "tagLowerCase": "img",
+          "attrs": [
+            {
+              "name": "src",
+              "value": "{=$name=}",
+              "quote": "\"",
+              "hasTpl": true,
+              "nameLowerCase": "src"
+            }
+          ]
+        }
       }
     ]
   }

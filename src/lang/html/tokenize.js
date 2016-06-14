@@ -289,7 +289,6 @@ export default class extends Base {
         message: Message.TagUnClosed
       };
     }
-    //add _name, _value for attr item
     for(let i = 0, length = attrs.length, item; i < length; i++){
       item = attrs[i];
       if (item.ld) {
@@ -303,6 +302,11 @@ export default class extends Base {
         }else{
           attrs[i].quote = '';
           attrs[i].value = item.value;
+        }
+        let hasTpl = this.hasTpl(attrs[i].value);
+        //add has tpl flag for value
+        if(hasTpl && !attrs[i].type){
+          attrs[i].hasTpl = true;
         }
       }
       //template syntax in attribute name
