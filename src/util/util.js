@@ -42,7 +42,7 @@ export function hasSpaceBetweenTokens(preToken, token){
   if(!preToken){
     return token.start > 0;
   }
-  let start = toeken.start;
+  let start = token.start;
   if(token.commentBefore.length){
     start = token.commentBefore[0].start;
   }

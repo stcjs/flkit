@@ -83,8 +83,37 @@ export function attrs2Text(attrs = []){
 /**
  * tokens to text
  */
-export function token2Text(tokens = []){
-  return tokens.map(token => {
-    
-  }).join('');
+export function token2Text(tokens = [], stringify = {
+  css: null,
+  js: null
+}){
+  let prevToken = null;
+  let result = [];
+
+  tokens.forEach(token => {
+    // has space between tokens
+    if(hasSpaceBetweenTokens(prevToken, token)){
+      result.push(' ');
+    }
+    // has comment
+    if(token.commentBefore.length){
+      token.commentBefore.forEach(item => {
+        result.push(item.value);
+      });
+    }
+    switch(token.type){
+      case TokenType.HTML_TAG_START:
+        let attrText = attrs2Text(token.detail.attrs);
+        if(attrText){
+          attrText = ' ' + attrText;
+        }
+        result.push(`<${token.detail.tag}${attrText}>`)
+        break;
+      default:
+        result.push(token.value);
+        break;
+    }
+    prevToken = token;
+  });
+  return result.join('');
 }

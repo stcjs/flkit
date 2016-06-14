@@ -59,3 +59,11 @@ export const selectorBreakChar = makePredicate(selectorCharUntil);
 export function isPseudoElement(el){
   return pseudosElements21.indexOf(el) > -1;
 }
+/**
+ * tokens to text
+ */
+export function token2Text(tokens) {
+  return tokens.map(token => {
+    return token.value;
+  }).join('');
+}
