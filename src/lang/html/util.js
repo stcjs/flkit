@@ -63,7 +63,8 @@ export function parseStyleAttrs(token){
   }
   token.ext.isStyle = isStyle;
   return token;
-}
+};
+
 /**
  * tag attrs to text
  */
@@ -79,7 +80,19 @@ export function attrs2Text(attrs = []){
     }
     return attr.name + ' ';
   }).join('').trim();
-}
+};
+
+/**
+ * start token to text
+ */
+const startToken2Text = token => {
+  let attrText = attrs2Text(token.detail.attrs);
+  if(attrText){
+    attrText = ' ' + attrText;
+  }
+  return `<${token.detail.tag}${attrText}>`;
+};
+
 /**
  * tokens to text
  */
@@ -101,13 +114,36 @@ export function token2Text(tokens = [], stringify = {
         result.push(item.value);
       });
     }
+    let contentToken;
     switch(token.type){
       case TokenType.HTML_TAG_START:
-        let attrText = attrs2Text(token.detail.attrs);
-        if(attrText){
-          attrText = ' ' + attrText;
+        result.push(startToken2Text(token));
+        break;
+      case TokenType.HTML_TAG_STYLE:
+        let start = startToken2Text(token.ext.start);
+        result.push(start);
+        contentToken = token.ext.content;
+        if(!stringify.css || !contentToken.ext.tokens){
+          result.push(contentToken.value);
+        }else{
+          result.push(stringify.css(contentToken.ext.tokens));
         }
-        result.push(`<${token.detail.tag}${attrText}>`)
+        result.push(token.ext.end.value);
+        break;
+      case TokenType.HTML_TAG_SCRIPT:
+        let startToken = token.ext.start;
+        result.push(startToken2Text(startToken));
+        contentToken = token.ext.content;
+        if(contentToken.ext.tokens){
+          if(startToken.ext.isScript){
+            result.push(stringify.js(contentToken.ext.tokens));
+          }else{
+            result.push(token2Text(contentToken.ext.tokens));
+          }
+        }else{
+          result.push(contentToken.value);
+        }
+        result.push(token.ext.end.value);
         break;
       default:
         result.push(token.value);
