@@ -11094,5 +11094,167 @@
         }
       }
     ]
+  },
+  "52ba0c6e38557b493e2cfec3e5dcda18": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "    www",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "52ba0c6e38557b493e2cfec3e5dcda18",
+    "result": [
+      {
+        "type": "html_text",
+        "value": "www",
+        "start": 4,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 4
+          },
+          "end": {
+            "line": 0,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "6c94d6f51fe3168cddd5191571a75e74": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div><!----></div>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6c94d6f51fe3168cddd5191571a75e74",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div>",
+        "start": 0,
+        "end": 5,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": []
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 12,
+        "end": 18,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 12
+          },
+          "end": {
+            "line": 0,
+            "column": 18
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "<!---->",
+            "start": 5,
+            "end": 12,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 5
+              },
+              "end": {
+                "line": 0,
+                "column": 12
+              }
+            }
+          }
+        ],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      }
+    ]
+  },
+  "08f5848fd301e4fa482c538a8248c279": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "test ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "08f5848fd301e4fa482c538a8248c279",
+    "result": [
+      {
+        "type": "html_text",
+        "value": "test",
+        "start": 0,
+        "end": 5,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "dd6cc84af6fd1de011249ff35ff36986": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "fasdfasdf",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "dd6cc84af6fd1de011249ff35ff36986",
+    "result": [
+      {
+        "type": "html_text",
+        "value": "fasdfasdf",
+        "start": 0,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }

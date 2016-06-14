@@ -1,3 +1,6 @@
+import TokenType from '../../util/token_type.js';
+import {hasSpaceBetweenTokens} from '../../util/util.js';
+
 /**
  * check code is tag name first char
  * @param  {Number}  code [char code]
@@ -60,4 +63,28 @@ export function parseStyleAttrs(token){
   }
   token.ext.isStyle = isStyle;
   return token;
+}
+/**
+ * tag attrs to text
+ */
+export function attrs2Text(attrs = []){
+  return attrs.map(attr => {
+    // is tpl
+    if(attr.type === TokenType.TPL){
+      return (attr.spaceBefore ? ' ' : '') + attr.value;
+    }
+    let quote = attr.quote || '';
+    if('value' in attr){
+      return attr.name + '=' + quote + attr.value + quote + ' ';
+    }
+    return attr.name + ' ';
+  }).join('').trim();
+}
+/**
+ * tokens to text
+ */
+export function token2Text(tokens = []){
+  return tokens.map(token => {
+    
+  }).join('');
 }

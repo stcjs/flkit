@@ -34,9 +34,17 @@ export function makePredicate(string) {
  * is whitespace char
  */
 export let isWhiteSpace = makePredicate(whitespace);
+
 /**
  * check has space between tokens
  */
 export function hasSpaceBetweenTokens(preToken, token){
-  
+  if(!preToken){
+    return token.start > 0;
+  }
+  let start = toeken.start;
+  if(token.commentBefore.length){
+    start = token.commentBefore[0].start;
+  }
+  return start - preToken.end > 0;
 }
