@@ -11307,5 +11307,91 @@
         }
       }
     ]
+  },
+  "17d943623479d0e477526b7399432f84": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div m=<%$name%> />",
+    "tpl": "smarty",
+    "ld": "<%",
+    "rd": "%>",
+    "options": {},
+    "key": "17d943623479d0e477526b7399432f84",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div m=<%$name%> />",
+        "start": 0,
+        "end": 19,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "m",
+              "value": "<%$name%>",
+              "quote": "",
+              "hasTpl": true,
+              "nameLowerCase": "m"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "8429a323f151acdbfb7b0e0a2c130643": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<img src=\"/wwww/{%$name%}\">",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "8429a323f151acdbfb7b0e0a2c130643",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<img src=\"/wwww/{%$name%}\">",
+        "start": 0,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 27
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "img",
+          "tagLowerCase": "img",
+          "attrs": [
+            {
+              "name": "src",
+              "value": "/wwww/{%$name%}",
+              "quote": "\"",
+              "hasTpl": true,
+              "nameLowerCase": "src"
+            }
+          ]
+        }
+      }
+    ]
   }
 }
