@@ -17,7 +17,6 @@ export default {
   HTML_DOCTYPE: 'html_doctype',
   HTML_TEXT: 'html_text',
   HTML_CDATA: 'html_cdata',
-  HTML_RAWTEXT: 'html_rawtext',
   
   CSS_SELECTOR: 'css_selector',
   CSS_PROPERTY: 'css_property',
