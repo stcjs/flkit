@@ -48655,5 +48655,35 @@
         "ext": {}
       }
     ]
+  },
+  "e6edf555fee688d20e968428efa84742": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "<br \n\n\n/>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "e6edf555fee688d20e968428efa84742",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "<br \n\n\n/>",
+        "start": 0,
+        "end": 9,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }

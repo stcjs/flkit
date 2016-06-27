@@ -110,6 +110,9 @@ export default class HtmlTokenize extends Base {
                 tagLowerCase: tagName.toLowerCase(),
                 attrs: tagAttrs.attrs
               };
+              if(tagAttrs.slash){
+                token.detail.slash = tagAttrs.slash;
+              }
               return token;
             }else{
               type = TokenType.HTML_TEXT;
@@ -183,6 +186,7 @@ export default class HtmlTokenize extends Base {
     let hasEqual = false, spaceBefore = false, tagEnd = false;
     let tplInstance = this.getTplInstance();
     let attrName = '', attrValue = '', tplToken;
+    let singleTagClose = false;
     while(this.pos < this.length){
       tplToken = this.getTplToken();
       if (tplToken) {
@@ -221,10 +225,13 @@ export default class HtmlTokenize extends Base {
         tagEnd = true;
         this.next();
         break;
-      }else if (code === 0x3d) { // char is =
+      }
+      singleTagClose = false;
+      if (code === 0x3d) { // char is =
         hasEqual = true;
         spaceBefore = false;
       }else if (!hasEqual && code === 0x2f) { //0x2f is /
+        singleTagClose = true;
         if (this.text.charCodeAt[this.pos - 1] !== 0x2f) {
           if (attrName) {
             attrs.push({name: attrName});
@@ -320,6 +327,7 @@ export default class HtmlTokenize extends Base {
     }
     return {
       value: value,
+      slash: singleTagClose,
       attrs: attrs
     };
   }

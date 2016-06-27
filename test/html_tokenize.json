@@ -311,7 +311,8 @@
         "detail": {
           "tag": "br",
           "tagLowerCase": "br",
-          "attrs": []
+          "attrs": [],
+          "slash": true
         }
       }
     ]
@@ -346,7 +347,8 @@
         "detail": {
           "tag": "br",
           "tagLowerCase": "br",
-          "attrs": []
+          "attrs": [],
+          "slash": true
         }
       }
     ]
@@ -381,7 +383,8 @@
         "detail": {
           "tag": "br",
           "tagLowerCase": "br",
-          "attrs": []
+          "attrs": [],
+          "slash": true
         }
       }
     ]
@@ -1471,7 +1474,8 @@
         "detail": {
           "tag": "br",
           "tagLowerCase": "br",
-          "attrs": []
+          "attrs": [],
+          "slash": true
         }
       }
     ]
@@ -1918,7 +1922,8 @@
               "quote": "\"",
               "nameLowerCase": "href"
             }
-          ]
+          ],
+          "slash": true
         }
       }
     ]
@@ -6657,7 +6662,8 @@
         "detail": {
           "tag": "il",
           "tagLowerCase": "il",
-          "attrs": []
+          "attrs": [],
+          "slash": true
         }
       }
     ]
@@ -9357,7 +9363,8 @@
               "quote": "\"",
               "nameLowerCase": "content"
             }
-          ]
+          ],
+          "slash": true
         }
       }
     ]
@@ -9399,7 +9406,8 @@
               "quote": "\"",
               "nameLowerCase": "src"
             }
-          ]
+          ],
+          "slash": true
         }
       }
     ]
@@ -11303,7 +11311,8 @@
               "hasTpl": true,
               "nameLowerCase": "src"
             }
-          ]
+          ],
+          "slash": true
         }
       }
     ]
@@ -11346,7 +11355,8 @@
               "hasTpl": true,
               "nameLowerCase": "m"
             }
-          ]
+          ],
+          "slash": true
         }
       }
     ]
@@ -11388,6 +11398,52 @@
               "quote": "\"",
               "hasTpl": true,
               "nameLowerCase": "src"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "a2a3b14f6d277cc757384dcd696f1414": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<aaa/www name=\"www\">",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a2a3b14f6d277cc757384dcd696f1414",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<aaa/www name=\"www\">",
+        "start": 0,
+        "end": 20,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "aaa",
+          "tagLowerCase": "aaa",
+          "attrs": [
+            {
+              "name": "www",
+              "nameLowerCase": "www"
+            },
+            {
+              "name": "name",
+              "value": "www",
+              "quote": "\"",
+              "nameLowerCase": "name"
             }
           ]
         }
