@@ -6,6 +6,9 @@ import html_tokenize from './lang/html/tokenize.js';
 import {token2Text as html_token_2_text} from './lang/html/util.js';
 import {token2Text as css_token_2_text} from './lang/css/util.js';
 import html_compress from './lang/html/compress.js';
+import BaseTokenize from './util/tokenize.js';
+
+const baseTokenizeInstance = new BaseTokenize('');
 
 export const TokenType = token_type;
 export const Template = BaseTemplate;
@@ -24,4 +27,16 @@ export const HtmlCompress = html_compress;
 export function hasTpl(text, options = {}) {
   let instance = new BaseTemplate(text, options);
   return instance.hasTpl();
+}
+
+/**
+ * create token
+ */
+export function createToken(type, value, referToken){
+  let token = baseTokenizeInstance.getToken(type, value);
+  if(referToken){
+    token.start = referToken.start;
+  }
+  token.end = token.start + value.length;
+  return token;
 }

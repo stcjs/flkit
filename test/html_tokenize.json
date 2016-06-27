@@ -41,7 +41,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "a",
+        "value": "a ",
         "start": 0,
         "end": 2,
         "loc": {
@@ -71,7 +71,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "a",
+        "value": "a\n",
         "start": 0,
         "end": 2,
         "loc": {
@@ -858,7 +858,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n",
         "start": 0,
         "end": 8,
         "loc": {
@@ -978,7 +978,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen\nsuredy",
+        "value": "welefen\nsuredy\n",
         "start": 0,
         "end": 15,
         "loc": {
@@ -1654,7 +1654,7 @@
       },
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n",
         "start": 6,
         "end": 14,
         "loc": {
@@ -2148,7 +2148,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n\n\n\n",
         "start": 0,
         "end": 11,
         "loc": {
@@ -5267,7 +5267,7 @@
       },
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n",
         "start": 11,
         "end": 19,
         "loc": {
@@ -6515,7 +6515,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "< / div",
+        "value": "< / div ",
         "start": 0,
         "end": 8,
         "loc": {
@@ -8016,7 +8016,7 @@
       },
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen   ",
         "start": 22,
         "end": 32,
         "loc": {
@@ -8182,7 +8182,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\t\n",
         "start": 0,
         "end": 9,
         "loc": {
@@ -8233,7 +8233,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\t\n\n\n",
         "start": 0,
         "end": 11,
         "loc": {
@@ -8312,7 +8312,7 @@
       },
       {
         "type": "html_text",
-        "value": ">>",
+        "value": ">> ",
         "start": 9,
         "end": 12,
         "loc": {
@@ -8559,7 +8559,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n\n  ",
         "start": 0,
         "end": 11,
         "loc": {
@@ -8589,7 +8589,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n\n",
         "start": 0,
         "end": 9,
         "loc": {
@@ -8690,7 +8690,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "welefen",
+        "value": "welefen\n",
         "start": 0,
         "end": 8,
         "loc": {
@@ -11009,7 +11009,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "a\n\nb",
+        "value": "a\n\nb\n\n",
         "start": 0,
         "end": 6,
         "loc": {
@@ -11225,7 +11225,7 @@
     "result": [
       {
         "type": "html_text",
-        "value": "test",
+        "value": "test ",
         "start": 0,
         "end": 5,
         "loc": {
@@ -11447,6 +11447,180 @@
             }
           ]
         }
+      }
+    ]
+  },
+  "34a5731a22a1a5ba5bad30150bf2453b": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<DDD/WWW/>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "34a5731a22a1a5ba5bad30150bf2453b",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<DDD/WWW/>",
+        "start": 0,
+        "end": 10,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "DDD",
+          "tagLowerCase": "ddd",
+          "attrs": [
+            {
+              "name": "WWW",
+              "nameLowerCase": "www"
+            }
+          ],
+          "slash": true
+        }
+      }
+    ]
+  },
+  "87557eb1f93e054d293d50eb648522c4": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<WWWW/wwww name/>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "87557eb1f93e054d293d50eb648522c4",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<WWWW/wwww name/>",
+        "start": 0,
+        "end": 17,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "WWWW",
+          "tagLowerCase": "wwww",
+          "attrs": [
+            {
+              "name": "wwww",
+              "nameLowerCase": "wwww"
+            },
+            {
+              "name": "name",
+              "nameLowerCase": "name"
+            }
+          ],
+          "slash": true
+        }
+      }
+    ]
+  },
+  "5bff7b42f03d45150b52f345c470f17f": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<sss//>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5bff7b42f03d45150b52f345c470f17f",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<sss//>",
+        "start": 0,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "sss",
+          "tagLowerCase": "sss",
+          "attrs": [],
+          "slash": true
+        }
+      }
+    ]
+  },
+  "6791f00b9ab6cb49d1aaf8e4110d489f": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "    ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6791f00b9ab6cb49d1aaf8e4110d489f",
+    "result": []
+  },
+  "5ed9fa2afe9fd3db66bb7c6942c53584": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "\n\n\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5ed9fa2afe9fd3db66bb7c6942c53584",
+    "result": []
+  },
+  "5959d2f346944ffb17cd4078a207a89b": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "\n\n\n\nwww",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5959d2f346944ffb17cd4078a207a89b",
+    "result": [
+      {
+        "type": "html_text",
+        "value": "www",
+        "start": 4,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
       }
     ]
   }

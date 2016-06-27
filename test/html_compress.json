@@ -1,0 +1,233 @@
+{
+  "53ece9dd0a6016393c6daaa0fb1dd745": {
+    "lang": "html",
+    "name": "compress",
+    "code": "a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "53ece9dd0a6016393c6daaa0fb1dd745",
+    "result": "a"
+  },
+  "35e3179298f8f59fa10153425907ed9d": {
+    "lang": "html",
+    "name": "compress",
+    "code": " a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "35e3179298f8f59fa10153425907ed9d",
+    "result": " a"
+  },
+  "6970f7c3dea8b3179a97022fcc28b692": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<div>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6970f7c3dea8b3179a97022fcc28b692",
+    "result": "<div>"
+  },
+  "fd652b3bf46d30d0900bbec9bec4ea43": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<!--welefen-->",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "fd652b3bf46d30d0900bbec9bec4ea43",
+    "result": ""
+  },
+  "88585f4a24b5662aa72c79296b69c337": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<!--!welefen-->",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "88585f4a24b5662aa72c79296b69c337",
+    "result": "<!--!welefen-->"
+  },
+  "0ecff4d9f6bf304f76922654de093e65": {
+    "lang": "html",
+    "name": "compress",
+    "code": "ww<!--welefen-->",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0ecff4d9f6bf304f76922654de093e65",
+    "result": "ww"
+  },
+  "adc07cf715cac85d2cf73ee9ed930496": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen---><!--!www--->ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "adc07cf715cac85d2cf73ee9ed930496",
+    "result": "www<!--!www--->ssss"
+  },
+  "4acf331e3403c0abc284ba82781df57e": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www sss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4acf331e3403c0abc284ba82781df57e",
+    "result": "www sss"
+  },
+  "58f8bb07753aac7b693b03a563be8430": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen--> ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "58f8bb07753aac7b693b03a563be8430",
+    "result": "www ssss"
+  },
+  "63613a54f7bf6c637f561fd18e476563": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www <!--welefen--> ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "63613a54f7bf6c637f561fd18e476563",
+    "result": "www ssss"
+  },
+  "85b4976ff5d18f3c5b26f374be252772": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen-->   ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "85b4976ff5d18f3c5b26f374be252772",
+    "result": "www ssss"
+  },
+  "3c1fea45f7b621b52d4bc50a9f35fcb6": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www   <!--welefen-->    ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3c1fea45f7b621b52d4bc50a9f35fcb6",
+    "result": "www ssss"
+  },
+  "a670aabf2a7e4075ab95829eed1e59f3": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen--><!--suredy-->sss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a670aabf2a7e4075ab95829eed1e59f3",
+    "result": "wwwsss"
+  },
+  "76b5be1c8a8676c5123ca2f626e7cf59": {
+    "lang": "html",
+    "name": "compress",
+    "code": "   ssss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "76b5be1c8a8676c5123ca2f626e7cf59",
+    "result": " ssss"
+  },
+  "5439540034df41dc085b5f29ebeb0c8c": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<div>  www",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5439540034df41dc085b5f29ebeb0c8c",
+    "result": "<div> www"
+  },
+  "c5454852201dd9538e1136ee1c1acab2": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen--><!--sss-->sss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c5454852201dd9538e1136ee1c1acab2",
+    "result": "wwwsss"
+  },
+  "dc4cf7699e08d23fbe18db231a1cc094": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen--> <!--sss-->sss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "dc4cf7699e08d23fbe18db231a1cc094",
+    "result": "www sss"
+  },
+  "a82e0d7df8b48454d91d1830a93f67ba": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www<!--welefen--><!--sss--> sss",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a82e0d7df8b48454d91d1830a93f67ba",
+    "result": "www sss"
+  },
+  "35d75d35d34f544d418e6532ed4f1a10": {
+    "lang": "html",
+    "name": "compress",
+    "code": "   www <!--welefen--><!--sss-->sss   ",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "35d75d35d34f544d418e6532ed4f1a10",
+    "result": " www sss "
+  },
+  "a84d88904eaa0b2d88eef06b778c1b83": {
+    "lang": "html",
+    "name": "compress",
+    "code": "\n\n\nwww",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a84d88904eaa0b2d88eef06b778c1b83",
+    "result": " www"
+  },
+  "593122a8a6fc796d63e579060e8c63b4": {
+    "lang": "html",
+    "name": "compress",
+    "code": "www //    wwwww\n\nwww",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "593122a8a6fc796d63e579060e8c63b4",
+    "result": "www //    wwwww\n\nwww"
+  }
+}

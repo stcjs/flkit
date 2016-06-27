@@ -65,7 +65,7 @@ export default class HtmlTokenize extends Base {
       ret += this.next();
     }
     let token = this.getToken(TokenType.HTML_TEXT, ret);
-    token.value = this.skipRightSpace(ret);
+    token.value = ret;
     return token;
   }
   /**

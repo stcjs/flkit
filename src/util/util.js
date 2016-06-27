@@ -42,9 +42,14 @@ export function hasSpaceBetweenTokens(preToken, token){
   if(!preToken){
     return token.start > 0;
   }
-  let start = token.start;
   if(token.commentBefore.length){
-    start = token.commentBefore[0].start;
+    let tokens = [...token.commentBefore, token];
+    return tokens.some(item => {
+      let delta = item.start - preToken.end;
+      preToken = item;
+      return delta > 0;
+    });
+  }else{
+    return token.start - preToken.end > 0;
   }
-  return start - preToken.end > 0;
 }

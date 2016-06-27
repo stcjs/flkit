@@ -6,12 +6,18 @@ import Base from './base.js';
 import {
   CssTokenize, 
   CssSelectorTokenize,
-  HtmlTokenize
+  HtmlTokenize,
+  HtmlCompress
 } from '../../../lib/index.js';
 
 const lang = {
   html: {
-    tokenize: {}
+    tokenize: {
+
+    },
+    compress: {
+
+    }
   },
   css: {
     tokenize: {
@@ -26,7 +32,8 @@ const lang = {
 
 const classList = {
   html: {
-    tokenize: HtmlTokenize
+    tokenize: HtmlTokenize,
+    compress: HtmlCompress
   },
   css: {
     tokenize: CssTokenize,
