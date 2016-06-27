@@ -156,7 +156,7 @@ export const optionalAttrsValue = {
     media: 'screen',
     type: 'text/css'
   },
-  // use input[type="text"] in css
+  // maybe use input[type="text"] in css
   /*input: {
     type: 'text'
   }*/

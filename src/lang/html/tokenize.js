@@ -21,7 +21,7 @@ const isArray = Array.isArray;
 /**
  * html tokenize
  */
-export default class extends Base {
+export default class HtmlTokenize extends Base {
   /**
    * get next token
    * @return {Object} [token]
