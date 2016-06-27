@@ -113,14 +113,11 @@ export default class {
    * @return {}       []
    */
   getTplInstance(){
-    if(!this.tpl){
-      return new BaseTemplate();
+    let cls = BaseTemplate;
+    if(this.tpl && templates[this.tpl]){
+      cls = templates[this.tpl];
     }
-    if(!(this.tpl in templates)){
-      this.error(Message.TplNotFound, undefined, undefined, [this.tpl]);
-    }
-    let Class = templates[this.tpl];
-    return new Class();
+    return new cls();
   }
   /**
    * register template
