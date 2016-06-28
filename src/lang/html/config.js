@@ -291,3 +291,25 @@ export const optionalEndTag = {
   rp: 1, 
   optgroup: 1 
 };
+
+/**
+ * single tags
+ */
+export const singleTags = {
+  "br": 1, 
+  "input": 1, 
+  "link": 1, 
+  "meta": 1, 
+  "!doctype": 1, 
+  "basefont": 1, 
+  "base": 1, 
+  "area": 1, 
+  "hr": 1, 
+  "wbr": 1, 
+  "param": 1, 
+  "img": 1, 
+  "isindex": 1, 
+  "?xml": 1, 
+  "embed": 1, 
+  "col": 1
+}

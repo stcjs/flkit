@@ -591,7 +591,7 @@
     "rd": "",
     "options": {},
     "key": "1aee5681498448a41c6039fee1953941",
-    "result": "<!Doctype html> <html> <head> <meta charset=gb2312> <title>新浪首页</title> <meta name=description content=\"\"> <meta name=stencil content=PGLS000022> <meta name=publishid content=\"30,69,1\">"
+    "result": "<!Doctype html> <html> <head> <meta charset=gb2312 /> <title>新浪首页</title> <meta name=description content=\"\"> <meta name=stencil content=PGLS000022> <meta name=publishid content=\"30,69,1\">"
   },
   "815341a2ced68d7e3417a6a4bd813bc7": {
     "lang": "html",
@@ -648,7 +648,7 @@
     "rd": "",
     "options": {},
     "key": "ffdc6bce6108dfd03e61427e85183191",
-    "result": " <?xml version=\"1.0\" encoding=\"utf-8\"?> <rss xmlns:atom=\"http://www.w3.org/2005/Atom\" version=\"2.0\"> <channel> <title>李成银的博客</title> <link>http://welefen.com</link> <description>关注前端开发、Node.js</description> <atom:link href=\"http://welefen.com/rss.html\" rel=\"self\"> <language>zh-cn</language> <lastBuildDate>Tue, 28 Jun 2016 07:16:09 GMT</lastBuildDate>"
+    "result": " <?xml version=\"1.0\" encoding=\"utf-8\"?> <rss xmlns:atom=\"http://www.w3.org/2005/Atom\" version=\"2.0\"> <channel> <title>李成银的博客</title> <link>http://welefen.com</link> <description>关注前端开发、Node.js</description> <atom:link href=\"http://welefen.com/rss.html\" rel=\"self\" /> <language>zh-cn</language> <lastBuildDate>Tue, 28 Jun 2016 07:16:09 GMT</lastBuildDate>"
   },
   "c0a3746ac9ebac7e2f9cdc2a790325ef": {
     "lang": "html",
@@ -671,5 +671,27 @@
     "options": {},
     "key": "60f86325c3e531e931d09bb9ad5ef56d",
     "result": "<script src=\"a.js\"></script>"
+  },
+  "d98e06630a1b9f4794923784090f6eee": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<DIV>www",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d98e06630a1b9f4794923784090f6eee",
+    "result": "<div>www"
+  },
+  "c270a91f57a77ce20a57e9e2bbf6af2a": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<link />",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c270a91f57a77ce20a57e9e2bbf6af2a",
+    "result": "<link>"
   }
 }

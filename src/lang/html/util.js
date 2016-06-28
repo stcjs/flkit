@@ -3,7 +3,8 @@ import {hasSpaceBetweenTokens} from '../../util/util.js';
 import {
   tagAttrDefaultValue,
   tagAttrOnlyName,
-  optionalEndTag
+  optionalEndTag,
+  singleTags
 } from './config.js';
 
 /**
@@ -80,8 +81,11 @@ export function attrs2Text(attrs = []){
       return (attr.spaceBefore ? ' ' : '') + attr.value;
     }
     let quote = attr.quote || '';
-    if('value' in attr){
+    if('value' in attr && 'name' in attr){
       return attr.name + '=' + quote + attr.value + quote + ' ';
+    }
+    if('value' in attr){
+      return attr.value + ' ';
     }
     return attr.name + ' ';
   }).join('').trim();
@@ -94,6 +98,10 @@ const startToken2Text = token => {
   let attrText = attrs2Text(token.detail.attrs);
   if(attrText){
     attrText = ' ' + attrText;
+  }
+  // slash on single tag
+  if(token.detail.slash){
+    attrText += ' /';
   }
   return `<${token.detail.tag}${attrText}>`;
 };
@@ -202,4 +210,11 @@ export function isOptionalEndTag(tag, list){
     return list.indexOf(tag) > -1;
   }
   return !!list[tag];
+}
+
+/**
+ * check is single tag
+ */
+export function isSingleTag(tag){
+  return !!singleTags[tag];
 }
