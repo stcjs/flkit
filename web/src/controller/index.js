@@ -32,7 +32,7 @@ const lang = {
       'removeHttpsProtocol': false,  //移除https协议
       'removeOptionalEndEag': true,  //移除可选的结束标签
       'optionalEndTagList': null,  //结束标签列表
-      'removeSingleTagSlash': true, //移除单一标签最后的 /
+      'removeVoidElementSlash': true, //移除单一标签最后的 /
       'singleTagSlashList': null, //保留单一标签最后的 / 标签名列表
       'compressStyleValue': true,  //压缩标签的style值 
       'compressInlineCss': true,  //压缩内联的CSS

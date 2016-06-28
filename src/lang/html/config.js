@@ -261,55 +261,33 @@ export const tagAttrDefaultValue = {
 /**
  * tag attribute only has name
  */
-export const tagAttrOnlyName = {
-  disabled: 1, 
-  selected: 1, 
-  checked: 1, 
-  readonly: 1, 
-  multiple: 1 
-};
+export const tagAttrOnlyName = toHash([
+  'disabled', 
+  'selected', 
+  'checked', 
+  'readonly', 
+  'multiple'
+]);
 
 /**
  * optional end tag
  */
-export const optionalEndTag = {
-  //"html": 1, 
-  //"body": 1, 
-  colgroup: 1, 
-  thead: 1, 
-  tr: 1, 
-  tbody: 1, 
-  //"td": 1, 
-  //"th": 1, 
-  //"p": 1, 
-  dt: 1, 
-  dd: 1, 
-  li: 1, 
-  option: 1, 
-  tfoot: 1, 
-  rt: 1, 
-  rp: 1, 
-  optgroup: 1 
-};
-
-/**
- * single tags
- */
-export const singleTags = {
-  "br": 1, 
-  "input": 1, 
-  "link": 1, 
-  "meta": 1, 
-  "!doctype": 1, 
-  "basefont": 1, 
-  "base": 1, 
-  "area": 1, 
-  "hr": 1, 
-  "wbr": 1, 
-  "param": 1, 
-  "img": 1, 
-  "isindex": 1, 
-  "?xml": 1, 
-  "embed": 1, 
-  "col": 1
-}
+export const optionalEndTag = toHash([
+  //'html',
+  //'body',
+  'colgroup',
+  'thead',
+  'tr',
+  'tbody',
+  // 'td',
+  // 'th',
+  // 'p',,
+  'dt',
+  'dd',
+  'li',
+  'option',
+  'tfoot',
+  'rt',
+  'rp',
+  'optgroup'
+]);

@@ -7,7 +7,7 @@ import {
   isTagAttrOnlyName,
   isAttrValueNoQuote,
   isOptionalEndTag,
-  isSingleTag
+  isVoidElement
 } from './util.js';
 
 import CssCompress from '../css/compress.js';
@@ -32,7 +32,7 @@ const compressOpts = {
   'removeHttpsProtocol': false,  //移除https协议
   'removeOptionalEndEag': true,  //移除可选的结束标签
   'optionalEndTagList': null,  //结束标签列表
-  'removeSingleTagSlash': true, //移除单一标签最后的 /
+  'removeVoidElementSlash': true, //移除单一标签最后的 /
   'compressStyleValue': true,  //压缩标签的style值 
   'compressInlineCss': true,  //压缩内联的CSS
   'compressInlineJs': true,  //压缩内联的JS
@@ -269,9 +269,9 @@ export default class HtmlCompress extends Base {
 
       retAttrs.push(attr);
     });
-    // remove / in single tag
-    if(this.options.removeSingleTagSlash && token.detail.slash){
-      if(isSingleTag(lowerTagName)){
+    // remove / in void element
+    if(this.options.removeVoidElementSlash && token.detail.slash){
+      if(isVoidElement(lowerTagName)){
         token.detail.slash = false;
       }
     }

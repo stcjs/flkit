@@ -11683,5 +11683,103 @@
         "ext": {}
       }
     ]
+  },
+  "e3af3585e8dd2d0fbe31836114e89f23": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<script>\n\n</script>",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "e3af3585e8dd2d0fbe31836114e89f23",
+    "result": [
+      {
+        "type": "html_tag_script",
+        "value": "<script>\n\n</script>",
+        "start": 0,
+        "end": 0,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<script>",
+            "start": 0,
+            "end": 8,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 0
+              },
+              "end": {
+                "line": 0,
+                "column": 8
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "isScript": true,
+              "isExternal": false,
+              "type": ""
+            },
+            "detail": {
+              "tag": "script",
+              "tagLowerCase": "script",
+              "attrs": []
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "\n\n",
+            "start": 8,
+            "end": 10,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 0
+              }
+            },
+            "commentBefore": [],
+            "ext": {}
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</script>",
+            "start": 10,
+            "end": 19,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 9
+              }
+            },
+            "commentBefore": [],
+            "ext": {},
+            "detail": {
+              "tag": "script",
+              "tagLowerCase": "script"
+            }
+          }
+        }
+      }
+    ]
   }
 }
