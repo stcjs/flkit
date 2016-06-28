@@ -11781,5 +11781,81 @@
         }
       }
     ]
+  },
+  "927fe619f672837899593c008646233a": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<!--welefen--><div {=$name=}>",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "927fe619f672837899593c008646233a",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div {=$name=}>",
+        "start": 14,
+        "end": 29,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 14
+          },
+          "end": {
+            "line": 0,
+            "column": 29
+          }
+        },
+        "commentBefore": [
+          {
+            "value": "<!--welefen-->",
+            "start": 0,
+            "end": 14,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 0
+              },
+              "end": {
+                "line": 0,
+                "column": 14
+              }
+            }
+          }
+        ],
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "type": "tpl",
+              "value": "{=$name=}",
+              "start": 14,
+              "end": 28,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 14
+                },
+                "end": {
+                  "line": 0,
+                  "column": 28
+                }
+              },
+              "commentBefore": [],
+              "ext": {
+                "ld": "{=",
+                "rd": "=}",
+                "value": "$name"
+              },
+              "spaceBefore": true,
+              "quote": ""
+            }
+          ]
+        }
+      }
+    ]
   }
 }

@@ -189,6 +189,9 @@ export default class HtmlTokenize extends Base {
     let tplInstance = this.getTplInstance();
     let attrName = '', attrValue = '', tplToken;
     let singleTagClose = false;
+    let commentBefore = this.commentBefore;
+    // avoid comments to tplToken
+    this.commentBefore = [];
     while(this.pos < this.length){
       tplToken = this.getTplToken();
       if (tplToken) {
@@ -327,6 +330,7 @@ export default class HtmlTokenize extends Base {
         attrs[i].nameLowerCase = item.name.toLowerCase();
       }
     }
+    this.commentBefore = commentBefore;
     return {
       value: value,
       slash: singleTagClose,
