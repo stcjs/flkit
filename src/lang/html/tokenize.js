@@ -127,7 +127,7 @@ export default class HtmlTokenize extends Base {
         });
         ret += quote.value;
         if (!quote.find) {
-          this.error(`can not find matched quote char \`${chr}\``)
+          this.error(`can not find matched quote char \`${chr}\``);
         }
         continue;
       }
@@ -153,10 +153,12 @@ export default class HtmlTokenize extends Base {
       // 8.1.2.2 in http://www.w3.org/TR/html5/syntax.html
       // in end tag, may be have whitespace on right 
       let tag = ret.slice(2, -1).trim(); 
-      return this.getToken(type, ret, {
+      let token = this.getToken(type, ret);
+      token.detail = {
         tag: tag,
         tagLowerCase: tag.toLowerCase()
-      });
+      };
+      return token;
     }
     return this.getToken(type, ret);
   }
@@ -247,7 +249,7 @@ export default class HtmlTokenize extends Base {
         value += quote.value.slice(1);
         //quote string not found
         if (!quote.find) {
-          this.error(`can not find matched quote char \`${chr}\``)
+          this.error(`can not find matched quote char \`${chr}\``);
         }
         //has no equal char, quot string add to attribute name
         if (!hasEqual) {

@@ -16,7 +16,30 @@ const lang = {
 
     },
     compress: {
-
+      'trim': false,  //去除首尾空白字符 
+      'removeComment': true,  //移除注释
+      'simpleDoctype': true,  //简化doctype
+      'simpleCharset': true,  //简化charset
+      'tagToLower': true,  //小写标签名
+      'removeHtmlXmlns': true,  //移除html的命名空间
+      'removeInterTagSpace': false,  //移除标签之间的空格，非安全
+      'removeEmptyScript': false,  //移除空的script标签
+      'removeEmptyStyle': false,  //移除空的style标签
+      'removeOptionalAttrs': true,  //移除可选的属性
+      'removeAttrsQuote': true,  //移除属性值的引号
+      'removeAttrsOptionalValue': true,  //移除可选属性的值
+      'removeHttpProtocol': false,  //移除http协议
+      'removeHttpsProtocol': false,  //移除https协议
+      'removeOptionalEndEag': true,  //移除可选的结束标签
+      'optionalEndTagList': null,  //结束标签列表
+      'removeSingleTagSlash': true, //移除单一标签最后的 /
+      'singleTagSlashList': null, //保留单一标签最后的 / 标签名列表
+      'compressStyleValue': true,  //压缩标签的style值 
+      'compressInlineCss': true,  //压缩内联的CSS
+      'compressInlineJs': true,  //压缩内联的JS
+      'removeInlineJsCdata': true,  //
+      'compressJsTpl': false,  //压缩前端模版
+      'compressTag': true  //压缩标签
     }
   },
   css: {

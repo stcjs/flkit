@@ -1,5 +1,10 @@
 import TokenType from '../../util/token_type.js';
 import {hasSpaceBetweenTokens} from '../../util/util.js';
+import {
+  tagAttrDefaultValue,
+  tagAttrOnlyName,
+  optionalEndTag
+} from './config.js';
 
 /**
  * check code is tag name first char
@@ -63,7 +68,7 @@ export function parseStyleAttrs(token){
   }
   token.ext.isStyle = isStyle;
   return token;
-};
+}
 
 /**
  * tag attrs to text
@@ -80,7 +85,7 @@ export function attrs2Text(attrs = []){
     }
     return attr.name + ' ';
   }).join('').trim();
-};
+}
 
 /**
  * start token to text
@@ -145,6 +150,9 @@ export function token2Text(tokens = [], stringify = {
         }
         result.push(token.ext.end.value);
         break;
+      case TokenType.HTML_TAG_END:
+        result.push(`</${token.detail.tag}>`);
+        break;
       default:
         result.push(token.value);
         break;
@@ -152,4 +160,46 @@ export function token2Text(tokens = [], stringify = {
     prevToken = token;
   });
   return result.join('');
+}
+
+/**
+ * is tag attribute default value
+ */
+export function isTagAttrDefaultValue(name, value, tag){
+  let lowerValue = (value || '').toLowerCase();
+  for(let key in tagAttrDefaultValue){
+    let attrs = tagAttrDefaultValue[key];
+    if(key === '*' || key === tag){
+      for(let attrName in attrs){
+        if(attrName === name && lowerValue === attrs[attrName]){
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * tag attribute only has name
+ */
+export function isTagAttrOnlyName(attr){
+  return !!tagAttrOnlyName[attr];
+}
+/**
+ * attribute value no quote
+ */
+export function isAttrValueNoQuote(value){
+  return /^\w+$/.test(value);
+}
+
+/**
+ * check is optional end tag
+ */
+export function isOptionalEndTag(tag, list){
+  list = list || optionalEndTag;
+  if(Array.isArray(list)){
+    return list.indexOf(tag) > -1;
+  }
+  return !!list[tag];
 }

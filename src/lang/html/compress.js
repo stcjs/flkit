@@ -1,7 +1,15 @@
 import Base from '../../util/base.js';
 import Tokenize from './tokenize.js';
 import TokenType from '../../util/token_type.js';
-import {token2Text} from './util.js';
+import {
+  token2Text,
+  isTagAttrDefaultValue,
+  isTagAttrOnlyName,
+  isAttrValueNoQuote,
+  isOptionalEndTag
+} from './util.js';
+
+import CssCompress from '../css/compress.js';
 
 /**
  * compress options
@@ -14,7 +22,6 @@ const compressOpts = {
   'tagToLower': true,  //小写标签名
   'removeHtmlXmlns': true,  //移除html的命名空间
   'removeInterTagSpace': false,  //移除标签之间的空格，非安全
-  'removeInterBlockTagSpace': false,  //移除块级元素之间的空格，非安全
   'removeEmptyScript': false,  //移除空的script标签
   'removeEmptyStyle': false,  //移除空的style标签
   'removeOptionalAttrs': true,  //移除可选的属性
@@ -31,9 +38,8 @@ const compressOpts = {
   'compressInlineJs': true,  //压缩内联的JS
   'removeInlineJsCdata': true,  //
   'compressJsTpl': false,  //压缩前端模版
-  'compressTag': true,  //压缩标签
-  'mergeAdjacentCss': true,  //合并相邻的css
-  'mergeAdjacentJs': false  //合并相邻的js
+  'jsTplTypeList': null,
+  'compressTag': true  //压缩标签
 };
 
 export default class HtmlCompress extends Base {
@@ -45,7 +51,6 @@ export default class HtmlCompress extends Base {
     this._optText = text;
     this.tokens = [];
     this.isXML = false;
-    this.options = {};
     this.result = [];
     this.index = 0;
     this.length = 0;
@@ -57,6 +62,8 @@ export default class HtmlCompress extends Base {
     this.token = null;
     this.prev = null;
     this.next = null;
+
+    this.options = {...compressOpts, ...this.options};
   }
   /**
    * init tokens
@@ -108,7 +115,247 @@ export default class HtmlCompress extends Base {
       return token;
     }
     value = value.replace(/\s+/g, ' ');
+    // remove right space
+    if(this.options.removeInterTagSpace){
+      value = value.replace(/\s$/, '');
+    }
     token.value = value;
+    return token;
+  }
+  /**
+   * compress doctype
+   */
+  compressDocType(token){
+    if(this.options.simpleDoctype){
+      token.value = '<!Doctype html>';
+    }
+    return token;
+  }
+  /**
+   * compress charset
+   */
+  compressCharset(token){
+    let attrs = token.detail.attrs;
+    let charset = 0;
+    let contentValue = '';
+    let flag = attrs.some(item => {
+      let value = item.value || '';
+      if(item.nameLowerCase === 'http-equiv' && value.toLowerCase() === 'content-type'){
+        charset++;
+      }else if(item.nameLowerCase === 'content' && value.indexOf('charset=') > -1){
+        charset++;
+        contentValue = item.value;
+      }else{
+        return true;
+      }
+    });
+    if(flag){
+      return;
+    }
+    if(charset !== 2 || !contentValue){
+      return;
+    }
+    let reg = /charset=([\w\-]+)/i;
+    let matches = contentValue.match(reg);
+    if(matches && matches[1]){
+      //token.value = `<meta charset=${matches[1]}>`;
+      token.detail.attrs = [{
+        name: 'charset',
+        value: matches[1],
+        nameLowerCase: 'charset',
+        quote: this.options.removeAttrsQuote ? '' : '"'
+      }];
+    }
+    return token;
+  }
+  /**
+   * compress tag start
+   */
+  compressTagStart(token){
+    if(this.isXML || !this.options.compressTag){
+      return token;
+    }
+    let lowerTagName = token.detail.tagLowerCase;
+    if(this.options.tagToLower){
+      token.detail.tag = lowerTagName;
+    }
+    if(lowerTagName === 'meta' && this.options.simpleCharset){
+      let ret = this.compressCharset(token);
+      if(ret){
+        return ret;
+      }
+    }
+    let attrs = token.detail.attrs;
+    let retAttrs = [];
+    let options = this.options;
+    attrs.forEach(attr => {
+      if(!('value' in attr) || !('name' in attr)){
+        retAttrs.push(attr);
+        return;
+      }
+
+      let value = attr.value;
+      let name = attr.nameLowerCase;
+
+      // remove tag attribute default value
+      if(options.removeOptionalAttrs && isTagAttrDefaultValue(name, value, lowerTagName)){
+        return;
+      }
+
+      // remove xmlns attribute in html tag
+      if(options.removeHtmlXmlns && lowerTagName === 'html' && name === 'xmlns'){
+        return;
+      }
+
+
+      // tag attribute only has name, remove value
+      if(options.removeAttrsOptionalValue && isTagAttrOnlyName(name)){
+        delete attr.value;
+        delete attr.quote;
+        retAttrs.push(attr);
+        return;
+      }
+
+      // remove value quote
+      if(options.removeAttrsQuote && isAttrValueNoQuote(value)){
+        delete attr.quote;
+        retAttrs.push(attr);
+        return;
+      }
+
+      // remove http/https protocol prefix
+      if(name === 'href' || name === 'src'){
+        if(options.removeHttpProtocol && value.indexOf('http://') === 0){
+          attr.value = value.slice(5);
+          retAttrs.push(attr);
+          return;
+        }
+        if(options.removeHttpsProtocol && value.indexOf('https://') === 0){
+          attr.value = value.slice(6);
+          retAttrs.push(attr);
+          return;
+        }
+      }
+
+      // class value has extra blank chars
+      if(name === 'class' && !this.hasTpl(value)){
+        attr.value = value.trim().split(/\s+/).join(' ');
+        retAttrs.push(attr);
+        return;
+      }
+
+      // compress style value
+      if(options.compressStyleValue && name === 'style'){
+        let value = `*{${value}}`;
+        if(this.cssHandle && this.cssHandle.compress){
+          let compressValue = this.cssHandle.compress(value);
+          attr.value = compressValue.slice(2, compressValue.length - 1);
+        }else{
+          let instance = new CssCompress(value, this.options);
+          let compressValue = instance.run();
+          attr.value = compressValue.slice(2, compressValue.length - 1);
+        }
+        retAttrs.push(attr);
+        return;
+      }
+
+      // remove last ; on event
+      if(name.indexOf('on') === 0){
+        value = value.trim();
+        if(value[value.length - 1] === ';'){
+          attr.value = value.slice(0, value.length - 1);
+        }
+      }
+
+      retAttrs.push(attr);
+    });
+    token.detail.attrs = retAttrs;
+    return token;
+  }
+  /**
+   * compress tag end
+   */
+  compressTagEnd(token){
+    if(this.isXML){
+      return token;
+    }
+    
+    if(this.options.removeOptionalEndEag){
+      if(isOptionalEndTag(token.detail.tagLowerCase, this.options.optionalEndTagList)){
+        return;
+      }
+    }
+
+    if(this.options.tagToLower){
+      token.detail.tag = token.detail.tagLowerCase;
+    }
+
+    return token;
+  }
+  /**
+   * compress style
+   */
+  compressStyle(token){
+    if(!this.options.compressTag){
+      return token;
+    }
+    let contentToken = token.ext.content;
+    let contentValue = contentToken.value.trim();
+    if(this.options.removeEmptyStyle && !contentValue){
+      return;
+    }
+
+    if(this.options.compressInlineCss && contentValue){
+      if(this.options.cssHandle && this.options.cssHandle.compress){
+        contentToken.value = this.options.cssHandle.compress(contentToken.value, this);
+      }else{
+        let instance = new CssCompress(contentToken.value, this.options);
+        let ret = instance.run();
+        contentToken.value = ret;
+      }
+    }
+
+    token.ext.start = this.compressTagStart(token.ext.start);
+    token.ext.end = this.compressTagEnd(token.ext.end);
+    return token;
+  }
+
+  /**
+   * compress script
+   */
+  compressScript(token){
+    if(!this.options.compressTag){
+      return token;
+    }
+    let {start, content, end} = token.ext;
+    token.ext.start = this.compressTagStart(start);
+    token.ext.end = this.compressTagEnd(end);
+    if(start.ext.isExternal){
+      return token;
+    }
+
+    let contentValue = content.value.trim();
+    // remove empty script
+    if(this.options.removeEmptyScript && !contentValue){
+      return;
+    }
+
+    // compress inline script
+    if(this.options.compressInlineJs && start.ext.isScript){
+      let hasTpl = this.hasTpl(contentValue);
+      if(!hasTpl && this.jsHandle && this.jsHandle.compress){
+        content.value = this.jsHandle.compress(contentValue);
+      }
+    }
+
+    // compress js tpl
+    if(this.options.compressJsTpl && this.jsTplHandle && this.jsTplHandle.compress){
+      let types = this.options.jsTplTypeList || ['text/html', 'text/template'];
+      if(types.indexOf(start.ext.type.toLowerCase) > -1){
+        content.value = this.jsTplHandle.compress(contentValue);
+      }
+    }
+
     return token;
   }
   /**
@@ -120,8 +367,23 @@ export default class HtmlCompress extends Base {
     }
     token = this.compressCommon(token);
     switch(token.type){
+      case TokenType.HTML_DOCTYPE:
+        token = this.compressDocType(token);
+        break;
+      case TokenType.HTML_TAG_START:
+        token = this.compressTagStart(token);
+        break;
       case TokenType.HTML_TEXT:
         token = this.compressText(token);
+        break;
+      case TokenType.HTML_TAG_END:
+        token = this.compressTagEnd(token);
+        break;
+      case TokenType.HTML_TAG_STYLE:
+        token = this.compressStyle(token);
+        break;
+      case TokenType.HTML_TAG_SCRIPT:
+        token = this.compressScript(token);
         break;
     }
     return token;
@@ -131,7 +393,6 @@ export default class HtmlCompress extends Base {
    */
   run(opts = {}, retTokens = false){
     this.initTokens();
-    this.options = {...compressOpts, ...opts};
     while(this.index < this.length){
       this.prev = this.token;
       this.token = this.tokens[this.index++];

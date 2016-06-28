@@ -222,3 +222,72 @@ export const insertionMode = {
   AFTER_AFTER_BODY: 0x114,
   AFTER_AFTER_FRAMESET: 0x115
 };
+
+/**
+ * tag attribute default value
+ */
+export const tagAttrDefaultValue = {
+  '*': {
+    'class': '', 
+    alt: '', 
+    title: '', 
+    style: '', 
+    id: '', 
+    name: '' 
+  }, 
+  link: {
+    media: 'screen', 
+    type: 'text/css'
+  }, 
+  //use input[type="text"] in css
+  /*
+  input: {
+    type: 'text' 
+  },
+  */
+  form: {
+    method: 'get' 
+  }, 
+  style: {
+    type: 'text/css', 
+    rel: 'stylesheet' 
+  }, 
+  script: {
+    type: 'text/javascript', 
+    language: 'javascript' 
+  }
+};
+
+/**
+ * tag attribute only has name
+ */
+export const tagAttrOnlyName = {
+  disabled: 1, 
+  selected: 1, 
+  checked: 1, 
+  readonly: 1, 
+  multiple: 1 
+};
+
+/**
+ * optional end tag
+ */
+export const optionalEndTag = {
+  //"html": 1, 
+  //"body": 1, 
+  colgroup: 1, 
+  thead: 1, 
+  tr: 1, 
+  tbody: 1, 
+  //"td": 1, 
+  //"th": 1, 
+  //"p": 1, 
+  dt: 1, 
+  dd: 1, 
+  li: 1, 
+  option: 1, 
+  tfoot: 1, 
+  rt: 1, 
+  rp: 1, 
+  optgroup: 1 
+};
