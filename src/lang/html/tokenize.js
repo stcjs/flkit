@@ -188,7 +188,7 @@ export default class HtmlTokenize extends Base {
     let hasEqual = false, spaceBefore = false, tagEnd = false;
     let tplInstance = this.getTplInstance();
     let attrName = '', attrValue = '', tplToken;
-    let singleTagClose = false;
+    let voidElement = false;
     let commentBefore = this.commentBefore;
     // avoid comments to tplToken
     this.commentBefore = [];
@@ -231,12 +231,12 @@ export default class HtmlTokenize extends Base {
         this.next();
         break;
       }
-      singleTagClose = false;
+      voidElement = false;
       if (code === 0x3d) { // char is =
         hasEqual = true;
         spaceBefore = false;
       }else if (!hasEqual && code === 0x2f) { //0x2f is /
-        singleTagClose = true;
+        voidElement = true;
         if (this.text.charCodeAt[this.pos - 1] !== 0x2f) {
           if (attrName) {
             attrs.push({name: attrName});
@@ -333,7 +333,7 @@ export default class HtmlTokenize extends Base {
     this.commentBefore = commentBefore;
     return {
       value: value,
-      slash: singleTagClose,
+      slash: voidElement,
       attrs: attrs
     };
   }
