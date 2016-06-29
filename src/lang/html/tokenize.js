@@ -389,7 +389,7 @@ export default class HtmlTokenize extends Base {
       this.startToken();
       startToken = this.getTagToken();
       if (item[2] === TokenType.HTML_TAG_SCRIPT) {
-        startToken = parseScriptAttrs(startToken);
+        startToken = parseScriptAttrs(startToken, this.options.jsTplTypes);
       }else if (item[2] === TokenType.HTML_TAG_STYLE) {
         startToken = parseStyleAttrs(startToken);
       }

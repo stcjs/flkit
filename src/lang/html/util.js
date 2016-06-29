@@ -31,7 +31,7 @@ export function isTagNameChar(code){
  * @param  {Object} token []
  * @return {Object}             []
  */
-export function parseScriptAttrs(token){
+export function parseScriptAttrs(token, jsTplTypes = []){
   let isScript = false, isExternal = false, type = '';
   let attrs = token.ext.attrs || [], i = 0, item;
   for(; item = attrs[i++]; ){
@@ -50,6 +50,7 @@ export function parseScriptAttrs(token){
   token.ext.isScript = isScript;
   token.ext.isExternal = isExternal;
   token.ext.type = type;
+  token.ext.isTpl = !isScript && jsTplTypes && jsTplTypes.indexOf(type) > -1;
   return token;
 }
 /**
