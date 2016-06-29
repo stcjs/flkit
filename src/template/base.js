@@ -114,4 +114,10 @@ export default class {
   getMatched(ld, rd, tokenizeInstance){
     return this._getMatched(ld, rd, tokenizeInstance);
   }
+  /**
+   * compress tpl token
+   */
+  compress(token/*, tokenizeInstance */){
+    return token;
+  }
 }

@@ -421,6 +421,13 @@ export default class HtmlCompress extends Base {
     return token;
   }
   /**
+   * compress tpl
+   */
+  compressTpl(token){
+    let instance = this.getTplInstance();
+    return instance.compress(token, this);
+  }
+  /**
    * compress token
    */
   compressToken(token){
@@ -446,6 +453,8 @@ export default class HtmlCompress extends Base {
         break;
       case TokenType.HTML_TAG_SCRIPT:
         token = this.compressScript(token);
+      case TokenType.TPL:
+        token = this.compressTpl(token);
         break;
     }
     return token;

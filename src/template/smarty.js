@@ -17,4 +17,15 @@ export default class extends Base {
       nest: true
     });
   }
+  /**
+   * compress tpl token
+   */
+  compress(token){
+    let value = token.ext.value;
+    // remove {=*$name*=}
+    if(value[0] === '*'){
+      return;
+    }
+    return token;
+  }
 }

@@ -1806,5 +1806,38 @@
     "options": {},
     "key": "87f641da525fc1388c6dbfc798836dcd",
     "result": "</html>"
+  },
+  "021c6acb80347d3b6a82ab13012318f3": {
+    "lang": "html",
+    "name": "compress",
+    "code": "{=$name=}",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "021c6acb80347d3b6a82ab13012318f3",
+    "result": "{=$name=}"
+  },
+  "18076ee80dd3866f62e83e672125035a": {
+    "lang": "html",
+    "name": "compress",
+    "code": "{=*$name*=}",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "18076ee80dd3866f62e83e672125035a",
+    "result": ""
+  },
+  "f1d7615925a14ca432d2f6a59f23afce": {
+    "lang": "html",
+    "name": "compress",
+    "code": "{=extend file=\"a.html\"=}\n\n{=block=}\n\n{=/block=}",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "f1d7615925a14ca432d2f6a59f23afce",
+    "result": "{=extend file=\"a.html\"=} {=block=} {=/block=}"
   }
 }
