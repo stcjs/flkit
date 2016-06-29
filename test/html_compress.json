@@ -1839,5 +1839,82 @@
     "options": {},
     "key": "f1d7615925a14ca432d2f6a59f23afce",
     "result": "{=extend file=\"a.html\"=} {=block=} {=/block=}"
+  },
+  "049628fca1009e88f62701991bf5e24a": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<a {=*$name*=}>",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "049628fca1009e88f62701991bf5e24a",
+    "result": "<a>"
+  },
+  "cbc80897880b15e04b0a136aa07dea3e": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<pre>\n\n</pre>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cbc80897880b15e04b0a136aa07dea3e",
+    "result": "<pre>\n\n</pre>"
+  },
+  "7d6f844c432462fd5fbc005ab573213f": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<div> <pre>\n\n</pre>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "7d6f844c432462fd5fbc005ab573213f",
+    "result": "<div> <pre>\n\n</pre>"
+  },
+  "c417611de903866f555ed580647e7114": {
+    "lang": "html",
+    "name": "compress",
+    "code": "</script>\n<pre>\n\n</pre>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c417611de903866f555ed580647e7114",
+    "result": "</script> <pre>\n\n</pre>"
+  },
+  "f4d69331149b57e03958c6bacf05b955": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<textarea>\n\n</textarea>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f4d69331149b57e03958c6bacf05b955",
+    "result": "<textarea>\n\n</textarea>"
+  },
+  "9f5bda57a662d7f4a92e2e7ef08876ea": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<div> <textarea>\n\n</textarea>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "9f5bda57a662d7f4a92e2e7ef08876ea",
+    "result": "<div> <textarea>\n\n</textarea>"
+  },
+  "ff6dd1930012deb539cd52fe3b314481": {
+    "lang": "html",
+    "name": "compress",
+    "code": "</div> <textarea>\n\n</textarea>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ff6dd1930012deb539cd52fe3b314481",
+    "result": "</div> <textarea>\n\n</textarea>"
   }
 }

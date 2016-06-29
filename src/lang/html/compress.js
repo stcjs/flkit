@@ -225,7 +225,10 @@ export default class HtmlCompress extends Base {
     let options = this.options;
     attrs.forEach(attr => {
       if(attr.type === TokenType.TPL){
-        retAttrs.push(attr);
+        let tplCompress = this.compressTpl(attr);
+        if(tplCompress){
+           retAttrs.push(tplCompress);
+        }
         return;
       }
 
