@@ -111,22 +111,20 @@ export default class HtmlCompress extends Base {
       }
     }
 
-    if(this.isXML && this.prev){
-      token.start = this.prev.end;
+    if(this.isXML){
+      token.start = this.prev ? this.prev.end : 0;
       return token;
     }
 
     //safe tags
     let tagTypes = [
-      TokenType.HTML_DOCTYPE,
       TokenType.HTML_TAG_START,
       TokenType.HTML_TAG_END
     ];
-    if(this.prev && tagTypes.indexOf(this.prev.type) > -1 && tagTypes.indexOf(token.type) > -1){
-      if((this.prev.type === TokenType.HTML_DOCTYPE || isSafeTag(this.prev.detail.tagLowerCase)) && isSafeTag(token.detail.tagLowerCase)){
-        token.start = this.prev.end;
-      }
+    if(tagTypes.indexOf(token.type) > -1 && isSafeTag(token.detail.tagLowerCase)){
+      token.start = this.prev ? this.prev.end : 0;
     }
+
     return token;
   }
   /**
@@ -165,6 +163,7 @@ export default class HtmlCompress extends Base {
     if(this.options.simpleDoctype){
       token.value = '<!Doctype html>';
     }
+    token.start = this.prev ? this.prev.end : 0;
     return token;
   }
   /**
@@ -225,7 +224,7 @@ export default class HtmlCompress extends Base {
     let retAttrs = [];
     let options = this.options;
     attrs.forEach(attr => {
-      if(!('value' in attr) || !('name' in attr)){
+      if(attr.type === TokenType.TPL){
         retAttrs.push(attr);
         return;
       }
@@ -276,13 +275,15 @@ export default class HtmlCompress extends Base {
       // class value has extra blank chars
       if(name === 'class' && !this.hasTpl(value)){
         attr.value = value.trim().split(/\s+/).join(' ');
-        retAttrs.push(attr);
+        if(attr.value){
+          retAttrs.push(attr);
+        }
         return;
       }
 
       // compress style value
       if(options.compressStyleValue && name === 'style'){
-        let value = `*{${value}}`;
+        value = `*{${value}}`;
         if(this.cssHandle && this.cssHandle.compress){
           let compressValue = this.cssHandle.compress(value);
           attr.value = compressValue.slice(2, compressValue.length - 1);
@@ -318,6 +319,17 @@ export default class HtmlCompress extends Base {
    * compress tag end
    */
   compressTagEnd(token){
+
+    // </div> </div> => </div></div>
+    let tagTypes = [
+      TokenType.HTML_TAG_END,
+      TokenType.HTML_TAG_STYLE,
+      TokenType.HTML_TAG_SCRIPT
+    ];
+    if(this.prev && tagTypes.indexOf(this.prev.type) > -1){
+      token.start = this.prev.end;
+    }
+
     if(this.isXML){
       return token;
     }
@@ -338,9 +350,13 @@ export default class HtmlCompress extends Base {
    * compress style
    */
   compressStyle(token){
+    // remove whitespace before token
+    token.start = this.prev ? this.prev.end : 0;
+
     if(!this.options.compressTag){
       return token;
     }
+    
     let contentToken = token.ext.content;
     let contentValue = contentToken.value.trim();
     if(this.options.removeEmptyStyle && !contentValue){
@@ -366,9 +382,13 @@ export default class HtmlCompress extends Base {
    * compress script
    */
   compressScript(token){
+    // remove whitespace before token
+    token.start = this.prev ? this.prev.end : 0;
+    
     if(!this.options.compressTag){
       return token;
     }
+    
     let {start, content, end} = token.ext;
     token.ext.start = this.compressTagStart(start);
     token.ext.end = this.compressTagEnd(end);

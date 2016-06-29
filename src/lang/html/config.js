@@ -177,13 +177,29 @@ export const optionalAttrsValue = {
  * http://www.w3.org/TR/html5/syntax.html#syntax-attribute-name
  * @type {Object}
  */
-export const emptyAttributes = toHash(['disabled', 'selected', 'checked', 'readonly', 'multiple']);
+export const emptyAttributes = toHash([
+  'disabled', 
+  'selected', 
+  'checked', 
+  'readonly', 
+  'multiple'
+]);
 
 /**
  * in safe tag, can remove space before it
  * @type {Object}
  */
-export const safeTags = toHash(['html', 'meta', 'style', 'script', 'head', 'link', 'title', 'body', 'noscript']);
+export const safeTags = toHash([
+  'html', 
+  'meta', 
+  'style', 
+  'script', 
+  'head', 
+  'link', 
+  'title', 
+  'body', 
+  'noscript'
+]);
 /**
  * block tags
  * @type {}
