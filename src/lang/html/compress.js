@@ -7,7 +7,8 @@ import {
   isTagAttrOnlyName,
   isAttrValueNoQuote,
   isOptionalEndTag,
-  isVoidElement
+  isVoidElement,
+  isSafeTag
 } from './util.js';
 
 import CssCompress from '../css/compress.js';
@@ -103,12 +104,48 @@ export default class HtmlCompress extends Base {
       }
       token.start = !prevHasRightSpace && hasSpace ? start + 1 : start;
     }
+
+    if(!this.prev){
+      if(token.type === TokenType.HTML_DOCTYPE || token.type === TokenType.XML_START){
+        token.start = 0;
+        return token;
+      }
+    }
+
+    if(this.isXML && this.prev){
+      token.start = this.prev.end;
+      return token;
+    }
+
+    //safe tags
+    let tagTypes = [
+      TokenType.HTML_DOCTYPE,
+      TokenType.HTML_TAG_START,
+      TokenType.HTML_TAG_END
+    ];
+    if(this.prev && tagTypes.indexOf(this.prev.type) > -1 && tagTypes.indexOf(token.type) > -1){
+      if((this.prev.type === TokenType.HTML_DOCTYPE || isSafeTag(this.prev.detail.tagLowerCase)) && isSafeTag(token.detail.tagLowerCase)){
+        token.start = this.prev.end;
+      }
+    }
     return token;
   }
   /**
    * compress text
    */
   compressText(token){
+    // can not remove extra whitespace in title tag
+    if(this.prev && this.prev.type === TokenType.HTML_TAG_START){
+      if(this.prev.detail.tagLowerCase === 'title'){
+        let spaces = token.start - this.prev.end;
+        if(spaces){
+          token.value = (new Array(spaces + 1)).join(' ') + token.value;
+        }
+        token.start = this.prev.end;
+        return token;
+      }
+    }
+
     let value = token.value;
     // 如果文本中含有//，则不去除换行等，主要是一些异步接口（JS环境）会被识别成HTML环境，如果有JS的//注释就要注意了
     if(value.indexOf('//') > -1){

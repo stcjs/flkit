@@ -4,7 +4,8 @@ import {
   tagAttrDefaultValue,
   tagAttrOnlyName,
   optionalEndTag,
-  voidElements
+  voidElements,
+  safeTags
 } from './config.js';
 
 /**
@@ -217,4 +218,11 @@ export function isOptionalEndTag(tag, list){
  */
 export function isVoidElement(tag){
   return !!voidElements[tag];
+}
+
+/**
+ * is safe tag
+ */
+export function isSafeTag(tag){
+  return !!safeTags[tag]; 
 }

@@ -186,7 +186,7 @@ export const emptyAttributes = toHash(['disabled', 'selected', 'checked', 'reado
 export const safeTags = toHash(['html', 'meta', 'style', 'script', 'head', 'link', 'title', 'body', 'noscript']);
 /**
  * block tags
- * @type {[type]}
+ * @type {}
  */
 export const blockTags = toHash([
   'html', 'meta', 'style', 'script', 'head', 'link', 'title', 'body', 'noscript', 'address', 'blockquote',

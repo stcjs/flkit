@@ -11857,5 +11857,79 @@
         }
       }
     ]
+  },
+  "2de502ae00dab43d2bb841d622d2c528": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div inline>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2de502ae00dab43d2bb841d622d2c528",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div inline>",
+        "start": 0,
+        "end": 12,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "inline",
+              "nameLowerCase": "inline"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "af85dae168375b4d5a59d15ea9fb85db": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "</html>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "af85dae168375b4d5a59d15ea9fb85db",
+    "result": [
+      {
+        "type": "html_tag_end",
+        "value": "</html>",
+        "start": 0,
+        "end": 7,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {},
+        "detail": {
+          "tag": "html",
+          "tagLowerCase": "html"
+        }
+      }
+    ]
   }
 }
