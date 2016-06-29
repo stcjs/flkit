@@ -33,7 +33,7 @@ export function isTagNameChar(code){
  */
 export function parseScriptAttrs(token){
   let isScript = false, isExternal = false, type = '';
-  let attrs = token.detail.attrs || [], i = 0, item;
+  let attrs = token.ext.attrs || [], i = 0, item;
   for(; item = attrs[i++]; ){
     switch(item.name){
       case 'src':
@@ -96,15 +96,15 @@ export function attrs2Text(attrs = []){
  * start token to text
  */
 const startToken2Text = token => {
-  let attrText = attrs2Text(token.detail.attrs);
+  let attrText = attrs2Text(token.ext.attrs);
   if(attrText){
     attrText = ' ' + attrText;
   }
   // slash on single tag
-  if(token.detail.slash){
+  if(token.ext.slash){
     attrText += ' /';
   }
-  return `<${token.detail.tag}${attrText}>`;
+  return `<${token.ext.tag}${attrText}>`;
 };
 
 /**
@@ -160,7 +160,7 @@ export function token2Text(tokens = [], stringify = {
         result.push(token.ext.end.value);
         break;
       case TokenType.HTML_TAG_END:
-        result.push(`</${token.detail.tag}>`);
+        result.push(`</${token.ext.tag}>`);
         break;
       default:
         result.push(token.value);

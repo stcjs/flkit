@@ -38,7 +38,7 @@ const compressOpts = {
   'compressInlineCss': true,  //压缩内联的CSS
   'compressInlineJs': true,  //压缩内联的JS
   'removeInlineJsCdata': true,  //
-  'compressJsTpl': false,  //压缩前端模版
+  'compressJsTpl': true,  //压缩前端模版
   'jsTplTypeList': null,
   'compressTag': true  //压缩标签
 };
@@ -121,7 +121,7 @@ export default class HtmlCompress extends Base {
       TokenType.HTML_TAG_START,
       TokenType.HTML_TAG_END
     ];
-    if(tagTypes.indexOf(token.type) > -1 && isSafeTag(token.detail.tagLowerCase)){
+    if(tagTypes.indexOf(token.type) > -1 && isSafeTag(token.ext.tagLowerCase)){
       token.start = this.prev ? this.prev.end : 0;
     }
 
@@ -133,7 +133,7 @@ export default class HtmlCompress extends Base {
   compressText(token){
     // can not remove extra whitespace in title tag
     if(this.prev && this.prev.type === TokenType.HTML_TAG_START){
-      if(this.prev.detail.tagLowerCase === 'title'){
+      if(this.prev.ext.tagLowerCase === 'title'){
         let spaces = token.start - this.prev.end;
         if(spaces){
           token.value = (new Array(spaces + 1)).join(' ') + token.value;
@@ -170,7 +170,7 @@ export default class HtmlCompress extends Base {
    * compress charset
    */
   compressCharset(token){
-    let attrs = token.detail.attrs;
+    let attrs = token.ext.attrs;
     let charset = 0;
     let contentValue = '';
     let flag = attrs.some(item => {
@@ -194,7 +194,7 @@ export default class HtmlCompress extends Base {
     let matches = contentValue.match(reg);
     if(matches && matches[1]){
       //token.value = `<meta charset=${matches[1]}>`;
-      token.detail.attrs = [{
+      token.ext.attrs = [{
         name: 'charset',
         value: matches[1],
         nameLowerCase: 'charset',
@@ -210,9 +210,9 @@ export default class HtmlCompress extends Base {
     if(this.isXML || !this.options.compressTag){
       return token;
     }
-    let lowerTagName = token.detail.tagLowerCase;
+    let lowerTagName = token.ext.tagLowerCase;
     if(this.options.tagToLower){
-      token.detail.tag = lowerTagName;
+      token.ext.tag = lowerTagName;
     }
     if(lowerTagName === 'meta' && this.options.simpleCharset){
       let ret = this.compressCharset(token);
@@ -220,7 +220,7 @@ export default class HtmlCompress extends Base {
         return ret;
       }
     }
-    let attrs = token.detail.attrs;
+    let attrs = token.ext.attrs;
     let retAttrs = [];
     let options = this.options;
     attrs.forEach(attr => {
@@ -310,12 +310,12 @@ export default class HtmlCompress extends Base {
       retAttrs.push(attr);
     });
     // remove / in void element
-    if(this.options.removeVoidElementSlash && token.detail.slash){
+    if(this.options.removeVoidElementSlash && token.ext.slash){
       if(isVoidElement(lowerTagName)){
-        token.detail.slash = false;
+        token.ext.slash = false;
       }
     }
-    token.detail.attrs = retAttrs;
+    token.ext.attrs = retAttrs;
     return token;
   }
   /**
@@ -338,13 +338,13 @@ export default class HtmlCompress extends Base {
     }
     
     if(this.options.removeOptionalEndEag){
-      if(isOptionalEndTag(token.detail.tagLowerCase, this.options.optionalEndTagList)){
+      if(isOptionalEndTag(token.ext.tagLowerCase, this.options.optionalEndTagList)){
         return;
       }
     }
 
     if(this.options.tagToLower){
-      token.detail.tag = token.detail.tagLowerCase;
+      token.ext.tag = token.ext.tagLowerCase;
     }
 
     return token;
@@ -414,10 +414,16 @@ export default class HtmlCompress extends Base {
     }
 
     // compress js tpl
-    if(this.options.compressJsTpl && this.jsTplHandle && this.jsTplHandle.compress){
-      let types = this.options.jsTplTypeList || ['text/html', 'text/template'];
-      if(types.indexOf(start.ext.type.toLowerCase) > -1){
-        content.value = this.jsTplHandle.compress(contentValue);
+    if(!start.ext.isScript && this.options.compressJsTpl && this.jsTplHandle && this.jsTplHandle.compress){
+      let types = this.options.jsTplTypeList;
+      if(types && types.indexOf(start.ext.type.toLowerCase()) > -1){
+        let ret = this.jsTplHandle.compress(contentValue);
+        if(typeof ret === 'string'){
+          content.value = ret;
+          delete content.ext.tokens;
+        }else{
+          content.ext.tokens = ret;
+        }
       }
     }
 
@@ -465,7 +471,7 @@ export default class HtmlCompress extends Base {
   /**
    * run
    */
-  run(opts = {}, retTokens = false){
+  run(retTokens = false){
     this.initTokens();
 
     let firstToken = this.tokens[0];

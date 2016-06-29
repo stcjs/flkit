@@ -104,15 +104,12 @@ export default class HtmlTokenize extends Base {
               let tagName = this.getTagName();
               let tagAttrs = this.getTagAttrs();
               let str = '<' + tagName + tagAttrs.value;
-              let token = this.getToken(TokenType.HTML_TAG_START, str);
-              token.detail = {
+              let token = this.getToken(TokenType.HTML_TAG_START, str, {
                 tag: tagName,
                 tagLowerCase: tagName.toLowerCase(),
-                attrs: tagAttrs.attrs
-              };
-              if(tagAttrs.slash){
-                token.detail.slash = tagAttrs.slash;
-              }
+                attrs: tagAttrs.attrs,
+                slash: tagAttrs.slash
+              });
               return token;
             }else{
               type = TokenType.HTML_TEXT;
@@ -153,11 +150,10 @@ export default class HtmlTokenize extends Base {
       // 8.1.2.2 in http://www.w3.org/TR/html5/syntax.html
       // in end tag, may be have whitespace on right 
       let tag = ret.slice(2, -1).trim(); 
-      let token = this.getToken(type, ret);
-      token.detail = {
+      let token = this.getToken(type, ret, {
         tag: tag,
         tagLowerCase: tag.toLowerCase()
-      };
+      });
       return token;
     }
     return this.getToken(type, ret);
@@ -343,7 +339,8 @@ export default class HtmlTokenize extends Base {
    */
   skipComment(){
     //start with <!
-    commentLabel: while(this.text.charCodeAt(this.pos) === 0x3c && this.text.charCodeAt(this.pos + 1) === 0x21){
+    commentLabel: while(this.text.charCodeAt(this.pos) === 0x3c 
+      && this.text.charCodeAt(this.pos + 1) === 0x21){
       for(let i = 0; i < reservedCommentLength; i++){
         if (this.lookAt(reservedCommentPrefix[i])) {
           break commentLabel;
@@ -366,7 +363,8 @@ export default class HtmlTokenize extends Base {
    * @return {Object} []
    */
   getRawToken(){
-    let i = 0, item, pos = 0, code, startToken, contentToken, endToken, token;
+    let i = 0, item, pos = 0, code;
+    let startToken, contentToken, endToken, token;
     while(i < rawTokensLength){
       item = rawTokens[i++];
       if (!this.lookAt(item[0])) {
