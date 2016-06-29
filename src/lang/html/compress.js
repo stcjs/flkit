@@ -52,7 +52,7 @@ export default class HtmlCompress extends Base {
     this._optText = text;
     this.tokens = [];
     this.isXML = false;
-    this.result = [];
+
     this.index = 0;
     this.length = 0;
 
@@ -60,7 +60,6 @@ export default class HtmlCompress extends Base {
     this.cssHandle = null;
     this.jsTplHandle = null;
 
-    this.token = null;
     this.prev = null;
     this.next = null;
 
@@ -436,21 +435,26 @@ export default class HtmlCompress extends Base {
    */
   run(opts = {}, retTokens = false){
     this.initTokens();
+
+    let firstToken = this.tokens[0];
+    if(firstToken && firstToken.type === TokenType.XML_START){
+      this.isXML = true;
+      this.options.tagToLower = false;
+    }
+    let result = [];
     while(this.index < this.length){
-      this.prev = this.token;
-      this.token = this.tokens[this.index++];
+      if(this.index){
+        this.prev = this.tokens[this.index - 1];
+      }
+      let token = this.tokens[this.index++];
       this.next = this.tokens[this.index];
 
-      if(this.token.type === TokenType.XML_START){
-        this.isXML = true;
-        this.options.tagToLower = false;
-      }
-      let token = this.compressToken(this.token);
+      token = this.compressToken(token);
       if(token){
-        this.result.push(token);
+        result.push(token);
       }
     }
-    return retTokens ? this.result : token2Text(this.result, {
+    return retTokens ? result : token2Text(result, {
       js: this.jsHandle && this.jsHandle.stringify,
       css: this.cssHandle && this.cssHandle.stringify
     });
