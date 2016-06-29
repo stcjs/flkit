@@ -40,3 +40,16 @@ export function createToken(type, value, referToken){
   token.end = token.start + value.length;
   return token;
 }
+/**
+ * get html attribute value
+ */
+export function getHtmlAttrValue(attrs, name){
+  let value;
+  attrs.some(item => {
+    if(item.nameLowerCase === name){
+      value = item.value;
+      return true;
+    }
+  });
+  return value;
+}
