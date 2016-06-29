@@ -369,10 +369,12 @@ export default class HtmlCompress extends Base {
       return;
     }
 
-    if(this.options.compressInlineCss){
-      if(this.options.cssHandle && this.options.cssHandle.compress){
-        token.ext.content = this.options.cssHandle.compress(contentToken, this);
-      }
+    let handle = this.cssHandle;
+    if(this.cssHandle && this.cssHandle.compress){
+      handle = this.cssHandle.compress;
+    }
+    if(this.options.compressInlineCss && handle){
+      token.ext.content = handle(contentToken, this);
     }
 
     token.ext.start = this.compressTagStart(token.ext.start);
@@ -407,14 +409,18 @@ export default class HtmlCompress extends Base {
     // compress inline script
     if(this.options.compressInlineJs && start.ext.isScript && !start.ext.isExternal){
       let hasTpl = this.hasTpl(contentValue);
-      if(!hasTpl && this.jsHandle && this.jsHandle.compress){
-        token.ext.content = this.jsHandle.compress(content);
+      let handle = this.jsHandle;
+      if(this.jsHandle && this.jsHandle.compress){
+        handle = this.jsHandle.compress;
+      }
+      if(!hasTpl && handle){
+        token.ext.content = handle(content, this);
       }
     }
 
     // compress js tpl
     if(start.ext.isTpl && this.options.compressJsTpl && this.jsTplHandle){
-      token.ext.content = this.jsTplHandle(content);
+      token.ext.content = this.jsTplHandle(content, this);
     }
 
     return token;
