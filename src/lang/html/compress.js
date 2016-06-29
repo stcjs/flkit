@@ -63,7 +63,10 @@ export default class HtmlCompress extends Base {
     this.prev = null;
     this.next = null;
 
-    this.options = {...compressOpts, ...this.options};
+    this.options = {
+      ...compressOpts, 
+      ...this.options
+    };
   }
   /**
    * init tokens
@@ -366,13 +369,9 @@ export default class HtmlCompress extends Base {
       return;
     }
 
-    if(this.options.compressInlineCss && contentValue){
+    if(this.options.compressInlineCss){
       if(this.options.cssHandle && this.options.cssHandle.compress){
-        contentToken.value = this.options.cssHandle.compress(contentToken.value, this);
-      }else{
-        let instance = new CssCompress(contentToken.value, this.options);
-        let ret = instance.run();
-        contentToken.value = ret;
+        token.ext.content = this.options.cssHandle.compress(contentToken, this);
       }
     }
 
@@ -406,25 +405,16 @@ export default class HtmlCompress extends Base {
     }
 
     // compress inline script
-    if(this.options.compressInlineJs && start.ext.isScript){
+    if(this.options.compressInlineJs && start.ext.isScript && !start.ext.isExternal){
       let hasTpl = this.hasTpl(contentValue);
       if(!hasTpl && this.jsHandle && this.jsHandle.compress){
-        content.value = this.jsHandle.compress(contentValue);
+        token.ext.content = this.jsHandle.compress(content);
       }
     }
 
     // compress js tpl
-    if(!start.ext.isScript && this.options.compressJsTpl && this.jsTplHandle && this.jsTplHandle.compress){
-      let types = this.options.jsTplTypeList;
-      if(types && types.indexOf(start.ext.type.toLowerCase()) > -1){
-        let ret = this.jsTplHandle.compress(contentValue);
-        if(typeof ret === 'string'){
-          content.value = ret;
-          delete content.ext.tokens;
-        }else{
-          content.ext.tokens = ret;
-        }
-      }
+    if(start.ext.isTpl && this.options.compressJsTpl && this.jsTplHandle){
+      token.ext.content = this.jsTplHandle(content);
     }
 
     return token;
@@ -462,6 +452,7 @@ export default class HtmlCompress extends Base {
         break;
       case TokenType.HTML_TAG_SCRIPT:
         token = this.compressScript(token);
+        break;
       case TokenType.TPL:
         token = this.compressTpl(token);
         break;

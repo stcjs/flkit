@@ -152,7 +152,7 @@ export function token2Text(tokens = [], stringify = {
         if(contentToken.ext.tokens){
           if(startToken.ext.isScript){
             result.push(stringify.js(contentToken.ext.tokens));
-          }else{
+          }else if(startToken.ext.isTpl){
             result.push(token2Text(contentToken.ext.tokens));
           }
         }else{
