@@ -44,37 +44,36 @@ export default class extends BaseTokenize {
     if (this.pos >= this.length) {
       return this.getLastToken();
     }
-    let type = this.prevToken.type;
-    if (type !== TokenType.CSS_PROPERTY) {
-      let token = this.getTplToken();
-      if (token) {
-        return token;
-      }
+    
+    let token = this.getTplToken();
+    if (token) {
+      return token;
     }
     if (this.lookAt(multiComment[0] + '!')) {
       let value = this.getMatched(multiComment[0] + '!', multiComment[1]);
       return this.getToken(TokenType.RESERVED_COMMENT, value);
     }
+    let type = this.prevToken.type;
     let code = this._text.charCodeAt(this.pos);
     switch(code){
-      case 0x40: //@
+      case 0x40: // @
         return this.getAtToken();
-      case 0x7b: //{
+      case 0x7b: // {
         if (type === TokenType.CSS_SELECTOR) {
           this.status = STATUS.PROPERTY;
         }
         return this.getToken(TokenType.CSS_LEFT_BRACE, this.next());
-      case 0x7d: //}
+      case 0x7d: // }
         this.status = STATUS.SELECTOR;
         return this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
-      case 0x3a: //:
+      case 0x3a: // :
         if (type === TokenType.CSS_PROPERTY) {
           return this.getToken(TokenType.CSS_COLON, this.next());
         }
         break;
-      case 0x3b: //;
+      case 0x3b: // ;
         return this.getToken(TokenType.CSS_SEMICOLON, this.next());
-      case 0x5b: //[
+      case 0x5b: // [
         if (type === TokenType.CSS_SELECTOR || type === TokenType.CSS_VALUE) {
           // for hack [;color: red;]
           let ret = this.getMatched('[', ']');
