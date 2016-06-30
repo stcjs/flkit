@@ -9,6 +9,14 @@ import {atType} from './config.js';
 const multiComment = comments[1];
 
 /**
+ * status
+ */
+const STATUS = {
+  SELECTOR: 0,
+  PROPERTY: 1
+};
+
+/**
  * css tokenize
  */
 export default class extends BaseTokenize {
@@ -22,7 +30,7 @@ export default class extends BaseTokenize {
   }){
     super(text, options);
     this.prevToken = {};
-    this.status = 0;
+    this.status = STATUS.SELECTOR;
     this.skipCd();
   }
   /**
@@ -53,11 +61,11 @@ export default class extends BaseTokenize {
         return this.getAtToken();
       case 0x7b: //{
         if (type === TokenType.CSS_SELECTOR) {
-          this.status = 1;
+          this.status = STATUS.PROPERTY;
         }
         return this.getToken(TokenType.CSS_LEFT_BRACE, this.next());
       case 0x7d: //}
-        this.status = 0;
+        this.status = STATUS.SELECTOR;
         return this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
       case 0x3a: //:
         if (type === TokenType.CSS_PROPERTY) {
@@ -78,7 +86,7 @@ export default class extends BaseTokenize {
     if (type === TokenType.CSS_PROPERTY) {
       return this.getValueToken();
     }
-    if (this.status === 1) {
+    if (this.status === STATUS.PROPERTY) {
       return this.getPropertyToken();
     }
     return this.getSelectorToken();
@@ -155,7 +163,7 @@ export default class extends BaseTokenize {
       this.rollback(record);
     }
     if (this.options.parseSelector) {
-      token.detail = new SelectorTokenize(token.value).run();
+      token.ext = new SelectorTokenize(token.value).run();
     }
     return token;
   }
@@ -398,7 +406,7 @@ export default class extends BaseTokenize {
           type === TokenType.CSS_PAGE ||
           type === TokenType.CSS_VIEWPORT ||
           type === TokenType.CSS_AT) {
-        this.status = 1;
+        this.status = STATUS.PROPERTY;
       }
     }
     return ret;
