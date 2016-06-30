@@ -39,7 +39,6 @@ const compressOpts = {
   'compressInlineJs': true,  //压缩内联的JS
   'removeInlineJsCdata': true,  //
   'compressJsTpl': true,  //压缩前端模版
-  'jsTplTypeList': null,
   'compressTag': true  //压缩标签
 };
 
