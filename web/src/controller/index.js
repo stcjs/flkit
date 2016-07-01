@@ -6,15 +6,14 @@ import Base from './base.js';
 import {
   CssTokenize, 
   CssSelectorTokenize,
+  CssCompress,
   HtmlTokenize,
   HtmlCompress
 } from '../../../lib/index.js';
 
 const lang = {
   html: {
-    tokenize: {
-
-    },
+    tokenize: {},
     compress: {
       'trim': false,  //去除首尾空白字符 
       'removeComment': true,  //移除注释
@@ -47,8 +46,9 @@ const lang = {
       parseSelector: false,
       parseValue: false
     },
-    selector_tokenize: {
-      
+    selector_tokenize: {},
+    compress: {
+
     }
   }
 }
@@ -60,7 +60,8 @@ const classList = {
   },
   css: {
     tokenize: CssTokenize,
-    selector_tokenize: CssSelectorTokenize
+    selector_tokenize: CssSelectorTokenize,
+    compress: CssCompress
   }
 }
 

@@ -67,8 +67,13 @@ export default class extends BaseTokenize {
         this.status = STATUS.SELECTOR;
         return this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
       case 0x3a: // :
-        if (type === TokenType.CSS_PROPERTY) {
-          return this.getToken(TokenType.CSS_COLON, this.next());
+        if (type === TokenType.CSS_PROPERTY 
+         || type === TokenType.CSS_SELECTOR 
+         || type === TokenType.CSS_VALUE
+         || type === TokenType.CSS_COLON) {
+          let token = this.getToken(TokenType.CSS_COLON, this.next());
+          this.prevToken = token;
+          return token;
         }
         break;
       case 0x3b: // ;
@@ -82,7 +87,7 @@ export default class extends BaseTokenize {
           }
         }
     }
-    if (type === TokenType.CSS_PROPERTY) {
+    if (type === TokenType.CSS_PROPERTY || type === TokenType.CSS_COLON) {
       return this.getValueToken();
     }
     if (this.status === STATUS.PROPERTY) {

@@ -7,6 +7,7 @@ import {token2Text as html_token_2_text} from './lang/html/util.js';
 import {token2Text as css_token_2_text} from './lang/css/util.js';
 import html_compress from './lang/html/compress.js';
 import BaseTokenize from './util/tokenize.js';
+import css_compress from './lang/css/compress.js';
 
 const baseTokenizeInstance = new BaseTokenize('');
 
@@ -16,6 +17,7 @@ export const Template = BaseTemplate;
 export const CssTokenize = css_tokenize;
 export const CssSelectorTokenize = css_selector_tokenize;
 export const cssToken2Text = css_token_2_text;
+export const CssCompress = css_compress;
 
 export const HtmlTokenize = html_tokenize;
 export const htmlToken2Text = html_token_2_text;
