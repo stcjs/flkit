@@ -49571,5 +49571,215 @@
         "ext": {}
       }
     ]
+  },
+  "0e92f9dac5c7c277797c29405b670a31": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "a{\n\t[;color: red;]\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0e92f9dac5c7c277797c29405b670a31",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "a",
+        "start": 0,
+        "end": 1,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 1,
+        "end": 2,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 1
+          },
+          "end": {
+            "line": 0,
+            "column": 2
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_brace_hack",
+        "value": "[;color: red;]",
+        "start": 4,
+        "end": 18,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 15
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 19,
+        "end": 20,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "c405c05ce3b1df20cfb183450f391116": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": ":",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c405c05ce3b1df20cfb183450f391116",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": ":",
+        "start": 0,
+        "end": 1,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "d512b8dc79250a07b9032d50a2071028": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "@xxxx",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d512b8dc79250a07b9032d50a2071028",
+    "result": [
+      {
+        "type": "css_at",
+        "value": "@xxxx",
+        "start": 0,
+        "end": 5,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "094e70a975cf122706243fb5cd70449f": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "xxx{}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "094e70a975cf122706243fb5cd70449f",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "xxx",
+        "start": 0,
+        "end": 3,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 3,
+        "end": 4,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 3
+          },
+          "end": {
+            "line": 0,
+            "column": 4
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 4,
+        "end": 5,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 4
+          },
+          "end": {
+            "line": 0,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }
