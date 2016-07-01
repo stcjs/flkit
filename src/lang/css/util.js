@@ -1,7 +1,14 @@
 import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
 import {makePredicate} from '../../util/util.js';
-import {propertyHackPrefix, selectorCharUntil, pseudosElements21} from './config.js';
+import {
+  propertyHackPrefix, 
+  selectorCharUntil, 
+  pseudosElements21,
+  shortColor,
+  shortFontWeight,
+  multiSameProperty
+} from './config.js';
 
 /**
  * is attribute char
@@ -66,4 +73,116 @@ export function token2Text(tokens) {
   return tokens.map(token => {
     return token.value;
   }).join('');
+}
+
+/**
+ * short for num value
+ * margin: 10px 20px 10px 20px;
+ */
+export function short4NumValue(value, append = [], returnArray = false){
+  if(!Array.isArray(value)){
+    value = value.split(/ +/);
+  }
+  let length = value.length;
+  let v = [
+    [], 
+    [0, 0, 0, 0],
+    [0, 1, 0, 1],
+    [0, 1, 2, 1],
+    [0, 1, 2, 3]
+  ];
+  let sv = v[length];
+  value = [
+    value[sv[0]], 
+    value[sv[1]], 
+    value[sv[2]], 
+    value[sv[3]]
+  ];
+  append.forEach((item, index) => {
+    value[index] = item;
+  });
+  if(value[1] === value[3]){
+    value.splice(3, 1);
+  }
+  if(value.length === 3 && value[0] === value[2]){
+    value.splice(2, 1);
+  }
+  if(value.length === 2 && value[0] === value[1]){
+    value.splice(1, 1);
+  }
+  if(returnArray){
+    return value;
+  }
+  return value.join(' ').trim();
+}
+/**
+ * rgb to hex
+ */
+export function rgb2Hex(value, r, g, b){
+  if(value === true){
+    let v = [r | 0, g | 0, b | 0];
+    let result = '#';
+    v.forEach(item => {
+      result += (item < 16 ? '0' : '') + item.toString(16);
+    });
+    return result;
+  }
+  if(value.indexOf('rgb') === -1){
+    return value;
+  }
+  let rgbRex = /rgb\s*\(\s*(\d+)\s*\,\s*(\d+)\s*\,\s*(\d+)\s*\)/g;
+  vlaue = value.replace(rgbRex, (a, r, g, b) => {
+    return rgb2Hex(true, r, g, b);
+  });
+  return value;
+}
+/**
+ * get short value
+ */
+export function getShortValue(value, property){
+  // http://www.w3schools.com/cssref/pr_border-width.asp
+  property = property.toLowerCase();
+  if(property === 'border-color' || property === 'border-style' || property === 'border-width'){
+    return short4NumValue(value);
+  }
+  let list = {
+    color: shortColor,
+    'border-top-color': shortColor,
+    'border-left-color': shortColor,
+    'border-right-color': shortColor,
+    'border-bottom-color': shortColor,
+    'background-color': shortColor,
+    'font-weight': shortFontWeight
+  };
+  // rgb(0,0,0) -> #000000 (or #000 in this case later)
+  value = rgb2Hex(value);
+  if(property in list){
+    return list[property][value] || value;
+  }
+  return value;
+}
+
+/**
+ * is multi same property
+ */
+export function isMultiSameProperty(property, value){
+  if(value.indexOf('calc') > -1){
+    return true;
+  }
+  return !!multiSameProperty[property];
+}
+/**
+ * merge properties
+ */
+export function mergeProperties(attrs1, attrs2){
+  for(let key in attrs2){
+    if(attrs1[key]){
+      if(!attrs1[key].value.ext.important || attrs2[key].value.ext.important){
+        attrs1[key] = attrs2[key];
+      }
+    }else{
+      attrs1[key] = attrs2[key];
+    }
+  }
+  return attrs1;
 }

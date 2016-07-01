@@ -1,5 +1,5 @@
 import TokenType from '../../util/token_type.js';
-
+import {toHash} from '../../util/util.js';
 /**
  * @ type
  * @type {Array}
@@ -54,3 +54,41 @@ export const selectorCharUntil = '#.:[>+~*,/';
  * @type {Object}
  */
 export const pseudosElements21 = [':first-line', ':first-letter', ':before', ':after'];
+/**
+ * short color
+ */
+export const shortColor = {
+  black: "#000", 
+  fuchsia: "#F0F", 
+  white: "#FFF", 
+  yellow: "#FF0", 
+  "#800000": "maroon", 
+  "#ffa500": "orange", 
+  "#808000": "olive", 
+  "#800080": "purple", 
+  "#008000": "green", 
+  "#000080": "navy", 
+  "#008080": "teal", 
+  "#c0c0c0": "silver", 
+  "#808080": "gray", 
+  "#f00": "red", 
+  "#ff0000": "red" 
+};
+/**
+ * short font-weight
+ */
+export const shortFontWeight = {
+  normal: "400", 
+	bold: "700" 
+}
+/**
+ * multi same property
+ */
+export const multiSameProperty = toHash([
+  'background',
+  'background-image',
+  'background-color',
+  'display',
+  'clip',
+  '-webkit-transition'
+])
