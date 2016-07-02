@@ -412,6 +412,8 @@ export default class CssCompress extends Base {
     let colon = baseTokenizeInstance.getToken(TokenType.CSS_COLON, ':');
     let rightBrace = baseTokenizeInstance.getToken(TokenType.CSS_RIGHT_BRACE, '}');
     let semicolon = baseTokenizeInstance.getToken(TokenType.CSS_SEMICOLON, ';');
+
+    console.log(selectors[0].attrs.color)
     selectors.forEach(item => {
       ret.push(item.selector, leftBrace);
       let attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
