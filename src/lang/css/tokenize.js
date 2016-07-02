@@ -76,9 +76,13 @@ export default class extends BaseTokenize {
         }
         break;
       case 0x3b: // ;
-        return this.getToken(TokenType.CSS_SEMICOLON, this.next());
+        let token = this.getToken(TokenType.CSS_SEMICOLON, this.next());
+        this.prevToken = token;
+        return token;
       case 0x5b: // [
-        if (type === TokenType.CSS_SELECTOR || type === TokenType.CSS_VALUE) {
+        if (type === TokenType.CSS_SELECTOR 
+          || type === TokenType.CSS_VALUE
+          || type === TokenType.CSS_SEMICOLON) {
           // for hack [;color: red;]
           let ret = this.getMatched('[', ']');
           if (ret) {

@@ -42,5 +42,16 @@
     "options": {},
     "key": "6b53aceafad55e611f75ebd919ee0ed0",
     "result": "@import url('xxx');"
+  },
+  "818b3b80d3ae987e4523a12093bbf246": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{color:;font-size:12px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "818b3b80d3ae987e4523a12093bbf246",
+    "result": "div{font-size:12px}"
   }
 }
