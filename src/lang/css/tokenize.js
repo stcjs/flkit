@@ -66,10 +66,11 @@ export default class extends BaseTokenize {
         this.status = STATUS.SELECTOR;
         return this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
       case 0x3a: // :
-        if (type === TokenType.CSS_PROPERTY 
-         || type === TokenType.CSS_SELECTOR 
-         || type === TokenType.CSS_VALUE
-         || type === TokenType.CSS_COLON) {
+        if (type === TokenType.CSS_PROPERTY || 
+            type === TokenType.CSS_SELECTOR || 
+            type === TokenType.CSS_VALUE || 
+            type === TokenType.CSS_COLON) {
+              
           let token = this.getToken(TokenType.CSS_COLON, this.next());
           this.prevToken = token;
           return token;
@@ -80,9 +81,10 @@ export default class extends BaseTokenize {
         this.prevToken = token;
         return token;
       case 0x5b: // [
-        if (type === TokenType.CSS_SELECTOR 
-          || type === TokenType.CSS_VALUE
-          || type === TokenType.CSS_SEMICOLON) {
+        if (type === TokenType.CSS_SELECTOR || 
+            type === TokenType.CSS_VALUE || 
+            type === TokenType.CSS_SEMICOLON) {
+
           // for hack [;color: red;]
           let ret = this.getMatched('[', ']');
           if (ret) {
