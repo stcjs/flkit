@@ -84,6 +84,7 @@ export default class CssCompress extends Base {
     if(property.toLowerCase() !== 'filter'){
       // remove whitespace after ,
       value = value.replace(/,\s+/g, ',');
+      value = value.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3');
     }
     // get short value
     if(this.options.shortValue){
@@ -99,7 +100,7 @@ export default class CssCompress extends Base {
 		// would become
 		//     filter: chroma(color="#FFF");
 		// which makes the filter break in IE.
-    value = value.replace(/([^\"'=\s])(\s*)#([0-9a-fA-F])\3([0-9a-fA-F])\4([0-9a-fA-F])\5/ig, '$1$2#$3$4$5');
+    // value = value.replace(/([^\"'=\s])(\s*)#([0-9a-fA-F])\3([0-9a-fA-F])\4([0-9a-fA-F])\5/ig, '$1$2#$3$4$5');
     return value;
   }
   /**
@@ -413,7 +414,6 @@ export default class CssCompress extends Base {
     let rightBrace = baseTokenizeInstance.getToken(TokenType.CSS_RIGHT_BRACE, '}');
     let semicolon = baseTokenizeInstance.getToken(TokenType.CSS_SEMICOLON, ';');
 
-    console.log(selectors[0].attrs.color)
     selectors.forEach(item => {
       ret.push(item.selector, leftBrace);
       let attrs = Object.keys(item.attrs).map(key => item.attrs[key]);

@@ -53,5 +53,159 @@
     "options": {},
     "key": "818b3b80d3ae987e4523a12093bbf246",
     "result": "div{font-size:12px}"
+  },
+  "68d15ea13c6aaf0ab88aeb78528443a9": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{font-size:0px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "68d15ea13c6aaf0ab88aeb78528443a9",
+    "result": "a{font-size:0}"
+  },
+  "b522ffb19bc856997a21b745d0b6ff39": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{font-size: 0em}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b522ffb19bc856997a21b745d0b6ff39",
+    "result": "a{font-size:0}"
+  },
+  "901ecb9dc75a5e71b1381b70ff65a8cb": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tsrc: www /***/ bbb\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "901ecb9dc75a5e71b1381b70ff65a8cb",
+    "result": "a{src:www bbb}"
+  },
+  "38d86707b1ee7964ff2420cccf9d809d": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tsrc: www /***/ bbb;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "38d86707b1ee7964ff2420cccf9d809d",
+    "result": "a{src:www bbb}"
+  },
+  "11662014600b8bc24839ccbae4d15fee": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tsrc: www   ddd \n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "11662014600b8bc24839ccbae4d15fee",
+    "result": "a{src:www ddd}"
+  },
+  "3d6a9e052c796d62e58756592881f073": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tsrc: xxx, ddd\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3d6a9e052c796d62e58756592881f073",
+    "result": "a{src:xxx,ddd}"
+  },
+  "5f4dc26917ebc31fe42b577966926916": {
+    "lang": "css",
+    "name": "compress",
+    "code": "#img {\n      filter:progid:DXImageTransform.Microsoft.Matrix(M11=-0.707, M12=-0.707, M21=0.707, M22=-0.707, SizingMethod='auto expand');\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5f4dc26917ebc31fe42b577966926916",
+    "result": "#img{filter:progid:DXImageTransform.Microsoft.Matrix(M11=-0.707, M12=-0.707, M21=0.707, M22=-0.707, SizingMethod='auto expand')}"
+  },
+  "1e4b04d05bfcb3343031dc10e944fe60": {
+    "lang": "css",
+    "name": "compress",
+    "code": "#img {\n      wwww:progid:DXImageTransform.Microsoft.Matrix(M11=-0.707, M12=-0.707, M21=0.707, M22=-0.707, SizingMethod='auto expand');\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1e4b04d05bfcb3343031dc10e944fe60",
+    "result": "#img{wwww:progid:DXImageTransform.Microsoft.Matrix(M11=-0.707,M12=-0.707,M21=0.707,M22=-0.707,SizingMethod='auto expand')}"
+  },
+  "3ab6c446e11f67d4fed461f9722e4c4b": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\topacity:0.6\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3ab6c446e11f67d4fed461f9722e4c4b",
+    "result": "a{opacity:.6}"
+  },
+  "3342874621948d31610d12f295ed4f76": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tcolor: #FFFFFF\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3342874621948d31610d12f295ed4f76",
+    "result": "a{color:#FFF}"
+  },
+  "fec8cb9eefa0547e5f6d01cae7fe73f6": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\t;;;;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "fec8cb9eefa0547e5f6d01cae7fe73f6",
+    "result": ""
+  },
+  "fff23c449645f1311af211c228e3932b": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n  color:{=$name=}\n}",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "fff23c449645f1311af211c228e3932b",
+    "result": "a{color:{=$name=}}"
+  },
+  "0b3275892009e686c0616210f2aea481": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n {=$name=}: red\n}",
+    "tpl": "smarty",
+    "ld": "{=",
+    "rd": "=}",
+    "options": {},
+    "key": "0b3275892009e686c0616210f2aea481",
+    "result": "a{{=$name=}:red}"
+  },
+  "163169e65874f9469ef221583661a07a": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a, b {color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "163169e65874f9469ef221583661a07a",
+    "result": "a,b{color:red}"
   }
 }

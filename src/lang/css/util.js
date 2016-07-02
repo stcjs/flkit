@@ -99,7 +99,9 @@ export function token2Text(tokens) {
       case TokenType.CSS_SELECTOR:
         return selectorToken2Text(token);
       case TokenType.CSS_PROPERTY:
+        return token.value;
       case TokenType.CSS_VALUE:
+        return token.ext.prefix + token.ext.value + token.ext.suffix;
       default:
         return token.value;
     }
