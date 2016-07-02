@@ -1,0 +1,46 @@
+{
+  "cf2d24deda6a011bbded0ec190e770af": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cf2d24deda6a011bbded0ec190e770af",
+    "result": ""
+  },
+  "b87cda1378cde52c47a922a30e88404d": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b87cda1378cde52c47a922a30e88404d",
+    "result": ""
+  },
+  "51e06d6336932140b6035ab7fffbac86": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\ncolor:red\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "51e06d6336932140b6035ab7fffbac86",
+    "result": "a{color:red}"
+  },
+  "6b53aceafad55e611f75ebd919ee0ed0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@import url('xxx');",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6b53aceafad55e611f75ebd919ee0ed0",
+    "result": "@import url('xxx');"
+  }
+}

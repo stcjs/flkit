@@ -11,7 +11,8 @@ import {
   selectorToken2Text,
   isAtType,
   isUnMergeProperty,
-  isUnSortProperty
+  isUnSortProperty,
+  token2Text
 } from './util.js';
 
 import BaseTokenize from '../../util/tokenize.js';
@@ -44,13 +45,12 @@ export default class CssCompress extends Base {
     this._optText = text;
 
     this.tokens = [];
-    this.result = [];
     this.index = 0;
     this.length = 0;
 
+    this.result = [];
     this.selectors = {};
     this.inKeyframes = false;
-    this.tagMultis = {};
 
     this.options = {
       ...compressOpts,
@@ -107,6 +107,9 @@ export default class CssCompress extends Base {
    */
   getSelectorProperties(){
     let braces = this.tokens[this.index++];
+    if(!braces){
+      return {};
+    }
     if(braces.type !== TokenType.CSS_LEFT_BRACE){
       throw new Error('after selector must be a {');
     }
@@ -384,6 +387,49 @@ export default class CssCompress extends Base {
     return selectors;
   }
   /**
+   * sort selectors
+   */
+  sortSelectors(selectors){
+    return selectors.sort((se1, se2) => {
+      let se1Ext = se1.selector.ext;
+      let se2Ext = se2.selector.ext;
+      if(!se1Ext.specificityEqual || !se2Ext.specificityEqual){
+        return 0;
+      }
+      if(se1Ext.minSpecificity === se2Ext.minSpecificity){
+        return 0;
+      }
+      return se1Ext.minSpecificity < se2Ext.minSpecificity ? -1 : 1;
+    });
+  }
+  /**
+   * selector to tokens
+   */
+  selectorToTokens(selectors){
+    let ret = [];
+
+    let leftBrace = baseTokenizeInstance.getToken(TokenType.CSS_LEFT_BRACE, '{');
+    let colon = baseTokenizeInstance.getToken(TokenType.CSS_COLON, ':');
+    let rightBrace = baseTokenizeInstance.getToken(TokenType.CSS_RIGHT_BRACE, '}');
+    let semicolon = baseTokenizeInstance.getToken(TokenType.CSS_SEMICOLON, ';');
+    selectors.forEach(item => {
+      ret.push(item.selector, leftBrace);
+      let attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
+      let length = attrs.length;
+      attrs.forEach((attr, index) => {
+        if(attr.property){
+          ret.push(attr.property, colon);
+        }
+        ret.push(attr.value);
+        if(!this.options.removeLastSemicolon || index < length - 1){
+          ret.push(semicolon);
+        }
+      });
+      ret.push(rightBrace);
+    });
+    return ret;
+  }
+  /**
    * compress selector
    */
   compressSelector(){
@@ -393,27 +439,36 @@ export default class CssCompress extends Base {
     }
     let selectors = keys.map(key => this.selectors[key]);
     this.selectors = {};
+
+    if(this.options.sortSelector){
+      selectors = this.sortSelectors(selectors);
+    }
+
     let length = selectors.length;
     let flag = 0;
     let se = [];
+    let result = [];
     selectors.forEach((item, index) => {
-      if(index === length - 1){
-        flag = 1;
-      }
       if(item.selector.ext.specificityEqual){
         se.push(item);
       }else{
-        flag = 2;
-      }
-      if(flag){
         se = this.getSelectorsIntersect(se);
+        result = result.concat(se);
+        result.push(item);
+        se = [];
       }
     });
+    if(se.length){
+      se = this.getSelectorsIntersect(se);
+      result = result.concat(se);
+    }
+    let tokens = this.selectorToTokens(result);
+    this.result.push(...tokens);
   }
   /**
    * run
    */
-  run(){
+  run(retTokens = false){
     this.initTokens();
     let hasCharset = false;
     let sortSelector = this.options.sortSelector;
@@ -453,6 +508,6 @@ export default class CssCompress extends Base {
       }
     }
     this.compressSelector();
-    return this._optText;
+    return retTokens ? this.result : token2Text(this.result);
   }
 }
