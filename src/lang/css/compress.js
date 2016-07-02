@@ -190,6 +190,10 @@ export default class CssCompress extends Base {
           propertyToken = valueToken = null;
           hasColon = false;
           key = '';
+
+          if(token.type === TokenType.CSS_RIGHT_BRACE){
+            break selectorCondition;
+          }
           break;
         case TokenType.CSS_BRACK_HACK:
           // for css hack [;color:red;]
@@ -214,8 +218,6 @@ export default class CssCompress extends Base {
           }
           hasColon = true;
           break;
-        case TokenType.CSS_RIGHT_BRACE:
-          break selectorCondition;
       }
     }
     return attrs;
@@ -249,7 +251,12 @@ export default class CssCompress extends Base {
    * compress selector
    */
   compressSelector(){
-
+    let keys = Object.keys(this.selectors);
+    if(keys.length === 0){
+      return;
+    }
+    let selectors = keys.map(key => this.selectors[key]);
+    this.selectors = {};
   }
   /**
    * run
@@ -267,7 +274,14 @@ export default class CssCompress extends Base {
           this.collectSelector(token, selectorPos++);
           break;
         case TokenType.CSS_RIGHT_BRACE:
-        
+          if(this.index > 1 && this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE){
+            this.compressSelector();
+            this.options.sortProperty = sortProperty;
+            this.options.sortSelector = sortSelector;
+            this.inKeyframes = false;
+            this.result.push(token);
+            break;
+          }
         case TokenType.CSS_KEYFRAMES:
           this.options.sortSelector = false;
           this.options.sortProperty = false;
@@ -287,7 +301,6 @@ export default class CssCompress extends Base {
       }
     }
     this.compressSelector();
-
     return this._optText;
   }
 }
