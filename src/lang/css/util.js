@@ -13,7 +13,10 @@ import {
   shortColor,
   shortFontWeight,
   multiSameProperty,
-  atTypes
+  atTypes,
+  unMergeProperties,
+  unSortProperties,
+
 } from './config.js';
 
 /**
@@ -92,7 +95,14 @@ export function selectorToken2Text(token){
  */
 export function token2Text(tokens) {
   return tokens.map(token => {
-    return token.value;
+    switch(token.type){
+      case TokenType.CSS_SELECTOR:
+        return selectorToken2Text(token);
+      case TokenType.CSS_PROPERTY:
+      case TokenType.CSS_VALUE:
+      default:
+        return token.value;
+    }
   }).join('');
 }
 
@@ -212,4 +222,25 @@ export function mergeProperties(attrs1, attrs2){
  */
 export function isAtType(type){
   return !!atTypes[type];
+}
+/**
+ * can not merged property
+ */
+export function isUnMergeProperty(property, value){
+  let v = unMergeProperties[property.toLowerCase()];
+  if(!v){
+    return false;
+  }
+  if(typeof v === 'boolean'){
+    return v;
+  }
+  return v.test(value);
+}
+/**
+ * is unsort property
+ */
+export function isUnSortProperty(property){
+  return unSortProperties.some(item => {
+    return item === property || property.indexOf(item + '-') > -1;
+  });
 }

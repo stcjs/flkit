@@ -105,3 +105,24 @@ export const atTypes = toHash([
   TokenType.CSS_MOZILLA,
   TokenType.CSS_PAGE
 ]);
+/**
+ * can not merged properties
+ */
+export const unMergeProperties = {
+  background: true,
+  'border-color': true,
+  display: /box|flex/
+}
+/**
+ * unsort names
+ */
+export const unSortProperties = [
+  'padding', 
+  'margin', 
+  'font', 
+  'background', 
+  'border', 
+  'list', 
+  'outline', 
+  'display' 
+]
