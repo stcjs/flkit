@@ -43,8 +43,7 @@ const lang = {
   },
   css: {
     tokenize: {
-      parseSelector: false,
-      parseValue: false
+      parseSelector: false
     },
     selector_tokenize: {},
     compress: {

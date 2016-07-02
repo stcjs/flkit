@@ -2,11 +2,14 @@ import Base from '../../util/base.js';
 import Tokenize from './tokenize.js';
 
 import TokenType from '../../util/token_type.js';
+import SelectorTokenize from './selector_tokenize.js';
 
 import {
   getShortValue,
   isMultiSameProperty,
-  mergeProperties
+  mergeProperties,
+  selectorToken2Text,
+  isAtType
 } from './util.js';
 
 /**
@@ -39,8 +42,9 @@ export default class CssCompress extends Base {
     this.index = 0;
     this.length = 0;
 
-    this.selectors = [];
-
+    this.selectors = {};
+    this.inKeyframes = false;
+    this.tagMultis = {};
 
     this.options = {
       ...compressOpts,
@@ -58,6 +62,39 @@ export default class CssCompress extends Base {
       this.tokens = this._optText;
     }
     this.length = this.tokens.length;
+  }
+  /**
+   * compress css value
+   */
+  compressValue(value, property){
+    // remove comment
+    value = value.replace(/\/\*.*?\*\//g, '');
+    // remove newline
+    value = value.replace(/\n+/g, '');
+    // remove extra whitespace
+    value = value.replace(/\s+/g, ' ');
+    // if property is filter, can't replace `, ` to `,`
+    // see http://www.imququ.com/post/the_bug_of_ie-matrix-filter.html
+    if(property.toLowerCase() !== 'filter'){
+      // remove whitespace after ,
+      value = value.replace(/,\s+/g, ',');
+    }
+    // get short value
+    if(this.options.shortValue){
+      value = getShortValue(value, property);
+    }
+    // replace 0(px,em,%) with 0.
+    value = value.replace(/(^|\s)(0)(?:px|em|%|in|cm|mm|pc|pt|ex|rem)/gi, '$1$2');
+    // replace 0.6 to .6
+    value = value.replace(/(?:^|\s)0\.(\d+)/g, '.$1');
+    // Shorten colors from #AABBCC to #ABC. Note that we want to make sure
+		// the color is not preceded by either ", " or =. Indeed, the property
+		//     filter: chroma(color="#FFFFFF");
+		// would become
+		//     filter: chroma(color="#FFF");
+		// which makes the filter break in IE.
+    value = value.replace(/([^\"'=\s])(\s*)#([0-9a-fA-F])\3([0-9a-fA-F])\4([0-9a-fA-F])\5/ig, '$1$2#$3$4$5');
+    return value;
   }
   /**
    * get selector properties
@@ -122,17 +159,7 @@ export default class CssCompress extends Base {
 
           // optimize css value
           if(valueToken.type === TokenType.CSS_VALUE){
-            // if property is filter, can't replace `, ` to `,`
-					  // see http://www.imququ.com/post/the_bug_of_ie-matrix-filter.html
-            if(propertyToken.ext.value.toLowerCase() !== 'filter'){
-              // remove whitespace after ,
-              valueToken.ext.value = valueToken.ext.value.replace(/,\s+/g, ',');
-            }
-            // get short value
-            if(this.options.shortValue){
-              valueToken.ext.value = getShortValue(valueToken.ext.value, propertyToken.ext.value);
-            }
-
+            valueToken.ext.value = this.compressValue(valueToken.ext.value, propertyToken.ext.value);
             /**
              * for div{color:red;color:blue\9;}
              * if suffix in css value, can not override property.
@@ -202,7 +229,27 @@ export default class CssCompress extends Base {
     if(this.options.removeEmptySelector && Object.keys(attrs).length === 0){
       return true;
     }
-    
+    if(!token.ext.group){
+      let instance = new SelectorTokenize(token.value, this.options);
+      token.ext = instance.run();
+    }
+    let detail = {
+      attrs,
+      selector: token,
+      pos: selectorPos++
+    };
+    let selectorKey = selectorToken2Text(token);
+    if(selectorKey in this.selectors){
+      this.selectors[selectorKey] = mergeProperties(this.selectors[selectorKey], attrs);
+    }else{
+      this.selectors[selectorKey] = detail;
+    }
+  }
+  /**
+   * compress selector
+   */
+  compressSelector(){
+
   }
   /**
    * run
@@ -219,8 +266,27 @@ export default class CssCompress extends Base {
         case TokenType.CSS_SELECTOR:
           this.collectSelector(token, selectorPos++);
           break;
+        case TokenType.CSS_RIGHT_BRACE:
+        
+        case TokenType.CSS_KEYFRAMES:
+          this.options.sortSelector = false;
+          this.options.sortProperty = false;
+          this.inKeyframes = true;
+        default:
+          if(isAtType(token.type)){
+            this.compressSelector();
+          }
+          if(token.type === TokenType.CSS_CHARSET){
+            if(!hasCharset){
+              this.result.push(token);
+            }
+            hasCharset = true;
+          }else{
+            this.result.push(token);
+          }
       }
     }
+    this.compressSelector();
 
     return this._optText;
   }

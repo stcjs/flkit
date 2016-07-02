@@ -199,7 +199,7 @@ export default class extends Base {
       minSpecificity: min,
       maxSpecificity: max,
       specificityEqual: min === max,
-      hasVender: vender,
+      hasVender: !!vender,
       group: result
     };
     if (invalid) {

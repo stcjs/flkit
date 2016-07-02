@@ -1,13 +1,19 @@
 import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
-import {makePredicate} from '../../util/util.js';
+
+import {
+  makePredicate, 
+  hasSpaceBetweenTokens
+} from '../../util/util.js';
+
 import {
   propertyHackPrefix, 
   selectorCharUntil, 
   pseudosElements21,
   shortColor,
   shortFontWeight,
-  multiSameProperty
+  multiSameProperty,
+  atTypes
 } from './config.js';
 
 /**
@@ -65,6 +71,21 @@ export const selectorBreakChar = makePredicate(selectorCharUntil);
  */
 export function isPseudoElement(el){
   return pseudosElements21.indexOf(el) > -1;
+}
+
+/**
+ * selector token to text
+ */
+export function selectorToken2Text(token){
+  return token.ext.group.map(item => {
+    return item.tokens.map((token, index) => {
+      let hasSpace = false;
+      if(index > 0){
+        hasSpace = hasSpaceBetweenTokens(item.tokens[index - 1], token);
+      }
+      return (hasSpace ? ' ' : '') + token.value;
+    }).join('');
+  }).join(',');
 }
 /**
  * tokens to text
@@ -185,4 +206,10 @@ export function mergeProperties(attrs1, attrs2){
     }
   }
   return attrs1;
+}
+/**
+ * is @ type
+ */
+export function isAtType(type){
+  return !!atTypes[type];
 }

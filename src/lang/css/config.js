@@ -91,4 +91,17 @@ export const multiSameProperty = toHash([
   'display',
   'clip',
   '-webkit-transition'
-])
+]);
+/**
+ * @ types
+ */
+export const atTypes = toHash([
+  TokenType.CSS_AT,
+  TokenType.CSS_CHARSET,
+  TokenType.CSS_FONT_FACE,
+  TokenType.CSS_IMPORT,
+  TokenType.CSS_KEYFRAMES,
+  TokenType.CSS_MEDIA,
+  TokenType.CSS_MOZILLA,
+  TokenType.CSS_PAGE
+]);

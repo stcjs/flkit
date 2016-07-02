@@ -25,8 +25,7 @@ export default class extends BaseTokenize {
    * 
    */
   constructor(text, options = {
-    parseSelector: false,
-    parseValue: false
+    parseSelector: false
   }){
     super(text, options);
     this.prevToken = {};
@@ -285,10 +284,6 @@ export default class extends BaseTokenize {
     }
     token.ext = this.parseValue(ret);
     token.ext.hasTpl = hasTpl;
-    //parse css value
-    // if (this.options.parse_value && !hasTpl) {
-    //   //token.detail = parseValue(this.prevToken._value, ret);
-    // }
     return token;
   }
   /**
