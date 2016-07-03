@@ -352,7 +352,7 @@ export default class CssCompress extends Base {
       }
       assoc[key] = attrs1[key];
       //2 chars is : and ;
-      assoclen += attrs1[key].property.value.length + attrs1[key].value.value + 2;
+      assoclen += attrs1[key].property.value.length + attrs1[key].value.value.length + 2;
     }
     let length = Object.keys(assoc).length;
     if(length === 0){

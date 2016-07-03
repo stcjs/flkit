@@ -1439,5 +1439,16 @@
     "options": {},
     "key": "24f86128761fb7b5af1b1bef4462fed7",
     "result": "a{color:red;color:{=$name=}}"
+  },
+  "55af771921567a0b05e2ac4cdf5c4660": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{color: red;font-size: 5px}longlonglonglong---selector-xxxxxlonglonglonglong---selector-xxxxx{color: red;font-size: 12px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "55af771921567a0b05e2ac4cdf5c4660",
+    "result": "a{color:red;font-size:5px}longlonglonglong---selector-xxxxxlonglonglonglong---selector-xxxxx{color:red;font-size:12px}"
   }
 }
