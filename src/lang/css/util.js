@@ -255,6 +255,8 @@ export function isUnSortProperty(property){
 
 /**
  * combine property
+ * 
+ *  a{padding: 10px; padding-left: 20px;} => a{padding: 20px 10px 10px 10px}
  */
 export function mergePropertyChildren(attrs, type = 'padding'){
   let list = propertyChildren[type];

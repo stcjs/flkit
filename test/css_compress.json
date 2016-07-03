@@ -394,5 +394,181 @@
     "options": {},
     "key": "9f4b4ddafa30f6aa0cdf529e5f4de05e",
     "result": "a{padding:0 2px 3px 4px}"
+  },
+  "2ec5ccc5feb8c03e92d0f62e8fea9f95": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".manage-content {\n        padding-top: 20px;\n        background: #fff;\n        padding: 0 26px 20px;\n    }",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2ec5ccc5feb8c03e92d0f62e8fea9f95",
+    "result": ".manage-content{background:#fff;padding:0 26px 20px}"
+  },
+  "b3d93ce8c6b1bfd2ee7f6b56579b76db": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 20px;\n  padding-left: 10px;\n  [;color: red;];\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b3d93ce8c6b1bfd2ee7f6b56579b76db",
+    "result": "a{padding:20px;padding-left:10px;[;color: red;]}"
+  },
+  "62ed8c464b11784edbbeddd6860512de": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tcolor: calc(100% + 20px)\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "62ed8c464b11784edbbeddd6860512de",
+    "result": "a{color:calc(100% + 20px)}"
+  },
+  "597d3f9b6f8a68508f310ecb8a600dfc": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px}.div{padding:10px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "597d3f9b6f8a68508f310ecb8a600dfc",
+    "result": "div,.div{padding:10px}"
+  },
+  "43578af70fd5a86e4b9592ba8c138008": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px}.div{padding:10px;padding: 20px\\9;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "43578af70fd5a86e4b9592ba8c138008",
+    "result": "div{padding:10px}.div{padding:10px;padding:20px\\9}"
+  },
+  "0fe2b2bfd568f4f52ec0715898775f00": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px;padding: 20px\\9}.div{padding:10px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0fe2b2bfd568f4f52ec0715898775f00",
+    "result": "div{padding:10px;padding:20px\\9}.div{padding:10px}"
+  },
+  "3d7dbd2cb6f066c9480158b99411a558": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:20px\\9;padding: 10px;}\n\n.div{padding:10px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3d7dbd2cb6f066c9480158b99411a558",
+    "result": "div{padding:20px\\9;padding:10px}.div{padding:10px}"
+  },
+  "ec33ac6b4eae8d46ce7ebae86314f6a7": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px;padding: 20px\\9}\n\n.div{padding:10px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ec33ac6b4eae8d46ce7ebae86314f6a7",
+    "result": "div{padding:10px;padding:20px\\9}.div{padding:10px}"
+  },
+  "3daed3b43c188b309e594a72e631954d": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px}\n\n.div{padding: 20px\\9;padding:10px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3daed3b43c188b309e594a72e631954d",
+    "result": "div{padding:10px}.div{padding:20px\\9;padding:10px}"
+  },
+  "eb1e6f99c4c3183d314288db4f415cf3": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:20px}.div{padding:20px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "eb1e6f99c4c3183d314288db4f415cf3",
+    "result": "div,.div{padding:20px}"
+  },
+  "09b35de809564ba429ffdc31944652d0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{color:red}.dixxxxxxxxxxx{color:red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "09b35de809564ba429ffdc31944652d0",
+    "result": "div,.dixxxxxxxxxxx{color:red}"
+  },
+  "2dbb1956ad78f166f54d5c15bb4df7c0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px;padding-left:20px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2dbb1956ad78f166f54d5c15bb4df7c0",
+    "result": "div{padding:10px 10px 10px 20px}"
+  },
+  "b6535f5acb68cecd54d8a6d5d10f8395": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{padding:10px;padding-top:20px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b6535f5acb68cecd54d8a6d5d10f8395",
+    "result": "div{padding:20px 10px 10px}"
+  },
+  "49485d3498347097b5840f7e2d1e33b3": {
+    "lang": "css",
+    "name": "compress",
+    "code": "*{padding:0;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "49485d3498347097b5840f7e2d1e33b3",
+    "result": "*{padding:0}"
+  },
+  "ada1971cd835b7fe577f64c4c47fddb2": {
+    "lang": "css",
+    "name": "compress",
+    "code": "*{padding:;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ada1971cd835b7fe577f64c4c47fddb2",
+    "result": ""
+  },
+  "be58a0b037a0d123152a777c1c0dac21": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{color:red;font-size:20px;color:blue}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "be58a0b037a0d123152a777c1c0dac21",
+    "result": "div{color:blue;font-size:20px}"
   }
 }

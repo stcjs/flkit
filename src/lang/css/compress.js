@@ -155,6 +155,9 @@ export default class CssCompress extends Base {
           }
 
           if(!propertyToken || !valueToken){
+            if(token.type === TokenType.CSS_RIGHT_BRACE){
+              break selectorCondition;
+            }
             break;
           }
           
@@ -165,6 +168,9 @@ export default class CssCompress extends Base {
               value: valueToken
             }
             propertyToken = valueToken = null;
+            if(token.type === TokenType.CSS_RIGHT_BRACE){
+              break selectorCondition;
+            }
             break;
           }
 
@@ -177,7 +183,6 @@ export default class CssCompress extends Base {
              */
             key += valueToken.ext.suffix;
           }
-
 
           //multi same property
           //background:red;background:url(xx.png)
@@ -321,15 +326,10 @@ export default class CssCompress extends Base {
         continue;
       }
       // property has prefix or value has suffix
-      if(attrs1[key].property.ext.prefix || attrs1[key].value.ext.suffix){
-        continue;
-      }
-      // unmerge properties
-      if(isUnMergeProperty(attrs1[key].property.ext.value, attrs1Value)){
-        continue;
-      }
-      // unsort properties
-      if(isUnSortProperty(key)){
+      // if(attrs1[key].property.ext.prefix || attrs1[key].value.ext.suffix){
+      //   continue;
+      // }
+      if(this.isUnMergeProperty(attrs1[key], attrs1, attrs2)){
         continue;
       }
       assoc[key] = attrs1[key];
@@ -349,6 +349,65 @@ export default class CssCompress extends Base {
       }
     }
     return assoc;
+  }
+  /**
+   * check css value token equal
+   */
+  checkValueTokenEqual(item1, item2){
+    let ext1 = item1.ext;
+    let ext2 = item2.ext;
+    let list = ['prefix', 'suffix', 'value', 'important'];
+    return list.every(item => {
+      return ext1[item] === ext2[item];
+    });
+  }
+  /**
+   * is unmerge property
+   */
+  isUnMergeProperty(item1, attrs1, attrs2){
+    let item1Property = item1.property.ext.value.toLowerCase();
+    let item1Value = item1.value.ext.value;
+    if(isUnMergeProperty(item1Property, item1Value)){
+      return true;
+    }
+    if(!isUnSortProperty(item1Property)){
+      return false;
+    }
+    for(let key in attrs1){
+      let itemPropertyValue = attrs1[key].property.ext.value.toLowerCase();
+      if(item1Property === itemPropertyValue){
+        if(!this.checkValueTokenEqual(item1.value, attrs1[key].value)){
+          return true;
+        }
+      }
+      if(item1Property.indexOf('-') > -1){
+        if(item1Property.indexOf(itemPropertyValue + '-') > -1){
+          return true;
+        }
+      }else{
+        if(itemPropertyValue.indexOf(item1Property + '-') > -1){
+          return true;
+        }
+      }
+    }
+    for(let key in attrs2){
+      let itemPropertyValue = attrs2[key].property.ext.value.toLowerCase();
+      if(item1Property === itemPropertyValue){
+        if(!this.checkValueTokenEqual(item1.value, attrs2[key].value)){
+          return true;
+        }
+      }
+      if(item1Property.indexOf('-') > -1){
+        if(item1Property.indexOf(itemPropertyValue + '-') > -1){
+          return true;
+        }
+      }else{
+        if(itemPropertyValue.indexOf(item1Property + '-') > -1){
+          return true;
+        }
+      }
+    }
+    return false;
   }
   /**
    * get assoc selector token

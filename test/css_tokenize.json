@@ -51125,5 +51125,353 @@
         "ext": {}
       }
     ]
+  },
+  "c5b5c4dce8f245f19b0f95c446c8f8ac": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "div{padding:20px\\9;padding: 10px;}\n\n.div{padding:10px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c5b5c4dce8f245f19b0f95c446c8f8ac",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "div",
+        "start": 0,
+        "end": 3,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 3,
+        "end": 4,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 3
+          },
+          "end": {
+            "line": 0,
+            "column": 4
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "padding",
+        "start": 4,
+        "end": 11,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 4
+          },
+          "end": {
+            "line": 0,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "padding"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 11,
+        "end": 12,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 11
+          },
+          "end": {
+            "line": 0,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "20px\\9",
+        "start": 12,
+        "end": 18,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 12
+          },
+          "end": {
+            "line": 0,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "\\9",
+          "important": false,
+          "value": "20px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 18,
+        "end": 19,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 18
+          },
+          "end": {
+            "line": 0,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "padding",
+        "start": 19,
+        "end": 26,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 19
+          },
+          "end": {
+            "line": 0,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "padding"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 26,
+        "end": 27,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 26
+          },
+          "end": {
+            "line": 0,
+            "column": 27
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "10px",
+        "start": 28,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 28
+          },
+          "end": {
+            "line": 0,
+            "column": 32
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "10px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 32,
+        "end": 33,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 32
+          },
+          "end": {
+            "line": 0,
+            "column": 33
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 33,
+        "end": 34,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 33
+          },
+          "end": {
+            "line": 0,
+            "column": 34
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_selector",
+        "value": ".div",
+        "start": 36,
+        "end": 40,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 4
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 40,
+        "end": 41,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 4
+          },
+          "end": {
+            "line": 2,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "padding",
+        "start": 41,
+        "end": 48,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 5
+          },
+          "end": {
+            "line": 2,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "padding"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 48,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 12
+          },
+          "end": {
+            "line": 2,
+            "column": 13
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "10px",
+        "start": 49,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 13
+          },
+          "end": {
+            "line": 2,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "10px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 53,
+        "end": 54,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 17
+          },
+          "end": {
+            "line": 2,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }
