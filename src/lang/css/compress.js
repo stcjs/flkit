@@ -23,6 +23,7 @@ import {createToken} from '../../util/util_ext.js';
  * default compress options
  */
 const compressOpts = {
+  removeComment: true,
   removeLastSemicolon: true, 
   removeEmptySelector: true, 
   overrideSameProperty: true, 
@@ -128,6 +129,7 @@ export default class CssCompress extends Base {
 
     selectorCondition: while(this.index < this.length){
       let token = this.tokens[this.index++];
+      token = this.removeComment(token);
       switch(token.type){
         case TokenType.CSS_PROPERTY:
           key += this.options.propertyToLower ? token.value.toLowerCase() : token.value;
@@ -602,6 +604,22 @@ export default class CssCompress extends Base {
     this.result.push(...tokens);
   }
   /**
+   * remove comment
+   */
+  removeComment(token){
+    if(!this.options.removeComment){
+      return token;
+    }
+    let comments = [];
+    token.commentBefore.forEach(item => {
+      if(item.value.indexOf('/*!') === 0){
+        comments.push(item);
+      }
+    });
+    token.commentBefore = comments;
+    return token;
+  }
+  /**
    * run
    */
   run(retTokens = false){
@@ -613,6 +631,7 @@ export default class CssCompress extends Base {
     let property = '';
     while (this.index < this.length) {
       let token = this.tokens[this.index++];
+      token = this.removeComment(token);
       switch(token.type){
         case TokenType.CSS_SELECTOR:
           this.collectSelector(token, selectorPos++);

@@ -102,17 +102,18 @@ export function selectorToken2Text(token){
  */
 export function token2Text(tokens) {
   return tokens.map((token, index) => {
+    let prefix = token.commentBefore.map(item => item.value).join('');
     switch(token.type){
       case TokenType.CSS_SELECTOR:
-        return selectorToken2Text(token);
+        return prefix + selectorToken2Text(token);
       case TokenType.CSS_PROPERTY:
-        return token.value;
+        return prefix + token.value;
       case TokenType.CSS_VALUE:
         let value = token.ext.prefix + token.ext.value + token.ext.suffix;
         if(token.ext.important){
           value += '!important';
         }
-        return value;
+        return prefix + value;
       case TokenType.CSS_RIGHT_BRACE:
         if(index > 0){
           let prev = tokens[index - 1];
@@ -121,12 +122,12 @@ export function token2Text(tokens) {
             !token.ext.prefix && 
             !token.ext.important &&
             prev.ext.value.slice(-1) === '%'){
-            return ';' + token.value;
+            return prefix + ';' + token.value;
           }
         }
-        return token.value;
+        return prefix + token.value;
       default:
-        return token.value;
+        return prefix + token.value;
     }
   }).join('');
 }

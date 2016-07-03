@@ -70,7 +70,7 @@ export default class extends BaseTokenize {
             type === TokenType.CSS_SELECTOR || 
             type === TokenType.CSS_VALUE || 
             type === TokenType.CSS_COLON) {
-              
+
           let token = this.getToken(TokenType.CSS_COLON, this.next());
           this.prevToken = token;
           return token;

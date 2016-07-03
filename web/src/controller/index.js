@@ -47,7 +47,16 @@ const lang = {
     },
     selector_tokenize: {},
     compress: {
-
+      removeComment: true,
+      removeLastSemicolon: true, 
+      removeEmptySelector: true, 
+      overrideSameProperty: true, 
+      shortValue: true, 
+      mergeProperty: true, 
+      sortProperty: true, 
+      sortSelector: true, 
+      mergeSelector: true, 
+      propertyToLower: true 
     }
   }
 }
