@@ -565,11 +565,16 @@ export default class CssCompress extends Base {
     let sortSelector = this.options.sortSelector;
     let sortProperty = this.options.sortProperty;
     let selectorPos = 0;
+    let property = '';
     while (this.index < this.length) {
       let token = this.tokens[this.index++];
       switch(token.type){
         case TokenType.CSS_SELECTOR:
           this.collectSelector(token, selectorPos++);
+          break;
+        case TokenType.CSS_VALUE:
+          token.ext.value = this.compressValue(token.ext.value, property);
+          this.result.push(token);
           break;
         case TokenType.CSS_RIGHT_BRACE:
           if(this.index > 1 && this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE){
@@ -587,6 +592,9 @@ export default class CssCompress extends Base {
         default:
           if(isAtType(token.type)){
             this.compressSelector();
+          }
+          if(token.type === TokenType.CSS_PROPERTY){
+            property = token.ext.value.toLowerCase();
           }
           if(token.type === TokenType.CSS_CHARSET){
             if(!hasCharset){

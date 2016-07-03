@@ -570,5 +570,71 @@
     "options": {},
     "key": "be58a0b037a0d123152a777c1c0dac21",
     "result": "div{color:blue;font-size:20px}"
+  },
+  "8c055ba91b72a990d5d4114081d7c5cf": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@font-face {\n  font-family: 'WebFont';\n  src: url('myfont.eot?#') format('eot'),  /* IE6–8 */\n    url('myfont.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/\n    url('myfont.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8c055ba91b72a990d5d4114081d7c5cf",
+    "result": "@font-face{font-family:'WebFont';src:url('myfont.eot?#') format('eot'),url('myfont.woff') format('woff'),url('myfont.ttf') format('truetype');}"
+  },
+  "b160f58c25532834cf8974ab214985da": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@keyframes testanimations{\n  from{transform:translate(0,0);}\n  20%{transform:translate(20,20);}\n  40%{transform:translate(40,0);}\n  60%{transform:translate(60,20);}\n  80%{transform:translate(80,0);}\n  to{transform:translate(100,20);}\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b160f58c25532834cf8974ab214985da",
+    "result": "@keyframes testanimations{from{transform:translate(0,0)}20%{transform:translate(20,20)}40%{transform:translate(40,0)}60%{transform:translate(60,20)}80%{transform:translate(80,0)}to{transform:translate(100,20)}}"
+  },
+  "0dad33c77c5796866e78a824428c067a": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@-moz-document url-prefix(){.s-topsearch-box .s-topsearch-item a{white-space:normal}}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0dad33c77c5796866e78a824428c067a",
+    "result": "@-moz-document url-prefix(){.s-topsearch-box .s-topsearch-item a{white-space:normal}}"
+  },
+  "0ccbfc2a72e8e1b82c610d68b4c74b86": {
+    "lang": "css",
+    "name": "compress",
+    "code": "*::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); \n  -webkit-border-radius: 10px;\n  border-radius: 10px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "0ccbfc2a72e8e1b82c610d68b4c74b86",
+    "result": "*::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);-webkit-border-radius:10px;border-radius:10px}"
+  },
+  "d4195b20b78d4f0f5e1667642d41e953": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@import url(example.css) screen and (min-device-width:500px) and (max-device-width:1024px);",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d4195b20b78d4f0f5e1667642d41e953",
+    "result": "@import url(example.css) screen and (min-device-width:500px) and (max-device-width:1024px);"
+  },
+  "4ed37f51a5e40ad8fafb360937b69bb8": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@\\00000cha\\0rset \"utf-8\";",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4ed37f51a5e40ad8fafb360937b69bb8",
+    "result": "@\\00000cha\\0rset \"utf-8\";"
   }
 }

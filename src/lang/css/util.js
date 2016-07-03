@@ -170,7 +170,7 @@ export function rgb2Hex(value, r, g, b){
     return value;
   }
   let rgbRex = /rgb\s*\(\s*(\d+)\s*\,\s*(\d+)\s*\,\s*(\d+)\s*\)/g;
-  vlaue = value.replace(rgbRex, (a, r, g, b) => {
+  value = value.replace(rgbRex, (a, r, g, b) => {
     return rgb2Hex(true, r, g, b);
   });
   return value;
