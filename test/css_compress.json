@@ -1472,5 +1472,170 @@
     "options": {},
     "key": "1bbd247a98a027df9abb005fe5d9d5c0",
     "result": "a,b{color:red}"
+  },
+  "a5e8a741f4a16aa690a501050bdd3d71": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{font-size: 12px; font-size: 1em}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a5e8a741f4a16aa690a501050bdd3d71",
+    "result": "div{font-size:1em}"
+  },
+  "4da767e2355bbd1e26e0ebec5bca41dc": {
+    "lang": "css",
+    "name": "compress",
+    "code": "ol{\n\tlist-style: none\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4da767e2355bbd1e26e0ebec5bca41dc",
+    "result": "ol{list-style:none}"
+  },
+  "526c81278f74c8a83a498c1f7a3e64c0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a,ol,ol, a{font-size: 12px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "526c81278f74c8a83a498c1f7a3e64c0",
+    "result": "a,ol{font-size:12px}"
+  },
+  "2f7dce9704286a6e986b38e330ea5495": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\ndisplay: flex;\n  display: -webkit-flex;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2f7dce9704286a6e986b38e330ea5495",
+    "result": "a{display:flex;display:-webkit-flex}"
+  },
+  "288729a60ae15eed9ae5b8f80d3e52ef": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a#id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "288729a60ae15eed9ae5b8f80d3e52ef",
+    "result": "a#id{color:red}"
+  },
+  "2301bb2b80b6c860ff75eb500668297e": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a #id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2301bb2b80b6c860ff75eb500668297e",
+    "result": "a #id{color:red}"
+  },
+  "74fd41295fa73e9639a5646800100b68": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a/****/#id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "74fd41295fa73e9639a5646800100b68",
+    "result": "a#id{color:red}"
+  },
+  "a4bc42b8f1c36a2e42865df3fddd7050": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a /****/#id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a4bc42b8f1c36a2e42865df3fddd7050",
+    "result": "a #id{color:red}"
+  },
+  "80d79669baed30e22121bb5454da1bd4": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a/****/ #id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "80d79669baed30e22121bb5454da1bd4",
+    "result": "a #id{color:red}"
+  },
+  "fb3df133f5c0257b3818a811aebc1239": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a/****/ /****/#id{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "fb3df133f5c0257b3818a811aebc1239",
+    "result": "a #id{color:red}"
+  },
+  "8771c92b56dd00204406d52145f71f48": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@namespace xxx;",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "8771c92b56dd00204406d52145f71f48",
+    "result": "@namespace xxx;"
+  },
+  "023a7bd8d0ac913d9f859a9032ac3f40": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@xxx;",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "023a7bd8d0ac913d9f859a9032ac3f40",
+    "result": "@xxx;"
+  },
+  "530dc318feba258bbfaa525ad7cf6809": {
+    "lang": "css",
+    "name": "compress",
+    "code": "[name=\"xxxx\\\"\"]{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "530dc318feba258bbfaa525ad7cf6809",
+    "result": "[name=\"xxxx\\\"\"]{color:red}"
+  },
+  "9d5c0fa8abf98601163bc0d9b26e012d": {
+    "lang": "css",
+    "name": "compress",
+    "code": "xxx{font-size: 15px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "9d5c0fa8abf98601163bc0d9b26e012d",
+    "result": "xxx{font-size:15px}"
+  },
+  "967ab67f1595b4da6a97b96a21607a19": {
+    "lang": "css",
+    "name": "compress",
+    "code": "p{\nfont-family: 'xxx';\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "967ab67f1595b4da6a97b96a21607a19",
+    "result": "p{font-family:'xxx'}"
   }
 }
