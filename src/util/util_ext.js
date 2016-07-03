@@ -6,9 +6,7 @@ const baseTokenizeInstance = new BaseTokenize('');
  */
 export function createToken(type, value, referToken){
   let token = baseTokenizeInstance.getToken(type, value);
-  if(referToken){
-    token.start = referToken.start;
-  }
+  token.start = referToken ? referToken.start : 0;
   token.end = token.start + value.length;
   return token;
 }

@@ -270,7 +270,7 @@ export function mergePropertyChildren(attrs, type = 'padding'){
         value.type === TokenType.CSS_BRACK_HACK){
       return attrs;
     }
-    let propertyValue = property.ext.value.toLowerCase();
+    let propertyValue = property.value.toLowerCase();
     if(propertyValue in properties){
       if(property.ext.prefix || 
          value.ext.suffix || 
@@ -319,18 +319,20 @@ export function mergePropertyChildren(attrs, type = 'padding'){
       value[index] = attrs[item].value.ext.value;
       delete attrs[item];
     });
-    let propertyToken = createToken(TokenType.CSS_PROPERTY, type, {
+    let propertyToken = createToken(TokenType.CSS_PROPERTY, type);
+    propertyToken.ext = {
       prefix: '',
       value: type,
       suffix: ''
-    });
+    };
     let shortValue = short4NumValue(value);
-    let valueToken = createToken(TokenType.CSS_VALUE, shortValue, {
+    let valueToken = createToken(TokenType.CSS_VALUE, shortValue);
+    valueToken.ext = {
       prefix: '',
       value: shortValue,
       suffix: '',
       important: false
-    })
+    };
     attrs[type] = {
       property: propertyToken,
       value: valueToken
