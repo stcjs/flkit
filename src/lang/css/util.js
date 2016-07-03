@@ -96,7 +96,7 @@ export function selectorToken2Text(token){
  * tokens to text
  */
 export function token2Text(tokens) {
-  return tokens.map(token => {
+  return tokens.map((token, index) => {
     switch(token.type){
       case TokenType.CSS_SELECTOR:
         return selectorToken2Text(token);
@@ -108,6 +108,18 @@ export function token2Text(tokens) {
           value += '!important';
         }
         return value;
+      case TokenType.CSS_RIGHT_BRACE:
+        if(index > 0){
+          let prev = tokens[index - 1];
+          // template syntax right delemiter maybe %}
+          if(prev.type === TokenType.CSS_VALUE && 
+            !token.ext.prefix && 
+            !token.ext.important &&
+            prev.ext.value.slice(-1) === '%'){
+            return ';' + token.value;
+          }
+        }
+        return token.value;
       default:
         return token.value;
     }
@@ -217,6 +229,7 @@ export function mergeProperties(attrs1, attrs2){
   for(let key in attrs2){
     if(attrs1[key]){
       if(!attrs1[key].value.ext.important || attrs2[key].value.ext.important){
+        delete attrs1[key];
         attrs1[key] = attrs2[key];
       }
     }else{

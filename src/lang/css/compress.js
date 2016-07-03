@@ -79,6 +79,12 @@ export default class CssCompress extends Base {
     value = value.replace(/\n+/g, '');
     // remove extra whitespace
     value = value.replace(/\s+/g, ' ');
+
+    // get short value
+    if(this.options.shortValue){
+      value = getShortValue(value, property);
+    }
+
     // if property is filter, can't replace `, ` to `,`
     // see http://www.imququ.com/post/the_bug_of_ie-matrix-filter.html
     if(property.toLowerCase() !== 'filter'){
@@ -86,14 +92,15 @@ export default class CssCompress extends Base {
       value = value.replace(/,\s+/g, ',');
       value = value.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3');
     }
-    // get short value
-    if(this.options.shortValue){
-      value = getShortValue(value, property);
-    }
+    
     // replace 0(px,em,%) with 0.
     value = value.replace(/(^|\s)(0)(?:px|em|%|in|cm|mm|pc|pt|ex|rem)/gi, '$1$2');
     // replace 0.6 to .6
-    value = value.replace(/(?:^|\s)0\.(\d+)/g, '.$1');
+    value = value.replace(/(^|\s)0\.(\d+)/g, '$1.$2');
+    // replace 1.0 to 1
+    value = value.replace(/(\d+)\.0(\s|$)/g, '$1$2');
+    // replace .0 to 0
+    value = value.replace(/(^|\s)\.(0)(\s|$)/g, '$1$2$3');
     // Shorten colors from #AABBCC to #ABC. Note that we want to make sure
 		// the color is not preceded by either ", " or =. Indeed, the property
 		//     filter: chroma(color="#FFFFFF");
@@ -127,6 +134,10 @@ export default class CssCompress extends Base {
           if(!this.options.overrideSameProperty && (key in attrs)){
             key += pos++;
           }
+          if(this.options.propertyToLower){
+            token.ext.value = token.ext.value.toLowerCase();
+            token.value = token.value.toLowerCase();
+          }
           propertyToken = token;
 
           // has tplToken before property
@@ -142,10 +153,11 @@ export default class CssCompress extends Base {
           break;
         case TokenType.CSS_SEMICOLON:
         case TokenType.CSS_RIGHT_BRACE:
-          if(valueToken === null && tplToken){
+          if(valueToken === null && tplToken && propertyToken){
             valueToken = tplToken;
             tplToken = null;
           }
+
           // already has tplToken
           if(tplToken){
             attrs[`${tplToken.value}%${pos++}`] = {
@@ -187,6 +199,12 @@ export default class CssCompress extends Base {
           //multi same property
           //background:red;background:url(xx.png)
           if(isMultiSameProperty(key, valueToken.value)){
+            key += '%' + pos++;
+          }
+
+          // already has tpl syntax, can not override property
+          // div{<&if $name&>color:red;<&else&>color:blue;<&/if&>font-size:12px;}
+          if(hasTpl){
             key += '%' + pos++;
           }
           
@@ -283,7 +301,7 @@ export default class CssCompress extends Base {
     let selectorKey = selectorToken2Text(token);
     token.value = selectorKey;
     if(selectorKey in this.selectors){
-      this.selectors[selectorKey] = mergeProperties(this.selectors[selectorKey], attrs);
+      this.selectors[selectorKey].attrs = mergeProperties(this.selectors[selectorKey].attrs, attrs);
     }else{
       this.selectors[selectorKey] = detail;
     }
@@ -366,16 +384,21 @@ export default class CssCompress extends Base {
    */
   isUnMergeProperty(item1, attrs1, attrs2){
     let item1Property = item1.property.ext.value.toLowerCase();
+    let item1PropertyPrefix = item1.property.ext.prefix;
     let item1Value = item1.value.ext.value;
     if(isUnMergeProperty(item1Property, item1Value)){
       return true;
     }
-    if(!isUnSortProperty(item1Property)){
-      return false;
-    }
+    // if(isUnSortProperty(item1Property)){
+    //   return true;
+    // }
     for(let key in attrs1){
       let itemPropertyValue = attrs1[key].property.ext.value.toLowerCase();
+      let itemPropertyPrefix = attrs1[key].property.ext.prefix;
       if(item1Property === itemPropertyValue){
+        if(item1PropertyPrefix !== itemPropertyPrefix){
+          return true;
+        }
         if(!this.checkValueTokenEqual(item1.value, attrs1[key].value)){
           return true;
         }
@@ -392,7 +415,11 @@ export default class CssCompress extends Base {
     }
     for(let key in attrs2){
       let itemPropertyValue = attrs2[key].property.ext.value.toLowerCase();
+      let itemPropertyPrefix = attrs2[key].property.ext.prefix;
       if(item1Property === itemPropertyValue){
+        if(item1PropertyPrefix !== itemPropertyPrefix){
+          return true;
+        }
         if(!this.checkValueTokenEqual(item1.value, attrs2[key].value)){
           return true;
         }
@@ -512,8 +539,10 @@ export default class CssCompress extends Base {
           ret.push(attr.property, colon);
         }
         ret.push(attr.value);
-        if(!this.options.removeLastSemicolon || index < length - 1){
-          ret.push(semicolon);
+        if(attr.value.type !== TokenType.TPL){
+          if(!this.options.removeLastSemicolon || index < length - 1){
+            ret.push(semicolon);
+          }
         }
       });
       ret.push(rightBrace);
