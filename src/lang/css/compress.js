@@ -525,6 +525,9 @@ export default class CssCompress extends Base {
    */
   compressSelectorToken(selector){
     let group = selector.ext.group;
+    if(group.length === 1){
+      return selector;
+    }
     let keys = {}, ret = [];
     group.forEach(item => {
       let key = selectorGroupToken2Text(item);
