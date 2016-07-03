@@ -207,5 +207,170 @@
     "options": {},
     "key": "163169e65874f9469ef221583661a07a",
     "result": "a,b{color:red}"
+  },
+  "77128c0e03928f49aeecb84ac99e3e6c": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".b{font-size: 12px}\na{color: red}\n\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "77128c0e03928f49aeecb84ac99e3e6c",
+    "result": "a{color:red}.b{font-size:12px}"
+  },
+  "f3e3cc96ab9e3b91c0b2b0aa5d4d4f7a": {
+    "lang": "css",
+    "name": "compress",
+    "code": "* {color: red}\n\na, .b{font-size: 12px}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f3e3cc96ab9e3b91c0b2b0aa5d4d4f7a",
+    "result": "*{color:red}a,.b{font-size:12px}"
+  },
+  "6b1bd97b612d44b8e9bd747f0e894dde": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a, .b{font-size: 12px}\n* {color: red}\n\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6b1bd97b612d44b8e9bd747f0e894dde",
+    "result": "*{color:red}a,.b{font-size:12px}"
+  },
+  "c628d0c218e05b058093fff4b94808f8": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tpadding: 12px;\n  padding-left: 20px;\n  padding-right: 20px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c628d0c218e05b058093fff4b94808f8",
+    "result": "a{padding:12px 20px}"
+  },
+  "60b1d5c36a3e4bb45950efec4399a3b8": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 20px;\n  padding-left: 10px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "60b1d5c36a3e4bb45950efec4399a3b8",
+    "result": "a{padding:20px 20px 20px 10px}"
+  },
+  "26f05923aed1667a114e640d49c9a72f": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tpadding-left: 10px;\n  padding: 30px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "26f05923aed1667a114e640d49c9a72f",
+    "result": "a{padding:30px}"
+  },
+  "a1d32f3267160175dfe4ad4d6836425e": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{padding-left: 10px;padding-right: 20px;}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "a1d32f3267160175dfe4ad4d6836425e",
+    "result": "a{padding-left:10px;padding-right:20px}"
+  },
+  "550f471b4e2c58fc38c2bae4268b90bf": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n\tpadding: 10px;\n  padding: 20px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "550f471b4e2c58fc38c2bae4268b90bf",
+    "result": "a{padding:20px}"
+  },
+  "365830d0e83fbfdcc3cc2a8d6e1ff5e2": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 10px;\n  padding-top: 20px;\n  padding-top: 15px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "365830d0e83fbfdcc3cc2a8d6e1ff5e2",
+    "result": "a{padding:15px 10px 10px}"
+  },
+  "b37f41caf66b2cc22c5db9bd7397baf9": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding-left: 10px;\n  padding-left: 20px;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "b37f41caf66b2cc22c5db9bd7397baf9",
+    "result": "a{padding-left:20px}"
+  },
+  "363629a3ddbacd2e991333b45ae85f30": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding-left: 10px;\n  padding-left: 15px\\9;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "363629a3ddbacd2e991333b45ae85f30",
+    "result": "a{padding-left:10px;padding-left:15px\\9}"
+  },
+  "509177dfe38726436890b4beac41b9a4": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 20px;\n  padding: 15px\\9;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "509177dfe38726436890b4beac41b9a4",
+    "result": "a{padding:20px;padding:15px\\9}"
+  },
+  "bf6050f8488d656f4d32516c7743b795": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 10px !important;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "bf6050f8488d656f4d32516c7743b795",
+    "result": "a{padding:10px!important}"
+  },
+  "f21e4eb4b5b2e63bba88c4ef8499b5f3": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\npadding: 10px;\n  padding: 15px!important;\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f21e4eb4b5b2e63bba88c4ef8499b5f3",
+    "result": "a{padding:15px!important}"
+  },
+  "df98e6850479970b1a11ad23b6759bad": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\n  padding: 15px!important;\npadding: 10px;\n  \n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "df98e6850479970b1a11ad23b6759bad",
+    "result": "a{padding:15px!important}"
   }
 }

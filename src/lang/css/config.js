@@ -125,4 +125,12 @@ export const unSortProperties = [
   'list', 
   'outline', 
   'display' 
-]
+];
+
+/**
+ * property children
+ */
+export const propertyChildren = {
+  padding: ['padding-top', 'padding-right', 'padding-bottom', 'padding-left'],
+  margin: ['margin-top', 'margin-right', 'margin-bottom', 'margin-left']
+}

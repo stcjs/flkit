@@ -8,12 +8,12 @@ import {whitespace} from './config.js';
  */
 export function toHash(str) {
   if (typeof str === 'string') {
-      str = str.split('');
+    str = str.split('');
   }
   let ret = {};
   let length = str.length;
   for(let i = 0; i < length; i++){
-      ret[str[i]] = 1;
+    ret[str[i]] = 1;
   }
   return ret;
 }
@@ -53,3 +53,4 @@ export function hasSpaceBetweenTokens(preToken, token){
     return token.start - preToken.end > 0;
   }
 }
+

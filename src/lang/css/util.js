@@ -6,6 +6,8 @@ import {
   hasSpaceBetweenTokens
 } from '../../util/util.js';
 
+import {createToken} from '../../util/util_ext.js';
+
 import {
   propertyHackPrefix, 
   selectorCharUntil, 
@@ -16,7 +18,7 @@ import {
   atTypes,
   unMergeProperties,
   unSortProperties,
-
+  propertyChildren
 } from './config.js';
 
 /**
@@ -101,7 +103,11 @@ export function token2Text(tokens) {
       case TokenType.CSS_PROPERTY:
         return token.value;
       case TokenType.CSS_VALUE:
-        return token.ext.prefix + token.ext.value + token.ext.suffix;
+        let value = token.ext.prefix + token.ext.value + token.ext.suffix;
+        if(token.ext.important){
+          value += '!important';
+        }
+        return value;
       default:
         return token.value;
     }
@@ -112,7 +118,7 @@ export function token2Text(tokens) {
  * short for num value
  * margin: 10px 20px 10px 20px;
  */
-export function short4NumValue(value, append = [], returnArray = false){
+export function short4NumValue(value, append = {}, returnArray = false){
   if(!Array.isArray(value)){
     value = value.split(/ +/);
   }
@@ -131,9 +137,9 @@ export function short4NumValue(value, append = [], returnArray = false){
     value[sv[2]], 
     value[sv[3]]
   ];
-  append.forEach((item, index) => {
-    value[index] = item;
-  });
+  for(let index in append){
+    value[index | 0] = append[index];
+  }
   if(value[1] === value[3]){
     value.splice(3, 1);
   }
@@ -245,4 +251,90 @@ export function isUnSortProperty(property){
   return unSortProperties.some(item => {
     return item === property || property.indexOf(item + '-') > -1;
   });
+}
+
+/**
+ * combine property
+ */
+export function mergePropertyChildren(attrs, type = 'padding'){
+  let list = propertyChildren[type];
+  let properties = {[type]: 0};
+  list.forEach(item => properties[item] = 0);
+  
+  for(let key in attrs){
+    let {property, value} = attrs[key];
+    // if has tpl or hack in attrs, can not combine it
+    if(!property || 
+        property.type === TokenType.TPL ||
+        value.type === TokenType.TPL || 
+        value.type === TokenType.CSS_BRACK_HACK){
+      return attrs;
+    }
+    let propertyValue = property.ext.value.toLowerCase();
+    if(propertyValue in properties){
+      if(property.ext.prefix || 
+         value.ext.suffix || 
+         value.ext.important || 
+         value.ext.prefix){
+        return attrs;
+      }else{
+        properties[propertyValue] = 1;
+      }
+    }
+  }
+  if(properties[type]){
+    /**
+     * 避免出现这种情况
+     * 
+    .manage-content {
+        padding-top: 20px;
+        background: #fff;
+        padding: 0 26px 20px;
+    }
+    */
+    let attrsKeys = Object.keys(attrs);
+    let mainIndex = attrsKeys.indexOf(type);
+    let append = {};
+    let value = attrs[type].value.ext.value;
+    list.forEach((item, index) => {
+      if(properties[item]){
+        let idx = attrsKeys.indexOf(item);
+        if(idx > mainIndex){
+          append[index] = attrs[item].value.value;
+        }
+        delete attrs[item];
+      }
+    });
+    attrs[type].value.ext.value = short4NumValue(value, append);
+    attrs[type].value.value = attrs[type].value.ext.value;
+  }else{
+    let flag = list.every(item => {
+      return properties[item];
+    });
+    if(!flag){
+      return attrs;
+    }
+    let value = [];
+    list.forEach((item, index) => {
+      value[index] = attrs[item].value.ext.value;
+      delete attrs[item];
+    });
+    let propertyToken = createToken(TokenType.CSS_PROPERTY, type, {
+      prefix: '',
+      value: type,
+      suffix: ''
+    });
+    let shortValue = short4NumValue(value);
+    let valueToken = createToken(TokenType.CSS_VALUE, shortValue, {
+      prefix: '',
+      value: shortValue,
+      suffix: '',
+      important: false
+    })
+    attrs[type] = {
+      property: propertyToken,
+      value: valueToken
+    }
+  }
+  return attrs;
 }

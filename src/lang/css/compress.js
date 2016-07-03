@@ -12,12 +12,12 @@ import {
   isAtType,
   isUnMergeProperty,
   isUnSortProperty,
-  token2Text
+  token2Text,
+  mergePropertyChildren
 } from './util.js';
 
-import BaseTokenize from '../../util/tokenize.js';
+import {createToken} from '../../util/util_ext.js';
 
-const baseTokenizeInstance = new BaseTokenize('');
 
 /**
  * default compress options
@@ -117,6 +117,7 @@ export default class CssCompress extends Base {
 
     let attrs = {}, pos = 0, key = '', hasColon = false;
     let propertyToken = null, valueToken = null, tplToken = null;
+    let hasTpl = false, hasHack = false;
 
     selectorCondition: while(this.index < this.length){
       let token = this.tokens[this.index++];
@@ -210,6 +211,7 @@ export default class CssCompress extends Base {
           attrs[`${token.value}%${pos++}`] = {
             value: token
           };
+          hasHack = true;
           break;
         case TokenType.TPL:
           // already has tplToken
@@ -219,6 +221,7 @@ export default class CssCompress extends Base {
             }
           }
           tplToken = token;
+          hasTpl = true;
           break;
         case TokenType.CSS_COLON:
           // is tplToken before :
@@ -230,6 +233,28 @@ export default class CssCompress extends Base {
           break;
       }
     }
+    if(!hasHack && !hasTpl){
+      if(this.options.sortProperty){
+        attrs = this.sortProperties(attrs);
+      }
+      if(this.options.mergeProperty){
+        attrs = this.mergePropertyChildren(attrs);
+      }
+    }
+    return attrs;
+  }
+  /**
+   * sort properties
+   */
+  sortProperties(attrs){
+    return attrs;
+  }
+  /**
+   * merge properties
+   */
+  mergePropertyChildren(attrs){
+    attrs = mergePropertyChildren(attrs, 'padding');
+    attrs = mergePropertyChildren(attrs, 'margin');
     return attrs;
   }
   /**
@@ -330,7 +355,7 @@ export default class CssCompress extends Base {
    */
   getAssocSelectorToken(se1, se2){
     let value = se1.value + ',' + se2.value;
-    let token = baseTokenizeInstance.getToken(TokenType.CSS_SELECTOR, value, se1);
+    let token = createToken(TokenType.CSS_SELECTOR, value, se1);
     let equal = false;
     if(se1.ext.specificityEqual && se2.ext.specificityEqual){
       equal = se1.ext.minSpecificity === se2.ext.minSpecificity;
@@ -395,6 +420,11 @@ export default class CssCompress extends Base {
       let se1Ext = se1.selector.ext;
       let se2Ext = se2.selector.ext;
       if(!se1Ext.specificityEqual || !se2Ext.specificityEqual){
+        if(se1Ext.minSpecificity > se2Ext.maxSpecificity){
+          return 1;
+        }else if(se1Ext.maxSpecificity < se2Ext.minSpecificity){
+          return -1;
+        }
         return 0;
       }
       if(se1Ext.minSpecificity === se2Ext.minSpecificity){
@@ -409,10 +439,10 @@ export default class CssCompress extends Base {
   selectorToTokens(selectors){
     let ret = [];
 
-    let leftBrace = baseTokenizeInstance.getToken(TokenType.CSS_LEFT_BRACE, '{');
-    let colon = baseTokenizeInstance.getToken(TokenType.CSS_COLON, ':');
-    let rightBrace = baseTokenizeInstance.getToken(TokenType.CSS_RIGHT_BRACE, '}');
-    let semicolon = baseTokenizeInstance.getToken(TokenType.CSS_SEMICOLON, ';');
+    let leftBrace = createToken(TokenType.CSS_LEFT_BRACE, '{');
+    let colon = createToken(TokenType.CSS_COLON, ':');
+    let rightBrace = createToken(TokenType.CSS_RIGHT_BRACE, '}');
+    let semicolon = createToken(TokenType.CSS_SEMICOLON, ';');
 
     selectors.forEach(item => {
       ret.push(item.selector, leftBrace);

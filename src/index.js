@@ -8,8 +8,8 @@ import {token2Text as css_token_2_text} from './lang/css/util.js';
 import html_compress from './lang/html/compress.js';
 import BaseTokenize from './util/tokenize.js';
 import css_compress from './lang/css/compress.js';
+import {createToken as create_token} from './util/util_ext.js';
 
-const baseTokenizeInstance = new BaseTokenize('');
 
 export const TokenType = token_type;
 export const Template = BaseTemplate;
@@ -23,6 +23,9 @@ export const HtmlTokenize = html_tokenize;
 export const htmlToken2Text = html_token_2_text;
 export const HtmlCompress = html_compress;
 
+
+export const createToken = create_token;
+
 /**
  * has template syntax in text
  */
@@ -31,17 +34,6 @@ export function hasTpl(text, options = {}) {
   return instance.hasTpl();
 }
 
-/**
- * create token
- */
-export function createToken(type, value, referToken){
-  let token = baseTokenizeInstance.getToken(type, value);
-  if(referToken){
-    token.start = referToken.start;
-  }
-  token.end = token.start + value.length;
-  return token;
-}
 /**
  * get html attribute value
  */
