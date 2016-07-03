@@ -356,7 +356,7 @@ export function mergePropertyChildren(attrs, type = 'padding'){
     attrs[type] = {
       property: propertyToken,
       value: valueToken
-    }
+    };
   }
   return attrs;
 }

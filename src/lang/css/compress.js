@@ -11,7 +11,6 @@ import {
   selectorToken2Text,
   isAtType,
   isUnMergeProperty,
-  isUnSortProperty,
   token2Text,
   mergePropertyChildren,
   selectorGroupToken2Text
@@ -33,7 +32,7 @@ const compressOpts = {
   sortSelector: true, 
   mergeSelector: true, 
   propertyToLower: true 
-}
+};
 /**
  * compress css
  */
@@ -56,7 +55,7 @@ export default class CssCompress extends Base {
     this.options = {
       ...compressOpts,
       ...this.options
-    }
+    };
   }
   /**
    * init tokens
@@ -123,7 +122,7 @@ export default class CssCompress extends Base {
       throw new Error('after selector must be a {');
     }
 
-    let attrs = {}, pos = 0, key = '', hasColon = false;
+    let attrs = {}, pos = 0, key = '';
     let propertyToken = null, valueToken = null, tplToken = null;
     let hasTpl = false, hasHack = false;
 
@@ -145,7 +144,7 @@ export default class CssCompress extends Base {
           if(tplToken){
             attrs[`${tplToken.value}%${pos++}`] = {
               value: tplToken
-            }
+            };
             tplToken = null;
           }
           break;
@@ -163,7 +162,7 @@ export default class CssCompress extends Base {
           if(tplToken){
             attrs[`${tplToken.value}%${pos++}`] = {
               value: tplToken
-            }
+            };
             tplToken = null;
           }
 
@@ -179,7 +178,7 @@ export default class CssCompress extends Base {
             attrs[`${propertyToken.value}%${pos++}`] = {
               property: propertyToken,
               value: valueToken
-            }
+            };
             propertyToken = valueToken = null;
             if(token.type === TokenType.CSS_RIGHT_BRACE){
               break selectorCondition;
@@ -220,10 +219,10 @@ export default class CssCompress extends Base {
             attrs[key] = {
               property: propertyToken,
               value: valueToken
-            }
+            };
           }
           propertyToken = valueToken = null;
-          hasColon = false;
+          //hasColon = false;
           key = '';
 
           if(token.type === TokenType.CSS_RIGHT_BRACE){
@@ -242,7 +241,7 @@ export default class CssCompress extends Base {
           if(tplToken){
             attrs[`${token.value}%${pos++}`] = {
               value: tplToken
-            }
+            };
           }
           tplToken = token;
           hasTpl = true;
@@ -253,7 +252,7 @@ export default class CssCompress extends Base {
             propertyToken = tplToken;
             tplToken = null;
           }
-          hasColon = true;
+          //hasColon = true;
           break;
       }
     }
@@ -316,7 +315,7 @@ export default class CssCompress extends Base {
       return list.every(item => {
         return selector.selector.value.indexOf(item) === -1;
       });
-    })
+    });
   }
   /**
    * get properties intersect in 2 selectors
@@ -453,22 +452,21 @@ export default class CssCompress extends Base {
       maxSpecificity: Math.max(se1.ext.maxSpecificity, se2.ext.maxSpecificity),
       specificityEqual: equal,
       group
-    }
+    };
     return token;
   }
   /**
    * get selector intersect
    */
   getSelectorsIntersect(selectors){
-    while(true){
+    while(1){
       let length = selectors.length;
       if(length < 2){
         break;
       }
       let result = [];
       let flag = false;
-      let pos = 0;
-      for(let index = 0; index < length - 1; index ++){
+      for(let index = 0; index < length - 1; index++){
         let assoc = null;
         if(this.selectorCanCombine([selectors[index], selectors[index + 1]])){
           assoc = this.getPropertiesIntersect(selectors[index], selectors[index + 1]);
@@ -585,11 +583,8 @@ export default class CssCompress extends Base {
       selectors = this.sortSelectors(selectors);
     }
 
-    let length = selectors.length;
-    let flag = 0;
-    let se = [];
-    let result = [];
-    selectors.forEach((item, index) => {
+    let se = [], result = [];
+    selectors.forEach(item => {
       if(item.selector.ext.specificityEqual){
         se.push(item);
       }else{
