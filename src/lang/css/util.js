@@ -77,19 +77,24 @@ export const selectorBreakChar = makePredicate(selectorCharUntil);
 export function isPseudoElement(el){
   return pseudosElements21.indexOf(el) > -1;
 }
-
+/**
+ * selector group token to text
+ */
+export function selectorGroupToken2Text(selectorGroupToken){
+  return selectorGroupToken.tokens.map((token, index) => {
+    let hasSpace = false;
+    if(index > 0){
+      hasSpace = hasSpaceBetweenTokens(selectorGroupToken.tokens[index - 1], token);
+    }
+    return (hasSpace ? ' ' : '') + token.value;
+  }).join('');
+}
 /**
  * selector token to text
  */
 export function selectorToken2Text(token){
   return token.ext.group.map(item => {
-    return item.tokens.map((token, index) => {
-      let hasSpace = false;
-      if(index > 0){
-        hasSpace = hasSpaceBetweenTokens(item.tokens[index - 1], token);
-      }
-      return (hasSpace ? ' ' : '') + token.value;
-    }).join('');
+    return selectorGroupToken2Text(item);
   }).join(',');
 }
 /**

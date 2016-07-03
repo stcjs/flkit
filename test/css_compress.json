@@ -1450,5 +1450,27 @@
     "options": {},
     "key": "55af771921567a0b05e2ac4cdf5c4660",
     "result": "a{color:red;font-size:5px}longlonglonglong---selector-xxxxxlonglonglonglong---selector-xxxxx{color:red;font-size:12px}"
+  },
+  "2b8600babc463e58e43c806e969ef46b": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a,a{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2b8600babc463e58e43c806e969ef46b",
+    "result": "a{color:red}"
+  },
+  "1bbd247a98a027df9abb005fe5d9d5c0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a, b{color: red}\na{color: red}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "1bbd247a98a027df9abb005fe5d9d5c0",
+    "result": "a,b{color:red}"
   }
 }

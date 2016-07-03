@@ -13,7 +13,8 @@ import {
   isUnMergeProperty,
   isUnSortProperty,
   token2Text,
-  mergePropertyChildren
+  mergePropertyChildren,
+  selectorGroupToken2Text
 } from './util.js';
 
 import {createToken} from '../../util/util_ext.js';
@@ -520,6 +521,22 @@ export default class CssCompress extends Base {
     });
   }
   /**
+   * remove exist selector
+   */
+  compressSelectorToken(selector){
+    let group = selector.ext.group;
+    let keys = {}, ret = [];
+    group.forEach(item => {
+      let key = selectorGroupToken2Text(item);
+      if(!(key in keys)){
+        ret.push(item);
+        keys[key] = true;
+      }
+    });
+    selector.ext.group = ret;
+    return selector;
+  }
+  /**
    * selector to tokens
    */
   selectorToTokens(selectors){
@@ -531,6 +548,7 @@ export default class CssCompress extends Base {
     let semicolon = createToken(TokenType.CSS_SEMICOLON, ';');
 
     selectors.forEach(item => {
+      item.selector = this.compressSelectorToken(item.selector);
       ret.push(item.selector, leftBrace);
       let attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
       let length = attrs.length;
