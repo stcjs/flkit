@@ -1,7 +1,7 @@
 {
   "name": "flkit",
   "description": "A front-language(HTML,CSS,JS) toolkit that support tempate syntax(Smarty,PHP,ejs,jade)",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "author": {
     "name": "welefen",
     "email": "welefen@gmail.com"

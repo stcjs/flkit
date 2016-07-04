@@ -47,3 +47,15 @@ export function getHtmlAttrValue(attrs, name){
   });
   return value;
 }
+/**
+ * set html attribute value
+ */
+export function setHtmlAttrValue(attrs, name, value) {
+  attrs.some(item => {
+    if(item.nameLowerCase === name){
+      item.value = value;
+      return true;
+    }
+  });
+  return attrs;
+}
