@@ -395,6 +395,8 @@ export default class HtmlTokenize extends Base {
       }
       this.startToken();
       contentToken = this.getToken(TokenType.HTML_RAW_TEXT, this.forward(pos - this.pos));
+      // add hasTpl flag for content token
+      contentToken.ext.hasTpl = this.hasTpl(contentToken.value);
       this.startToken();
       endToken = this.getTagToken();
       token.value = startToken.value + contentToken.value + endToken.value;
