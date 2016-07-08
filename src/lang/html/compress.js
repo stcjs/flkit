@@ -338,19 +338,19 @@ export default class HtmlCompress extends Base {
     if(this.prev && tagTypes.indexOf(this.prev.type) > -1){
       token.start = this.prev.end;
     }
-
-    if(this.isXML){
+    let tagLowerCase = token.ext.tagLowerCase;
+    if(this.isXML || !isTag(tagLowerCase)){
       return token;
     }
     
     if(this.options.removeOptionalEndEag){
-      if(isOptionalEndTag(token.ext.tagLowerCase, this.options.optionalEndTagList)){
+      if(isOptionalEndTag(tagLowerCase, this.options.optionalEndTagList)){
         return;
       }
     }
 
     if(this.options.tagToLower){
-      token.ext.tag = token.ext.tagLowerCase;
+      token.ext.tag = tagLowerCase;
     }
 
     return token;
