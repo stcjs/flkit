@@ -879,7 +879,7 @@
     "rd": "",
     "options": {},
     "key": "0352106fa695f107e8509b545016a595",
-    "result": "<include />"
+    "result": "<Include />"
   },
   "44311261930d51ffb4061da6398541d1": {
     "lang": "html",
@@ -1916,5 +1916,27 @@
     "options": {},
     "key": "ff6dd1930012deb539cd52fe3b314481",
     "result": "</div> <textarea>\n\n</textarea>"
+  },
+  "4581bd07f2df9db21d339f0536a25872": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<Include name=\"wwww\" />",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "4581bd07f2df9db21d339f0536a25872",
+    "result": "<Include name=\"wwww\" />"
+  },
+  "d73b6ae7143e2313bc5dc32458499f94": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<HAHA name=\"WWW\" />",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d73b6ae7143e2313bc5dc32458499f94",
+    "result": "<HAHA name=\"WWW\" />"
   }
 }

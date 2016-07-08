@@ -8,7 +8,8 @@ import {
   isAttrValueNoQuote,
   isOptionalEndTag,
   isVoidElement,
-  isSafeTag
+  isSafeTag,
+  isTag
 } from './util.js';
 
 import CssCompress from '../css/compress.js';
@@ -213,6 +214,9 @@ export default class HtmlCompress extends Base {
       return token;
     }
     let lowerTagName = token.ext.tagLowerCase;
+    if(!isTag(lowerTagName)){
+      return token;
+    }
     if(this.options.tagToLower){
       token.ext.tag = lowerTagName;
     }

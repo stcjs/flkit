@@ -5,7 +5,8 @@ import {
   tagAttrOnlyName,
   optionalEndTag,
   voidElements,
-  safeTags
+  safeTags,
+  allTags
 } from './config.js';
 
 /**
@@ -219,6 +220,12 @@ export function isOptionalEndTag(tag, list){
  */
 export function isVoidElement(tag){
   return !!voidElements[tag];
+}
+/**
+ * is standard tag
+ */
+export function isTag(tag){
+  return !!allTags[tag];
 }
 
 /**
