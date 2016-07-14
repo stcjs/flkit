@@ -8,7 +8,10 @@ import {token2Text as css_token_2_text} from './lang/css/util.js';
 import html_compress from './lang/html/compress.js';
 //import BaseTokenize from './util/tokenize.js';
 import css_compress from './lang/css/compress.js';
-import {createToken as create_token} from './util/util_ext.js';
+import {
+  createToken as create_token,
+  createRawToken as create_raw_token
+} from './util/util_ext.js';
 
 
 export const TokenType = token_type;
@@ -25,6 +28,7 @@ export const HtmlCompress = html_compress;
 
 
 export const createToken = create_token;
+export const createRawToken = create_raw_token;
 
 /**
  * has template syntax in text
