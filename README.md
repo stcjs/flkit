@@ -8,8 +8,36 @@ A JS/HTML/CSS Toolkit(Tokenizer、Parser) Support Template Syntax.
 npm install flkit;
 ```
 
+## Methods
 
-## createToken(type, value, referToken)
+### getHtmlAttrValue(attrs, name)
+
+* `attrs` {Array} 属性列表
+* `name` {String} 属性名
+
+获取属性值，如：
+
+```js
+import {getHtmlAttrValue} from 'flkit';
+let attrs = token.ext.attrs;
+let value = getHtmlAttrValue(attrs, 'src'); //获取属性 src 的值
+```
+
+### setHtmlAttrValue(attrs, name, value)
+
+* `attrs` {Array} 属性列表
+* `name` {String} 属性名
+* `value` {String} 属性值
+
+设置属性值，如果没有这个属性，则添加这个属性。如：
+
+```js
+import {setHtmlAttrValue} from 'flkit';
+let attrs = token.ext.attrs;
+attrs = setHtmlAttrValue(attrs, 'src', 'http://flkit.org');
+```
+
+### createToken(type, value, referToken)
 
 * `type` {TokenType} Token 类型
 * `value` {String} Token 值
@@ -22,7 +50,7 @@ import {createToken} from 'flkit';
 let token = createToke(TokenType.HTML_TAG_START, '<div name="flkit">');
 ```
 
-## createRawToken(type, value, referToken)
+### createRawToken(type, value, referToken)
 
 * `type` {style | script} Token 类型 
 * `value` {String | Array} Token 值
@@ -43,7 +71,7 @@ createRawToken('style', [
 ```
 
 
-## TokenType
+### TokenType
 
 ```js
 import {TokenType} from 'flkit';

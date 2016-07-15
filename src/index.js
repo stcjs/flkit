@@ -55,11 +55,19 @@ export function getHtmlAttrValue(attrs, name){
  * set html attribute value
  */
 export function setHtmlAttrValue(attrs, name, value) {
-  attrs.some(item => {
+  let flag = attrs.some(item => {
     if(item.nameLowerCase === name){
       item.value = value;
       return true;
     }
   });
+  if(!flag){
+    attrs.push({
+      name,
+      value,
+      quote: '"',
+      nameLowerCase: name
+    });
+  }
   return attrs;
 }
