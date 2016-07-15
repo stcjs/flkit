@@ -1,10 +1,55 @@
 # flkit
-flkit
+
+A JS/HTML/CSS Toolkit(Tokenizer、Parser) Support Template Syntax.
+
+## Install
+
+```js
+npm install flkit;
+```
+
+
+## createToken(type, value, referToken)
+
+* `type` {TokenType} Token 类型
+* `value` {String} Token 值
+* `referToken` {Token} 相关的 Token，主要是提取 Token 的位置
+
+创建一个 Token，如：
+
+```js
+import {createToken} from 'flkit';
+let token = createToke(TokenType.HTML_TAG_START, '<div name="flkit">');
+```
+
+## createRawToken(type, value, referToken)
+
+* `type` {style | script} Token 类型 
+* `value` {String | Array} Token 值
+* `referToken` {Token} 相关的 Token，主要是提取 Token 的位置
+
+创建一个 Script 或者 Style Token，如：
+
+```js
+import {createRawToken} from 'flkit';
+
+createRawToken('script', 'var a = 1;');
+createRawToken('style', 'a{color: red}');
+
+createRawToken('style', [
+  ...tokenList
+])
+
+```
 
 
 ## TokenType
 
-包含的 Token Type 如下：
+```js
+import {TokenType} from 'flkit';
+```
+
+包含的 TokenType 如下：
 
 ```
 {
