@@ -25,6 +25,11 @@ const tags = {
 }
 export function createRawToken(type, value, referToken){
   type = types[type] || type;
+  let tokens;
+  if(Array.isArray(value)){
+    tokens = value;
+    value = '';
+  }
   let token = createToken(type, value, referToken);
   let tagName = tags[type];
   let startToken = createToken(TokenType.HTML_TAG_STYLE, `<${tagName}>${value}</${tagName}>`, referToken);
@@ -34,7 +39,9 @@ export function createRawToken(type, value, referToken){
     tagLowerCase: tagName
   };
   let contentToken = createToken(TokenType.HTML_RAW_TEXT, value, startToken);
-  contentToken.ext = {};
+  contentToken.ext = {
+    tokens
+  };
   let endToken = createToken(TokenType.HTML_TAG_END, `</${tagName}>`, contentToken);
   endToken.ext = {
     tag: tagName,
