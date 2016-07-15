@@ -30,12 +30,12 @@ export function createRawToken(type, value, referToken){
   let startToken = createToken(TokenType.HTML_TAG_STYLE, `<${tagName}>${value}</${tagName}>`, referToken);
   startToken.ext = {
     attrs: [],
-    tagName: tagName,
+    tag: tagName,
     tagLowerCase: tagName
   };
-  let contentToken = createToken(TokenType.HTML_RAW_TEXT, value);
+  let contentToken = createToken(TokenType.HTML_RAW_TEXT, value, startToken);
   contentToken.ext = {};
-  let endToken = createToken(TokenType.HTML_TAG_END, `</${tagName}>`);
+  let endToken = createToken(TokenType.HTML_TAG_END, `</${tagName}>`, contentToken);
   endToken.ext = {
     tag: tagName,
     tagLowerCase: tagName
