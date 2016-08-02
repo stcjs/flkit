@@ -100,35 +100,36 @@ export function selectorToken2Text(token){
 /**
  * tokens to text
  */
-export function token2Text(tokens) {
+export function token2Text(tokens, delimiters = []) {
+  let prev = '';
   return tokens.map((token, index) => {
     let prefix = token.commentBefore.map(item => item.value).join('');
+    let value = '';
     switch(token.type){
       case TokenType.CSS_SELECTOR:
-        return prefix + selectorToken2Text(token);
+        value = selectorToken2Text(token);
+        break;
       case TokenType.CSS_PROPERTY:
-        return prefix + token.value;
+        value = token.ext.prefix + token.value + token.ext.suffix;
+        break;
       case TokenType.CSS_VALUE:
-        let value = token.ext.prefix + token.ext.value + token.ext.suffix;
+        value = token.ext.prefix + token.ext.value + token.ext.suffix;
         if(token.ext.important){
           value += '!important';
         }
-        return prefix + value;
-      case TokenType.CSS_RIGHT_BRACE:
-        if(index > 0){
-          let prev = tokens[index - 1];
-          // template syntax right delemiter maybe %}
-          if(prev.type === TokenType.CSS_VALUE && 
-            !token.ext.prefix && 
-            !token.ext.important &&
-            prev.ext.value.slice(-1) === '%'){
-            return prefix + ';' + token.value;
-          }
-        }
-        return prefix + token.value;
+        break;
       default:
-        return prefix + token.value;
+        value = token.value;
+        break;
     }
+    if(!prefix && index > 0){
+      let combineChars = prev[prev.length - 1] + value[0];
+      if(delimiters.indexOf(combineChars) > -1){
+        value = ' ' + value;
+      }
+    }
+    prev = prefix + value;
+    return prev;
   }).join('');
 }
 
