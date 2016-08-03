@@ -64,7 +64,9 @@ export default class extends BaseTokenize {
         return this.getToken(TokenType.CSS_LEFT_BRACE, this.next());
       case 0x7d: // }
         this.status = STATUS.SELECTOR;
-        return this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
+        let token1 = this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
+        this.prevToken = token1;
+        return token1;
       case 0x3a: // :
         if (type === TokenType.CSS_PROPERTY || 
             type === TokenType.CSS_SELECTOR || 

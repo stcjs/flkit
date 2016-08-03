@@ -110,7 +110,7 @@ export function token2Text(tokens, delimiters = []) {
         value = selectorToken2Text(token);
         break;
       case TokenType.CSS_PROPERTY:
-        value = token.ext.prefix + token.value + token.ext.suffix;
+        value = token.ext.prefix + token.ext.value + token.ext.suffix;
         break;
       case TokenType.CSS_VALUE:
         value = token.ext.prefix + token.ext.value + token.ext.suffix;
