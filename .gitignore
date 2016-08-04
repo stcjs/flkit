@@ -32,8 +32,7 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-
-lib/
+lib/*
 
 web/app/
 web/node_modules
