@@ -1295,7 +1295,7 @@
     "rd": "",
     "options": {},
     "key": "53f97a85a9f3baab141fc7eaa2b33ded",
-    "result": ":root{color:red}a{color:red}"
+    "result": "a{color:red}:root{color:red}"
   },
   "74f5fadf81c9a560021f077fb5f60e2e": {
     "lang": "css",

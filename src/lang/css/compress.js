@@ -512,10 +512,10 @@ export default class CssCompress extends Base {
         }else if(se1Ext.maxSpecificity < se2Ext.minSpecificity){
           return -1;
         }
-        return 0;
+        return se1.pos - se2.pos;
       }
       if(se1Ext.minSpecificity === se2Ext.minSpecificity){
-        return 0;
+        return se1.pos - se2.pos;
       }
       return se1Ext.minSpecificity < se2Ext.minSpecificity ? -1 : 1;
     });
