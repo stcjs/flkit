@@ -910,7 +910,7 @@
     "rd": "",
     "options": {},
     "key": "ada29096e5e122dcd99cea4598584765",
-    "result": "button,input,select,textarea{font-size:100%}body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}body,button,input,select,textarea{font-size:12px;font-family:arial,\\\\5b8b\\\\4f53,sans-serif}h1,h2,h3,h4,h5,h6{font-size:100%}em{font-style:normal}small{font-size:12px}ul,ol{list-style:none}a{text-decoration:none}textarea{resize:vertical}legend{color:#000}fieldset,img{border:0}html{color:#000;overflow-y:scoll;overflow:-moz-scrollbars-vertical}table{border-collapse:collapse;border-spacing:0}img{-ms-interpolation-mode:bicubic}label,button{cursor:pointer}.left{float:left}.right{float:right}.overflow{overflow:hidden}.hide{display:none}.block{display:block}.inline{display:inline}.error{color:#F00;font-size:12px}a:hover{text-decoration:underline}"
+    "result": "body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}html{color:#000;overflow-y:scoll;overflow:-moz-scrollbars-vertical}body,button,input,select,textarea{font-size:12px;font-family:arial,\\\\5b8b\\\\4f53,sans-serif}h1,h2,h3,h4,h5,h6{font-size:100%}em{font-style:normal}small{font-size:12px}ul,ol{list-style:none}a{text-decoration:none}legend{color:#000}fieldset,img{border:0}button,input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}img{-ms-interpolation-mode:bicubic}textarea{resize:vertical}label,button{cursor:pointer}.left{float:left}.right{float:right}.overflow{overflow:hidden}.hide{display:none}.block{display:block}.inline{display:inline}.error{color:#F00;font-size:12px}a:hover{text-decoration:underline}"
   },
   "cde216dbd9e82b65ae2061b3b6562645": {
     "lang": "css",
@@ -1805,7 +1805,7 @@
     "rd": "",
     "options": {},
     "key": "e4f5d64c646d86e14ff279e7ea7248b3",
-    "result": "button,input,select,textarea{font-size:100%}body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}body,button,input,select,textarea{font-size:12px;font-family:arial,\\\\5b8b\\\\4f53,sans-serif}h1,h2,h3,h4,h5,h6{font-size:100%}em{font-style:normal}small{font-size:12px}ul,ol{list-style:none}a{text-decoration:none}textarea{resize:vertical}legend{color:#000}fieldset,img{border:0}html{color:#000;overflow-y:scoll;overflow:-moz-scrollbars-vertical}table{border-collapse:collapse;border-spacing:0}img{-ms-interpolation-mode:bicubic}label,button{cursor:pointer}.left{float:left}.right{float:right}.overflow{overflow:hidden}.hide{display:none}.block{display:block}.inline{display:inline}.error{color:#F00;font-size:12px}a:hover{text-decoration:underline}"
+    "result": "body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}html{color:#000;overflow-y:scoll;overflow:-moz-scrollbars-vertical}body,button,input,select,textarea{font-size:12px;font-family:arial,\\\\5b8b\\\\4f53,sans-serif}h1,h2,h3,h4,h5,h6{font-size:100%}em{font-style:normal}small{font-size:12px}ul,ol{list-style:none}a{text-decoration:none}legend{color:#000}fieldset,img{border:0}button,input,select,textarea{font-size:100%}table{border-collapse:collapse;border-spacing:0}img{-ms-interpolation-mode:bicubic}textarea{resize:vertical}label,button{cursor:pointer}.left{float:left}.right{float:right}.overflow{overflow:hidden}.hide{display:none}.block{display:block}.inline{display:inline}.error{color:#F00;font-size:12px}a:hover{text-decoration:underline}"
   },
   "3ab356465bd171eca19475fffcd744cb": {
     "lang": "css",
@@ -1850,5 +1850,16 @@
     "options": {},
     "key": "3e76bed7bb8c451c67a4cac699f585c6",
     "result": "/*!wwww**/[hidden],template{display:none}"
+  },
+  "9f552d20b3a465f370d134937c174c3b": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".a1{color: red1}\n.a2{color: red2}\n.a3{color: red3}\n.a4{color: red4}\n.a5 .b5{color: red5}\n.a6{color: red6}\n.a7 .b7, .c7{color: red7}\n.a8{color: red8}\n.a9{color: red9}\n.a10{color: red10}\n.a11{color: red11}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "9f552d20b3a465f370d134937c174c3b",
+    "result": ".a1{color:red1}.a2{color:red2}.a3{color:red3}.a4{color:red4}.a6{color:red6}.a5 .b5{color:red5}.a7 .b7,.c7{color:red7}.a8{color:red8}.a9{color:red9}.a10{color:red10}.a11{color:red11}"
   }
 }
