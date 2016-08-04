@@ -503,7 +503,10 @@ export default class CssCompress extends Base {
    * sort selectors
    */
   sortSelectors(selectors){
-    return selectors.sort((se1, se2) => {
+    let cache = {};
+    const length = selectors.length;
+
+    const compare = (se1, se2) => {
       let se1Ext = se1.selector.ext;
       let se2Ext = se2.selector.ext;
       if(!se1Ext.specificityEqual || !se2Ext.specificityEqual){
@@ -517,8 +520,35 @@ export default class CssCompress extends Base {
       if(se1Ext.minSpecificity === se2Ext.minSpecificity){
         return se1.pos - se2.pos;
       }
-      return se1Ext.minSpecificity < se2Ext.minSpecificity ? -1 : 1;
-    });
+      return se1Ext.minSpecificity - se2Ext.minSpecificity;
+    };
+    const compareNeighbor = (i, j) => {
+      for(let k = i + 1; k < j; k++){
+        let key = `${k}_${j}`;
+        if(!cache[key]){
+          cache[key] = compare(selectors[k], selectors[j]);
+        }
+        if(cache[key] < 0){
+          return false;
+        }
+      }
+      return true;
+    };
+
+    for(let i = 0; i < length; i++){
+      for(let j = i + 1; j < length; j++){
+        let key = `${i}_${j}`;
+        if(!cache[key]){
+          cache[key] = compare(selectors[i], selectors[j]);
+        }
+        if(cache[key] > 0 && compareNeighbor(i, j)){
+          let tmp = selectors[j];
+          selectors[j] = selectors[i];
+          selectors[i] = tmp;
+        }
+      }
+    }
+    return selectors;
   }
   /**
    * remove exist selector

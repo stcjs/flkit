@@ -1861,5 +1861,16 @@
     "options": {},
     "key": "9f552d20b3a465f370d134937c174c3b",
     "result": ".a1{color:red1}.a2{color:red2}.a3{color:red3}.a4{color:red4}.a6{color:red6}.a5 .b5{color:red5}.a7 .b7,.c7{color:red7}.a8{color:red8}.a9{color:red9}.a10{color:red10}.a11{color:red11}"
+  },
+  "2b9adf5535f35b82da4b9bf55624ed30": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".a1 .b1{color: red1}\n.a2{color: red2}\n.a3{color: red3}\n.a4{color: red4}\n.a5 .b5{color: red5}\n.a6{color: red6}\n.a7 .b7, .c7{color: red7}\n.a8{color: red8}\n.a9{color: red9}\n.a10{color: red10}\n.a11{color: red11}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "2b9adf5535f35b82da4b9bf55624ed30",
+    "result": ".a2{color:red2}.a3{color:red3}.a4{color:red4}.a6{color:red6}.a1 .b1{color:red1}.a5 .b5{color:red5}.a7 .b7,.c7{color:red7}.a8{color:red8}.a9{color:red9}.a10{color:red10}.a11{color:red11}"
   }
 }
