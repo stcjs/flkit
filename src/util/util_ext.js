@@ -22,7 +22,7 @@ const types = {
 const tags = {
   [TokenType.HTML_TAG_STYLE]: 'style',
   [TokenType.HTML_TAG_SCRIPT]: 'script'
-}
+};
 export function createRawToken(type, value, referToken){
   type = types[type] || type;
   let tokens;
@@ -46,11 +46,11 @@ export function createRawToken(type, value, referToken){
   endToken.ext = {
     tag: tagName,
     tagLowerCase: tagName
-  }
+  };
   token.ext = {
     start: startToken,
     content: contentToken,
     end: endToken
-  }
+  };
   return token;
 }
