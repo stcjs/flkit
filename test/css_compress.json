@@ -1872,5 +1872,38 @@
     "options": {},
     "key": "2b9adf5535f35b82da4b9bf55624ed30",
     "result": ".a2{color:red2}.a3{color:red3}.a4{color:red4}.a6{color:red6}.a1 .b1{color:red1}.a5 .b5{color:red5}.a7 .b7,.c7{color:red7}.a8{color:red8}.a9{color:red9}.a10{color:red10}.a11{color:red11}"
+  },
+  "abad63f9c5988b2a9cc8a79d4e26e94b": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\ncolor: rgb( 36, 114, 211 )\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "abad63f9c5988b2a9cc8a79d4e26e94b",
+    "result": "a{color:#2472d3}"
+  },
+  "58920945a68601d83d255acd107b0899": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\nborder-color: rgb( 36, 114, 211 )\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "58920945a68601d83d255acd107b0899",
+    "result": "a{border-color:#2472d3}"
+  },
+  "6b7c44e908f799f6a9bc44cdf047311e": {
+    "lang": "css",
+    "name": "compress",
+    "code": "a{\ncolor: rgba( 36, 114, 211,0.3 )\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "6b7c44e908f799f6a9bc44cdf047311e",
+    "result": "a{color:rgba( 36,114,211,0.3 )}"
   }
 }

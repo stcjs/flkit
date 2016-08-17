@@ -201,7 +201,9 @@ export function getShortValue(value, property){
   // http://www.w3schools.com/cssref/pr_border-width.asp
   property = property.toLowerCase();
   if(property === 'border-color' || property === 'border-style' || property === 'border-width'){
-    return short4NumValue(value);
+    if(value.indexOf('(') === -1){
+      return short4NumValue(value);
+    }
   }
   let list = {
     color: shortColor,
