@@ -2028,5 +2028,16 @@
     "options": {},
     "key": "0ea49e958a15d9a296ea2503e2850134",
     "result": " {% set lscookie = 'lscookie'%}<link rel=stylesheet href=\"/theme/firekylin/res/css/all.css\" data-ls=css_firekylin> {% if themeConfig.sidebarBackground or themeConfig.customCSS or themeConfig.sidebarColor %}<style>\n    {% if themeConfig.sidebarBackground %}\n    #sidebar {\n      background: url({{themeConfig.sidebarBackground}});\n      background-size:cover;\n    }\n    {% endif %}\n    {% if themeConfig.sidebarColor %}\n    #sidebar .profile span, #sidebar .buttons li a, #sidebar .buttons li a:hover{\n      color: {{themeConfig.sidebarColor}};\n    }\n    {% endif %}\n    {% if themeConfig.customCSS %}{{themeConfig.customCSS | safe}}{% endif %}\n  </style> {% endif %}"
+  },
+  "adb834374a2c1e8b270d3fbb9115c8a5": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<span class=\"link-y-btn link-y-btn-gray dl\" id=\"download\"{%if $isthief%} style=\"display:none\"{%/if%}>",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "adb834374a2c1e8b270d3fbb9115c8a5",
+    "result": "<span class=\"link-y-btn link-y-btn-gray dl\" id=download {%if $isthief%}style=\"display:none\" {%/if%}>"
   }
 }

@@ -11906,5 +11906,107 @@
         }
       }
     ]
+  },
+  "b54ed91df80b72a8fdf8bb74071bf15d": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<span class=\"link-y-btn link-y-btn-gray dl\" id=\"download\"{%if $isthief%} style=\"display:none\"{%/if%}>",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "b54ed91df80b72a8fdf8bb74071bf15d",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<span class=\"link-y-btn link-y-btn-gray dl\" id=\"download\"{%if $isthief%} style=\"display:none\"{%/if%}>",
+        "start": 0,
+        "end": 101,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 101
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "span",
+          "tagLowerCase": "span",
+          "attrs": [
+            {
+              "name": "class",
+              "value": "link-y-btn link-y-btn-gray dl",
+              "quote": "\"",
+              "nameLowerCase": "class"
+            },
+            {
+              "name": "id",
+              "value": "download",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            },
+            {
+              "type": "tpl",
+              "value": "{%if $isthief%}",
+              "start": 0,
+              "end": 72,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 72
+                }
+              },
+              "commentBefore": [],
+              "ext": {
+                "ld": "{%",
+                "rd": "%}",
+                "value": "if $isthief"
+              },
+              "spaceBefore": false,
+              "quote": ""
+            },
+            {
+              "name": "style",
+              "value": "display:none",
+              "quote": "\"",
+              "nameLowerCase": "style"
+            },
+            {
+              "type": "tpl",
+              "value": "{%/if%}",
+              "start": 0,
+              "end": 100,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 100
+                }
+              },
+              "commentBefore": [],
+              "ext": {
+                "ld": "{%",
+                "rd": "%}",
+                "value": "/if"
+              },
+              "spaceBefore": false,
+              "quote": ""
+            }
+          ],
+          "slash": false
+        }
+      }
+    ]
   }
 }
