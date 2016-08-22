@@ -19,7 +19,7 @@ const STATUS = {
 /**
  * css tokenize
  */
-export default class extends BaseTokenize {
+export default class CssTokenize extends BaseTokenize {
   /**
    * constructor
    * 

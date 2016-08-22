@@ -1,5 +1,5 @@
 
-export default class {
+export default class BaseTemplate {
   /**
    * constructor
    * @return {[type]} []

@@ -7,7 +7,7 @@ import TokenType from './token_type.js';
 
 const lineComments = comments[0];
 
-export default class extends Base {
+export default class Tokenize extends Base {
   /**
    * constructor
    * @param  {String} text    []

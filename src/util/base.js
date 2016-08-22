@@ -14,7 +14,7 @@ let templates = {
   smarty: SmartyTemplate
 };
 
-export default class {
+export default class Base {
   /**
    * constructor
    * @param  {String} text    []

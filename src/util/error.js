@@ -3,7 +3,7 @@
 /**
  * error class
  */
-export default class {
+export default class BaseError{
   /**
    * init
    * @param  {String} message [error message]

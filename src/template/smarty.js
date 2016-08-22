@@ -1,7 +1,7 @@
 
 import Base from './base.js';
 
-export default class extends Base {
+export default class SmartyTemplate extends Base {
   /**
    * check token has output
    */

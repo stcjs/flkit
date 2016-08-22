@@ -7,7 +7,7 @@ import {namespaceReg} from './config.js';
  * css selector tokenize
  * https://www.w3.org/TR/css3-selectors/#lex
  */
-export default class extends Base {
+export default class CssSelectorTokenize extends Base {
   /**
    * constructor
    */
