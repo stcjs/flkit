@@ -240,7 +240,7 @@ export default class HtmlTokenize extends Base {
           attrName = attrValue = '';
           hasEqual = false;
         }
-      }else if (code === 0x22 || code === 0x27) { // char is ' or "
+      }else if (hasEqual && (code === 0x22 || code === 0x27)) { // char is ' or "
         let quote = this.getQuote({
           checkNext: true,
           rollback: true
@@ -250,15 +250,10 @@ export default class HtmlTokenize extends Base {
         if (!quote.find) {
           this.error(`can not find matched quote char \`${chr}\``);
         }
-        //has no equal char, quot string add to attribute name
-        if (!hasEqual) {
-          attrName += quote.value;
-        }else{
-          attrValue += quote.value;
-          attrs.push({name: attrName, value: attrValue});
-          attrName = attrValue = '';
-          hasEqual = spaceBefore = false;
-        }
+        attrValue += quote.value;
+        attrs.push({name: attrName, value: attrValue});
+        attrName = attrValue = '';
+        hasEqual = spaceBefore = false;
         continue;
       }else if (this.isWhiteSpace(code)) { // whitespace
         if (hasEqual && attrValue) {

@@ -2039,5 +2039,16 @@
     "options": {},
     "key": "adb834374a2c1e8b270d3fbb9115c8a5",
     "result": "<span class=\"link-y-btn link-y-btn-gray dl\" id=download {%if $isthief%}style=\"display:none\" {%/if%}>"
+  },
+  "74355c0331db46523d07d9eb41641403": {
+    "lang": "html",
+    "name": "compress",
+    "code": "<script>\nvar a = '<\\/script>';\n</script>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "74355c0331db46523d07d9eb41641403",
+    "result": "<script>\nvar a = '<\\/script>';\n</script>"
   }
 }

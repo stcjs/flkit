@@ -12008,5 +12008,2663 @@
         }
       }
     ]
+  },
+  "3ee687fef1ab01ddc0aa4a3f4ea9aee3": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<script>\nvar a = '<\\/script>';\n</script>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "3ee687fef1ab01ddc0aa4a3f4ea9aee3",
+    "result": [
+      {
+        "type": "html_tag_script",
+        "value": "<script>\nvar a = '<\\/script>';\n</script>",
+        "start": 0,
+        "end": 0,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<script>",
+            "start": 0,
+            "end": 8,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 0
+              },
+              "end": {
+                "line": 0,
+                "column": 8
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script",
+              "attrs": [],
+              "slash": false,
+              "isScript": true,
+              "isExternal": false,
+              "type": "",
+              "isTpl": false
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "\nvar a = '<\\/script>';\n",
+            "start": 8,
+            "end": 31,
+            "loc": {
+              "start": {
+                "line": 0,
+                "column": 8
+              },
+              "end": {
+                "line": 2,
+                "column": 0
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "hasTpl": false
+            }
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</script>",
+            "start": 31,
+            "end": 40,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 9
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "07af03492f16ff6a03453eb44fd5696e": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div id=\"embedball\" style=\"position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;\">\n\t<EMBED TYPE=\"application/x-mplayer2\" SRC=\"bomb.wav\" volume=0 autostart=\"0\"></EMBED>\n</div>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "07af03492f16ff6a03453eb44fd5696e",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"embedball\" style=\"position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;\">",
+        "start": 0,
+        "end": 116,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 116
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "embedball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            },
+            {
+              "name": "style",
+              "value": "position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;",
+              "quote": "\"",
+              "nameLowerCase": "style"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<EMBED TYPE=\"application/x-mplayer2\" SRC=\"bomb.wav\" volume=0 autostart=\"0\">",
+        "start": 118,
+        "end": 193,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 76
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "EMBED",
+          "tagLowerCase": "embed",
+          "attrs": [
+            {
+              "name": "TYPE",
+              "value": "application/x-mplayer2",
+              "quote": "\"",
+              "nameLowerCase": "type"
+            },
+            {
+              "name": "SRC",
+              "value": "bomb.wav",
+              "quote": "\"",
+              "nameLowerCase": "src"
+            },
+            {
+              "name": "volume",
+              "value": "0",
+              "quote": "",
+              "nameLowerCase": "volume"
+            },
+            {
+              "name": "autostart",
+              "value": "0",
+              "quote": "\"",
+              "nameLowerCase": "autostart"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</EMBED>",
+        "start": 193,
+        "end": 201,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 76
+          },
+          "end": {
+            "line": 1,
+            "column": 84
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "EMBED",
+          "tagLowerCase": "embed"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 202,
+        "end": 208,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      }
+    ]
+  },
+  "f4ac8f4007b88c7abac5e16cc6e10a3c": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n<title>导弹防御系统游戏---power by welefen</title>\n<meta http-equiv=\"Pragma\" content=\"no-cache\" />\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" />\n<meta http-equiv=\"Expires\" content=\"Mon,12 May 2001 00:20:00 GMT\"/>\n<script src=\"suredy.js\" type=\"text/javascript\"></script>\n<script src=\"suredy.effect.js\" type=\"text/javascript\"></script>\n<script src=\"shoot.js\" type=\"text/javascript\"></script>\n<style type=\"text/css\" rel=\"stylesheet\">\nhtml,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;background-repeat:no-repeat}\nimg,body,html{border:0;overflow-x:hidden;overflow-y:auto}\naddress,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}\nol,ul{list-style:none;}\ncaption,th{text-align:left;}\nh1,h2,h3,h4,h5,h6{font-size:100%;}\nq:before,q:after{content:'';}\nbody{\n\theight:100%;\n\twidth:100%;\n\tbackground-color:gray;\n}\n#ctrarea{\n\theight:400px;\n\tbackground-color:#000;\n}\n#ctrarea-pos{\n\theight:400px;\n\tposition:absolute;\n\ttop:0;\n\tleft:0;\n\twidth:100%;\n\tbackground-color:#000;\n}\n#balltable{\n\theight:30px;\n\twidth:70px;\n\tbackground-color:gray;\n\tposition:absolute;\n\tright:0;\t\n\tbottom:0;\n\tcolor:green;\n\tfont-weight:bold;\n\tline-height:30px;\n\ttext-align:center;\n}\n* html #userball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"userball.png\");background-image:none;\n}\n#userball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(userball.png);\n\tposition:absolute;\n\tright:23px;\n\tbottom:30px;\n}\n#pointerball{\n\tposition:absolute;\n}\n.pointer_1{\n\twidth:4px;\n\theight:4px;\n\tbackground-image:url(pointerball_1.gif);\n}\n.pointer_2{\n\twidth:8px;\n\theight:8px;\n\tbackground-image:url(pointerball_2.gif);\n}\n.pointer_3{\n\twidth:16px;\n\theight:16px;\n\tbackground-image:url(pointerball_3.gif);\n}\n.pointer_4{\n\twidth:20px;\n\theight:20px;\n\tbackground-image:url(pointerball_4.gif);\n}\n.pointer_5{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(pointerball_5.gif);\n}\n* html #sysball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"sysball.png\");background-image:none;\n}\n#sysball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(sysball.png);\n\tposition:absolute;\n\tleft:0;\n\tbottom:0;\n}\n#desc{\n\tline-height:20px;\n}\n#desc ol{\n\tmargin-left:30px;\n\tlist-style-type:decimal;\n}\n#desc h2 .start{\n\ttext-decoration:none;\n\tcolor:blue;\n\tcursor:pointer;\n}\n#desc h2 .stop{\n\ttext-decoration:none;\n\tcolor:#333;\n\tcursor:default;\n}\n</style>\n</head>\n<body>\n<div id=\"wrapper\">\n\t<div id=\"ctrarea\">\n\t\t<div id=\"ctrarea-pos\">\n\t\t\t<div id=\"ball\"></div>\n\t\t\t<div id=\"balltable\">发射台</div>\n\t\t\t<div id=\"userball\"></div>\n\t\t\t<div id=\"pointerball\"></div>\n\t\t\t<div id=\"sysball\"></div>\n\t\t</div>\n\t</div>\n\t<div id=\"desc\">\n\t\t<h2>操作说明<a href=\"#\" id=\"startgame\" style=\"margin-left:20px;\" class=\"start\">点击这里开始游戏</a></h2>\n\t\t<ol>\n\t\t\t<li>本游戏是模拟导弹拦截的一个休闲游戏，旨在锻炼眼力和手巧。每轮游戏时将有10枚导弹（篮球）发射过来，在发射台你用火箭筒（足球）拦截，拦截成功后发生爆炸。</li>\n\t\t\t<li>导弹的运动轨迹是y=A*ln(x+1)对数曲线，运动速度为y=x^4指数曲线，终点位置纵坐标在【190,370】px（以导弹发射点为原点）范围，运动时间在【2500,3800】ms范围。</li>\n\t\t\t<li>每次导弹发射开始时，可以点击面板上的黑色区域作为火箭筒的运动终点（只有一次机会），火箭筒在1000ms中匀速行驶到终点，在运动中与导弹发生碰撞则为截获成功。</li>\n\t\t\t<li>如果对该小游戏有什么问题和建议，<a href=\"http://www.welefen.com/blog/?p=89#more-89\">---请点击这里---</a></li>\n\t\t</ol>\n\t\t<h2>当前任务信息</h2>\n\t\t<ol>\n\t\t\t<li id=\"userscore\">这里会有当前轮回游戏的分数，击中为0，否则为0。</li>\n\t\t</ol>\n\t</div>\n</div>\n<div id=\"embedball\" style=\"position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;\">\n\t<EMBED TYPE=\"application/x-mplayer2\" SRC=\"bomb.wav\" volume=0 autostart=\"0\"></EMBED>\n</div>\n</body>\n</html>\n\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "f4ac8f4007b88c7abac5e16cc6e10a3c",
+    "result": [
+      {
+        "type": "html_doctype",
+        "value": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">",
+        "start": 1,
+        "end": 122,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 121
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<html xmlns=\"http://www.w3.org/1999/xhtml\">",
+        "start": 123,
+        "end": 166,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 43
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "html",
+          "tagLowerCase": "html",
+          "attrs": [
+            {
+              "name": "xmlns",
+              "value": "http://www.w3.org/1999/xhtml",
+              "quote": "\"",
+              "nameLowerCase": "xmlns"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<head>",
+        "start": 167,
+        "end": 173,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "head",
+          "tagLowerCase": "head",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />",
+        "start": 174,
+        "end": 243,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 69
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "meta",
+          "tagLowerCase": "meta",
+          "attrs": [
+            {
+              "name": "http-equiv",
+              "value": "Content-Type",
+              "quote": "\"",
+              "nameLowerCase": "http-equiv"
+            },
+            {
+              "name": "content",
+              "value": "text/html; charset=UTF-8",
+              "quote": "\"",
+              "nameLowerCase": "content"
+            }
+          ],
+          "slash": true
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<title>",
+        "start": 244,
+        "end": 251,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "title",
+          "tagLowerCase": "title",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "导弹防御系统游戏---power by welefen",
+        "start": 251,
+        "end": 278,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 7
+          },
+          "end": {
+            "line": 5,
+            "column": 34
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</title>",
+        "start": 278,
+        "end": 286,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 34
+          },
+          "end": {
+            "line": 5,
+            "column": 42
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "title",
+          "tagLowerCase": "title"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<meta http-equiv=\"Pragma\" content=\"no-cache\" />",
+        "start": 287,
+        "end": 334,
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 47
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "meta",
+          "tagLowerCase": "meta",
+          "attrs": [
+            {
+              "name": "http-equiv",
+              "value": "Pragma",
+              "quote": "\"",
+              "nameLowerCase": "http-equiv"
+            },
+            {
+              "name": "content",
+              "value": "no-cache",
+              "quote": "\"",
+              "nameLowerCase": "content"
+            }
+          ],
+          "slash": true
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<meta http-equiv=\"Cache-Control\" content=\"no-cache\" />",
+        "start": 335,
+        "end": 389,
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 0
+          },
+          "end": {
+            "line": 7,
+            "column": 54
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "meta",
+          "tagLowerCase": "meta",
+          "attrs": [
+            {
+              "name": "http-equiv",
+              "value": "Cache-Control",
+              "quote": "\"",
+              "nameLowerCase": "http-equiv"
+            },
+            {
+              "name": "content",
+              "value": "no-cache",
+              "quote": "\"",
+              "nameLowerCase": "content"
+            }
+          ],
+          "slash": true
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<meta http-equiv=\"Expires\" content=\"Mon,12 May 2001 00:20:00 GMT\"/>",
+        "start": 390,
+        "end": 457,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 67
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "meta",
+          "tagLowerCase": "meta",
+          "attrs": [
+            {
+              "name": "http-equiv",
+              "value": "Expires",
+              "quote": "\"",
+              "nameLowerCase": "http-equiv"
+            },
+            {
+              "name": "content",
+              "value": "Mon,12 May 2001 00:20:00 GMT",
+              "quote": "\"",
+              "nameLowerCase": "content"
+            }
+          ],
+          "slash": true
+        }
+      },
+      {
+        "type": "html_tag_script",
+        "value": "<script src=\"suredy.js\" type=\"text/javascript\"></script>",
+        "start": 458,
+        "end": 458,
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 0
+          },
+          "end": {
+            "line": 9,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<script src=\"suredy.js\" type=\"text/javascript\">",
+            "start": 458,
+            "end": 505,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 47
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script",
+              "attrs": [
+                {
+                  "name": "src",
+                  "value": "suredy.js",
+                  "quote": "\"",
+                  "nameLowerCase": "src"
+                },
+                {
+                  "name": "type",
+                  "value": "text/javascript",
+                  "quote": "\"",
+                  "nameLowerCase": "type"
+                }
+              ],
+              "slash": false,
+              "isScript": true,
+              "isExternal": true,
+              "type": "text/javascript",
+              "isTpl": false
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "",
+            "start": 505,
+            "end": 505,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 47
+              },
+              "end": {
+                "line": 9,
+                "column": 47
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "hasTpl": false
+            }
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</script>",
+            "start": 505,
+            "end": 514,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 47
+              },
+              "end": {
+                "line": 9,
+                "column": 56
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "html_tag_script",
+        "value": "<script src=\"suredy.effect.js\" type=\"text/javascript\"></script>",
+        "start": 515,
+        "end": 515,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<script src=\"suredy.effect.js\" type=\"text/javascript\">",
+            "start": 515,
+            "end": 569,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 54
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script",
+              "attrs": [
+                {
+                  "name": "src",
+                  "value": "suredy.effect.js",
+                  "quote": "\"",
+                  "nameLowerCase": "src"
+                },
+                {
+                  "name": "type",
+                  "value": "text/javascript",
+                  "quote": "\"",
+                  "nameLowerCase": "type"
+                }
+              ],
+              "slash": false,
+              "isScript": true,
+              "isExternal": true,
+              "type": "text/javascript",
+              "isTpl": false
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "",
+            "start": 569,
+            "end": 569,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 54
+              },
+              "end": {
+                "line": 10,
+                "column": 54
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "hasTpl": false
+            }
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</script>",
+            "start": 569,
+            "end": 578,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 54
+              },
+              "end": {
+                "line": 10,
+                "column": 63
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "html_tag_script",
+        "value": "<script src=\"shoot.js\" type=\"text/javascript\"></script>",
+        "start": 579,
+        "end": 579,
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 0
+          },
+          "end": {
+            "line": 11,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<script src=\"shoot.js\" type=\"text/javascript\">",
+            "start": 579,
+            "end": 625,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 0
+              },
+              "end": {
+                "line": 11,
+                "column": 46
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script",
+              "attrs": [
+                {
+                  "name": "src",
+                  "value": "shoot.js",
+                  "quote": "\"",
+                  "nameLowerCase": "src"
+                },
+                {
+                  "name": "type",
+                  "value": "text/javascript",
+                  "quote": "\"",
+                  "nameLowerCase": "type"
+                }
+              ],
+              "slash": false,
+              "isScript": true,
+              "isExternal": true,
+              "type": "text/javascript",
+              "isTpl": false
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "",
+            "start": 625,
+            "end": 625,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 46
+              },
+              "end": {
+                "line": 11,
+                "column": 46
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "hasTpl": false
+            }
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</script>",
+            "start": 625,
+            "end": 634,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 46
+              },
+              "end": {
+                "line": 11,
+                "column": 55
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "script",
+              "tagLowerCase": "script"
+            }
+          }
+        }
+      },
+      {
+        "type": "html_tag_style",
+        "value": "<style type=\"text/css\" rel=\"stylesheet\">\nhtml,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;background-repeat:no-repeat}\nimg,body,html{border:0;overflow-x:hidden;overflow-y:auto}\naddress,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}\nol,ul{list-style:none;}\ncaption,th{text-align:left;}\nh1,h2,h3,h4,h5,h6{font-size:100%;}\nq:before,q:after{content:'';}\nbody{\n\theight:100%;\n\twidth:100%;\n\tbackground-color:gray;\n}\n#ctrarea{\n\theight:400px;\n\tbackground-color:#000;\n}\n#ctrarea-pos{\n\theight:400px;\n\tposition:absolute;\n\ttop:0;\n\tleft:0;\n\twidth:100%;\n\tbackground-color:#000;\n}\n#balltable{\n\theight:30px;\n\twidth:70px;\n\tbackground-color:gray;\n\tposition:absolute;\n\tright:0;\t\n\tbottom:0;\n\tcolor:green;\n\tfont-weight:bold;\n\tline-height:30px;\n\ttext-align:center;\n}\n* html #userball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"userball.png\");background-image:none;\n}\n#userball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(userball.png);\n\tposition:absolute;\n\tright:23px;\n\tbottom:30px;\n}\n#pointerball{\n\tposition:absolute;\n}\n.pointer_1{\n\twidth:4px;\n\theight:4px;\n\tbackground-image:url(pointerball_1.gif);\n}\n.pointer_2{\n\twidth:8px;\n\theight:8px;\n\tbackground-image:url(pointerball_2.gif);\n}\n.pointer_3{\n\twidth:16px;\n\theight:16px;\n\tbackground-image:url(pointerball_3.gif);\n}\n.pointer_4{\n\twidth:20px;\n\theight:20px;\n\tbackground-image:url(pointerball_4.gif);\n}\n.pointer_5{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(pointerball_5.gif);\n}\n* html #sysball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"sysball.png\");background-image:none;\n}\n#sysball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(sysball.png);\n\tposition:absolute;\n\tleft:0;\n\tbottom:0;\n}\n#desc{\n\tline-height:20px;\n}\n#desc ol{\n\tmargin-left:30px;\n\tlist-style-type:decimal;\n}\n#desc h2 .start{\n\ttext-decoration:none;\n\tcolor:blue;\n\tcursor:pointer;\n}\n#desc h2 .stop{\n\ttext-decoration:none;\n\tcolor:#333;\n\tcursor:default;\n}\n</style>",
+        "start": 635,
+        "end": 635,
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 0
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "start": {
+            "type": "html_tag_start",
+            "value": "<style type=\"text/css\" rel=\"stylesheet\">",
+            "start": 635,
+            "end": 675,
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 40
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "style",
+              "tagLowerCase": "style",
+              "attrs": [
+                {
+                  "name": "type",
+                  "value": "text/css",
+                  "quote": "\"",
+                  "nameLowerCase": "type"
+                },
+                {
+                  "name": "rel",
+                  "value": "stylesheet",
+                  "quote": "\"",
+                  "nameLowerCase": "rel"
+                }
+              ],
+              "slash": false,
+              "isStyle": true
+            }
+          },
+          "content": {
+            "type": "html_raw_text",
+            "value": "\nhtml,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;background-repeat:no-repeat}\nimg,body,html{border:0;overflow-x:hidden;overflow-y:auto}\naddress,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}\nol,ul{list-style:none;}\ncaption,th{text-align:left;}\nh1,h2,h3,h4,h5,h6{font-size:100%;}\nq:before,q:after{content:'';}\nbody{\n\theight:100%;\n\twidth:100%;\n\tbackground-color:gray;\n}\n#ctrarea{\n\theight:400px;\n\tbackground-color:#000;\n}\n#ctrarea-pos{\n\theight:400px;\n\tposition:absolute;\n\ttop:0;\n\tleft:0;\n\twidth:100%;\n\tbackground-color:#000;\n}\n#balltable{\n\theight:30px;\n\twidth:70px;\n\tbackground-color:gray;\n\tposition:absolute;\n\tright:0;\t\n\tbottom:0;\n\tcolor:green;\n\tfont-weight:bold;\n\tline-height:30px;\n\ttext-align:center;\n}\n* html #userball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"userball.png\");background-image:none;\n}\n#userball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(userball.png);\n\tposition:absolute;\n\tright:23px;\n\tbottom:30px;\n}\n#pointerball{\n\tposition:absolute;\n}\n.pointer_1{\n\twidth:4px;\n\theight:4px;\n\tbackground-image:url(pointerball_1.gif);\n}\n.pointer_2{\n\twidth:8px;\n\theight:8px;\n\tbackground-image:url(pointerball_2.gif);\n}\n.pointer_3{\n\twidth:16px;\n\theight:16px;\n\tbackground-image:url(pointerball_3.gif);\n}\n.pointer_4{\n\twidth:20px;\n\theight:20px;\n\tbackground-image:url(pointerball_4.gif);\n}\n.pointer_5{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(pointerball_5.gif);\n}\n* html #sysball {\n\tfilter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale,src=\"sysball.png\");background-image:none;\n}\n#sysball{\n\twidth:24px;\n\theight:24px;\n\tbackground-image:url(sysball.png);\n\tposition:absolute;\n\tleft:0;\n\tbottom:0;\n}\n#desc{\n\tline-height:20px;\n}\n#desc ol{\n\tmargin-left:30px;\n\tlist-style-type:decimal;\n}\n#desc h2 .start{\n\ttext-decoration:none;\n\tcolor:blue;\n\tcursor:pointer;\n}\n#desc h2 .stop{\n\ttext-decoration:none;\n\tcolor:#333;\n\tcursor:default;\n}\n",
+            "start": 675,
+            "end": 2699,
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 40
+              },
+              "end": {
+                "line": 116,
+                "column": 0
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "hasTpl": false
+            }
+          },
+          "end": {
+            "type": "html_tag_end",
+            "value": "</style>",
+            "start": 2699,
+            "end": 2707,
+            "loc": {
+              "start": {
+                "line": 116,
+                "column": 0
+              },
+              "end": {
+                "line": 116,
+                "column": 8
+              }
+            },
+            "commentBefore": [],
+            "ext": {
+              "tag": "style",
+              "tagLowerCase": "style"
+            }
+          }
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</head>",
+        "start": 2708,
+        "end": 2715,
+        "loc": {
+          "start": {
+            "line": 117,
+            "column": 0
+          },
+          "end": {
+            "line": 117,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "head",
+          "tagLowerCase": "head"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<body>",
+        "start": 2716,
+        "end": 2722,
+        "loc": {
+          "start": {
+            "line": 118,
+            "column": 0
+          },
+          "end": {
+            "line": 118,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "body",
+          "tagLowerCase": "body",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"wrapper\">",
+        "start": 2723,
+        "end": 2741,
+        "loc": {
+          "start": {
+            "line": 119,
+            "column": 0
+          },
+          "end": {
+            "line": 119,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "wrapper",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"ctrarea\">",
+        "start": 2743,
+        "end": 2761,
+        "loc": {
+          "start": {
+            "line": 120,
+            "column": 1
+          },
+          "end": {
+            "line": 120,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "ctrarea",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"ctrarea-pos\">",
+        "start": 2764,
+        "end": 2786,
+        "loc": {
+          "start": {
+            "line": 121,
+            "column": 2
+          },
+          "end": {
+            "line": 121,
+            "column": 24
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "ctrarea-pos",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"ball\">",
+        "start": 2790,
+        "end": 2805,
+        "loc": {
+          "start": {
+            "line": 122,
+            "column": 3
+          },
+          "end": {
+            "line": 122,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "ball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2805,
+        "end": 2811,
+        "loc": {
+          "start": {
+            "line": 122,
+            "column": 18
+          },
+          "end": {
+            "line": 122,
+            "column": 24
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"balltable\">",
+        "start": 2815,
+        "end": 2835,
+        "loc": {
+          "start": {
+            "line": 123,
+            "column": 3
+          },
+          "end": {
+            "line": 123,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "balltable",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "发射台",
+        "start": 2835,
+        "end": 2838,
+        "loc": {
+          "start": {
+            "line": 123,
+            "column": 23
+          },
+          "end": {
+            "line": 123,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2838,
+        "end": 2844,
+        "loc": {
+          "start": {
+            "line": 123,
+            "column": 26
+          },
+          "end": {
+            "line": 123,
+            "column": 32
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"userball\">",
+        "start": 2848,
+        "end": 2867,
+        "loc": {
+          "start": {
+            "line": 124,
+            "column": 3
+          },
+          "end": {
+            "line": 124,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "userball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2867,
+        "end": 2873,
+        "loc": {
+          "start": {
+            "line": 124,
+            "column": 22
+          },
+          "end": {
+            "line": 124,
+            "column": 28
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"pointerball\">",
+        "start": 2877,
+        "end": 2899,
+        "loc": {
+          "start": {
+            "line": 125,
+            "column": 3
+          },
+          "end": {
+            "line": 125,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "pointerball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2899,
+        "end": 2905,
+        "loc": {
+          "start": {
+            "line": 125,
+            "column": 25
+          },
+          "end": {
+            "line": 125,
+            "column": 31
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"sysball\">",
+        "start": 2909,
+        "end": 2927,
+        "loc": {
+          "start": {
+            "line": 126,
+            "column": 3
+          },
+          "end": {
+            "line": 126,
+            "column": 21
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "sysball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2927,
+        "end": 2933,
+        "loc": {
+          "start": {
+            "line": 126,
+            "column": 21
+          },
+          "end": {
+            "line": 126,
+            "column": 27
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2936,
+        "end": 2942,
+        "loc": {
+          "start": {
+            "line": 127,
+            "column": 2
+          },
+          "end": {
+            "line": 127,
+            "column": 8
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 2944,
+        "end": 2950,
+        "loc": {
+          "start": {
+            "line": 128,
+            "column": 1
+          },
+          "end": {
+            "line": 128,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"desc\">",
+        "start": 2952,
+        "end": 2967,
+        "loc": {
+          "start": {
+            "line": 129,
+            "column": 1
+          },
+          "end": {
+            "line": 129,
+            "column": 16
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "desc",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<h2>",
+        "start": 2970,
+        "end": 2974,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 2
+          },
+          "end": {
+            "line": 130,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "h2",
+          "tagLowerCase": "h2",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "操作说明",
+        "start": 2974,
+        "end": 2978,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 6
+          },
+          "end": {
+            "line": 130,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<a href=\"#\" id=\"startgame\" style=\"margin-left:20px;\" class=\"start\">",
+        "start": 2978,
+        "end": 3045,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 10
+          },
+          "end": {
+            "line": 130,
+            "column": 77
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a",
+          "attrs": [
+            {
+              "name": "href",
+              "value": "#",
+              "quote": "\"",
+              "nameLowerCase": "href"
+            },
+            {
+              "name": "id",
+              "value": "startgame",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            },
+            {
+              "name": "style",
+              "value": "margin-left:20px;",
+              "quote": "\"",
+              "nameLowerCase": "style"
+            },
+            {
+              "name": "class",
+              "value": "start",
+              "quote": "\"",
+              "nameLowerCase": "class"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "点击这里开始游戏",
+        "start": 3045,
+        "end": 3053,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 77
+          },
+          "end": {
+            "line": 130,
+            "column": 85
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</a>",
+        "start": 3053,
+        "end": 3057,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 85
+          },
+          "end": {
+            "line": 130,
+            "column": 89
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</h2>",
+        "start": 3057,
+        "end": 3062,
+        "loc": {
+          "start": {
+            "line": 130,
+            "column": 89
+          },
+          "end": {
+            "line": 130,
+            "column": 94
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "h2",
+          "tagLowerCase": "h2"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<ol>",
+        "start": 3065,
+        "end": 3069,
+        "loc": {
+          "start": {
+            "line": 131,
+            "column": 2
+          },
+          "end": {
+            "line": 131,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "ol",
+          "tagLowerCase": "ol",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<li>",
+        "start": 3073,
+        "end": 3077,
+        "loc": {
+          "start": {
+            "line": 132,
+            "column": 3
+          },
+          "end": {
+            "line": 132,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "本游戏是模拟导弹拦截的一个休闲游戏，旨在锻炼眼力和手巧。每轮游戏时将有10枚导弹（篮球）发射过来，在发射台你用火箭筒（足球）拦截，拦截成功后发生爆炸。",
+        "start": 3077,
+        "end": 3152,
+        "loc": {
+          "start": {
+            "line": 132,
+            "column": 7
+          },
+          "end": {
+            "line": 132,
+            "column": 82
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</li>",
+        "start": 3152,
+        "end": 3157,
+        "loc": {
+          "start": {
+            "line": 132,
+            "column": 82
+          },
+          "end": {
+            "line": 132,
+            "column": 87
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<li>",
+        "start": 3161,
+        "end": 3165,
+        "loc": {
+          "start": {
+            "line": 133,
+            "column": 3
+          },
+          "end": {
+            "line": 133,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "导弹的运动轨迹是y=A*ln(x+1)对数曲线，运动速度为y=x^4指数曲线，终点位置纵坐标在【190,370】px（以导弹发射点为原点）范围，运动时间在【2500,3800】ms范围。",
+        "start": 3165,
+        "end": 3258,
+        "loc": {
+          "start": {
+            "line": 133,
+            "column": 7
+          },
+          "end": {
+            "line": 133,
+            "column": 100
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</li>",
+        "start": 3258,
+        "end": 3263,
+        "loc": {
+          "start": {
+            "line": 133,
+            "column": 100
+          },
+          "end": {
+            "line": 133,
+            "column": 105
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<li>",
+        "start": 3267,
+        "end": 3271,
+        "loc": {
+          "start": {
+            "line": 134,
+            "column": 3
+          },
+          "end": {
+            "line": 134,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "每次导弹发射开始时，可以点击面板上的黑色区域作为火箭筒的运动终点（只有一次机会），火箭筒在1000ms中匀速行驶到终点，在运动中与导弹发生碰撞则为截获成功。",
+        "start": 3271,
+        "end": 3349,
+        "loc": {
+          "start": {
+            "line": 134,
+            "column": 7
+          },
+          "end": {
+            "line": 134,
+            "column": 85
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</li>",
+        "start": 3349,
+        "end": 3354,
+        "loc": {
+          "start": {
+            "line": 134,
+            "column": 85
+          },
+          "end": {
+            "line": 134,
+            "column": 90
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<li>",
+        "start": 3358,
+        "end": 3362,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 3
+          },
+          "end": {
+            "line": 135,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "如果对该小游戏有什么问题和建议，",
+        "start": 3362,
+        "end": 3378,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 7
+          },
+          "end": {
+            "line": 135,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<a href=\"http://www.welefen.com/blog/?p=89#more-89\">",
+        "start": 3378,
+        "end": 3430,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 23
+          },
+          "end": {
+            "line": 135,
+            "column": 75
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a",
+          "attrs": [
+            {
+              "name": "href",
+              "value": "http://www.welefen.com/blog/?p=89#more-89",
+              "quote": "\"",
+              "nameLowerCase": "href"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "---请点击这里---",
+        "start": 3430,
+        "end": 3441,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 75
+          },
+          "end": {
+            "line": 135,
+            "column": 86
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</a>",
+        "start": 3441,
+        "end": 3445,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 86
+          },
+          "end": {
+            "line": 135,
+            "column": 90
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</li>",
+        "start": 3445,
+        "end": 3450,
+        "loc": {
+          "start": {
+            "line": 135,
+            "column": 90
+          },
+          "end": {
+            "line": 135,
+            "column": 95
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</ol>",
+        "start": 3453,
+        "end": 3458,
+        "loc": {
+          "start": {
+            "line": 136,
+            "column": 2
+          },
+          "end": {
+            "line": 136,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "ol",
+          "tagLowerCase": "ol"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<h2>",
+        "start": 3461,
+        "end": 3465,
+        "loc": {
+          "start": {
+            "line": 137,
+            "column": 2
+          },
+          "end": {
+            "line": 137,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "h2",
+          "tagLowerCase": "h2",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "当前任务信息",
+        "start": 3465,
+        "end": 3471,
+        "loc": {
+          "start": {
+            "line": 137,
+            "column": 6
+          },
+          "end": {
+            "line": 137,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</h2>",
+        "start": 3471,
+        "end": 3476,
+        "loc": {
+          "start": {
+            "line": 137,
+            "column": 12
+          },
+          "end": {
+            "line": 137,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "h2",
+          "tagLowerCase": "h2"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<ol>",
+        "start": 3479,
+        "end": 3483,
+        "loc": {
+          "start": {
+            "line": 138,
+            "column": 2
+          },
+          "end": {
+            "line": 138,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "ol",
+          "tagLowerCase": "ol",
+          "attrs": [],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<li id=\"userscore\">",
+        "start": 3487,
+        "end": 3506,
+        "loc": {
+          "start": {
+            "line": 139,
+            "column": 3
+          },
+          "end": {
+            "line": 139,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "userscore",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "这里会有当前轮回游戏的分数，击中为0，否则为0。",
+        "start": 3506,
+        "end": 3530,
+        "loc": {
+          "start": {
+            "line": 139,
+            "column": 22
+          },
+          "end": {
+            "line": 139,
+            "column": 46
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</li>",
+        "start": 3530,
+        "end": 3535,
+        "loc": {
+          "start": {
+            "line": 139,
+            "column": 46
+          },
+          "end": {
+            "line": 139,
+            "column": 51
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "li",
+          "tagLowerCase": "li"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</ol>",
+        "start": 3538,
+        "end": 3543,
+        "loc": {
+          "start": {
+            "line": 140,
+            "column": 2
+          },
+          "end": {
+            "line": 140,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "ol",
+          "tagLowerCase": "ol"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 3545,
+        "end": 3551,
+        "loc": {
+          "start": {
+            "line": 141,
+            "column": 1
+          },
+          "end": {
+            "line": 141,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 3552,
+        "end": 3558,
+        "loc": {
+          "start": {
+            "line": 142,
+            "column": 0
+          },
+          "end": {
+            "line": 142,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<div id=\"embedball\" style=\"position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;\">",
+        "start": 3559,
+        "end": 3675,
+        "loc": {
+          "start": {
+            "line": 143,
+            "column": 0
+          },
+          "end": {
+            "line": 143,
+            "column": 116
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "id",
+              "value": "embedball",
+              "quote": "\"",
+              "nameLowerCase": "id"
+            },
+            {
+              "name": "style",
+              "value": "position:absolute;visibility:hidden;top:-1000000px;left:-100000px;height:0px;width:0px;",
+              "quote": "\"",
+              "nameLowerCase": "style"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_start",
+        "value": "<EMBED TYPE=\"application/x-mplayer2\" SRC=\"bomb.wav\" volume=0 autostart=\"0\">",
+        "start": 3677,
+        "end": 3752,
+        "loc": {
+          "start": {
+            "line": 144,
+            "column": 1
+          },
+          "end": {
+            "line": 144,
+            "column": 76
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "EMBED",
+          "tagLowerCase": "embed",
+          "attrs": [
+            {
+              "name": "TYPE",
+              "value": "application/x-mplayer2",
+              "quote": "\"",
+              "nameLowerCase": "type"
+            },
+            {
+              "name": "SRC",
+              "value": "bomb.wav",
+              "quote": "\"",
+              "nameLowerCase": "src"
+            },
+            {
+              "name": "volume",
+              "value": "0",
+              "quote": "",
+              "nameLowerCase": "volume"
+            },
+            {
+              "name": "autostart",
+              "value": "0",
+              "quote": "\"",
+              "nameLowerCase": "autostart"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</EMBED>",
+        "start": 3752,
+        "end": 3760,
+        "loc": {
+          "start": {
+            "line": 144,
+            "column": 76
+          },
+          "end": {
+            "line": 144,
+            "column": 84
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "EMBED",
+          "tagLowerCase": "embed"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 3761,
+        "end": 3767,
+        "loc": {
+          "start": {
+            "line": 145,
+            "column": 0
+          },
+          "end": {
+            "line": 145,
+            "column": 6
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</body>",
+        "start": 3768,
+        "end": 3775,
+        "loc": {
+          "start": {
+            "line": 146,
+            "column": 0
+          },
+          "end": {
+            "line": 146,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "body",
+          "tagLowerCase": "body"
+        }
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</html>",
+        "start": 3776,
+        "end": 3783,
+        "loc": {
+          "start": {
+            "line": 147,
+            "column": 0
+          },
+          "end": {
+            "line": 147,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "html",
+          "tagLowerCase": "html"
+        }
+      }
+    ]
+  },
+  "5b92b2045b6bb9a372dcbca597e7703d": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": " <input type=\"submit\" name=\"Submit\" value=\"开始转换\" class=\"button\" />",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "5b92b2045b6bb9a372dcbca597e7703d",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<input type=\"submit\" name=\"Submit\" value=\"开始转换\" class=\"button\" />",
+        "start": 1,
+        "end": 66,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 1
+          },
+          "end": {
+            "line": 0,
+            "column": 66
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "input",
+          "tagLowerCase": "input",
+          "attrs": [
+            {
+              "name": "type",
+              "value": "submit",
+              "quote": "\"",
+              "nameLowerCase": "type"
+            },
+            {
+              "name": "name",
+              "value": "Submit",
+              "quote": "\"",
+              "nameLowerCase": "name"
+            },
+            {
+              "name": "value",
+              "value": "开始转换",
+              "quote": "\"",
+              "nameLowerCase": "value"
+            },
+            {
+              "name": "class",
+              "value": "button",
+              "quote": "\"",
+              "nameLowerCase": "class"
+            }
+          ],
+          "slash": true
+        }
+      }
+    ]
+  },
+  "c1413adfc08ac4b1168e1347167c2c4e": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "\n<a href=\"?from=360hao&f=car\"_blank\" target=\"_blank\">车险比价</a>\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c1413adfc08ac4b1168e1347167c2c4e",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<a href=\"?from=360hao&f=car\"_blank\" target=\"_blank\">",
+        "start": 1,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 52
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a",
+          "attrs": [
+            {
+              "name": "href",
+              "value": "?from=360hao&f=car",
+              "quote": "\"",
+              "nameLowerCase": "href"
+            },
+            {
+              "name": "_blank\"",
+              "nameLowerCase": "_blank\""
+            },
+            {
+              "name": "target",
+              "value": "_blank",
+              "quote": "\"",
+              "nameLowerCase": "target"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "车险比价",
+        "start": 53,
+        "end": 57,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 52
+          },
+          "end": {
+            "line": 1,
+            "column": 56
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</a>",
+        "start": 57,
+        "end": 61,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 56
+          },
+          "end": {
+            "line": 1,
+            "column": 60
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a"
+        }
+      }
+    ]
+  },
+  "d5fff7732b62f8503ae96512e5b3d3f2": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div 'name'=\"www\">wwww</div>",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d5fff7732b62f8503ae96512e5b3d3f2",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div 'name'=\"www\">",
+        "start": 0,
+        "end": 18,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "'name'",
+              "value": "www",
+              "quote": "\"",
+              "nameLowerCase": "'name'"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "wwww",
+        "start": 18,
+        "end": 22,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 18
+          },
+          "end": {
+            "line": 0,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</div>",
+        "start": 22,
+        "end": 28,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 22
+          },
+          "end": {
+            "line": 0,
+            "column": 28
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div"
+        }
+      }
+    ]
+  },
+  "921839ea961b06946162756e305ff09d": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "\n<a href=\"?from=360hao&f=car'_blank\" target=\"_blank\">车险比价</a>\n",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "921839ea961b06946162756e305ff09d",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<a href=\"?from=360hao&f=car'_blank\" target=\"_blank\">",
+        "start": 1,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 52
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a",
+          "attrs": [
+            {
+              "name": "href",
+              "value": "?from=360hao&f=car'_blank",
+              "quote": "\"",
+              "nameLowerCase": "href"
+            },
+            {
+              "name": "target",
+              "value": "_blank",
+              "quote": "\"",
+              "nameLowerCase": "target"
+            }
+          ],
+          "slash": false
+        }
+      },
+      {
+        "type": "html_text",
+        "value": "车险比价",
+        "start": 53,
+        "end": 57,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 52
+          },
+          "end": {
+            "line": 1,
+            "column": 56
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "html_tag_end",
+        "value": "</a>",
+        "start": 57,
+        "end": 61,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 56
+          },
+          "end": {
+            "line": 1,
+            "column": 60
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "a",
+          "tagLowerCase": "a"
+        }
+      }
+    ]
+  },
+  "d249458aaf72a5b17c2200b3a93c4304": {
+    "lang": "html",
+    "name": "tokenize",
+    "code": "<div name=\"wwww\"\"\">",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d249458aaf72a5b17c2200b3a93c4304",
+    "result": [
+      {
+        "type": "html_tag_start",
+        "value": "<div name=\"wwww\"\"\">",
+        "start": 0,
+        "end": 19,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "tag": "div",
+          "tagLowerCase": "div",
+          "attrs": [
+            {
+              "name": "name",
+              "value": "wwww\"\"",
+              "quote": "\"",
+              "nameLowerCase": "name"
+            }
+          ],
+          "slash": false
+        }
+      }
+    ]
   }
 }
