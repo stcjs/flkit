@@ -6,13 +6,12 @@ import html_tokenize from './lang/html/tokenize.js';
 import {token2Text as html_token_2_text} from './lang/html/util.js';
 import {token2Text as css_token_2_text} from './lang/css/util.js';
 import html_compress from './lang/html/compress.js';
-//import BaseTokenize from './util/tokenize.js';
+// import BaseTokenize from './util/tokenize.js';
 import css_compress from './lang/css/compress.js';
 import {
   createToken as create_token,
   createRawToken as create_raw_token
 } from './util/util_ext.js';
-
 
 export const TokenType = token_type;
 export const Template = BaseTemplate;
@@ -26,7 +25,6 @@ export const HtmlTokenize = html_tokenize;
 export const htmlToken2Text = html_token_2_text;
 export const HtmlCompress = html_compress;
 
-
 export const createToken = create_token;
 export const createRawToken = create_raw_token;
 
@@ -34,17 +32,17 @@ export const createRawToken = create_raw_token;
  * has template syntax in text
  */
 export function hasTpl(text, options = {}) {
-  let instance = new BaseTemplate(text, options);
+  const instance = new BaseTemplate(text, options);
   return instance.hasTpl();
 }
 
 /**
  * get html attribute value
  */
-export function getHtmlAttrValue(attrs, name){
+export function getHtmlAttrValue(attrs, name) {
   let value;
   attrs.some(item => {
-    if(item.nameLowerCase === name){
+    if (item.nameLowerCase === name) {
       value = item.value;
       return true;
     }
@@ -55,13 +53,13 @@ export function getHtmlAttrValue(attrs, name){
  * set html attribute value
  */
 export function setHtmlAttrValue(attrs, name, value) {
-  let flag = attrs.some(item => {
-    if(item.nameLowerCase === name){
+  const flag = attrs.some(item => {
+    if (item.nameLowerCase === name) {
       item.value = value;
       return true;
     }
   });
-  if(!flag){
+  if (!flag) {
     attrs.push({
       name,
       value,

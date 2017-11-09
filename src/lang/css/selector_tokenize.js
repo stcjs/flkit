@@ -11,28 +11,28 @@ export default class CssSelectorTokenize extends Base {
   /**
    * constructor
    */
-  constructor(text, options){
+  constructor(text, options) {
     super(text, options);
     this.prevToken = null;
   }
-   /**
+  /**
    * get next token
    * @return {Object} []
    */
-  getNextToken(){
+  getNextToken() {
     let token = super.getNextToken();
     if (token || token === false) {
       return token;
     }
     if (!this.prevToken || this.prevToken.type === TokenType.CSS_SELECTOR_COMMA) {
-      let match = this.text.match(namespaceReg);
+      const match = this.text.match(namespaceReg);
       if (match) {
         this.forward(match[0].length);
         return this.getToken(TokenType.CSS_SELECTOR_NAMESPACE, match[0]);
       }
     }
-    let code = this.text.charCodeAt(this.pos);
-    switch(code){
+    const code = this.text.charCodeAt(this.pos);
+    switch (code) {
       case 0x2a: // *
         return this.getToken(TokenType.CSS_SELECTOR_UNIVERSAL, this.next());
       case 0x2c: // ,
@@ -59,18 +59,17 @@ export default class CssSelectorTokenize extends Base {
       default:
         return this.getCommonToken(TokenType.CSS_SELECTOR_TYPE);
     }
-    //return false;
+    // return false;
   }
   /**
    * skip comment
    * @return {void} []
    */
-  skipComment(){
-    //start with /*
+  skipComment() {
+    // start with /*
     let comment;
-    while(this.text.charCodeAt(this.pos) === 0x2f && 
-      this.text.charCodeAt(this.pos + 1) === 0x2a){
-
+    while (this.text.charCodeAt(this.pos) === 0x2f &&
+      this.text.charCodeAt(this.pos + 1) === 0x2a) {
       comment = this.getCommentToken(1, true);
       this.commentBefore.push(comment);
     }
@@ -80,9 +79,9 @@ export default class CssSelectorTokenize extends Base {
    * @param  {Number} type []
    * @return {Object}      []
    */
-  getCommonToken(type){
+  getCommonToken(type) {
     let ret = this.next(), code;
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       code = this.text.charCodeAt(this.pos);
       if (selectorBreakChar(code) || this.isWhiteSpace(code)) {
         break;
@@ -95,8 +94,8 @@ export default class CssSelectorTokenize extends Base {
    * get attribute token
    * @return {Object} []
    */
-  getAttributeToken(){
-    let ret = this.getMatchedChar(0x5b, 0x5d, {
+  getAttributeToken() {
+    const ret = this.getMatchedChar(0x5b, 0x5d, {
       quote: true
     });
     return this.getToken(TokenType.CSS_SELECTOR_ATTRIBUTE, ret);
@@ -105,9 +104,9 @@ export default class CssSelectorTokenize extends Base {
    * get pseudo class token, support :not(xxx)
    * @return {Object} []
    */
-  getPseudoClassToken(){
+  getPseudoClassToken() {
     let ret = this.next(), code;
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       code = this.text.charCodeAt(this.pos);
       if (code === 0x28) {
         ret += this.getMatchedChar(0x28, 0x29, {
@@ -124,7 +123,7 @@ export default class CssSelectorTokenize extends Base {
     if (isPseudoElement(ret)) {
       return this.getToken(TokenType.CSS_SELECTOR_PSEUDO_ELEMENT, ret);
     }
-    let token = this.getToken(TokenType.CSS_SELECTOR_PSEUDO_CLASS, ret);
+    const token = this.getToken(TokenType.CSS_SELECTOR_PSEUDO_CLASS, ret);
     token.vender = token.value.charCodeAt(1) === 0x2d;
     return token;
   }
@@ -133,8 +132,8 @@ export default class CssSelectorTokenize extends Base {
    * @param  {Object} token []
    * @return {Boolean}       []
    */
-  checkInvalid(token){
-    switch(token.type){
+  checkInvalid(token) {
+    switch (token.type) {
       case TokenType.CSS_SELECTOR_CLASS:
         if (token.value.length === 1) {
           return true;
@@ -146,16 +145,16 @@ export default class CssSelectorTokenize extends Base {
    * run
    * @return {Object} []
    */
-  run(){
+  run() {
     let result = [], tokens = [], token, min = -1, max = -1;
     let specificity, invalid = false, vender = false;
-    for(; token = this.getNextToken(); ){
+    for (; token = this.getNextToken();) {
       this.prevToken = token;
       if (token.type === TokenType.CSS_SELECTOR_COMMA) {
         specificity = calculateSelectorSpecificity(tokens);
         if (min === -1) {
           min = max = specificity;
-        }else{
+        } else {
           if (specificity < min) {
             min = specificity;
           }
@@ -168,7 +167,7 @@ export default class CssSelectorTokenize extends Base {
           specificity: specificity
         });
         tokens = [];
-      }else{
+      } else {
         if (!vender) {
           vender = token.vender;
         }
@@ -182,7 +181,7 @@ export default class CssSelectorTokenize extends Base {
       specificity = calculateSelectorSpecificity(tokens);
       if (min === -1) {
         min = max = specificity;
-      }else{
+      } else {
         if (specificity < min) {
           min = specificity;
         }
@@ -195,7 +194,7 @@ export default class CssSelectorTokenize extends Base {
         specificity: specificity
       });
     }
-    let data = {
+    const data = {
       minSpecificity: min,
       maxSpecificity: max,
       specificityEqual: min === max,

@@ -18,21 +18,20 @@ import {
 
 import {createToken} from '../../util/util_ext.js';
 
-
 /**
  * default compress options
  */
 const compressOpts = {
   removeComment: true,
-  removeLastSemicolon: true, 
-  removeEmptySelector: true, 
-  overrideSameProperty: true, 
-  shortValue: true, 
-  mergeProperty: true, 
-  sortProperty: true, 
-  sortSelector: true, 
-  mergeSelector: true, 
-  propertyToLower: true 
+  removeLastSemicolon: true,
+  removeEmptySelector: true,
+  overrideSameProperty: true,
+  shortValue: true,
+  mergeProperty: true,
+  sortProperty: true,
+  sortSelector: true,
+  mergeSelector: true,
+  propertyToLower: true
 };
 /**
  * compress css
@@ -41,7 +40,7 @@ export default class CssCompress extends Base {
   /**
    * constructor
    */
-  constructor(text, options = {}){
+  constructor(text, options = {}) {
     super('', options);
     this._optText = text;
 
@@ -61,11 +60,11 @@ export default class CssCompress extends Base {
   /**
    * init tokens
    */
-  initTokens(){
-    if(typeof this._optText === 'string'){
-      let instance = new Tokenize(this._optText, this.options);
+  initTokens() {
+    if (typeof this._optText === 'string') {
+      const instance = new Tokenize(this._optText, this.options);
       this.tokens = instance.run();
-    }else{
+    } else {
       this.tokens = this._optText;
     }
     this.length = this.tokens.length;
@@ -73,7 +72,7 @@ export default class CssCompress extends Base {
   /**
    * compress css value
    */
-  compressValue(value, property){
+  compressValue(value, property) {
     // remove comment
     value = value.replace(/\/\*.*?\*\//g, '');
     // remove newline
@@ -82,18 +81,18 @@ export default class CssCompress extends Base {
     value = value.replace(/\s+/g, ' ');
 
     // get short value
-    if(this.options.shortValue){
+    if (this.options.shortValue) {
       value = getShortValue(value, property);
     }
 
     // if property is filter, can't replace `, ` to `,`
     // see http://www.imququ.com/post/the_bug_of_ie-matrix-filter.html
-    if(property.toLowerCase() !== 'filter'){
+    if (property.toLowerCase() !== 'filter') {
       // remove whitespace after ,
       value = value.replace(/,\s+/g, ',');
       value = value.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3');
     }
-    
+
     // replace 0(px,em,%) with 0.
     value = value.replace(/(^|\s)(0)(?:px|em|%|in|cm|mm|pc|pt|ex|rem)/gi, '$1$2');
     // replace 0.6 to .6
@@ -103,23 +102,23 @@ export default class CssCompress extends Base {
     // replace .0 to 0
     value = value.replace(/(^|\s)\.(0)(\s|$)/g, '$1$2$3');
     // Shorten colors from #AABBCC to #ABC. Note that we want to make sure
-		// the color is not preceded by either ", " or =. Indeed, the property
-		//     filter: chroma(color="#FFFFFF");
-		// would become
-		//     filter: chroma(color="#FFF");
-		// which makes the filter break in IE.
+    // the color is not preceded by either ", " or =. Indeed, the property
+    //     filter: chroma(color="#FFFFFF");
+    // would become
+    //     filter: chroma(color="#FFF");
+    // which makes the filter break in IE.
     // value = value.replace(/([^\"'=\s])(\s*)#([0-9a-fA-F])\3([0-9a-fA-F])\4([0-9a-fA-F])\5/ig, '$1$2#$3$4$5');
     return value;
   }
   /**
    * get selector properties
    */
-  getSelectorProperties(){
-    let braces = this.tokens[this.index++];
-    if(!braces){
+  getSelectorProperties() {
+    const braces = this.tokens[this.index++];
+    if (!braces) {
       return {};
     }
-    if(braces.type !== TokenType.CSS_LEFT_BRACE){
+    if (braces.type !== TokenType.CSS_LEFT_BRACE) {
       throw new Error('after selector must be a {');
     }
 
@@ -127,23 +126,23 @@ export default class CssCompress extends Base {
     let propertyToken = null, valueToken = null, tplToken = null;
     let hasTpl = false, hasHack = false;
 
-    selectorCondition: while(this.index < this.length){
+    selectorCondition: while (this.index < this.length) {
       let token = this.tokens[this.index++];
       token = this.removeComment(token);
-      switch(token.type){
+      switch (token.type) {
         case TokenType.CSS_PROPERTY:
           key += this.options.propertyToLower ? token.value.toLowerCase() : token.value;
-          if(!this.options.overrideSameProperty && (key in attrs)){
+          if (!this.options.overrideSameProperty && (key in attrs)) {
             key += pos++;
           }
-          if(this.options.propertyToLower){
+          if (this.options.propertyToLower) {
             token.ext.value = token.ext.value.toLowerCase();
             token.value = token.value.toLowerCase();
           }
           propertyToken = token;
 
           // has tplToken before property
-          if(tplToken){
+          if (tplToken) {
             attrs[`${tplToken.value}%${pos++}`] = {
               value: tplToken
             };
@@ -155,41 +154,41 @@ export default class CssCompress extends Base {
           break;
         case TokenType.CSS_SEMICOLON:
         case TokenType.CSS_RIGHT_BRACE:
-          if(valueToken === null && tplToken && propertyToken){
+          if (valueToken === null && tplToken && propertyToken) {
             valueToken = tplToken;
             tplToken = null;
           }
 
           // already has tplToken
-          if(tplToken){
+          if (tplToken) {
             attrs[`${tplToken.value}%${pos++}`] = {
               value: tplToken
             };
             tplToken = null;
           }
 
-          if(!propertyToken || !valueToken){
-            if(token.type === TokenType.CSS_RIGHT_BRACE){
+          if (!propertyToken || !valueToken) {
+            if (token.type === TokenType.CSS_RIGHT_BRACE) {
               break selectorCondition;
             }
             break;
           }
-          
+
           // propertyToken is tpl
-          if(propertyToken.type === TokenType.TPL){
+          if (propertyToken.type === TokenType.TPL) {
             attrs[`${propertyToken.value}%${pos++}`] = {
               property: propertyToken,
               value: valueToken
             };
             propertyToken = valueToken = null;
-            if(token.type === TokenType.CSS_RIGHT_BRACE){
+            if (token.type === TokenType.CSS_RIGHT_BRACE) {
               break selectorCondition;
             }
             break;
           }
 
           // optimize css value
-          if(valueToken.type === TokenType.CSS_VALUE){
+          if (valueToken.type === TokenType.CSS_VALUE) {
             valueToken.ext.value = this.compressValue(valueToken.ext.value, propertyToken.ext.value);
             /**
              * for div{color:red;color:blue\9;}
@@ -198,36 +197,36 @@ export default class CssCompress extends Base {
             key += valueToken.ext.suffix;
           }
 
-          //multi same property
-          //background:red;background:url(xx.png)
-          if(isMultiSameProperty(key, valueToken.value)){
+          // multi same property
+          // background:red;background:url(xx.png)
+          if (isMultiSameProperty(key, valueToken.value)) {
             key += '%' + pos++;
           }
 
           // already has tpl syntax, can not override property
           // div{<&if $name&>color:red;<&else&>color:blue;<&/if&>font-size:12px;}
-          if(hasTpl){
+          if (hasTpl) {
             key += '%' + pos++;
           }
-          
-          if(this.options.overrideSameProperty){
+
+          if (this.options.overrideSameProperty) {
             attrs = mergeProperties(attrs, {
               [key]: {
                 property: propertyToken,
                 value: valueToken
               }
             });
-          }else{
+          } else {
             attrs[key] = {
               property: propertyToken,
               value: valueToken
             };
           }
           propertyToken = valueToken = null;
-          //hasColon = false;
+          // hasColon = false;
           key = '';
 
-          if(token.type === TokenType.CSS_RIGHT_BRACE){
+          if (token.type === TokenType.CSS_RIGHT_BRACE) {
             break selectorCondition;
           }
           break;
@@ -240,7 +239,7 @@ export default class CssCompress extends Base {
           break;
         case TokenType.TPL:
           // already has tplToken
-          if(tplToken){
+          if (tplToken) {
             attrs[`${token.value}%${pos++}`] = {
               value: tplToken
             };
@@ -250,19 +249,19 @@ export default class CssCompress extends Base {
           break;
         case TokenType.CSS_COLON:
           // is tplToken before :
-          if(!propertyToken && tplToken){
+          if (!propertyToken && tplToken) {
             propertyToken = tplToken;
             tplToken = null;
           }
-          //hasColon = true;
+          // hasColon = true;
           break;
       }
     }
-    if(!hasHack && !hasTpl){
-      if(this.options.sortProperty){
+    if (!hasHack && !hasTpl) {
+      if (this.options.sortProperty) {
         attrs = this.sortProperties(attrs);
       }
-      if(this.options.mergeProperty){
+      if (this.options.mergeProperty) {
         attrs = this.mergePropertyChildren(attrs);
       }
     }
@@ -271,13 +270,13 @@ export default class CssCompress extends Base {
   /**
    * sort properties
    */
-  sortProperties(attrs){
+  sortProperties(attrs) {
     return attrs;
   }
   /**
    * merge properties
    */
-  mergePropertyChildren(attrs){
+  mergePropertyChildren(attrs) {
     attrs = mergePropertyChildren(attrs, 'padding');
     attrs = mergePropertyChildren(attrs, 'margin');
     return attrs;
@@ -285,34 +284,34 @@ export default class CssCompress extends Base {
   /**
    * collect selector
    */
-  collectSelector(token, selectorPos = 0){
-    let attrs = this.getSelectorProperties();
+  collectSelector(token, selectorPos = 0) {
+    const attrs = this.getSelectorProperties();
     // remove empty selector
-    if(this.options.removeEmptySelector && Object.keys(attrs).length === 0){
+    if (this.options.removeEmptySelector && Object.keys(attrs).length === 0) {
       return true;
     }
-    if(!token.ext.group){
-      let instance = new SelectorTokenize(token.value, this.options);
+    if (!token.ext.group) {
+      const instance = new SelectorTokenize(token.value, this.options);
       token.ext = instance.run();
     }
-    let detail = {
+    const detail = {
       attrs,
       selector: token,
       pos: selectorPos++
     };
-    let selectorKey = selectorToken2Text(token);
+    const selectorKey = selectorToken2Text(token);
     token.value = selectorKey;
-    if(selectorKey in this.selectors){
+    if (selectorKey in this.selectors) {
       this.selectors[selectorKey].attrs = mergeProperties(this.selectors[selectorKey].attrs, attrs);
-    }else{
+    } else {
       this.selectors[selectorKey] = detail;
     }
   }
   /**
    * selector can combine
    */
-  selectorCanCombine(selectors){
-    let list = ['-ms-', ':root', '-placeholder'];
+  selectorCanCombine(selectors) {
+    const list = ['-ms-', ':root', '-placeholder'];
     return selectors.every(selector => {
       return list.every(item => {
         return selector.selector.value.indexOf(item) === -1;
@@ -322,49 +321,49 @@ export default class CssCompress extends Base {
   /**
    * get properties intersect in 2 selectors
    */
-  getPropertiesIntersect(se1, se2){
-    let attrs1 = se1.attrs;
-    let attrs2 = se2.attrs;
-    let assoc = {};
+  getPropertiesIntersect(se1, se2) {
+    const attrs1 = se1.attrs;
+    const attrs2 = se2.attrs;
+    const assoc = {};
     let assoclen = 0;
-    for(let key in attrs1){
+    for (const key in attrs1) {
       // only have value token
-      if(!attrs1[key].property){
+      if (!attrs1[key].property) {
         continue;
       }
       // not exist in attrs2
-      if(!(key in attrs2)){
+      if (!(key in attrs2)) {
         continue;
       }
-      if(!attrs2[key].property){
+      if (!attrs2[key].property) {
         continue;
       }
-      let attrs1Value = attrs1[key].value.value;
-      let attrs2Value = attrs2[key].value.value;
+      const attrs1Value = attrs1[key].value.value;
+      const attrs2Value = attrs2[key].value.value;
       // value not equal
-      if(attrs1Value !== attrs2Value){
+      if (attrs1Value !== attrs2Value) {
         continue;
       }
       // property has prefix or value has suffix
       // if(attrs1[key].property.ext.prefix || attrs1[key].value.ext.suffix){
       //   continue;
       // }
-      if(this.isUnMergeProperty(attrs1[key], attrs1, attrs2)){
+      if (this.isUnMergeProperty(attrs1[key], attrs1, attrs2)) {
         continue;
       }
       assoc[key] = attrs1[key];
-      //2 chars is : and ;
+      // 2 chars is : and ;
       assoclen += attrs1[key].property.value.length + attrs1[key].value.value.length + 2;
     }
-    let length = Object.keys(assoc).length;
-    if(length === 0){
+    const length = Object.keys(assoc).length;
+    if (length === 0) {
       return false;
     }
-    if(length !== Object.keys(attrs1).length 
-      && length !== Object.keys(attrs2).length){
+    if (length !== Object.keys(attrs1).length &&
+      length !== Object.keys(attrs2).length) {
       // 3 chars is `, { }`
-      let selen = se1.selector.value.length + se2.selector.value.length + 3;
-      if(selen >= assoclen){
+      const selen = se1.selector.value.length + se2.selector.value.length + 3;
+      if (selen >= assoclen) {
         return false;
       }
     }
@@ -373,10 +372,10 @@ export default class CssCompress extends Base {
   /**
    * check css value token equal
    */
-  checkValueTokenEqual(item1, item2){
-    let ext1 = item1.ext;
-    let ext2 = item2.ext;
-    let list = ['prefix', 'suffix', 'value', 'important'];
+  checkValueTokenEqual(item1, item2) {
+    const ext1 = item1.ext;
+    const ext2 = item2.ext;
+    const list = ['prefix', 'suffix', 'value', 'important'];
     return list.every(item => {
       return ext1[item] === ext2[item];
     });
@@ -384,54 +383,54 @@ export default class CssCompress extends Base {
   /**
    * is unmerge property
    */
-  isUnMergeProperty(item1, attrs1, attrs2){
-    let item1Property = item1.property.ext.value.toLowerCase();
-    let item1PropertyPrefix = item1.property.ext.prefix;
-    let item1Value = item1.value.ext.value;
-    if(isUnMergeProperty(item1Property, item1Value)){
+  isUnMergeProperty(item1, attrs1, attrs2) {
+    const item1Property = item1.property.ext.value.toLowerCase();
+    const item1PropertyPrefix = item1.property.ext.prefix;
+    const item1Value = item1.value.ext.value;
+    if (isUnMergeProperty(item1Property, item1Value)) {
       return true;
     }
     // if(isUnSortProperty(item1Property)){
     //   return true;
     // }
-    for(let key in attrs1){
-      let itemPropertyValue = attrs1[key].property.ext.value.toLowerCase();
-      let itemPropertyPrefix = attrs1[key].property.ext.prefix;
-      if(item1Property === itemPropertyValue){
-        if(item1PropertyPrefix !== itemPropertyPrefix){
+    for (const key in attrs1) {
+      const itemPropertyValue = attrs1[key].property.ext.value.toLowerCase();
+      const itemPropertyPrefix = attrs1[key].property.ext.prefix;
+      if (item1Property === itemPropertyValue) {
+        if (item1PropertyPrefix !== itemPropertyPrefix) {
           return true;
         }
-        if(!this.checkValueTokenEqual(item1.value, attrs1[key].value)){
+        if (!this.checkValueTokenEqual(item1.value, attrs1[key].value)) {
           return true;
         }
       }
-      if(item1Property.indexOf('-') > -1){
-        if(item1Property.indexOf(itemPropertyValue + '-') > -1){
+      if (item1Property.indexOf('-') > -1) {
+        if (item1Property.indexOf(itemPropertyValue + '-') > -1) {
           return true;
         }
-      }else{
-        if(itemPropertyValue.indexOf(item1Property + '-') > -1){
+      } else {
+        if (itemPropertyValue.indexOf(item1Property + '-') > -1) {
           return true;
         }
       }
     }
-    for(let key in attrs2){
-      let itemPropertyValue = attrs2[key].property.ext.value.toLowerCase();
-      let itemPropertyPrefix = attrs2[key].property.ext.prefix;
-      if(item1Property === itemPropertyValue){
-        if(item1PropertyPrefix !== itemPropertyPrefix){
+    for (const key in attrs2) {
+      const itemPropertyValue = attrs2[key].property.ext.value.toLowerCase();
+      const itemPropertyPrefix = attrs2[key].property.ext.prefix;
+      if (item1Property === itemPropertyValue) {
+        if (item1PropertyPrefix !== itemPropertyPrefix) {
           return true;
         }
-        if(!this.checkValueTokenEqual(item1.value, attrs2[key].value)){
+        if (!this.checkValueTokenEqual(item1.value, attrs2[key].value)) {
           return true;
         }
       }
-      if(item1Property.indexOf('-') > -1){
-        if(item1Property.indexOf(itemPropertyValue + '-') > -1){
+      if (item1Property.indexOf('-') > -1) {
+        if (item1Property.indexOf(itemPropertyValue + '-') > -1) {
           return true;
         }
-      }else{
-        if(itemPropertyValue.indexOf(item1Property + '-') > -1){
+      } else {
+        if (itemPropertyValue.indexOf(item1Property + '-') > -1) {
           return true;
         }
       }
@@ -441,14 +440,14 @@ export default class CssCompress extends Base {
   /**
    * get assoc selector token
    */
-  getAssocSelectorToken(se1, se2){
-    let value = se1.value + ',' + se2.value;
-    let token = createToken(TokenType.CSS_SELECTOR, value, se1);
+  getAssocSelectorToken(se1, se2) {
+    const value = se1.value + ',' + se2.value;
+    const token = createToken(TokenType.CSS_SELECTOR, value, se1);
     let equal = false;
-    if(se1.ext.specificityEqual && se2.ext.specificityEqual){
+    if (se1.ext.specificityEqual && se2.ext.specificityEqual) {
       equal = se1.ext.minSpecificity === se2.ext.minSpecificity;
     }
-    let group = se1.ext.group.concat(se2.ext.group);
+    const group = se1.ext.group.concat(se2.ext.group);
     token.ext = {
       minSpecificity: Math.min(se1.ext.minSpecificity, se2.ext.minSpecificity),
       maxSpecificity: Math.max(se1.ext.maxSpecificity, se2.ext.maxSpecificity),
@@ -460,40 +459,40 @@ export default class CssCompress extends Base {
   /**
    * get selector intersect
    */
-  getSelectorsIntersect(selectors){
-    while(1){
-      let length = selectors.length;
-      if(length < 2){
+  getSelectorsIntersect(selectors) {
+    while (1) {
+      const length = selectors.length;
+      if (length < 2) {
         break;
       }
-      let result = [];
+      const result = [];
       let flag = false;
-      for(let index = 0; index < length - 1; index++){
+      for (let index = 0; index < length - 1; index++) {
         let assoc = null;
-        if(this.selectorCanCombine([selectors[index], selectors[index + 1]])){
+        if (this.selectorCanCombine([selectors[index], selectors[index + 1]])) {
           assoc = this.getPropertiesIntersect(selectors[index], selectors[index + 1]);
         }
-        if(assoc){
-          for(let key in assoc){
+        if (assoc) {
+          for (const key in assoc) {
             delete selectors[index].attrs[key];
             delete selectors[index + 1].attrs[key];
           }
           flag = true;
-          let assocSelectorToken = this.getAssocSelectorToken(selectors[index].selector, selectors[index + 1].selector);
+          const assocSelectorToken = this.getAssocSelectorToken(selectors[index].selector, selectors[index + 1].selector);
           result.push({
             attrs: assoc,
             selector: assocSelectorToken
           });
         }
-        if(Object.keys(selectors[index].attrs).length){
+        if (Object.keys(selectors[index].attrs).length) {
           result.push(selectors[index]);
         }
       }
-      if(Object.keys(selectors[length - 1].attrs).length){
+      if (Object.keys(selectors[length - 1].attrs).length) {
         result.push(selectors[length - 1]);
       }
       selectors = result;
-      if(!flag){
+      if (!flag) {
         break;
       }
     }
@@ -502,47 +501,47 @@ export default class CssCompress extends Base {
   /**
    * sort selectors
    */
-  sortSelectors(selectors){
-    let cache = {};
+  sortSelectors(selectors) {
+    const cache = {};
     const length = selectors.length;
 
     const compare = (se1, se2) => {
-      let se1Ext = se1.selector.ext;
-      let se2Ext = se2.selector.ext;
-      if(!se1Ext.specificityEqual || !se2Ext.specificityEqual){
-        if(se1Ext.minSpecificity > se2Ext.maxSpecificity){
+      const se1Ext = se1.selector.ext;
+      const se2Ext = se2.selector.ext;
+      if (!se1Ext.specificityEqual || !se2Ext.specificityEqual) {
+        if (se1Ext.minSpecificity > se2Ext.maxSpecificity) {
           return 1;
-        }else if(se1Ext.maxSpecificity < se2Ext.minSpecificity){
+        } else if (se1Ext.maxSpecificity < se2Ext.minSpecificity) {
           return -1;
         }
         return se1.pos - se2.pos;
       }
-      if(se1Ext.minSpecificity === se2Ext.minSpecificity){
+      if (se1Ext.minSpecificity === se2Ext.minSpecificity) {
         return se1.pos - se2.pos;
       }
       return se1Ext.minSpecificity - se2Ext.minSpecificity;
     };
     const compareNeighbor = (i, j) => {
-      for(let k = i + 1; k < j; k++){
-        let key = `${k}_${j}`;
-        if(!cache[key]){
+      for (let k = i + 1; k < j; k++) {
+        const key = `${k}_${j}`;
+        if (!cache[key]) {
           cache[key] = compare(selectors[k], selectors[j]);
         }
-        if(cache[key] < 0){
+        if (cache[key] < 0) {
           return false;
         }
       }
       return true;
     };
 
-    for(let i = 0; i < length; i++){
-      for(let j = i + 1; j < length; j++){
-        let key = `${i}_${j}`;
-        if(!cache[key]){
+    for (let i = 0; i < length; i++) {
+      for (let j = i + 1; j < length; j++) {
+        const key = `${i}_${j}`;
+        if (!cache[key]) {
           cache[key] = compare(selectors[i], selectors[j]);
         }
-        if(cache[key] > 0 && compareNeighbor(i, j)){
-          let tmp = selectors[j];
+        if (cache[key] > 0 && compareNeighbor(i, j)) {
+          const tmp = selectors[j];
           selectors[j] = selectors[i];
           selectors[i] = tmp;
         }
@@ -553,15 +552,15 @@ export default class CssCompress extends Base {
   /**
    * remove exist selector
    */
-  compressSelectorToken(selector){
-    let group = selector.ext.group;
-    if(group.length === 1){
+  compressSelectorToken(selector) {
+    const group = selector.ext.group;
+    if (group.length === 1) {
       return selector;
     }
     let keys = {}, ret = [];
     group.forEach(item => {
-      let key = selectorGroupToken2Text(item);
-      if(!(key in keys)){
+      const key = selectorGroupToken2Text(item);
+      if (!(key in keys)) {
         ret.push(item);
         keys[key] = true;
       }
@@ -572,26 +571,26 @@ export default class CssCompress extends Base {
   /**
    * selector to tokens
    */
-  selectorToTokens(selectors){
-    let ret = [];
+  selectorToTokens(selectors) {
+    const ret = [];
 
-    let leftBrace = createToken(TokenType.CSS_LEFT_BRACE, '{');
-    let colon = createToken(TokenType.CSS_COLON, ':');
-    let rightBrace = createToken(TokenType.CSS_RIGHT_BRACE, '}');
-    let semicolon = createToken(TokenType.CSS_SEMICOLON, ';');
+    const leftBrace = createToken(TokenType.CSS_LEFT_BRACE, '{');
+    const colon = createToken(TokenType.CSS_COLON, ':');
+    const rightBrace = createToken(TokenType.CSS_RIGHT_BRACE, '}');
+    const semicolon = createToken(TokenType.CSS_SEMICOLON, ';');
 
     selectors.forEach(item => {
       item.selector = this.compressSelectorToken(item.selector);
       ret.push(item.selector, leftBrace);
-      let attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
-      let length = attrs.length;
+      const attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
+      const length = attrs.length;
       attrs.forEach((attr, index) => {
-        if(attr.property){
+        if (attr.property) {
           ret.push(attr.property, colon);
         }
         ret.push(attr.value);
-        if(attr.value.type !== TokenType.TPL){
-          if(!this.options.removeLastSemicolon || index < length - 1){
+        if (attr.value.type !== TokenType.TPL) {
+          if (!this.options.removeLastSemicolon || index < length - 1) {
             ret.push(semicolon);
           }
         }
@@ -603,46 +602,46 @@ export default class CssCompress extends Base {
   /**
    * compress selector
    */
-  compressSelector(){
-    let keys = Object.keys(this.selectors);
-    if(keys.length === 0){
+  compressSelector() {
+    const keys = Object.keys(this.selectors);
+    if (keys.length === 0) {
       return;
     }
     let selectors = keys.map(key => this.selectors[key]);
     this.selectors = {};
 
-    if(this.options.sortSelector){
+    if (this.options.sortSelector) {
       selectors = this.sortSelectors(selectors);
     }
 
     let se = [], result = [];
     selectors.forEach(item => {
-      if(item.selector.ext.specificityEqual){
+      if (item.selector.ext.specificityEqual) {
         se.push(item);
-      }else{
+      } else {
         se = this.getSelectorsIntersect(se);
         result = result.concat(se);
         result.push(item);
         se = [];
       }
     });
-    if(se.length){
+    if (se.length) {
       se = this.getSelectorsIntersect(se);
       result = result.concat(se);
     }
-    let tokens = this.selectorToTokens(result);
+    const tokens = this.selectorToTokens(result);
     this.result.push(...tokens);
   }
   /**
    * remove comment
    */
-  removeComment(token){
-    if(!this.options.removeComment){
+  removeComment(token) {
+    if (!this.options.removeComment) {
       return token;
     }
-    let comments = [];
+    const comments = [];
     token.commentBefore.forEach(item => {
-      if(item.value.indexOf('/*!') === 0){
+      if (item.value.indexOf('/*!') === 0) {
         comments.push(item);
       }
     });
@@ -652,17 +651,17 @@ export default class CssCompress extends Base {
   /**
    * run
    */
-  run(retTokens = false){
+  run(retTokens = false) {
     this.initTokens();
     let hasCharset = false;
-    let sortSelector = this.options.sortSelector;
-    let sortProperty = this.options.sortProperty;
+    const sortSelector = this.options.sortSelector;
+    const sortProperty = this.options.sortProperty;
     let selectorPos = 0;
     let property = '';
     while (this.index < this.length) {
       let token = this.tokens[this.index++];
       token = this.removeComment(token);
-      switch(token.type){
+      switch (token.type) {
         case TokenType.CSS_SELECTOR:
           this.collectSelector(token, selectorPos++);
           break;
@@ -671,7 +670,7 @@ export default class CssCompress extends Base {
           this.result.push(token);
           break;
         case TokenType.CSS_RIGHT_BRACE:
-          if(this.index > 1 && this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE){
+          if (this.index > 1 && this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE) {
             this.compressSelector();
             this.options.sortProperty = sortProperty;
             this.options.sortSelector = sortSelector;
@@ -684,18 +683,18 @@ export default class CssCompress extends Base {
           this.options.sortProperty = false;
           this.inKeyframes = true;
         default:
-          if(isAtType(token.type)){
+          if (isAtType(token.type)) {
             this.compressSelector();
           }
-          if(token.type === TokenType.CSS_PROPERTY){
+          if (token.type === TokenType.CSS_PROPERTY) {
             property = token.ext.value.toLowerCase();
           }
-          if(token.type === TokenType.CSS_CHARSET){
-            if(!hasCharset){
+          if (token.type === TokenType.CSS_CHARSET) {
+            if (!hasCharset) {
               this.result.push(token);
             }
             hasCharset = true;
-          }else{
+          } else {
             this.result.push(token);
           }
       }

@@ -2,15 +2,15 @@ import TokenType from '../../util/token_type.js';
 import SelectorTokenize from './selector_tokenize.js';
 
 import {
-  makePredicate, 
+  makePredicate,
   hasSpaceBetweenTokens
 } from '../../util/util.js';
 
 import {createToken} from '../../util/util_ext.js';
 
 import {
-  propertyHackPrefix, 
-  selectorCharUntil, 
+  propertyHackPrefix,
+  selectorCharUntil,
   pseudosElements21,
   shortColor,
   shortFontWeight,
@@ -26,7 +26,7 @@ import {
  * @return {Boolean} [description]
  */
 export function isAttrChar(code) {
-  // >= a && <= z or - 
+  // >= a && <= z or -
   return code >= 0x61 && code <= 0x7a || code === 0x2d;
 }
 
@@ -35,11 +35,11 @@ export function isAttrChar(code) {
  * @param  {Array} tokens [selector tokens]
  * @return {Number}        []
  */
-export function calculateSelectorSpecificity(tokens){
+export function calculateSelectorSpecificity(tokens) {
   let i = 0, length = tokens.length, token, specificity = 0, instance;
-  for(; i < length; i++){
+  for (; i < length; i++) {
     token = tokens[i];
-    switch(token.type){
+    switch (token.type) {
       case TokenType.CSS_SELECTOR_ID:
         specificity += 100;
         break;
@@ -55,7 +55,7 @@ export function calculateSelectorSpecificity(tokens){
         if (/^:not\(/i.test(token.value)) {
           instance = new SelectorTokenize(token.value.slice(5, -1));
           specificity += instance.run().group[0].specificity;
-        }else{
+        } else {
           specificity += 10;
         }
         break;
@@ -74,16 +74,16 @@ export const selectorBreakChar = makePredicate(selectorCharUntil);
 /**
  * is pseudo elements
  */
-export function isPseudoElement(el){
+export function isPseudoElement(el) {
   return pseudosElements21.indexOf(el) > -1;
 }
 /**
  * selector group token to text
  */
-export function selectorGroupToken2Text(selectorGroupToken){
+export function selectorGroupToken2Text(selectorGroupToken) {
   return selectorGroupToken.tokens.map((token, index) => {
     let hasSpace = false;
-    if(index > 0){
+    if (index > 0) {
       hasSpace = hasSpaceBetweenTokens(selectorGroupToken.tokens[index - 1], token);
     }
     return (hasSpace ? ' ' : '') + token.value;
@@ -92,7 +92,7 @@ export function selectorGroupToken2Text(selectorGroupToken){
 /**
  * selector token to text
  */
-export function selectorToken2Text(token){
+export function selectorToken2Text(token) {
   return token.ext.group.map(item => {
     return selectorGroupToken2Text(item);
   }).join(',');
@@ -103,9 +103,9 @@ export function selectorToken2Text(token){
 export function token2Text(tokens, delimiters = []) {
   let prev = '';
   return tokens.map((token, index) => {
-    let prefix = token.commentBefore.map(item => item.value).join('');
+    const prefix = token.commentBefore.map(item => item.value).join('');
     let value = '';
-    switch(token.type){
+    switch (token.type) {
       case TokenType.CSS_SELECTOR:
         value = selectorToken2Text(token);
         break;
@@ -114,7 +114,7 @@ export function token2Text(tokens, delimiters = []) {
         break;
       case TokenType.CSS_VALUE:
         value = token.ext.prefix + token.ext.value + token.ext.suffix;
-        if(token.ext.important){
+        if (token.ext.important) {
           value += '!important';
         }
         break;
@@ -122,9 +122,9 @@ export function token2Text(tokens, delimiters = []) {
         value = token.value;
         break;
     }
-    if(!prefix && index > 0){
-      let combineChars = prev[prev.length - 1] + value[0];
-      if(delimiters.indexOf(combineChars) > -1){
+    if (!prefix && index > 0) {
+      const combineChars = prev[prev.length - 1] + value[0];
+      if (delimiters.indexOf(combineChars) > -1) {
         value = ' ' + value;
       }
     }
@@ -137,38 +137,38 @@ export function token2Text(tokens, delimiters = []) {
  * short for num value
  * margin: 10px 20px 10px 20px;
  */
-export function short4NumValue(value, append = {}, returnArray = false){
-  if(!Array.isArray(value)){
+export function short4NumValue(value, append = {}, returnArray = false) {
+  if (!Array.isArray(value)) {
     value = value.split(/ +/);
   }
-  let length = value.length;
-  let v = [
-    [], 
+  const length = value.length;
+  const v = [
+    [],
     [0, 0, 0, 0],
     [0, 1, 0, 1],
     [0, 1, 2, 1],
     [0, 1, 2, 3]
   ];
-  let sv = v[length];
+  const sv = v[length];
   value = [
-    value[sv[0]], 
-    value[sv[1]], 
-    value[sv[2]], 
+    value[sv[0]],
+    value[sv[1]],
+    value[sv[2]],
     value[sv[3]]
   ];
-  for(let index in append){
+  for (const index in append) {
     value[index | 0] = append[index];
   }
-  if(value[1] === value[3]){
+  if (value[1] === value[3]) {
     value.splice(3, 1);
   }
-  if(value.length === 3 && value[0] === value[2]){
+  if (value.length === 3 && value[0] === value[2]) {
     value.splice(2, 1);
   }
-  if(value.length === 2 && value[0] === value[1]){
+  if (value.length === 2 && value[0] === value[1]) {
     value.splice(1, 1);
   }
-  if(returnArray){
+  if (returnArray) {
     return value;
   }
   return value.join(' ').trim();
@@ -176,19 +176,19 @@ export function short4NumValue(value, append = {}, returnArray = false){
 /**
  * rgb to hex
  */
-export function rgb2Hex(value, r, g, b){
-  if(value === true){
-    let v = [r | 0, g | 0, b | 0];
+export function rgb2Hex(value, r, g, b) {
+  if (value === true) {
+    const v = [r | 0, g | 0, b | 0];
     let result = '#';
     v.forEach(item => {
       result += (item < 16 ? '0' : '') + item.toString(16);
     });
     return result;
   }
-  if(value.indexOf('rgb') === -1){
+  if (value.indexOf('rgb') === -1) {
     return value;
   }
-  let rgbRex = /rgb\s*\(\s*(\d+)\s*\,\s*(\d+)\s*\,\s*(\d+)\s*\)/g;
+  const rgbRex = /rgb\s*\(\s*(\d+)\s*\,\s*(\d+)\s*\,\s*(\d+)\s*\)/g;
   value = value.replace(rgbRex, (a, r, g, b) => {
     return rgb2Hex(true, r, g, b);
   });
@@ -197,15 +197,15 @@ export function rgb2Hex(value, r, g, b){
 /**
  * get short value
  */
-export function getShortValue(value, property){
+export function getShortValue(value, property) {
   // http://www.w3schools.com/cssref/pr_border-width.asp
   property = property.toLowerCase();
-  if(property === 'border-color' || property === 'border-style' || property === 'border-width'){
-    if(value.indexOf('(') === -1){
+  if (property === 'border-color' || property === 'border-style' || property === 'border-width') {
+    if (value.indexOf('(') === -1) {
       return short4NumValue(value);
     }
   }
-  let list = {
+  const list = {
     color: shortColor,
     'border-top-color': shortColor,
     'border-left-color': shortColor,
@@ -216,7 +216,7 @@ export function getShortValue(value, property){
   };
   // rgb(0,0,0) -> #000000 (or #000 in this case later)
   value = rgb2Hex(value);
-  if(property in list){
+  if (property in list) {
     return list[property][value] || value;
   }
   return value;
@@ -225,8 +225,8 @@ export function getShortValue(value, property){
 /**
  * is multi same property
  */
-export function isMultiSameProperty(property, value){
-  if(value.indexOf('calc') > -1){
+export function isMultiSameProperty(property, value) {
+  if (value.indexOf('calc') > -1) {
     return true;
   }
   return !!multiSameProperty[property];
@@ -234,14 +234,14 @@ export function isMultiSameProperty(property, value){
 /**
  * merge properties
  */
-export function mergeProperties(attrs1, attrs2){
-  for(let key in attrs2){
-    if(attrs1[key]){
-      if(!attrs1[key].value.ext.important || attrs2[key].value.ext.important){
+export function mergeProperties(attrs1, attrs2) {
+  for (const key in attrs2) {
+    if (attrs1[key]) {
+      if (!attrs1[key].value.ext.important || attrs2[key].value.ext.important) {
         delete attrs1[key];
         attrs1[key] = attrs2[key];
       }
-    }else{
+    } else {
       attrs1[key] = attrs2[key];
     }
   }
@@ -250,18 +250,18 @@ export function mergeProperties(attrs1, attrs2){
 /**
  * is @ type
  */
-export function isAtType(type){
+export function isAtType(type) {
   return !!atTypes[type];
 }
 /**
  * can not merged property
  */
-export function isUnMergeProperty(property, value){
-  let v = unMergeProperties[property.toLowerCase()];
-  if(!v){
+export function isUnMergeProperty(property, value) {
+  const v = unMergeProperties[property.toLowerCase()];
+  if (!v) {
     return false;
   }
-  if(typeof v === 'boolean'){
+  if (typeof v === 'boolean') {
     return v;
   }
   return v.test(value);
@@ -269,7 +269,7 @@ export function isUnMergeProperty(property, value){
 /**
  * is unsort property
  */
-export function isUnSortProperty(property){
+export function isUnSortProperty(property) {
   return unSortProperties.some(item => {
     return item === property || property.indexOf(item + '-') > -1;
   });
@@ -277,53 +277,53 @@ export function isUnSortProperty(property){
 
 /**
  * combine property
- * 
+ *
  *  a{padding: 10px; padding-left: 20px;} => a{padding: 20px 10px 10px 10px}
  */
-export function mergePropertyChildren(attrs, type = 'padding'){
-  let list = propertyChildren[type];
-  let properties = {[type]: 0};
+export function mergePropertyChildren(attrs, type = 'padding') {
+  const list = propertyChildren[type];
+  const properties = {[type]: 0};
   list.forEach(item => properties[item] = 0);
-  
-  for(let key in attrs){
-    let {property, value} = attrs[key];
+
+  for (const key in attrs) {
+    const {property, value} = attrs[key];
     // if has tpl or hack in attrs, can not combine it
-    if(!property || 
+    if (!property ||
         property.type === TokenType.TPL ||
-        value.type === TokenType.TPL || 
-        value.type === TokenType.CSS_BRACK_HACK){
+        value.type === TokenType.TPL ||
+        value.type === TokenType.CSS_BRACK_HACK) {
       return attrs;
     }
-    let propertyValue = property.value.toLowerCase();
-    if(propertyValue in properties){
-      if(property.ext.prefix || 
-         value.ext.suffix || 
-         value.ext.important || 
-         value.ext.prefix){
+    const propertyValue = property.value.toLowerCase();
+    if (propertyValue in properties) {
+      if (property.ext.prefix ||
+         value.ext.suffix ||
+         value.ext.important ||
+         value.ext.prefix) {
         return attrs;
-      }else{
+      } else {
         properties[propertyValue] = 1;
       }
     }
   }
-  if(properties[type]){
+  if (properties[type]) {
     /**
      * 避免出现这种情况
-     * 
+     *
     .manage-content {
         padding-top: 20px;
         background: #fff;
         padding: 0 26px 20px;
     }
     */
-    let attrsKeys = Object.keys(attrs);
-    let mainIndex = attrsKeys.indexOf(type);
-    let append = {};
-    let value = attrs[type].value.ext.value;
+    const attrsKeys = Object.keys(attrs);
+    const mainIndex = attrsKeys.indexOf(type);
+    const append = {};
+    const value = attrs[type].value.ext.value;
     list.forEach((item, index) => {
-      if(properties[item]){
-        let idx = attrsKeys.indexOf(item);
-        if(idx > mainIndex){
+      if (properties[item]) {
+        const idx = attrsKeys.indexOf(item);
+        if (idx > mainIndex) {
           append[index] = attrs[item].value.value;
         }
         delete attrs[item];
@@ -331,26 +331,26 @@ export function mergePropertyChildren(attrs, type = 'padding'){
     });
     attrs[type].value.ext.value = short4NumValue(value, append);
     attrs[type].value.value = attrs[type].value.ext.value;
-  }else{
-    let flag = list.every(item => {
+  } else {
+    const flag = list.every(item => {
       return properties[item];
     });
-    if(!flag){
+    if (!flag) {
       return attrs;
     }
-    let value = [];
+    const value = [];
     list.forEach((item, index) => {
       value[index] = attrs[item].value.ext.value;
       delete attrs[item];
     });
-    let propertyToken = createToken(TokenType.CSS_PROPERTY, type);
+    const propertyToken = createToken(TokenType.CSS_PROPERTY, type);
     propertyToken.ext = {
       prefix: '',
       value: type,
       suffix: ''
     };
-    let shortValue = short4NumValue(value);
-    let valueToken = createToken(TokenType.CSS_VALUE, shortValue);
+    const shortValue = short4NumValue(value);
+    const valueToken = createToken(TokenType.CSS_VALUE, shortValue);
     valueToken.ext = {
       prefix: '',
       value: shortValue,

@@ -32,14 +32,14 @@ export default class Tokenize extends Base {
    * get next char
    * @return {Function} [next char from text]
    */
-  next(){
-    let chr = this.text[this.pos++];
-    //0x0a is \n
+  next() {
+    const chr = this.text[this.pos++];
+    // 0x0a is \n
     if (chr.charCodeAt(0) === 0x0a) {
       this.line++;
       this.col = 0;
-      //this.newlineBefore++;
-    }else{
+      // this.newlineBefore++;
+    } else {
       this.col++;
     }
     return chr;
@@ -49,9 +49,9 @@ export default class Tokenize extends Base {
    * @param  {Number} i []
    * @return {String}   [forward string]
    */
-  forward(i){
+  forward(i) {
     let ret = '';
-    while (i-- > 0){
+    while (i-- > 0) {
       ret += this.next();
     }
     return ret;
@@ -61,21 +61,21 @@ export default class Tokenize extends Base {
    * @param  {String} chr []
    * @return {String}     []
    */
-  forwardChar(chr, contain){
-    let pos = this._text.indexOf(chr, this.pos);
+  forwardChar(chr, contain) {
+    const pos = this._text.indexOf(chr, this.pos);
     if (pos === -1) {
       return '';
     }
-    let str = this.forward(pos - this.pos + (contain !== false ? 1 : 0));
+    const str = this.forward(pos - this.pos + (contain !== false ? 1 : 0));
     return str;
   }
   /**
    * skip whitespace
    * @return {void} []
    */
-  skipWhiteSpace(){
-    //let whitespace = this.whitespace;
-    while(this.isWhiteSpace(this.text.charCodeAt(this.pos))){
+  skipWhiteSpace() {
+    // let whitespace = this.whitespace;
+    while (this.isWhiteSpace(this.text.charCodeAt(this.pos))) {
       this.spaceBefore++;
       this.next();
     }
@@ -83,7 +83,7 @@ export default class Tokenize extends Base {
   /**
    * check char is whitespace
    */
-  isWhiteSpace(chr){
+  isWhiteSpace(chr) {
     return isWhiteSpace(chr);
   }
   /**
@@ -91,7 +91,7 @@ export default class Tokenize extends Base {
    * sub class override
    * @return {void} []
    */
-  skipComment(){
+  skipComment() {
 
   }
   /**
@@ -99,10 +99,10 @@ export default class Tokenize extends Base {
    * @param  {String} value []
    * @return {String}       []
    */
-  skipRightSpace(value){
+  skipRightSpace(value) {
     let length = value.length, index = length - 1;
     let newlines = 0, spaces = 0, chr, code;
-    while(index >= 0){
+    while (index >= 0) {
       chr = value[index];
       code = chr.charCodeAt(0);
       if (this.isWhiteSpace(code)) {
@@ -123,7 +123,7 @@ export default class Tokenize extends Base {
    * skip cdo and cdc string
    * @return {void} []
    */
-  skipCd(){
+  skipCd() {
     if (this.lookAt(cdo)) {
       this.forward(4);
       this.length -= 3;
@@ -134,7 +134,7 @@ export default class Tokenize extends Base {
    * @param  {String} str           []
    * @return {Boolean}              []
    */
-  lookAt(str){
+  lookAt(str) {
     return str === this._text.substr(this.pos, str.length);
   }
   /**
@@ -142,7 +142,7 @@ export default class Tokenize extends Base {
    * @param  {String} str [find string in text]
    * @return {Number}     [string pos in text]
    */
-  find(str, forward = 0){
+  find(str, forward = 0) {
     return this._text.indexOf(str, this.pos + forward);
   }
   /**
@@ -152,10 +152,10 @@ export default class Tokenize extends Base {
    * @param  {Number} col     []
    * @return {void}         []
    */
-  error(message, useRecord){
+  error(message, useRecord) {
     if (useRecord) {
       throw new Err(message, this._record.line, this._record.col);
-    }else{
+    } else {
       throw new Err(message, this.line, this.col);
     }
   }
@@ -163,7 +163,7 @@ export default class Tokenize extends Base {
    * record line & col & pos
    * @return {void} []
    */
-  record(){
+  record() {
     this._record = {
       line: this.line,
       col: this.col,
@@ -177,7 +177,7 @@ export default class Tokenize extends Base {
    * rollback parse
    * @return {void} []
    */
-  rollback(record){
+  rollback(record) {
     record = record || this._record;
     if (!record) {
       return false;
@@ -192,14 +192,14 @@ export default class Tokenize extends Base {
    * get quote text, support template syntax in quote
    * @return {String} [quote string]
    */
-  getQuote(options = {}){
+  getQuote(options = {}) {
     let quote = this.next(), quoteCode = quote.charCodeAt(0);
     let ret = quote, find = false, tpl, code, chr;
     let supportEscape = options.escape, escape = false;
     this.record();
-    /*jshint -W084 */
-    while(this.pos < this.length){
-      //template syntax in quote string
+    /* jshint -W084 */
+    while (this.pos < this.length) {
+      // template syntax in quote string
       tpl = this.getTplToken();
       if (tpl) {
         ret += tpl.value;
@@ -225,7 +225,7 @@ export default class Tokenize extends Base {
     if (!find) {
       if (options.throwError) {
         this.error(Message.UnMatchedQuoteChar, true);
-      }else if (options.rollback) {
+      } else if (options.rollback) {
         this.rollback();
         return {
           value: quote,
@@ -245,13 +245,13 @@ export default class Tokenize extends Base {
    * @param  {String} end   []
    * @return {String}       []
    */
-  getMatched(start, end){
+  getMatched(start, end) {
     if (!this.lookAt(start)) {
       return false;
     }
     let startLength = start.length, endLength = end.length;
-    let pos = this.find(end, startLength);
-    //can't find end string in text
+    const pos = this.find(end, startLength);
+    // can't find end string in text
     if (pos === -1) {
       return false;
     }
@@ -263,19 +263,19 @@ export default class Tokenize extends Base {
    * @param  {Number} endCode   [end char]
    * @return {String}           [matched char]
    */
-  getMatchedChar(startCode, endCode, options = {}){
+  getMatchedChar(startCode, endCode, options = {}) {
     if (this._text.charCodeAt(this.pos) !== startCode) {
       return false;
     }
     let code, nextCode, comment, nums = 0;
     let ret = this.next(), chr;
-    let quote = options.quote;
-    let multi_comment = options.multi_comment;
-    let line_comment = options.line_comment;
-    let nest = options.nest;
+    const quote = options.quote;
+    const multi_comment = options.multi_comment;
+    const line_comment = options.line_comment;
+    const nest = options.nest;
     let supportEscape = options.escape, escape = false;
 
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       chr = this.text[this.pos];
       code = chr.charCodeAt(0);
       if (supportEscape && (code === 0x5c || escape)) {
@@ -294,7 +294,7 @@ export default class Tokenize extends Base {
         comment = '';
         if (multi_comment && nextCode === 0x2a) {
           comment = this.getCommentToken(1, false);
-        }else if (line_comment && nextCode === 0x2f) {
+        } else if (line_comment && nextCode === 0x2f) {
           comment = this.getCommentToken(0, false);
         }
         if (comment) {
@@ -304,7 +304,7 @@ export default class Tokenize extends Base {
       }
       if (nest && code === startCode) {
         nums++;
-      }else if (code === endCode) {
+      } else if (code === endCode) {
         if (!nest || nums === 0) {
           ret += this.next();
           return ret;
@@ -319,7 +319,7 @@ export default class Tokenize extends Base {
    * start token
    * @return {void} []
    */
-  startToken(){
+  startToken() {
     this._line = this.line;
     this._col = this.col;
     this._pos = this.pos;
@@ -330,20 +330,20 @@ export default class Tokenize extends Base {
    * get template token
    * @return {Object} []
    */
-  getTplToken(){
+  getTplToken() {
     if (!this._hasTpl) {
       return false;
     }
     let length = this.ld.length, ld, rd, tplInstance = this.getTplInstance();
     let ret, value;
-    for(let i = 0; i < length; i++){
+    for (let i = 0; i < length; i++) {
       ld = this.ld[i];
       rd = this.rd[i];
       ret = tplInstance.getMatched(ld, rd, this);
       if (ret) {
         if (ret.slice(0 - rd.length) === rd) {
           value = ret.slice(ld.length, 0 - rd.length);
-        }else{
+        } else {
           value = ret.slice(ld.length);
         }
         return this.getToken(TokenType.TPL, ret, {
@@ -359,12 +359,12 @@ export default class Tokenize extends Base {
    * check next chars is template syntax
    * @return {Boolean} []
    */
-  isTplNext(){
+  isTplNext() {
     if (!this._hasTpl) {
       return false;
     }
-    let length = this.ld.length;
-    for(let i = 0; i < length; i++){
+    const length = this.ld.length;
+    for (let i = 0; i < length; i++) {
       if (this.lookAt(this.ld[i])) {
         return true;
       }
@@ -375,11 +375,11 @@ export default class Tokenize extends Base {
    * get next token
    * @return {Object} []
    */
-  getNextToken(){
+  getNextToken() {
     this.skipWhiteSpace();
     this.skipComment();
     this.startToken();
-    let token = this.getTplToken();
+    const token = this.getTplToken();
     if (token !== false) {
       return token;
     }
@@ -393,8 +393,8 @@ export default class Tokenize extends Base {
    * @param  {String} value []
    * @return {Object}       []
    */
-  getToken(type, value, extra){
-    let data = {
+  getToken(type, value, extra) {
+    const data = {
       type: type,
       value: value || '',
       start: this._pos,
@@ -415,11 +415,11 @@ export default class Tokenize extends Base {
       ext: {}
     };
     if (extra) {
-      for(let key in extra){
+      for (const key in extra) {
         data.ext[key] = extra[key];
       }
     }
-    //this.newlineBefore = this.spaceBefore = 0;
+    // this.newlineBefore = this.spaceBefore = 0;
     this.commentBefore = [];
     return data;
   }
@@ -427,7 +427,7 @@ export default class Tokenize extends Base {
    * get last token
    * @return {Object} []
    */
-  getLastToken(){
+  getLastToken() {
     if (this.commentBefore.length) {
       return this.getToken(TokenType.EOS);
     }
@@ -438,19 +438,19 @@ export default class Tokenize extends Base {
    * @param  {String} type           []
    * @return {Object}                []
    */
-  getCommentToken(type, skipWhiteSpace/*, inText*/){
+  getCommentToken(type, skipWhiteSpace/*, inText */) {
     this.record();
     let result;
     if (type === 0) {
       result = this.getLineComment();
-    }else{
-      let value = comments[type];
+    } else {
+      const value = comments[type];
       result = this.getMatched(value[0], value[1]);
     }
     if (!result) {
       return false;
     }
-    let data = {
+    const data = {
       value: result,
       start: this._record.pos,
       end: this.pos,
@@ -464,13 +464,13 @@ export default class Tokenize extends Base {
           column: this.col
         }
       }
-      //newlineBefore: this._record.newlineBefore,
-      //spaceBefore: this._record.spaceBefore
+      // newlineBefore: this._record.newlineBefore,
+      // spaceBefore: this._record.spaceBefore
     };
     // if (inText) {
     //   //data.newlineBefore = data.spaceBefore = 0;
     // }
-    //this.newlineBefore = this.spaceBefore = 0;
+    // this.newlineBefore = this.spaceBefore = 0;
     if (skipWhiteSpace !== false) {
       this.skipWhiteSpace();
     }
@@ -480,13 +480,13 @@ export default class Tokenize extends Base {
    * get line comment
    * @return {Object} []
    */
-  getLineComment(){
+  getLineComment() {
     if (!this.lookAt(lineComments[0])) {
       return;
     }
     let ret = this.forward(lineComments[0].length);
     let chr, code;
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       chr = this.text[this.pos];
       code = chr.charCodeAt(0);
       if (code === 0x0a) {
@@ -500,9 +500,9 @@ export default class Tokenize extends Base {
    * run
    * @return {Array} [text tokens]
    */
-  run(){
+  run() {
     let ret = [], token;
-    while(token = this.getNextToken()){
+    while (token = this.getNextToken()) {
       ret.push(token);
     }
     return ret;

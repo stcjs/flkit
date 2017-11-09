@@ -4,14 +4,14 @@ export default class BaseTemplate {
    * constructor
    * @return {[type]} []
    */
-  constructor(){
+  constructor() {
 
   }
   /**
    * has output
    * @return {Boolean} []
    */
-  hasOutput(){
+  hasOutput() {
     return false;
   }
   /**
@@ -21,31 +21,31 @@ export default class BaseTemplate {
    * @param  {String} text []
    * @return {Boolean}      []
    */
-  hasTpl(text, ld, rd){
+  hasTpl(text, ld, rd) {
     return text.indexOf(ld) > -1 && text.indexOf(rd) > -1;
   }
-  
+
   /**
    * get tpl matched
    * @param  {Object} lexer []
    * @return {Object}       []
    */
   _getMatched(start, end, tokenizeInstance, options = {
-    multiComment: false, //multi line comment
-    lineComment: false, //line comment
-    ignoreEnd: false, //ignore right delemiter
-    nest: false, //allow nest delimiter
-    quote: false //quote
-  }){
+    multiComment: false, // multi line comment
+    lineComment: false, // line comment
+    ignoreEnd: false, // ignore right delemiter
+    nest: false, // allow nest delimiter
+    quote: false // quote
+  }) {
     if (!tokenizeInstance.lookAt(start)) {
       return false;
     }
     tokenizeInstance.record();
     let startLength = start.length, endLength = end.length;
     let pos = tokenizeInstance.find(end, startLength), ret = '';
-    //can't find end string in text
+    // can't find end string in text
     if (pos === -1) {
-      //can ignore end chars, etc: php can ignore ?>
+      // can ignore end chars, etc: php can ignore ?>
       if (options.ignoreEnd) {
         ret = tokenizeInstance.text.slice(tokenizeInstance.pos);
         tokenizeInstance.pos = tokenizeInstance.length;
@@ -56,9 +56,9 @@ export default class BaseTemplate {
     ret = tokenizeInstance.forward(startLength);
     let nums = 0, chr, code, nextCode;
     let nest = options.nest, quote = options.quote, escape = false;
-    let multiComment = options.multiComment;
+    const multiComment = options.multiComment;
     let lineComment = options.lineComment, comment;
-    while(tokenizeInstance.pos < tokenizeInstance.length){
+    while (tokenizeInstance.pos < tokenizeInstance.length) {
       chr = tokenizeInstance.text[tokenizeInstance.pos];
       code = chr.charCodeAt(0);
       if (tokenizeInstance.lookAt(end)) {
@@ -68,32 +68,32 @@ export default class BaseTemplate {
         }
         nums--;
         continue;
-      }else if(nest && tokenizeInstance.lookAt(start)){
+      } else if (nest && tokenizeInstance.lookAt(start)) {
         ret += tokenizeInstance.forward(startLength);
         nums++;
         continue;
       }
       code = tokenizeInstance.text.charCodeAt(tokenizeInstance.pos);
-      //quote char
+      // quote char
       if (quote) {
         if (code === 0x5c || escape) {
           escape = !escape;
           ret += tokenizeInstance.next();
           continue;
-        }else if (!escape && (code === 0x22 || code === 0x27)) {
+        } else if (!escape && (code === 0x22 || code === 0x27)) {
           ret += tokenizeInstance.getQuote({
             rollback: true
           }).value;
           continue;
         }
       }
-      //comment
+      // comment
       if (code === 0x2f) { // /
         nextCode = tokenizeInstance.text.charCodeAt(tokenizeInstance.pos + 1);
         comment = '';
         if (multiComment && nextCode === 0x2a) {
           comment = tokenizeInstance.getCommentToken(1, false);
-        }else if (lineComment && nextCode === 0x2f) {
+        } else if (lineComment && nextCode === 0x2f) {
           comment = tokenizeInstance.getCommentToken(0, false);
         }
         if (comment) {
@@ -111,13 +111,13 @@ export default class BaseTemplate {
   /**
    * get template matched
    */
-  getMatched(ld, rd, tokenizeInstance){
+  getMatched(ld, rd, tokenizeInstance) {
     return this._getMatched(ld, rd, tokenizeInstance);
   }
   /**
    * compress tpl token
    */
-  compress(token/*, tokenizeInstance */){
+  compress(token/*, tokenizeInstance */) {
     return token;
   }
 }

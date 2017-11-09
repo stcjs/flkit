@@ -14,7 +14,7 @@ import {
  * @param  {Number}  code [char code]
  * @return {Boolean}      []
  */
-export function isTagFirstChar(code){
+export function isTagFirstChar(code) {
   // a-z ! ? /
   return code >= 0x61 && code <= 0x7a || code === 0x3f || code === 0x21 || code === 0x2f;
 }
@@ -23,8 +23,8 @@ export function isTagFirstChar(code){
  * @param  {Number}  code [char code]
  * @return {Boolean}      []
  */
-export function isTagNameChar(code){
-  // a-z 0-9 : - 
+export function isTagNameChar(code) {
+  // a-z 0-9 : -
   return code >= 0x61 && code <= 0x7a || code === 0x3a || code === 0x2d || code >= 0x30 && code <= 0x39;
 }
 /**
@@ -32,11 +32,11 @@ export function isTagNameChar(code){
  * @param  {Object} token []
  * @return {Object}             []
  */
-export function parseScriptAttrs(token, jsTplTypes = []){
+export function parseScriptAttrs(token, jsTplTypes = []) {
   let isScript = false, isExternal = false, type = '';
   let attrs = token.ext.attrs || [], i = 0, item;
-  for(; item = attrs[i++]; ){
-    switch(item.name){
+  for (; item = attrs[i++];) {
+    switch (item.name) {
       case 'src':
         isExternal = true;
         break;
@@ -45,7 +45,7 @@ export function parseScriptAttrs(token, jsTplTypes = []){
         break;
     }
   }
-  if(!type || type === 'text/javascript'){
+  if (!type || type === 'text/javascript') {
     isScript = true;
   }
   token.ext.isScript = isScript;
@@ -59,9 +59,9 @@ export function parseScriptAttrs(token, jsTplTypes = []){
  * @param  {Object} token []
  * @return {Object}       []
  */
-export function parseStyleAttrs(token){
+export function parseStyleAttrs(token) {
   var isStyle = true, attrs = token.attrs || [], i = 0, item, value;
-  for(; item = attrs[i++]; ){
+  for (; item = attrs[i++];) {
     if (item.name === 'type') {
       value = (item.value || '').toLowerCase();
       if (value && value !== 'text/css') {
@@ -77,17 +77,17 @@ export function parseStyleAttrs(token){
 /**
  * tag attrs to text
  */
-export function attrs2Text(attrs = []){
+export function attrs2Text(attrs = []) {
   return attrs.map(attr => {
     // is tpl
-    if(attr.type === TokenType.TPL){
+    if (attr.type === TokenType.TPL) {
       return (attr.spaceBefore ? ' ' : '') + attr.value;
     }
-    let quote = attr.quote || '';
-    if('value' in attr && 'name' in attr){
+    const quote = attr.quote || '';
+    if ('value' in attr && 'name' in attr) {
       return attr.name + '=' + quote + attr.value + quote + ' ';
     }
-    if('value' in attr){
+    if ('value' in attr) {
       return attr.value + ' ';
     }
     return attr.name + ' ';
@@ -99,11 +99,11 @@ export function attrs2Text(attrs = []){
  */
 const startToken2Text = token => {
   let attrText = attrs2Text(token.ext.attrs);
-  if(attrText){
+  if (attrText) {
     attrText = ' ' + attrText;
   }
   // slash on single tag
-  if(token.ext.slash){
+  if (token.ext.slash) {
     attrText += ' /';
   }
   return `<${token.ext.tag}${attrText}>`;
@@ -115,48 +115,48 @@ const startToken2Text = token => {
 export function token2Text(tokens = [], stringify = {
   css: null,
   js: null
-}){
+}) {
   let prevToken = null;
-  let result = [];
+  const result = [];
 
   tokens.forEach(token => {
     // has space between tokens
-    if(hasSpaceBetweenTokens(prevToken, token)){
+    if (hasSpaceBetweenTokens(prevToken, token)) {
       result.push(' ');
     }
     // has comment
-    if(token.commentBefore.length){
+    if (token.commentBefore.length) {
       token.commentBefore.forEach(item => {
         result.push(item.value);
       });
     }
     let contentToken;
-    switch(token.type){
+    switch (token.type) {
       case TokenType.HTML_TAG_START:
         result.push(startToken2Text(token));
         break;
       case TokenType.HTML_TAG_STYLE:
-        let start = startToken2Text(token.ext.start);
+        const start = startToken2Text(token.ext.start);
         result.push(start);
         contentToken = token.ext.content;
-        if(!stringify.css || !contentToken.ext.tokens){
+        if (!stringify.css || !contentToken.ext.tokens) {
           result.push(contentToken.value);
-        }else{
+        } else {
           result.push(stringify.css(contentToken.ext.tokens));
         }
         result.push(token.ext.end.value);
         break;
       case TokenType.HTML_TAG_SCRIPT:
-        let startToken = token.ext.start;
+        const startToken = token.ext.start;
         result.push(startToken2Text(startToken));
         contentToken = token.ext.content;
-        if(contentToken.ext.tokens){
-          if(startToken.ext.isScript){
+        if (contentToken.ext.tokens) {
+          if (startToken.ext.isScript) {
             result.push(stringify.js(contentToken.ext.tokens));
-          }else if(startToken.ext.isTpl){
+          } else if (startToken.ext.isTpl) {
             result.push(token2Text(contentToken.ext.tokens));
           }
-        }else{
+        } else {
           result.push(contentToken.value);
         }
         result.push(token.ext.end.value);
@@ -176,13 +176,13 @@ export function token2Text(tokens = [], stringify = {
 /**
  * is tag attribute default value
  */
-export function isTagAttrDefaultValue(name, value, tag){
-  let lowerValue = (value || '').toLowerCase();
-  for(let key in tagAttrDefaultValue){
-    let attrs = tagAttrDefaultValue[key];
-    if(key === '*' || key === tag){
-      for(let attrName in attrs){
-        if(attrName === name && lowerValue === attrs[attrName]){
+export function isTagAttrDefaultValue(name, value, tag) {
+  const lowerValue = (value || '').toLowerCase();
+  for (const key in tagAttrDefaultValue) {
+    const attrs = tagAttrDefaultValue[key];
+    if (key === '*' || key === tag) {
+      for (const attrName in attrs) {
+        if (attrName === name && lowerValue === attrs[attrName]) {
           return true;
         }
       }
@@ -194,22 +194,22 @@ export function isTagAttrDefaultValue(name, value, tag){
 /**
  * tag attribute only has name
  */
-export function isTagAttrOnlyName(attr){
+export function isTagAttrOnlyName(attr) {
   return !!tagAttrOnlyName[attr];
 }
 /**
  * attribute value no quote
  */
-export function isAttrValueNoQuote(value){
+export function isAttrValueNoQuote(value) {
   return /^\w+$/.test(value);
 }
 
 /**
  * check is optional end tag
  */
-export function isOptionalEndTag(tag, list){
+export function isOptionalEndTag(tag, list) {
   list = list || optionalEndTag;
-  if(Array.isArray(list)){
+  if (Array.isArray(list)) {
     return list.indexOf(tag) > -1;
   }
   return !!list[tag];
@@ -218,19 +218,19 @@ export function isOptionalEndTag(tag, list){
 /**
  * check is void element
  */
-export function isVoidElement(tag){
+export function isVoidElement(tag) {
   return !!voidElements[tag];
 }
 /**
  * is standard tag
  */
-export function isTag(tag){
+export function isTag(tag) {
   return !!allTags[tag];
 }
 
 /**
  * is safe tag
  */
-export function isSafeTag(tag){
-  return !!safeTags[tag]; 
+export function isSafeTag(tag) {
+  return !!safeTags[tag];
 }

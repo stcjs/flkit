@@ -3,7 +3,7 @@
 /**
  * error class
  */
-export default class BaseError{
+export default class BaseError {
   /**
    * init
    * @param  {String} message [error message]
@@ -11,7 +11,7 @@ export default class BaseError{
    * @param  {Number} col     [error col]
    * @return {Object}         []
    */
-  constructor(message = '', line, col){
+  constructor(message = '', line, col) {
     this.message = message;
     if (line !== undefined) {
       this.line = line + 1;
@@ -23,7 +23,7 @@ export default class BaseError{
    * toString
    * @return {String} get error string
    */
-  toString(){
+  toString() {
     if (this.line !== undefined) {
       return this.message + ` (line: ${this.line}, col: ${this.col})\n`;
     }

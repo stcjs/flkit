@@ -39,9 +39,9 @@ export const reservedCommentPrefix = ['<!--#', '<!--[if', '<!--!', '<!--<![endif
  * @type {Object}
  */
 export const voidElements = toHash([
-  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen',
   'link', 'meta', 'param', 'source', 'track', 'wbr',
-  //common self closing svg elements
+  // common self closing svg elements
   'path', 'circle', 'ellipse', 'line', 'rect', 'use', 'stop', 'polyline', 'polygone'
 ]);
 
@@ -61,7 +61,7 @@ export const optionalEndTags = {
     next_comment: false
   },
   head: {
-    next_comment: false, 
+    next_comment: false,
     next_space: false
   },
   body: {
@@ -79,10 +79,10 @@ export const optionalEndTags = {
     next_parent: true
   },
   p: {
-    /*jslint maxlen: 500 */
+    /* jslint maxlen: 500 */
     next_element: [
-      'address', 'article', 'aside', 'blockquote', 'div', 'dl', 'fieldset', 'footer', 'form', 
-      'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hgroup', 'hr', 'main', 'nav', 'ol', 'p', 
+      'address', 'article', 'aside', 'blockquote', 'div', 'dl', 'fieldset', 'footer', 'form',
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'hgroup', 'hr', 'main', 'nav', 'ol', 'p',
       'pre', 'section', 'table'
     ],
     parent_not: ['a']
@@ -112,7 +112,7 @@ export const optionalEndTags = {
     next_parent: true
   },
   colgroup: {
-    next_space: false, 
+    next_space: false,
     next_comment: false
   },
   thead: {
@@ -157,9 +157,9 @@ export const optionalAttrsValue = {
     type: 'text/css'
   },
   // maybe use input[type="text"] in css
-  /*input: {
+  /* input: {
     type: 'text'
-  }*/
+  } */
   form: {
     method: 'get'
   },
@@ -178,10 +178,10 @@ export const optionalAttrsValue = {
  * @type {Object}
  */
 export const emptyAttributes = toHash([
-  'disabled', 
-  'selected', 
-  'checked', 
-  'readonly', 
+  'disabled',
+  'selected',
+  'checked',
+  'readonly',
   'multiple'
 ]);
 
@@ -190,14 +190,14 @@ export const emptyAttributes = toHash([
  * @type {Object}
  */
 export const safeTags = toHash([
-  'html', 
-  'meta', 
-  'style', 
-  'script', 
-  'head', 
-  'link', 
-  'title', 
-  'body', 
+  'html',
+  'meta',
+  'style',
+  'script',
+  'head',
+  'link',
+  'title',
+  'body',
   'noscript'
 ]);
 /**
@@ -361,33 +361,33 @@ export const insertionMode = {
  */
 export const tagAttrDefaultValue = {
   '*': {
-    'class': '', 
-    alt: '', 
-    title: '', 
-    style: '', 
-    id: '', 
-    name: '' 
-  }, 
+    'class': '',
+    alt: '',
+    title: '',
+    style: '',
+    id: '',
+    name: ''
+  },
   link: {
-    media: 'screen', 
+    media: 'screen',
     type: 'text/css'
-  }, 
-  //use input[type="text"] in css
+  },
+  // use input[type="text"] in css
   /*
   input: {
-    type: 'text' 
+    type: 'text'
   },
   */
   form: {
-    method: 'get' 
-  }, 
+    method: 'get'
+  },
   style: {
-    type: 'text/css', 
-    rel: 'stylesheet' 
-  }, 
+    type: 'text/css',
+    rel: 'stylesheet'
+  },
   script: {
-    type: 'text/javascript', 
-    language: 'javascript' 
+    type: 'text/javascript',
+    language: 'javascript'
   }
 };
 
@@ -395,10 +395,10 @@ export const tagAttrDefaultValue = {
  * tag attribute only has name
  */
 export const tagAttrOnlyName = toHash([
-  'disabled', 
-  'selected', 
-  'checked', 
-  'readonly', 
+  'disabled',
+  'selected',
+  'checked',
+  'readonly',
   'multiple'
 ]);
 
@@ -406,8 +406,8 @@ export const tagAttrOnlyName = toHash([
  * optional end tag
  */
 export const optionalEndTag = toHash([
-  //'html',
-  //'body',
+  // 'html',
+  // 'body',
   'colgroup',
   'thead',
   'tr',

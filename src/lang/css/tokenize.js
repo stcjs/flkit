@@ -2,7 +2,7 @@ import BaseTokenize from '../../util/tokenize.js';
 import TokenType from '../../util/token_type.js';
 import {comments} from '../../util/config.js';
 import SelectorTokenize from './selector_tokenize.js';
-//import Message from '../../util/message.js';
+// import Message from '../../util/message.js';
 import {isHackChar} from './util.js';
 import {atType} from './config.js';
 
@@ -22,11 +22,11 @@ const STATUS = {
 export default class CssTokenize extends BaseTokenize {
   /**
    * constructor
-   * 
+   *
    */
   constructor(text, options = {
     parseSelector: false
-  }){
+  }) {
     super(text, options);
     this.prevToken = {};
     this.status = STATUS.SELECTOR;
@@ -36,25 +36,25 @@ export default class CssTokenize extends BaseTokenize {
    * get next token
    * @return {void} []
    */
-  getNextToken(){
+  getNextToken() {
     this.skipWhiteSpace();
     this.skipComment();
     this.startToken();
     if (this.pos >= this.length) {
       return this.getLastToken();
     }
-    
-    let token = this.getTplToken();
+
+    const token = this.getTplToken();
     if (token) {
       return token;
     }
     if (this.lookAt(multiComment[0] + '!')) {
-      let value = this.getMatched(multiComment[0] + '!', multiComment[1]);
+      const value = this.getMatched(multiComment[0] + '!', multiComment[1]);
       return this.getToken(TokenType.RESERVED_COMMENT, value);
     }
-    let type = this.prevToken.type;
-    let code = this._text.charCodeAt(this.pos);
-    switch(code){
+    const type = this.prevToken.type;
+    const code = this._text.charCodeAt(this.pos);
+    switch (code) {
       case 0x40: // @
         return this.getAtToken();
       case 0x7b: // {
@@ -64,31 +64,29 @@ export default class CssTokenize extends BaseTokenize {
         return this.getToken(TokenType.CSS_LEFT_BRACE, this.next());
       case 0x7d: // }
         this.status = STATUS.SELECTOR;
-        let token1 = this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
+        const token1 = this.getToken(TokenType.CSS_RIGHT_BRACE, this.next());
         this.prevToken = token1;
         return token1;
       case 0x3a: // :
-        if (type === TokenType.CSS_PROPERTY || 
-            type === TokenType.CSS_SELECTOR || 
-            type === TokenType.CSS_VALUE || 
+        if (type === TokenType.CSS_PROPERTY ||
+            type === TokenType.CSS_SELECTOR ||
+            type === TokenType.CSS_VALUE ||
             type === TokenType.CSS_COLON) {
-
-          let token = this.getToken(TokenType.CSS_COLON, this.next());
+          const token = this.getToken(TokenType.CSS_COLON, this.next());
           this.prevToken = token;
           return token;
         }
         break;
       case 0x3b: // ;
-        let token = this.getToken(TokenType.CSS_SEMICOLON, this.next());
+        const token = this.getToken(TokenType.CSS_SEMICOLON, this.next());
         this.prevToken = token;
         return token;
       case 0x5b: // [
-        if (type === TokenType.CSS_SELECTOR || 
-            type === TokenType.CSS_VALUE || 
+        if (type === TokenType.CSS_SELECTOR ||
+            type === TokenType.CSS_VALUE ||
             type === TokenType.CSS_SEMICOLON) {
-
           // for hack [;color: red;]
-          let ret = this.getMatched('[', ']');
+          const ret = this.getMatched('[', ']');
           if (ret) {
             return this.getToken(TokenType.CSS_BRACK_HACK, ret);
           }
@@ -106,10 +104,10 @@ export default class CssTokenize extends BaseTokenize {
    * get selector or name token
    * @return {Object} []
    */
-  getSelectorToken(){
+  getSelectorToken() {
     let ret = '', code, str, token, chr, record, escape = false;
     let tmpValue = '', tmpFlag = false;
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       token = this.getTplToken();
       if (token) {
         ret += token.value;
@@ -121,14 +119,14 @@ export default class CssTokenize extends BaseTokenize {
         escape = !escape;
         ret += this.next();
         continue;
-      }else if (code === 0x7b) { // {
+      } else if (code === 0x7b) { // {
         break;
-      }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
+      } else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
         tmpValue += this.getCommentToken(1, false).value;
         continue;
       }
-      if(tmpValue  && code !== 0x5b){
+      if (tmpValue && code !== 0x5b) {
         tmpValue += chr;
         tmpFlag = true;
       }
@@ -142,7 +140,7 @@ export default class CssTokenize extends BaseTokenize {
           rollback: true
         }).value;
         continue;
-      }else if (code === 0x5b) { // [ ]
+      } else if (code === 0x5b) { // [ ]
         str = this.getMatchedChar(0x5b, 0x5d, {
           quote: true
         });
@@ -150,7 +148,7 @@ export default class CssTokenize extends BaseTokenize {
           ret += str;
           continue;
         }
-      }else if (code === 0x28) { // ( )
+      } else if (code === 0x28) { // ( )
         str = this.getMatchedChar(0x28, 0x29, {
           quote: true,
           nest: true
@@ -160,17 +158,17 @@ export default class CssTokenize extends BaseTokenize {
           continue;
         }
       }
-      if(tmpFlag){
+      if (tmpFlag) {
         this.next();
         tmpFlag = false;
-      }else{
+      } else {
         ret += this.next();
       }
     }
     token = this.getToken(TokenType.CSS_SELECTOR, ret);
     token.value = this.skipRightSpace(ret);
     if (record) {
-      //record.spaceBefore = record.newlineBefore = 0;
+      // record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
     if (this.options.parseSelector) {
@@ -182,10 +180,10 @@ export default class CssTokenize extends BaseTokenize {
    * get property token
    * @return {Object} []
    */
-  getPropertyToken(){
+  getPropertyToken() {
     let ret = '', chr, code;
     this.record();
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       chr = this._text[this.pos];
       code = chr.charCodeAt(0);
       // ;
@@ -193,8 +191,8 @@ export default class CssTokenize extends BaseTokenize {
         this.rollback();
         return this.getValueToken();
       }
-      //: / }
-      if(code === 0x3a || code === 0x2f || code === 0x7d || this.isWhiteSpace(code)){
+      // : / }
+      if (code === 0x3a || code === 0x2f || code === 0x7d || this.isWhiteSpace(code)) {
         break;
       }
       ret += this.next();
@@ -205,14 +203,14 @@ export default class CssTokenize extends BaseTokenize {
    * parse property
    * @return {Object} []
    */
-  parseProperty(property){
+  parseProperty(property) {
     let prefix = '', suffix = '', code = property.charCodeAt(0);
     if (code === 0x2d) {
-      property = property.replace(/^\-\w+\-/, function(a){
+      property = property.replace(/^\-\w+\-/, function(a) {
         prefix = a;
         return '';
       });
-    }else if (isHackChar(code)) {
+    } else if (isHackChar(code)) {
       prefix = property[0];
       property = property.slice(1);
     }
@@ -226,11 +224,11 @@ export default class CssTokenize extends BaseTokenize {
    * get value token
    * @return {Object} []
    */
-  getValueToken(){
+  getValueToken() {
     let ret = '', code, chr, token;
     let escape = false, record, quote, hasTpl = false;
     let tplValue = '', tmpFlag = false;
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       token = this.getTplToken();
       if (token) {
         ret += token.value;
@@ -243,14 +241,14 @@ export default class CssTokenize extends BaseTokenize {
         escape = !escape;
         ret += this.next();
         continue;
-      }else if (code === 0x3b || code === 0x7d) { // ; or }
+      } else if (code === 0x3b || code === 0x7d) { // ; or }
         break;
-      }else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
+      } else if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         record = record || this.record();
         tplValue += this.getCommentToken(1, false).value;
         continue;
       }
-      if(tplValue){
+      if (tplValue) {
         tplValue += chr;
         tmpFlag = true;
       }
@@ -268,7 +266,7 @@ export default class CssTokenize extends BaseTokenize {
         }
         ret += quote.value;
         continue;
-      }else if (code === 0x28) { // ( )
+      } else if (code === 0x28) { // ( )
         ret += this.getMatchedChar(0x28, 0x29, {
           nest: true,
           quote: true,
@@ -276,10 +274,10 @@ export default class CssTokenize extends BaseTokenize {
         });
         continue;
       }
-      if(tmpFlag){
+      if (tmpFlag) {
         this.next();
         tmpFlag = false;
-      }else{
+      } else {
         ret += this.next();
       }
     }
@@ -287,7 +285,7 @@ export default class CssTokenize extends BaseTokenize {
     ret = this.skipRightSpace(ret);
     token.value = ret;
     if (record) {
-      //record.spaceBefore = record.newlineBefore = 0;
+      // record.spaceBefore = record.newlineBefore = 0;
       this.rollback(record);
     }
     token.ext = this.parseValue(ret);
@@ -299,24 +297,24 @@ export default class CssTokenize extends BaseTokenize {
    * @param  {String} value []
    * @return {Object}       []
    */
-  parseValue(value){
-    //get css value suffix & important
+  parseValue(value) {
+    // get css value suffix & important
     let prefix = '', suffix = '', important = false;
     if (value.indexOf('\\') > -1) {
-      value = value.replace(/(?:\\\d)+$/, function(a){
+      value = value.replace(/(?:\\\d)+$/, function(a) {
         suffix = a;
         return '';
       });
     }
     if (value.indexOf('!') > -1) {
-      value = value.replace(/!\s*important/i, function(){
+      value = value.replace(/!\s*important/i, function() {
         important = true;
         return '';
       });
     }
     // get css value prefix
     if (value.charCodeAt(0) === 0x2d) {
-      value = value.replace(/^\-\w+\-/, function(a){
+      value = value.replace(/^\-\w+\-/, function(a) {
         prefix = a;
         return '';
       });
@@ -335,13 +333,12 @@ export default class CssTokenize extends BaseTokenize {
    * skip comment
    * @return {void} []
    */
-  skipComment(){
-    //start with /*, but not /*!
+  skipComment() {
+    // start with /*, but not /*!
     let comment;
-    while(this.text.charCodeAt(this.pos) === 0x2f && 
+    while (this.text.charCodeAt(this.pos) === 0x2f &&
       this.text.charCodeAt(this.pos + 1) === 0x2a &&
-      this.text.charCodeAt(this.pos + 2) !== 0x21){
-
+      this.text.charCodeAt(this.pos + 2) !== 0x21) {
       comment = this.getCommentToken(1, true);
       this.commentBefore.push(comment);
     }
@@ -350,34 +347,34 @@ export default class CssTokenize extends BaseTokenize {
    * get @ token
    * @return {Object} []
    */
-  getAtToken(){
+  getAtToken() {
     let i = 0, item, code, ret = '', length, chr, type = TokenType.CSS_AT;
-    for(; item = atType[i++]; ){
+    for (; item = atType[i++];) {
       if (!this.lookAt(item[0])) {
         continue;
       }
       length = item[0].length;
       code = this._text.charCodeAt(this.pos + length);
-      // whitespace or ; or { or / or ' or " or : or , 
-      if (code === 0x20 || code === 0x3b || code === 0x7b || 
-          code === 0x2f || code === 0x22 || code === 0x27 || 
+      // whitespace or ; or { or / or ' or " or : or ,
+      if (code === 0x20 || code === 0x3b || code === 0x7b ||
+          code === 0x2f || code === 0x22 || code === 0x27 ||
           code === 0x3a || code === 0x2c) {
         ret = this.forward(length);
         type = item[1];
         break;
       }
     }
-    while(this.pos < this.length){
+    while (this.pos < this.length) {
       chr = this.text[this.pos];
       code = chr.charCodeAt(0);
       if (code === 0x2f && this.text.charCodeAt(this.pos + 1) === 0x2a) {
         ret += this.getCommentToken(1, false).value;
         continue;
-      }else if (code === 0x22 || code === 0x27) {
+      } else if (code === 0x22 || code === 0x27) {
         ret += this.getQuote().value;
         continue;
       }
-      // ; 
+      // ;
       if (code === 0x3b) {
         ret += this.next();
         break;
@@ -388,7 +385,7 @@ export default class CssTokenize extends BaseTokenize {
       }
       ret += this.next();
     }
-    let token = this.getToken(type, ret);
+    const token = this.getToken(type, ret);
     token.value = this.skipRightSpace(ret);
     return token;
   }
@@ -396,20 +393,20 @@ export default class CssTokenize extends BaseTokenize {
    * run
    * @return {Array} [text tokens]
    */
-  run(){
+  run() {
     let ret = [], token, type;
-    for(; token = this.getNextToken(); ){
+    for (; token = this.getNextToken();) {
       ret.push(token);
       type = token.type;
       if (type === TokenType.TPL || type === TokenType.CSS_LEFT_BRACE ||
           type === TokenType.CSS_RIGHT_BRACE || type === TokenType.CSS_COLON ||
           type === TokenType.CSS_SEMICOLON || type === TokenType.CSS_BRACK_HACK ||
           type === TokenType.RESERVED_COMMENT
-        ){
+      ) {
         continue;
       }
       this.prevToken = token;
-      if (type === TokenType.CSS_FONT_FACE || 
+      if (type === TokenType.CSS_FONT_FACE ||
           type === TokenType.CSS_PAGE ||
           type === TokenType.CSS_VIEWPORT ||
           type === TokenType.CSS_AT) {
