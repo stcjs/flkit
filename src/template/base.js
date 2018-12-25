@@ -82,7 +82,8 @@ export default class BaseTemplate {
           continue;
         } else if (!escape && (code === 0x22 || code === 0x27)) {
           ret += tokenizeInstance.getQuote({
-            rollback: true
+            rollback: true,
+            escape: true
           }).value;
           continue;
         }

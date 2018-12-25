@@ -1905,5 +1905,16 @@
     "options": {},
     "key": "6b7c44e908f799f6a9bc44cdf047311e",
     "result": "a{color:rgba( 36,114,211,0.3 )}"
+  },
+  "7449cffc8828b1f52e62f297341b6d1e": {
+    "lang": "css",
+    "name": "compress",
+    "code": "button,\nhtml [type=\"button\"], /* 1 */\n[type=\"reset\"],\n[type=\"submit\"] {\n  -webkit-appearance: button; /* 2 */\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "7449cffc8828b1f52e62f297341b6d1e",
+    "result": "button,html [type=\"button\"],[type=\"reset\"],[type=\"submit\"]{-webkit-appearance:button}"
   }
 }
