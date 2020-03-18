@@ -295,6 +295,7 @@ export function mergePropertyChildren(attrs, type = 'padding') {
       return attrs;
     }
     const propertyValue = property.value.toLowerCase();
+    if(propertyValue !== key) return attrs;
     if (propertyValue in properties) {
       if (property.ext.prefix ||
          value.ext.suffix ||
