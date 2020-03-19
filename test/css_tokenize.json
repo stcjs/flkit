@@ -3864,7 +3864,7 @@
     "result": [
       {
         "type": "css_selector",
-        "value": ".red/***/[[name=\"wwww\"]",
+        "value": ".red/***/[name=\"wwww\"]",
         "start": 0,
         "end": 28,
         "loc": {
@@ -47449,35 +47449,13 @@
     "key": "5e6d1a13019c1c6b7d896a2c62dc2fbd",
     "result": [
       {
-        "type": "tpl",
-        "value": "<%$aaa%>",
-        "start": 0,
-        "end": 8,
-        "loc": {
-          "start": {
-            "line": 0,
-            "column": 0
-          },
-          "end": {
-            "line": 0,
-            "column": 8
-          }
-        },
-        "commentBefore": [],
-        "ext": {
-          "ld": "<%",
-          "rd": "%>",
-          "value": "$aaa"
-        }
-      },
-      {
         "type": "css_selector",
-        "value": "a",
-        "start": 9,
+        "value": "<%$aaa%> a",
+        "start": 0,
         "end": 10,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 0,
             "column": 0
           },
           "end": {
@@ -56485,6 +56463,302 @@
           "end": {
             "line": 11,
             "column": 57
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "c8ff4cbc466752697d9f9e01aec246c2": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{%$_cssId%} .mh-sad{\n  margin-top: 4px;\n}\n",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "c8ff4cbc466752697d9f9e01aec246c2",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_cssId%} .mh-sad",
+        "start": 0,
+        "end": 19,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 19,
+        "end": 20,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 19
+          },
+          "end": {
+            "line": 0,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "margin-top",
+        "start": 23,
+        "end": 33,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "margin-top"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 33,
+        "end": 34,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 12
+          },
+          "end": {
+            "line": 1,
+            "column": 13
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "4px",
+        "start": 35,
+        "end": 38,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 14
+          },
+          "end": {
+            "line": 1,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "4px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 38,
+        "end": 39,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 17
+          },
+          "end": {
+            "line": 1,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 40,
+        "end": 41,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "11c031788fae55036307be41437c333d": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{%$_cssId%} a {%$www%} .mh-sad{\n  margin-top: 4px;\n}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "11c031788fae55036307be41437c333d",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_cssId%} a {%$www%} .mh-sad",
+        "start": 0,
+        "end": 30,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 30
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 30,
+        "end": 31,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 30
+          },
+          "end": {
+            "line": 0,
+            "column": 31
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "margin-top",
+        "start": 34,
+        "end": 44,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "margin-top"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 44,
+        "end": 45,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 12
+          },
+          "end": {
+            "line": 1,
+            "column": 13
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "4px",
+        "start": 46,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 14
+          },
+          "end": {
+            "line": 1,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "4px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 49,
+        "end": 50,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 17
+          },
+          "end": {
+            "line": 1,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 51,
+        "end": 52,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
           }
         },
         "commentBefore": [],

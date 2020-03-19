@@ -404,7 +404,7 @@
     "rd": "",
     "options": {},
     "key": "2ec5ccc5feb8c03e92d0f62e8fea9f95",
-    "result": ".manage-content{background:#fff;padding:0 26px 20px}"
+    "result": ".manage-content{padding-top:20px;background:#fff;padding:0 26px 20px}"
   },
   "b3d93ce8c6b1bfd2ee7f6b56579b76db": {
     "lang": "css",
@@ -1916,5 +1916,49 @@
     "options": {},
     "key": "7449cffc8828b1f52e62f297341b6d1e",
     "result": "button,html [type=\"button\"],[type=\"reset\"],[type=\"submit\"]{-webkit-appearance:button}"
+  },
+  "ba1132ed50e36c10a2c1fc6b0dcc2d15": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div {\n  padding: calc(1px + 1px); \n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "ba1132ed50e36c10a2c1fc6b0dcc2d15",
+    "result": "div{padding:calc(1px + 1px)}"
+  },
+  "d3966c81ace11b0d96c13d42e6b81146": {
+    "lang": "css",
+    "name": "compress",
+    "code": "div{\npadding:10px;padding: 20px\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "d3966c81ace11b0d96c13d42e6b81146",
+    "result": "div{padding:20px}"
+  },
+  "5c6a32a79f16f89e42f8789c196018e0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .mh-sad{\n  margin-top: 4px;\n\n}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "5c6a32a79f16f89e42f8789c196018e0",
+    "result": "{%$_cssId%} .mh-sad{margin-top:4px}"
+  },
+  "fbe3fc67bae35b9972b3444f3db6d882": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .mh-sad{\n  margin-top: 4px;\n\n}\n{%$_cssId%} .mh-sad2{\n  margin-top: 43px;\n\n}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "fbe3fc67bae35b9972b3444f3db6d882",
+    "result": "{%$_cssId%} .mh-sad{margin-top:4px}{%$_cssId%} .mh-sad2{margin-top:43px}"
   }
 }
