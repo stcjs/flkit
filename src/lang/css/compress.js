@@ -30,7 +30,7 @@ const compressOpts = {
   mergeProperty: true,
   sortProperty: true,
   sortSelector: true,
-  sortSelectorChunk: 100,
+  sortSelectorChunk: 50,
   mergeSelector: true,
   propertyToLower: true
 };
