@@ -30,6 +30,7 @@ const compressOpts = {
   mergeProperty: true,
   sortProperty: true,
   sortSelector: true,
+  sortSelectorChunk: 100,
   mergeSelector: true,
   propertyToLower: true
 };
@@ -611,7 +612,17 @@ export default class CssCompress extends Base {
     this.selectors = {};
 
     if (this.options.sortSelector) {
-      selectors = this.sortSelectors(selectors);
+      let i = 0;
+      let sortedSelectors = [];
+      const chunk = this.options.sortSelectorChunk;
+      while (true) {
+        const chunkSelectors = selectors.slice(i * chunk, (i + 1) * chunk);
+        if (chunkSelectors.length === 0) break;
+        sortedSelectors = sortedSelectors.concat(this.sortSelectors(chunkSelectors));
+        if (chunkSelectors.length < chunk) break;
+        i++;
+      }
+      selectors = sortedSelectors;
     }
 
     let se = [], result = [];
