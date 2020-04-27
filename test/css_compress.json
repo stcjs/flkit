@@ -2004,5 +2004,16 @@
     "options": {},
     "key": "d9957d6290966437947e2f4b271e058a",
     "result": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar{{% if themeConfig.sidebarBackground %}background-image:url('{{themeConfig.sidebarBackground}}');background-size:cover;{% endif %}{% if themeConfig.sidebarBackgroundColor %}background-color:{{themeConfig.sidebarBackgroundColor}}{% endif %}}{% endif %}"
+  },
+  "d0d641150381691d8f72f40705c0eea6": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %}\n    #sidebar {\n      {% if themeConfig.sidebarBackground %}\n      background-image: url('{{themeConfig.sidebarBackground}}');\n      background-size:cover;\n      {% endif %}\n      {% if themeConfig.sidebarBackgroundColor %}\n      background-color: {{themeConfig.sidebarBackgroundColor}};\n      {% endif %}\n    }\n    {% endif %}\n    \n    {% if themeConfig.sidebarColor %}\n    #sidebar .profile span,\n    #sidebar .buttons li a,\n    #sidebar .buttons li a:hover {\n      color: {{themeConfig.sidebarColor}};\n    }\n    {% endif %}\n\n    {% if themeConfig.customCSS %}\n      {{themeConfig.customCSS | safe}}\n    {% endif %}",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "d0d641150381691d8f72f40705c0eea6",
+    "result": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar{{% if themeConfig.sidebarBackground %}background-image:url('{{themeConfig.sidebarBackground}}');background-size:cover;{% endif %}{% if themeConfig.sidebarBackgroundColor %}background-color:{{themeConfig.sidebarBackgroundColor}}{% endif %}}{% endif %}{% if themeConfig.sidebarColor %} #sidebar .profile span,#sidebar .buttons li a,#sidebar .buttons li a:hover{color:{{themeConfig.sidebarColor}}}{% endif %}{% if themeConfig.customCSS %}{{themeConfig.customCSS | safe}}{% endif %}"
   }
 }

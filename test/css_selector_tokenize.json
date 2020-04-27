@@ -7444,5 +7444,68 @@
         }
       ]
     }
+  },
+  "11a4f7894ca20bb304cdeb0a1200f771": {
+    "lang": "css",
+    "name": "selector_tokenize",
+    "code": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %}\n    #sidebar",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "11a4f7894ca20bb304cdeb0a1200f771",
+    "result": {
+      "minSpecificity": 100,
+      "maxSpecificity": 100,
+      "specificityEqual": true,
+      "hasVender": false,
+      "group": [
+        {
+          "tokens": [
+            {
+              "type": "tpl",
+              "value": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %}",
+              "start": 0,
+              "end": 76,
+              "loc": {
+                "start": {
+                  "line": 0,
+                  "column": 0
+                },
+                "end": {
+                  "line": 0,
+                  "column": 76
+                }
+              },
+              "commentBefore": [],
+              "ext": {
+                "ld": "{%",
+                "rd": "%}",
+                "value": " if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor "
+              }
+            },
+            {
+              "type": "css_selector_id",
+              "value": "#sidebar",
+              "start": 81,
+              "end": 89,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 4
+                },
+                "end": {
+                  "line": 1,
+                  "column": 12
+                }
+              },
+              "commentBefore": [],
+              "ext": {}
+            }
+          ],
+          "specificity": 100
+        }
+      ]
+    }
   }
 }

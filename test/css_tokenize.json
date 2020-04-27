@@ -56933,5 +56933,169 @@
         }
       }
     ]
+  },
+  "9805896ecd024fc8d12f6d5aa9f2864a": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %}\n#sidebar {}",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "9805896ecd024fc8d12f6d5aa9f2864a",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar",
+        "start": 0,
+        "end": 86,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 86,
+        "end": 87,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 9
+          },
+          "end": {
+            "line": 1,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 87,
+        "end": 88,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 10
+          },
+          "end": {
+            "line": 1,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "cb5039de363afa0cfe06498df5b19d78": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %}\n#sidebar {}",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {
+      "parseSelector": true
+    },
+    "key": "cb5039de363afa0cfe06498df5b19d78",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar",
+        "start": 0,
+        "end": 86,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "minSpecificity": 100,
+          "maxSpecificity": 100,
+          "specificityEqual": true,
+          "hasVender": false,
+          "group": [
+            {
+              "tokens": [
+                {
+                  "type": "css_selector_id",
+                  "value": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar",
+                  "start": 0,
+                  "end": 8,
+                  "loc": {
+                    "start": {
+                      "line": 0,
+                      "column": 0
+                    },
+                    "end": {
+                      "line": 0,
+                      "column": 8
+                    }
+                  },
+                  "commentBefore": [],
+                  "ext": {}
+                }
+              ],
+              "specificity": 100
+            }
+          ]
+        }
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 86,
+        "end": 87,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 9
+          },
+          "end": {
+            "line": 1,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 87,
+        "end": 88,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 10
+          },
+          "end": {
+            "line": 1,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }

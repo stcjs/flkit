@@ -172,7 +172,7 @@ export default class CssTokenize extends BaseTokenize {
       this.rollback(record);
     }
     if (this.options.parseSelector) {
-      token.ext = new SelectorTokenize(token.value).run();
+      token.ext = new SelectorTokenize(token.value, this.options).run();
     }
     return token;
   }
@@ -396,6 +396,7 @@ export default class CssTokenize extends BaseTokenize {
   run() {
     let ret = [], token, type;
     for (; token = this.getNextToken();) {
+      //  merge when prev token is tpl
       if (token.type === TokenType.CSS_SELECTOR && ret.length && ret[ret.length - 1].type === TokenType.TPL) {
         const prev = ret[ret.length - 1];
         let space = '';
@@ -405,6 +406,9 @@ export default class CssTokenize extends BaseTokenize {
         token.value = prev.value + space + token.value;
         token.start = prev.start;
         token.loc.start = prev.loc.start;
+        if (token.ext.group) {
+          token.ext.group[0].tokens[0].value = prev.value + space + token.ext.group[0].tokens[0].value;
+        }
         ret.length = ret.length - 1;
       }
       ret.push(token);
