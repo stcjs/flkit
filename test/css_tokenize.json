@@ -56765,5 +56765,173 @@
         "ext": {}
       }
     ]
+  },
+  "5c2e5d1cac797c8c983004fc02b6d689": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{% if themeConfig.sidebarColor %}\n    #sidebar .profile span,\n    #sidebar .buttons li a,\n    #sidebar .buttons li a:hover {\n      color: {{themeConfig.sidebarColor}};\n    }\n    {% endif %}",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "5c2e5d1cac797c8c983004fc02b6d689",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{% if themeConfig.sidebarColor %} #sidebar .profile span,\n    #sidebar .buttons li a,\n    #sidebar .buttons li a:hover",
+        "start": 0,
+        "end": 123,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 33
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 123,
+        "end": 124,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 33
+          },
+          "end": {
+            "line": 3,
+            "column": 34
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "color",
+        "start": 131,
+        "end": 136,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 6
+          },
+          "end": {
+            "line": 4,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "color"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 136,
+        "end": 137,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 11
+          },
+          "end": {
+            "line": 4,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "tpl",
+        "value": "{{themeConfig.sidebarColor}}",
+        "start": 138,
+        "end": 166,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 13
+          },
+          "end": {
+            "line": 4,
+            "column": 41
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "{{",
+          "rd": "}}",
+          "value": "themeConfig.sidebarColor"
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 166,
+        "end": 167,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 41
+          },
+          "end": {
+            "line": 4,
+            "column": 42
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 172,
+        "end": 173,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 4
+          },
+          "end": {
+            "line": 5,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "tpl",
+        "value": "{% endif %}",
+        "start": 178,
+        "end": 189,
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 4
+          },
+          "end": {
+            "line": 6,
+            "column": 15
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "{%",
+          "rd": "%}",
+          "value": " endif "
+        }
+      }
+    ]
   }
 }

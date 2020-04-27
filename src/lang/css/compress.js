@@ -705,6 +705,9 @@ export default class CssCompress extends Base {
               this.result.push(token);
             }
             hasCharset = true;
+          } else if(token.type === TokenType.TPL) {
+            this.compressSelector();
+            this.result.push(token);
           } else {
             this.result.push(token);
           }
