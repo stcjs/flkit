@@ -57097,5 +57097,175 @@
         "ext": {}
       }
     ]
+  },
+  "8acc72faf8c0e143d1a6078b08ff93e0": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{%$_cssId%} .g-tab li {\n  width: {%$_tagWidth%}px;\n}\n",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "8acc72faf8c0e143d1a6078b08ff93e0",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_cssId%} .g-tab li",
+        "start": 0,
+        "end": 22,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 22
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 22,
+        "end": 23,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 22
+          },
+          "end": {
+            "line": 0,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "width",
+        "start": 26,
+        "end": 31,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 7
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "width"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 31,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 7
+          },
+          "end": {
+            "line": 1,
+            "column": 8
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "tpl",
+        "value": "{%$_tagWidth%}",
+        "start": 33,
+        "end": 47,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 9
+          },
+          "end": {
+            "line": 1,
+            "column": 23
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "ld": "{%",
+          "rd": "%}",
+          "value": "$_tagWidth"
+        }
+      },
+      {
+        "type": "css_value",
+        "value": "px",
+        "start": 47,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 23
+          },
+          "end": {
+            "line": 1,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 49,
+        "end": 50,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 25
+          },
+          "end": {
+            "line": 1,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 51,
+        "end": 52,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }

@@ -152,6 +152,11 @@ export default class CssCompress extends Base {
           break;
         case TokenType.CSS_VALUE:
           valueToken = token;
+          if(tplToken) {
+            valueToken.value = tplToken.value + valueToken.value;
+            valueToken.ext.value = tplToken.value + valueToken.ext.value;
+            tplToken = null;
+          }
           break;
         case TokenType.CSS_SEMICOLON:
         case TokenType.CSS_RIGHT_BRACE:

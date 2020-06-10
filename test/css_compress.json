@@ -2015,5 +2015,16 @@
     "options": {},
     "key": "d0d641150381691d8f72f40705c0eea6",
     "result": "{% if themeConfig.sidebarBackground or themeConfig.sidebarBackgroundColor %} #sidebar{{% if themeConfig.sidebarBackground %}background-image:url('{{themeConfig.sidebarBackground}}');background-size:cover;{% endif %}{% if themeConfig.sidebarBackgroundColor %}background-color:{{themeConfig.sidebarBackgroundColor}}{% endif %}}{% endif %}{% if themeConfig.sidebarColor %} #sidebar .profile span,#sidebar .buttons li a,#sidebar .buttons li a:hover{color:{{themeConfig.sidebarColor}}}{% endif %}{% if themeConfig.customCSS %}{{themeConfig.customCSS | safe}}{% endif %}"
+  },
+  "515581974cc1b706dc617f87aa9f4fc0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .g-tab li {\n  width: {%$_tagWidth%}px;\n}\n",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "515581974cc1b706dc617f87aa9f4fc0",
+    "result": "{%$_cssId%} .g-tab li{width:{%$_tagWidth%}px}"
   }
 }
