@@ -396,8 +396,15 @@ export default class CssTokenize extends BaseTokenize {
   run() {
     let ret = [], token, type;
     for (; token = this.getNextToken();) {
+      if(token.type === TokenType.CSS_LEFT_BRACE && ret.length && ret[ret.length - 1].type === TokenType.TPL) {
+        const prev = ret[ret.length - 1];
+        prev.type = TokenType.CSS_SELECTOR;
+        prev.ext = {};
+        this.prevToken = prev;
+        this.status = STATUS.PROPERTY;
+      }
       //  merge when prev token is tpl
-      if (token.type === TokenType.CSS_SELECTOR && ret.length && ret[ret.length - 1].type === TokenType.TPL) {
+      else if (token.type === TokenType.CSS_SELECTOR && ret.length && ret[ret.length - 1].type === TokenType.TPL) {
         const prev = ret[ret.length - 1];
         let space = '';
         if (prev.end !== token.start) {

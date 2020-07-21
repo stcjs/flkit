@@ -2026,5 +2026,38 @@
     "options": {},
     "key": "515581974cc1b706dc617f87aa9f4fc0",
     "result": "{%$_cssId%} .g-tab li{width:{%$_tagWidth%}px}"
+  },
+  "03f14c1f7c64ab0da8229fe6c9b34ee2": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_SELECTOR%} {\n        padding-top: 15px;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "03f14c1f7c64ab0da8229fe6c9b34ee2",
+    "result": "{%$_SELECTOR%}{padding-top:15px}"
+  },
+  "6b705b2af8c290b94f63131c9dc0279f": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_SELECTOR%} {\n        padding-top: 15px;\n    }\n    {%$_SELECTOR%} .mh-img-wrap {\n        width: 100%;\n        height: auto;\n        border-radius: 3px!important;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "6b705b2af8c290b94f63131c9dc0279f",
+    "result": "{%$_SELECTOR%}{padding-top:15px}{%$_SELECTOR%} .mh-img-wrap{width:100%;height:auto;border-radius:3px!important}"
+  },
+  "950491539ac005bb13d5c10939a70b25": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_SELECTOR%} {\n        padding-top: 15px;\n    }\n    {%$_SELECTOR%} .mh-img-wrap {\n        width: 100%;\n        height: auto;\n        border-radius: 3px!important;\n    }\n    {%$_SELECTOR%} .mh-img-wrap img,\n    {%$_SELECTOR%} .g-img-zoom-pic,\n    {%$_SELECTOR%} .g-img-zoom-pic1 {\n        display: block;\n        width: 100%;\n        max-height: 132px;\n        object-fit: cover;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "950491539ac005bb13d5c10939a70b25",
+    "result": "{%$_SELECTOR%}{padding-top:15px}{%$_SELECTOR%} .mh-img-wrap{width:100%;height:auto;border-radius:3px!important}{%$_SELECTOR%} .mh-img-wrap img,{%$_SELECTOR%} .g-img-zoom-pic,{%$_SELECTOR%} .g-img-zoom-pic1{display:block;width:100%;max-height:132px;object-fit:cover}"
   }
 }

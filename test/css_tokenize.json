@@ -57267,5 +57267,449 @@
         "ext": {}
       }
     ]
+  },
+  "28be0df9a627c0fde7568253ec64964f": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "\n {%$_SELECTOR%} {\n        width: 100%;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "28be0df9a627c0fde7568253ec64964f",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_SELECTOR%}",
+        "start": 2,
+        "end": 16,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 15
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 17,
+        "end": 18,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 16
+          },
+          "end": {
+            "line": 1,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "width",
+        "start": 27,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 8
+          },
+          "end": {
+            "line": 2,
+            "column": 13
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "width"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 32,
+        "end": 33,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 13
+          },
+          "end": {
+            "line": 2,
+            "column": 14
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "100%",
+        "start": 34,
+        "end": 38,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 15
+          },
+          "end": {
+            "line": 2,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "100%",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 38,
+        "end": 39,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 19
+          },
+          "end": {
+            "line": 2,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 44,
+        "end": 45,
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 4
+          },
+          "end": {
+            "line": 3,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "f8a25f2fa97cc174e70ff9b0b9762dfd": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{%$_SELECTOR%} {\n        padding-top: 15px;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "f8a25f2fa97cc174e70ff9b0b9762dfd",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_SELECTOR%}",
+        "start": 0,
+        "end": 14,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 14
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 15,
+        "end": 16,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 15
+          },
+          "end": {
+            "line": 0,
+            "column": 16
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "padding-top",
+        "start": 25,
+        "end": 36,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "padding-top"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 36,
+        "end": 37,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 19
+          },
+          "end": {
+            "line": 1,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "15px",
+        "start": 38,
+        "end": 42,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 21
+          },
+          "end": {
+            "line": 1,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "15px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 42,
+        "end": 43,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 25
+          },
+          "end": {
+            "line": 1,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 48,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 4
+          },
+          "end": {
+            "line": 2,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
+  },
+  "ead411cbbaee192328e948cbbab10e30": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": "{%$_SELECTOR%}, {%$_SELECTOR%} {\n        padding-top: 15px;\n    }",
+    "tpl": "smarty",
+    "ld": "{%,{{",
+    "rd": "%},}}",
+    "options": {},
+    "key": "ead411cbbaee192328e948cbbab10e30",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": "{%$_SELECTOR%}, {%$_SELECTOR%}",
+        "start": 0,
+        "end": 31,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 31
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 31,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 31
+          },
+          "end": {
+            "line": 0,
+            "column": 32
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "padding-top",
+        "start": 41,
+        "end": 52,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "padding-top"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 52,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 19
+          },
+          "end": {
+            "line": 1,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "15px",
+        "start": 54,
+        "end": 58,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 21
+          },
+          "end": {
+            "line": 1,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "15px",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 58,
+        "end": 59,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 25
+          },
+          "end": {
+            "line": 1,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 64,
+        "end": 65,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 4
+          },
+          "end": {
+            "line": 2,
+            "column": 5
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }
