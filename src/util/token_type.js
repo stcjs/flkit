@@ -36,6 +36,7 @@ export default {
   CSS_BRACK_HACK: 'css_brace_hack', // [;color: red;]
   CSS_VIEWPORT: 'css_viewport',
   CSS_MOZILLA: 'css_mozilla',
+  CSS_SUPPORTS: 'css_supports',
 
   CSS_SELECTOR_NAMESPACE: 'css_selector_namespace',
   CSS_SELECTOR_UNIVERSAL: 'css_selector_universal',

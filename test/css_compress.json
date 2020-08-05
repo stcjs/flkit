@@ -2059,5 +2059,49 @@
     "options": {},
     "key": "950491539ac005bb13d5c10939a70b25",
     "result": "{%$_SELECTOR%}{padding-top:15px}{%$_SELECTOR%} .mh-img-wrap{width:100%;height:auto;border-radius:3px!important}{%$_SELECTOR%} .mh-img-wrap img,{%$_SELECTOR%} .g-img-zoom-pic,{%$_SELECTOR%} .g-img-zoom-pic1{display:block;width:100%;max-height:132px;object-fit:cover}"
+  },
+  "c67643a1acd58d629af8612205261cc0": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@supports (animation-name: test) {\n    @keyframes aa { \n      div a {color: red}\n    }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "c67643a1acd58d629af8612205261cc0",
+    "result": "@supports (animation-name: test){@keyframes aa{div a{color:red}}}"
+  },
+  "51835dd9680b6fe8a137cb9b747f1ed1": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@supports (display: flex) {\n  body div {\n    display: flex;\n  }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "51835dd9680b6fe8a137cb9b747f1ed1",
+    "result": "@supports (display: flex){body div{display:flex}}"
+  },
+  "50c80989e1d10bb4ef1918b87ec7d847": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@supports not (display: grid) {\n  d div {\n    float: right;\n  }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "50c80989e1d10bb4ef1918b87ec7d847",
+    "result": "@supports not (display: grid){d div{float:right}}"
+  },
+  "60a5184b9775132dffa15bda769e4f68": {
+    "lang": "css",
+    "name": "compress",
+    "code": "@supports (display: table-cell) and (display: list-item) {\n\n  a a {color: red}\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "60a5184b9775132dffa15bda769e4f68",
+    "result": "@supports (display: table-cell) and (display: list-item){a a{color:red}}"
   }
 }
