@@ -699,7 +699,7 @@ export default class CssCompress extends Base {
           this.options.sortProperty = false;
           this.inKeyframes = true;
         default:
-          if (isAtType(token.type)) {
+          if (isAtType(token.type) || token.type === TokenType.CSS_SUPPORTS) {
             this.compressSelector();
           }
           if (token.type === TokenType.CSS_PROPERTY) {

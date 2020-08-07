@@ -2103,5 +2103,27 @@
     "options": {},
     "key": "60a5184b9775132dffa15bda769e4f68",
     "result": "@supports (display: table-cell) and (display: list-item){a a{color:red}}"
+  },
+  "96a2c44997fa4b2b985b526ce2e4de7c": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".m-room-company-tag {\n  position: relative;\n}\n\n.m-room-company-tag__img {\n  display: block;\n}\n\n@supports (object-fit: contain) {\n  .m-room-company-tag__img {\n    display: unset;\n  }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "96a2c44997fa4b2b985b526ce2e4de7c",
+    "result": ".m-room-company-tag{position:relative}.m-room-company-tag__img{display:block}@supports (object-fit: contain){.m-room-company-tag__img{display:unset}}"
+  },
+  "cf24c47bff7b49e1d965f76accfa5b53": {
+    "lang": "css",
+    "name": "compress",
+    "code": ".m-room-company-tag {\n  position: relative;\n}\n\n.m-room-company-tag__img {\n  display: block;\n}\n\n@supports (object-fit: contain) {\n  .m-room-company-tag__img {\n    display: unset;\n  }\n  @keyframes test {\n      from {\n          color: red\n      }\n  }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "cf24c47bff7b49e1d965f76accfa5b53",
+    "result": ".m-room-company-tag{position:relative}.m-room-company-tag__img{display:block}@supports (object-fit: contain){.m-room-company-tag__img{display:unset}@keyframes test{from{color:red}}}"
   }
 }

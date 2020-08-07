@@ -58815,5 +58815,479 @@
         "ext": {}
       }
     ]
+  },
+  "40ffa394ed2c00121e4e510ad451b423": {
+    "lang": "css",
+    "name": "tokenize",
+    "code": ".m-room-company-tag {\n  position: relative;\n}\n\n.m-room-company-tag__img {\n  display: block;\n}\n\n@supports (object-fit: contain) {\n  .m-room-company-tag__img {\n    display: unset;\n  }\n}",
+    "tpl": "",
+    "ld": "",
+    "rd": "",
+    "options": {},
+    "key": "40ffa394ed2c00121e4e510ad451b423",
+    "result": [
+      {
+        "type": "css_selector",
+        "value": ".m-room-company-tag",
+        "start": 0,
+        "end": 20,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 0
+          },
+          "end": {
+            "line": 0,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 20,
+        "end": 21,
+        "loc": {
+          "start": {
+            "line": 0,
+            "column": 20
+          },
+          "end": {
+            "line": 0,
+            "column": 21
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "position",
+        "start": 24,
+        "end": 32,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 2
+          },
+          "end": {
+            "line": 1,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "position"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 32,
+        "end": 33,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 10
+          },
+          "end": {
+            "line": 1,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "relative",
+        "start": 34,
+        "end": 42,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 12
+          },
+          "end": {
+            "line": 1,
+            "column": 20
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "relative",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 42,
+        "end": 43,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 20
+          },
+          "end": {
+            "line": 1,
+            "column": 21
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 44,
+        "end": 45,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_selector",
+        "value": ".m-room-company-tag__img",
+        "start": 47,
+        "end": 72,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 25
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 72,
+        "end": 73,
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 25
+          },
+          "end": {
+            "line": 4,
+            "column": 26
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "display",
+        "start": 76,
+        "end": 83,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 2
+          },
+          "end": {
+            "line": 5,
+            "column": 9
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "display"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 83,
+        "end": 84,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 9
+          },
+          "end": {
+            "line": 5,
+            "column": 10
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "block",
+        "start": 85,
+        "end": 90,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 11
+          },
+          "end": {
+            "line": 5,
+            "column": 16
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "block",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 90,
+        "end": 91,
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 16
+          },
+          "end": {
+            "line": 5,
+            "column": 17
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 92,
+        "end": 93,
+        "loc": {
+          "start": {
+            "line": 6,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_supports",
+        "value": "@supports (object-fit: contain)",
+        "start": 95,
+        "end": 127,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 32
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 127,
+        "end": 128,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 32
+          },
+          "end": {
+            "line": 8,
+            "column": 33
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_selector",
+        "value": ".m-room-company-tag__img",
+        "start": 131,
+        "end": 156,
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 2
+          },
+          "end": {
+            "line": 9,
+            "column": 27
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_left_brace",
+        "value": "{",
+        "start": 156,
+        "end": 157,
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 27
+          },
+          "end": {
+            "line": 9,
+            "column": 28
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_property",
+        "value": "display",
+        "start": 162,
+        "end": 169,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 4
+          },
+          "end": {
+            "line": 10,
+            "column": 11
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "value": "display"
+        }
+      },
+      {
+        "type": "css_colon",
+        "value": ":",
+        "start": 169,
+        "end": 170,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 11
+          },
+          "end": {
+            "line": 10,
+            "column": 12
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_value",
+        "value": "unset",
+        "start": 171,
+        "end": 176,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 13
+          },
+          "end": {
+            "line": 10,
+            "column": 18
+          }
+        },
+        "commentBefore": [],
+        "ext": {
+          "prefix": "",
+          "suffix": "",
+          "important": false,
+          "value": "unset",
+          "hasTpl": false
+        }
+      },
+      {
+        "type": "css_semicolon",
+        "value": ";",
+        "start": 176,
+        "end": 177,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 18
+          },
+          "end": {
+            "line": 10,
+            "column": 19
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 180,
+        "end": 181,
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 2
+          },
+          "end": {
+            "line": 11,
+            "column": 3
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      },
+      {
+        "type": "css_right_brace",
+        "value": "}",
+        "start": 182,
+        "end": 183,
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 1
+          }
+        },
+        "commentBefore": [],
+        "ext": {}
+      }
+    ]
   }
 }
