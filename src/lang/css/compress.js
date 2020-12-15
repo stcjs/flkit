@@ -1,8 +1,8 @@
-import Base from '../../util/base.js';
-import Tokenize from './tokenize.js';
+import Base from "../../util/base.js";
+import Tokenize from "./tokenize.js";
 
-import TokenType from '../../util/token_type.js';
-import SelectorTokenize from './selector_tokenize.js';
+import TokenType from "../../util/token_type.js";
+import SelectorTokenize from "./selector_tokenize.js";
 
 import {
   getShortValue,
@@ -13,10 +13,10 @@ import {
   isUnMergeProperty,
   token2Text,
   mergePropertyChildren,
-  selectorGroupToken2Text
-} from './util.js';
+  selectorGroupToken2Text,
+} from "./util.js";
 
-import {createToken} from '../../util/util_ext.js';
+import { createToken } from "../../util/util_ext.js";
 
 /**
  * default compress options
@@ -32,7 +32,7 @@ const compressOpts = {
   sortSelector: true,
   sortSelectorChunk: 50,
   mergeSelector: true,
-  propertyToLower: true
+  propertyToLower: true,
 };
 /**
  * compress css
@@ -42,7 +42,7 @@ export default class CssCompress extends Base {
    * constructor
    */
   constructor(text, options = {}) {
-    super('', options);
+    super("", options);
     this._optText = text;
 
     this.tokens = [];
@@ -55,14 +55,14 @@ export default class CssCompress extends Base {
 
     this.options = {
       ...compressOpts,
-      ...this.options
+      ...this.options,
     };
   }
   /**
    * init tokens
    */
   initTokens() {
-    if (typeof this._optText === 'string') {
+    if (typeof this._optText === "string") {
       const instance = new Tokenize(this._optText, this.options);
       this.tokens = instance.run();
     } else {
@@ -75,11 +75,11 @@ export default class CssCompress extends Base {
    */
   compressValue(value, property) {
     // remove comment
-    value = value.replace(/\/\*.*?\*\//g, '');
+    value = value.replace(/\/\*.*?\*\//g, "");
     // remove newline
-    value = value.replace(/\n+/g, '');
+    value = value.replace(/\n+/g, "");
     // remove extra whitespace
-    value = value.replace(/\s+/g, ' ');
+    value = value.replace(/\s+/g, " ");
 
     // get short value
     if (this.options.shortValue) {
@@ -88,20 +88,26 @@ export default class CssCompress extends Base {
 
     // if property is filter, can't replace `, ` to `,`
     // see http://www.imququ.com/post/the_bug_of_ie-matrix-filter.html
-    if (property.toLowerCase() !== 'filter') {
+    if (property.toLowerCase() !== "filter") {
       // remove whitespace after ,
-      value = value.replace(/,\s+/g, ',');
-      value = value.replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3');
+      value = value.replace(/,\s+/g, ",");
+      value = value.replace(
+        /#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g,
+        "#$1$2$3"
+      );
     }
 
     // replace 0(px,em,%) with 0.
-    value = value.replace(/(^|\s)(0)(?:px|em|%|in|cm|mm|pc|pt|ex|rem)/gi, '$1$2');
+    value = value.replace(
+      /(^|\s)(0)(?:px|em|%|in|cm|mm|pc|pt|ex|rem)/gi,
+      "$1$2"
+    );
     // replace 0.6 to .6
-    value = value.replace(/(^|\s)0\.(\d+)/g, '$1.$2');
+    value = value.replace(/(^|\s)0\.(\d+)/g, "$1.$2");
     // replace 1.0 to 1
-    value = value.replace(/(\d+)\.0(\s|$)/g, '$1$2');
+    value = value.replace(/(\d+)\.0(\s|$)/g, "$1$2");
     // replace .0 to 0
-    value = value.replace(/(^|\s)\.(0)(\s|$)/g, '$1$2$3');
+    value = value.replace(/(^|\s)\.(0)(\s|$)/g, "$1$2$3");
     // Shorten colors from #AABBCC to #ABC. Note that we want to make sure
     // the color is not preceded by either ", " or =. Indeed, the property
     //     filter: chroma(color="#FFFFFF");
@@ -120,20 +126,27 @@ export default class CssCompress extends Base {
       return {};
     }
     if (braces.type !== TokenType.CSS_LEFT_BRACE) {
-      throw new Error('after selector must be a {');
+      throw new Error("after selector must be a {");
     }
 
-    let attrs = {}, pos = 0, key = '';
-    let propertyToken = null, valueToken = null, tplToken = null;
-    let hasTpl = false, hasHack = false;
+    let attrs = {},
+      pos = 0,
+      key = "";
+    let propertyToken = null,
+      valueToken = null,
+      tplToken = null;
+    let hasTpl = false,
+      hasHack = false;
 
     selectorCondition: while (this.index < this.length) {
       let token = this.tokens[this.index++];
       token = this.removeComment(token);
       switch (token.type) {
         case TokenType.CSS_PROPERTY:
-          key += this.options.propertyToLower ? token.value.toLowerCase() : token.value;
-          if (!this.options.overrideSameProperty && (key in attrs)) {
+          key += this.options.propertyToLower
+            ? token.value.toLowerCase()
+            : token.value;
+          if (!this.options.overrideSameProperty && key in attrs) {
             key += pos++;
           }
           if (this.options.propertyToLower) {
@@ -145,14 +158,14 @@ export default class CssCompress extends Base {
           // has tplToken before property
           if (tplToken) {
             attrs[`${tplToken.value}%${pos++}`] = {
-              value: tplToken
+              value: tplToken,
             };
             tplToken = null;
           }
           break;
         case TokenType.CSS_VALUE:
           valueToken = token;
-          if(tplToken) {
+          if (tplToken) {
             valueToken.value = tplToken.value + valueToken.value;
             valueToken.ext.value = tplToken.value + valueToken.ext.value;
             tplToken = null;
@@ -168,7 +181,7 @@ export default class CssCompress extends Base {
           // already has tplToken
           if (tplToken) {
             attrs[`${tplToken.value}%${pos++}`] = {
-              value: tplToken
+              value: tplToken,
             };
             tplToken = null;
           }
@@ -184,7 +197,7 @@ export default class CssCompress extends Base {
           if (propertyToken.type === TokenType.TPL) {
             attrs[`${propertyToken.value}%${pos++}`] = {
               property: propertyToken,
-              value: valueToken
+              value: valueToken,
             };
             propertyToken = valueToken = null;
             if (token.type === TokenType.CSS_RIGHT_BRACE) {
@@ -195,7 +208,10 @@ export default class CssCompress extends Base {
 
           // optimize css value
           if (valueToken.type === TokenType.CSS_VALUE) {
-            valueToken.ext.value = this.compressValue(valueToken.ext.value, propertyToken.ext.value);
+            valueToken.ext.value = this.compressValue(
+              valueToken.ext.value,
+              propertyToken.ext.value
+            );
             /**
              * for div{color:red;color:blue\9;}
              * if suffix in css value, can not override property.
@@ -206,31 +222,31 @@ export default class CssCompress extends Base {
           // multi same property
           // background:red;background:url(xx.png)
           if (isMultiSameProperty(key, valueToken.value)) {
-            key += '%' + pos++;
+            key += "%" + pos++;
           }
 
           // already has tpl syntax, can not override property
           // div{<&if $name&>color:red;<&else&>color:blue;<&/if&>font-size:12px;}
           if (hasTpl) {
-            key += '%' + pos++;
+            key += "%" + pos++;
           }
 
           if (this.options.overrideSameProperty) {
             attrs = mergeProperties(attrs, {
               [key]: {
                 property: propertyToken,
-                value: valueToken
-              }
+                value: valueToken,
+              },
             });
           } else {
             attrs[key] = {
               property: propertyToken,
-              value: valueToken
+              value: valueToken,
             };
           }
           propertyToken = valueToken = null;
           // hasColon = false;
-          key = '';
+          key = "";
 
           if (token.type === TokenType.CSS_RIGHT_BRACE) {
             break selectorCondition;
@@ -239,7 +255,7 @@ export default class CssCompress extends Base {
         case TokenType.CSS_BRACK_HACK:
           // for css hack [;color:red;]
           attrs[`${token.value}%${pos++}`] = {
-            value: token
+            value: token,
           };
           hasHack = true;
           break;
@@ -247,7 +263,7 @@ export default class CssCompress extends Base {
           // already has tplToken
           if (tplToken) {
             attrs[`${token.value}%${pos++}`] = {
-              value: tplToken
+              value: tplToken,
             };
           }
           tplToken = token;
@@ -283,8 +299,8 @@ export default class CssCompress extends Base {
    * merge properties
    */
   mergePropertyChildren(attrs) {
-    attrs = mergePropertyChildren(attrs, 'padding');
-    attrs = mergePropertyChildren(attrs, 'margin');
+    attrs = mergePropertyChildren(attrs, "padding");
+    attrs = mergePropertyChildren(attrs, "margin");
     return attrs;
   }
   /**
@@ -303,12 +319,15 @@ export default class CssCompress extends Base {
     const detail = {
       attrs,
       selector: token,
-      pos: selectorPos++
+      pos: selectorPos++,
     };
     const selectorKey = selectorToken2Text(token);
     token.value = selectorKey;
     if (selectorKey in this.selectors) {
-      this.selectors[selectorKey].attrs = mergeProperties(this.selectors[selectorKey].attrs, attrs);
+      this.selectors[selectorKey].attrs = mergeProperties(
+        this.selectors[selectorKey].attrs,
+        attrs
+      );
     } else {
       this.selectors[selectorKey] = detail;
     }
@@ -317,9 +336,9 @@ export default class CssCompress extends Base {
    * selector can combine
    */
   selectorCanCombine(selectors) {
-    const list = ['-ms-', ':root', '-placeholder'];
-    return selectors.every(selector => {
-      return list.every(item => {
+    const list = ["-ms-", ":root", "-placeholder"];
+    return selectors.every((selector) => {
+      return list.every((item) => {
         return selector.selector.value.indexOf(item) === -1;
       });
     });
@@ -359,14 +378,17 @@ export default class CssCompress extends Base {
       }
       assoc[key] = attrs1[key];
       // 2 chars is : and ;
-      assoclen += attrs1[key].property.value.length + attrs1[key].value.value.length + 2;
+      assoclen +=
+        attrs1[key].property.value.length + attrs1[key].value.value.length + 2;
     }
     const length = Object.keys(assoc).length;
     if (length === 0) {
       return false;
     }
-    if (length !== Object.keys(attrs1).length &&
-      length !== Object.keys(attrs2).length) {
+    if (
+      length !== Object.keys(attrs1).length &&
+      length !== Object.keys(attrs2).length
+    ) {
       // 3 chars is `, { }`
       const selen = se1.selector.value.length + se2.selector.value.length + 3;
       if (selen >= assoclen) {
@@ -381,8 +403,8 @@ export default class CssCompress extends Base {
   checkValueTokenEqual(item1, item2) {
     const ext1 = item1.ext;
     const ext2 = item2.ext;
-    const list = ['prefix', 'suffix', 'value', 'important'];
-    return list.every(item => {
+    const list = ["prefix", "suffix", "value", "important"];
+    return list.every((item) => {
       return ext1[item] === ext2[item];
     });
   }
@@ -410,12 +432,12 @@ export default class CssCompress extends Base {
           return true;
         }
       }
-      if (item1Property.indexOf('-') > -1) {
-        if (item1Property.indexOf(itemPropertyValue + '-') > -1) {
+      if (item1Property.indexOf("-") > -1) {
+        if (item1Property.indexOf(itemPropertyValue + "-") > -1) {
           return true;
         }
       } else {
-        if (itemPropertyValue.indexOf(item1Property + '-') > -1) {
+        if (itemPropertyValue.indexOf(item1Property + "-") > -1) {
           return true;
         }
       }
@@ -431,12 +453,12 @@ export default class CssCompress extends Base {
           return true;
         }
       }
-      if (item1Property.indexOf('-') > -1) {
-        if (item1Property.indexOf(itemPropertyValue + '-') > -1) {
+      if (item1Property.indexOf("-") > -1) {
+        if (item1Property.indexOf(itemPropertyValue + "-") > -1) {
           return true;
         }
       } else {
-        if (itemPropertyValue.indexOf(item1Property + '-') > -1) {
+        if (itemPropertyValue.indexOf(item1Property + "-") > -1) {
           return true;
         }
       }
@@ -447,7 +469,7 @@ export default class CssCompress extends Base {
    * get assoc selector token
    */
   getAssocSelectorToken(se1, se2) {
-    const value = se1.value + ',' + se2.value;
+    const value = se1.value + "," + se2.value;
     const token = createToken(TokenType.CSS_SELECTOR, value, se1);
     let equal = false;
     if (se1.ext.specificityEqual && se2.ext.specificityEqual) {
@@ -458,7 +480,7 @@ export default class CssCompress extends Base {
       minSpecificity: Math.min(se1.ext.minSpecificity, se2.ext.minSpecificity),
       maxSpecificity: Math.max(se1.ext.maxSpecificity, se2.ext.maxSpecificity),
       specificityEqual: equal,
-      group
+      group,
     };
     return token;
   }
@@ -476,7 +498,10 @@ export default class CssCompress extends Base {
       for (let index = 0; index < length - 1; index++) {
         let assoc = null;
         if (this.selectorCanCombine([selectors[index], selectors[index + 1]])) {
-          assoc = this.getPropertiesIntersect(selectors[index], selectors[index + 1]);
+          assoc = this.getPropertiesIntersect(
+            selectors[index],
+            selectors[index + 1]
+          );
         }
         if (assoc) {
           for (const key in assoc) {
@@ -484,10 +509,13 @@ export default class CssCompress extends Base {
             delete selectors[index + 1].attrs[key];
           }
           flag = true;
-          const assocSelectorToken = this.getAssocSelectorToken(selectors[index].selector, selectors[index + 1].selector);
+          const assocSelectorToken = this.getAssocSelectorToken(
+            selectors[index].selector,
+            selectors[index + 1].selector
+          );
           result.push({
             attrs: assoc,
-            selector: assocSelectorToken
+            selector: assocSelectorToken,
           });
         }
         if (Object.keys(selectors[index].attrs).length) {
@@ -563,8 +591,9 @@ export default class CssCompress extends Base {
     if (group.length === 1) {
       return selector;
     }
-    let keys = {}, ret = [];
-    group.forEach(item => {
+    let keys = {},
+      ret = [];
+    group.forEach((item) => {
       const key = selectorGroupToken2Text(item);
       if (!(key in keys)) {
         ret.push(item);
@@ -580,26 +609,26 @@ export default class CssCompress extends Base {
   selectorToTokens(selectors) {
     const ret = [];
 
-    const leftBrace = createToken(TokenType.CSS_LEFT_BRACE, '{');
-    const colon = createToken(TokenType.CSS_COLON, ':');
-    const rightBrace = createToken(TokenType.CSS_RIGHT_BRACE, '}');
-    const semicolon = createToken(TokenType.CSS_SEMICOLON, ';');
+    const leftBrace = createToken(TokenType.CSS_LEFT_BRACE, "{");
+    const colon = createToken(TokenType.CSS_COLON, ":");
+    const rightBrace = createToken(TokenType.CSS_RIGHT_BRACE, "}");
+    const semicolon = createToken(TokenType.CSS_SEMICOLON, ";");
 
-    selectors.forEach(item => {
+    selectors.forEach((item) => {
       item.selector = this.compressSelectorToken(item.selector);
       ret.push(item.selector, leftBrace);
-      const attrs = Object.keys(item.attrs).map(key => item.attrs[key]);
+      const attrs = Object.keys(item.attrs).map((key) => item.attrs[key]);
       const length = attrs.length;
       attrs.forEach((attr, index) => {
         if (attr.property) {
           ret.push(attr.property, colon);
         }
         ret.push(attr.value);
-        if (attr.value.type !== TokenType.TPL) {
-          if (!this.options.removeLastSemicolon || index < length - 1) {
-            ret.push(semicolon);
-          }
+        // if (attr.value.type !== TokenType.TPL) {
+        if (!this.options.removeLastSemicolon || index < length - 1) {
+          ret.push(semicolon);
         }
+        // }
       });
       ret.push(rightBrace);
     });
@@ -613,7 +642,7 @@ export default class CssCompress extends Base {
     if (keys.length === 0) {
       return;
     }
-    let selectors = keys.map(key => this.selectors[key]);
+    let selectors = keys.map((key) => this.selectors[key]);
     this.selectors = {};
 
     if (this.options.sortSelector) {
@@ -623,15 +652,18 @@ export default class CssCompress extends Base {
       while (true) {
         const chunkSelectors = selectors.slice(i * chunk, (i + 1) * chunk);
         if (chunkSelectors.length === 0) break;
-        sortedSelectors = sortedSelectors.concat(this.sortSelectors(chunkSelectors));
+        sortedSelectors = sortedSelectors.concat(
+          this.sortSelectors(chunkSelectors)
+        );
         if (chunkSelectors.length < chunk) break;
         i++;
       }
       selectors = sortedSelectors;
     }
 
-    let se = [], result = [];
-    selectors.forEach(item => {
+    let se = [],
+      result = [];
+    selectors.forEach((item) => {
       if (item.selector.ext.specificityEqual) {
         se.push(item);
       } else {
@@ -656,8 +688,8 @@ export default class CssCompress extends Base {
       return token;
     }
     const comments = [];
-    token.commentBefore.forEach(item => {
-      if (item.value.indexOf('/*!') === 0) {
+    token.commentBefore.forEach((item) => {
+      if (item.value.indexOf("/*!") === 0) {
         comments.push(item);
       }
     });
@@ -673,7 +705,7 @@ export default class CssCompress extends Base {
     const sortSelector = this.options.sortSelector;
     const sortProperty = this.options.sortProperty;
     let selectorPos = 0;
-    let property = '';
+    let property = "";
     while (this.index < this.length) {
       let token = this.tokens[this.index++];
       token = this.removeComment(token);
@@ -686,7 +718,10 @@ export default class CssCompress extends Base {
           this.result.push(token);
           break;
         case TokenType.CSS_RIGHT_BRACE:
-          if (this.index > 1 && this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE) {
+          if (
+            this.index > 1 &&
+            this.tokens[this.index - 2].type === TokenType.CSS_RIGHT_BRACE
+          ) {
             this.compressSelector();
             this.options.sortProperty = sortProperty;
             this.options.sortSelector = sortSelector;
@@ -710,7 +745,7 @@ export default class CssCompress extends Base {
               this.result.push(token);
             }
             hasCharset = true;
-          } else if(token.type === TokenType.TPL) {
+          } else if (token.type === TokenType.TPL) {
             // console.log(token)
             this.compressSelector();
             this.result.push(token);

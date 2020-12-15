@@ -2125,5 +2125,38 @@
     "options": {},
     "key": "cf24c47bff7b49e1d965f76accfa5b53",
     "result": ".m-room-company-tag{position:relative}.m-room-company-tag__img{display:block}@supports (object-fit: contain){.m-room-company-tag__img{display:unset}@keyframes test{from{color:red}}}"
+  },
+  "3c70a8140877f2b222742f1971acfd2e": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .mh-pb {\n\t\tpadding-bottom: {%$_pb%};\n\t}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "3c70a8140877f2b222742f1971acfd2e",
+    "result": "{%$_cssId%} .mh-pb{padding-bottom:{%$_pb%}}"
+  },
+  "d307e4d195c8420939e79b1e7cf2d40a": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .mh-pb {\n\t\tpadding-bottom: {%$_pb%};\n  font-size: 12px;\n\t}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "d307e4d195c8420939e79b1e7cf2d40a",
+    "result": "{%$_cssId%} .mh-pb{padding-bottom:{%$_pb%};font-size:12px}"
+  },
+  "4471fa8ec4f24c8700be5b0b0e90bb4f": {
+    "lang": "css",
+    "name": "compress",
+    "code": "{%$_cssId%} .mh-pb {\n\t\tpadding-bottom: {%$_pb%}px;\n  font-size: 12px;\n\t}",
+    "tpl": "smarty",
+    "ld": "{%",
+    "rd": "%}",
+    "options": {},
+    "key": "4471fa8ec4f24c8700be5b0b0e90bb4f",
+    "result": "{%$_cssId%} .mh-pb{padding-bottom:{%$_pb%}px;font-size:12px}"
   }
 }
